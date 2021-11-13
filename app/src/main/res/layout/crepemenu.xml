@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="154dp"
+        android:layout_height="160dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/black"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="157dp"
+        android:layout_height="201dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="212dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <TextView
+        android:id="@+id/choloateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/click_on_the_chocolate_you_want"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/topping"
+        android:layout_width="340dp"
+        android:layout_height="34dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/click_on_the_topping_you_want"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <ImageButton
+        android:id="@+id/str_top"
+        android:layout_width="110dp"
+        android:layout_height="96dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/strawberry"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="260dp" />
+
+    <TextView
+        android:id="@+id/str_price"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="356dp" />
+
+    <ImageButton
+        android:id="@+id/banana_top"
+        android:layout_width="98dp"
+        android:layout_height="83dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/banana"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="273dp" />
+
+    <TextView
+        android:id="@+id/banana_price"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="356dp" />
+
+    <ImageButton
+        android:id="@+id/berry_top"
+        android:layout_width="160dp"
+        android:layout_height="142dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/berry"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="244dp" />
+
+    <TextView
+        android:id="@+id/berry_price"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="359dp" />
+
+    <ImageButton
+        android:id="@+id/gummy_top"
+        android:layout_width="110dp"
+        android:layout_height="96dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/gummybears"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <TextView
+        android:id="@+id/gummy_price"
+        android:layout_width="38dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_2"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <ImageButton
+        android:id="@+id/oreo_top"
+        android:layout_width="110dp"
+        android:layout_height="96dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/oreo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+
+    <TextView
+        android:id="@+id/oreo_price"
+        android:layout_width="37dp"
+        android:layout_height="36dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_2"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <ImageButton
+        android:id="@+id/cream_top"
+        android:layout_width="98dp"
+        android:layout_height="86dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/whippedcream"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <TextView
+        android:id="@+id/cream_price"
+        android:layout_width="43dp"
+        android:layout_height="39dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_0"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="494dp" />
+
+    <ImageButton
+        android:id="@+id/sprinklers_top"
+        android:layout_width="110dp"
+        android:layout_height="96dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/sprinklers"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <TextView
+        android:id="@+id/sprinklers_price"
+        android:layout_width="42dp"
+        android:layout_height="44dp"
+        android:fontFamily="@font/amaranth"
+        android:text="0$"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="616dp" />
+
+    <ImageButton
+        android:id="@+id/chocolate_top"
+        android:layout_width="131dp"
+        android:layout_height="106dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/chocolate_top"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <TextView
+        android:id="@+id/chocolate_price"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="616dp" />
+
+    <ImageButton
+        android:id="@+id/white_choco_top"
+        android:layout_width="131dp"
+        android:layout_height="106dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/white_chocolate_top"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="264dp"
+        tools:layout_editor_absoluteY="521dp" />
+
+    <TextView
+        android:id="@+id/white_choco_price"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/amaranth"
+        android:text="@string/_1"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="617dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="104dp"
+        android:layout_height="59dp"
+        android:text="@string/apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteY="643dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

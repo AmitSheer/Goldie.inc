@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Goldie.inc</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="cup_or_cone">cup or cone ?</string>
+    <string name="strawberry">strawberry</string>
+    <string name="vanilla">vanilla</string>
+    <string name="pistachio">pistachio</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+    <string name="apply">Apply</string>
+    <string name="butter">Butter</string>
+    <string name="classic">Classic</string>
+    <string name="coffee">coffee</string>
+    <string name="chocolate">chocolate</string>
+    <string name="_12">12$</string>
+    <string name="_12_include_chocolate_milkshake">12$ *include chocolate milkshake</string>
+    <string name="include_chocolate_milkshake">*include_chocolate_milkshake</string>
+    <string name="_10">10$</string>
+    <string name="a_classic_waffle_with_2_scoops_of_ice_cream_whipped_cream_and_a_chocolate_milkshake">A classic waffle with 2 scoops of ice cream, whipped cream and a chocolate milkshake</string>
+    <string name="_8">8$</string>
+    <string name="coffee_flavored_waffle_with_2_chocolate_ice_cream_balls_and_a_coffee_milkshake">Coffee-flavored waffle with 2 chocolate ice cream balls, and a coffee milkshake</string>
+    <string name="waffle_with_butter_3_scoops_of_vanilla_ice_cream_and_a_strawberry_milkshake">Waffle with butter, 3 scoops of vanilla ice cream, and a strawberry milkshake</string>
+    <string name="_9">9$</string>
+    <string name="chocolate_waffle_3_scoops_of_vanilla_ice_cream_whipped_cream_and_a_chocolate_milkshake">Chocolate waffle 3 scoops of vanilla ice cream, whipped cream and a chocolate milkshake</string>
+    <string name="click_on_the_chocolate_you_want">click on the chocolate you want</string>
+    <string name="click_on_the_topping_you_want">click on the topping you want</string>
+    <string name="_1">1$</string>
+    <string name="_0">0$</string>
+    <string name="_2">2$</string>
+    <string name="pick_cup_size">pick cup size</string>
+    <string name="_3">3$</string>
+    <string name="_4">4$</string>
+    <string name="_6">6$</string>
+    <string name="pick_flavor">pick flavor</string>
+    <string name="peach">peach</string>
+    <string name="mango">mango</string>
+    <string name="blueberry">blueberry</string>
+</resources>
