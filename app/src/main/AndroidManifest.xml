@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Goldieinc">
         <activity
-            android:name="menu.menu"
+            android:name=".login.Register"
+            android:exported="false" />
+        <activity
+            android:name=".login.Login"
+            android:exported="false" />
+        <activity
+            android:name="com.goldie.menu.menu"
             android:exported="true"
             android:label="@string/app_name">
         <intent-filter>
