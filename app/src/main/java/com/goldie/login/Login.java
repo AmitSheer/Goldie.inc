@@ -18,19 +18,19 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        mEmail = findViewById(R.id.log_email);
-        mPassword = findViewById(R.id.log_password);
-        mLoginBtn = findViewById(R.id.loginBtn);
-
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //check if user exists and if exist then login and send view to menu
-                //else pop a toast to user with error and mark bad part
-            }
-        });
+//        setContentView(R.layout.activity_login);
+//
+//        mEmail = findViewById(R.id.log_email);
+//        mPassword = findViewById(R.id.log_password);
+//        mLoginBtn = findViewById(R.id.loginBtn);
+//
+//        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //check if user exists and if exist then login and send view to menu
+//                //else pop a toast to user with error and mark bad part
+//            }
+//        });
 
     }
 }
