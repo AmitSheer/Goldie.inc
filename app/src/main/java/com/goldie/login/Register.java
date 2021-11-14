@@ -14,3 +14,4 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
     }
 }
+//todo: add common layout folder in layouts for re-usability of common layout, and code file for layout for extensions
