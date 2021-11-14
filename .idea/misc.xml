@@ -3,21 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/font/amaranth.xml" value="0.284375" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_menu2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/crepemenu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/froyomenu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/icereammuneu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/wafflemenu.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout-notouch/test.xml" value="0.12610229276895943" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.11171875" />
+        <entry key="app/src/main/res/layout/activity_basic_nav.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.14895833333333333" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.18885869565217392" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.18885869565217392" />
         <entry key="app/src/main/res/layout/test.xml" value="0.1213768115942029" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.29375" />
       </map>
     </option>
   </component>
