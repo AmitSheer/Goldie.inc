@@ -26,6 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".menu.ice_cream_menu"/>
+        <activity android:name=".menu.crepe_menu"/>
+        <activity android:name=".menu.froyo_menu"/>
+        <activity android:name=".menu.waffle_menu">
+        </activity>
 
 
 <!--        <meta-data-->
