@@ -119,7 +119,7 @@
         android:layout_height="60dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="@string/coffee_flavored_waffle_with_2_chocolate_ice_cream_balls_and_a_coffee_milkshake"
+        android:text="@string/coffee_flavored_waffle_with_2_chocolate_ice_cream_scoops_and_a_coffee_milkshake"
         android:textColor="@color/black"
         android:textSize="15sp"
         tools:ignore="MissingConstraints"

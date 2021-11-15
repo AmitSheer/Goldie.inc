@@ -310,7 +310,8 @@
         android:layout_height="162dp"
         app:srcCompat="@drawable/circle"
         tools:layout_editor_absoluteX="253dp"
-        tools:layout_editor_absoluteY="-8dp" />
+        tools:layout_editor_absoluteY="-8dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
