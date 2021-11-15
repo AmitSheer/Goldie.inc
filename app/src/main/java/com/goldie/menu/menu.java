@@ -24,7 +24,7 @@ public class menu extends AppCompatActivity {
         ImageButton crepe_btn = findViewById(R.id.crepes);
         crepe_btn.setOnClickListener(v -> openCrepePage());
         ImageButton froyo_btn = findViewById(R.id.froyo);
-        crepe_btn.setOnClickListener(v -> openFroyoPage());
+        froyo_btn.setOnClickListener(v -> openFroyoPage());
     }
     public void openIceCreamPage(){
         Intent intent = new Intent(this,ice_cream_menu.class);
