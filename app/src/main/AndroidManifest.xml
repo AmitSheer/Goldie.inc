@@ -10,27 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Goldieinc">
         <activity
+            android:name=".nav.NavDrawer"
+            android:exported="true"
+            android:label="@string/title_activity_nav_drawer"
+            android:theme="@style/Theme.Goldieinc.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
             android:name=".login.Register"
             android:exported="false" />
         <activity
-            android:name=".login.Login"
-            android:exported="false"
-       ></activity>
+            android:name=".nav.ui.login.LoginFragment"
+            android:exported="false" />
         <activity
-            android:name="com.goldie.menu.menu"
-            android:exported="true"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".menu.menu"
+            android:exported="false">
         </activity>
-
-
-<!--        <meta-data-->
-<!--            android:name="preloaded_fonts"-->
-<!--            android:resource="@array/preloaded_fonts" />-->
     </application>
 
 </manifest>

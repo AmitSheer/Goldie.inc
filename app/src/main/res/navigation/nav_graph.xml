@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/NavDrawe">
-    <fragment android:id="@+id/NavDrawe" >
-        <action
-            android:id="@+id/action_NavDrawe_to_Login"
-            app:destination="@id/fragment_login" />
-        <action
-            android:id="@+id/action_NavDrawe_to_fragment_update_info"
-            app:destination="@id/fragment_update_info" />
-        <action
-            android:id="@+id/action_NavDrawe_to_fragment_register"
-            app:destination="@id/fragment_register" />
-    </fragment>
-    <fragment android:id="@+id/fragment_login" >
-        <action
-            android:id="@+id/action_fragment_login_to_fragment_register"
-            app:destination="@id/fragment_register" />
-    </fragment>
-    <fragment android:id="@+id/fragment_update_info" />
-    <fragment android:id="@+id/fragment_register" >
-        <action
-            android:id="@+id/action_fragment_register_to_fragment_created_account2"
-            app:destination="@id/fragment_created_account" />
-    </fragment>
-    <fragment android:id="@+id/fragment_shopping_cart" >
-        <action
-            android:id="@+id/action_fragment_shopping_cart_to_fragment_place_order"
-            app:destination="@id/fragment_place_order" />
-    </fragment>
-    <action
-        android:id="@+id/action_global_fragment_shopping_cart"
-        app:destination="@id/fragment_shopping_cart"
-        />
-    <fragment android:id="@+id/fragment_place_order" >
-        <argument
-            android:name="item_list"
-            app:argType="string[]" />
-    </fragment>
-    <fragment android:id="@+id/fragment_created_account" />
-    <fragment android:id="@+id/main_view" />
-    <action
-        android:id="@+id/action_global_main_view"
-        app:destination="@id/main_view" />
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+    <include app:graph="@navigation/mobile_navigation" />
 </navigation>
