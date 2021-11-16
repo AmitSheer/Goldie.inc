@@ -26,56 +26,72 @@
         android:layout_width="252dp"
         android:layout_height="286dp"
         android:src="@drawable/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/icecream"
         android:layout_width="281dp"
         android:layout_height="146dp"
-        android:layout_marginTop="240dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/icecream"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/waffle"
         android:layout_width="281dp"
         android:layout_height="146dp"
-        android:layout_marginTop="336dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/waffle"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/crepes"
         android:layout_width="272dp"
         android:layout_height="140dp"
-        android:layout_marginBottom="100dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/crape"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.783"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/froyo"
         android:layout_width="272dp"
         android:layout_height="140dp"
-        android:layout_marginBottom="16dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/froyo"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.944"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
