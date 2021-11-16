@@ -14,7 +14,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment {
-    Button mConfirmBtn;
+    Button mConfirmBtn,mRegisterBtn;
     EditText mUsername, mPassword;
     public LoginFragment() {
         super(R.layout.fragment_login);
@@ -34,5 +34,12 @@ public class LoginFragment extends Fragment {
                 Navigation.findNavController(view).navigate(action);
             }
         });
+//        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                NavDirections action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+//                Navigation.findNavController(view).navigate(action);
+//            }
+//        });
     }
 }

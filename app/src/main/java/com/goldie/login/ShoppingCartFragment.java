@@ -9,10 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class RegisterFragment extends Fragment {
+public class ShoppingCartFragment extends Fragment {
 
-    public RegisterFragment() {
-        super(R.layout.fragment_register);
+    public ShoppingCartFragment() {
+        super(R.layout.fragment_shopping_cart);
     }
 
     @Override

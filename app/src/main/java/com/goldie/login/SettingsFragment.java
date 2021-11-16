@@ -8,11 +8,13 @@ import com.goldie.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
-public class RegisterFragment extends Fragment {
+public class SettingsFragment extends Fragment {
 
-    public RegisterFragment() {
-        super(R.layout.fragment_register);
+    public SettingsFragment() {
+        super(R.layout.fragment_settings);
     }
 
     @Override

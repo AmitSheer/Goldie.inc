@@ -26,14 +26,14 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mLoginBtn = view.findViewById(R.id.button_login);
-
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavDirections action = HomeFragmentDirections.actionHomeFragmentToLoginFragment();
-                Navigation.findNavController(view).navigate(action);
-            }
-        });
+//
+//        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                NavDirections action = HomeFragmentDirections.actionHomeFragmentToLoginFragment();
+//                Navigation.findNavController(view).navigate(action);
+//            }
+//        });
 
     }
 }

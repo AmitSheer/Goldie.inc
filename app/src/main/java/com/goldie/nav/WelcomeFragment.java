@@ -29,12 +29,5 @@ public class WelcomeFragment extends Fragment {
         username.setText(Username);
         password.setText(Password);
         mOkBtn = view.findViewById(R.id.button_ok);
-        mOkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavDirections action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment();
-                Navigation.findNavController(view).navigate(action);
-            }
-        });
     }
 }

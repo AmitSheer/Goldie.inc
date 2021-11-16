@@ -7,12 +7,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.goldie.nav.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
+        android:label="Home"
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.goldie.login.LoginFragment"
@@ -27,9 +23,6 @@
         android:name="com.goldie.nav.WelcomeFragment"
         android:label="Welcom"
         tools:layout="@layout/fragment_welcome">
-        <action
-            android:id="@+id/action_welcomeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
         <argument
             android:name="password"
             app:argType="string" />
@@ -37,4 +30,14 @@
             android:name="username"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.goldie.login.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.goldie.login.ShoppingCartFragment"
+        android:label="Shopping Cart"
+        tools:layout="@layout/fragment_shopping_cart" />
 </navigation>
