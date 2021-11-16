@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.goldie.MainActivity">
+    <item
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/ic_login"
+        android:title="Login"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/registerFragment"
+        android:icon="@drawable/ic_register"
+        android:title="Register"
+        app:showAsAction="never"/>
+</menu>
