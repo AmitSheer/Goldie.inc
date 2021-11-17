@@ -91,8 +91,8 @@
             android:id="@+id/action_adminMainFragment_to_storageManagementFragment"
             app:destination="@id/storageManagementFragment" />
         <action
-            android:id="@+id/action_adminMainFragment_to_ordersManagementFragment2"
-            app:destination="@id/ordersManagementFragment2" />
+            android:id="@+id/action_adminMainFragment_to_ordersManagementFragment"
+            app:destination="@id/ordersManagementFragment" />
     </fragment>
     <fragment
         android:id="@+id/storageManagementFragment"
@@ -100,7 +100,7 @@
         android:label="fragment_storage_management"
         tools:layout="@layout/fragment_storage_management" />
     <fragment
-        android:id="@+id/ordersManagementFragment2"
+        android:id="@+id/ordersManagementFragment"
         android:name="com.goldie.admin.OrdersManagementFragment"
         android:label="fragment_orders_management"
         tools:layout="@layout/fragment_orders_management" />
