@@ -6,6 +6,8 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/back"
+
     tools:context=".login.LoginFragment">
 
     <EditText
@@ -27,6 +29,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm"/>
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/button_admin_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:text="Worker Login" />
 
 
 </LinearLayout>

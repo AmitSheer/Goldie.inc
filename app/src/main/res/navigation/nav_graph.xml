@@ -3,38 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.goldie.nav.HomeFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.goldie.login.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.goldie.nav.WelcomeFragment"
-        android:label="Welcom"
-        tools:layout="@layout/fragment_welcome">
-        <argument
-            android:name="password"
-            app:argType="string" />
-        <argument
-            android:name="username"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -61,23 +41,72 @@
         android:label="Admin Login"
         tools:layout="@layout/fragment_admin_manager" >
         <action
-            android:id="@+id/action_adminFragment_to_adminOptionsFragment"
-            app:destination="@id/adminOptionsFragment" />
+            android:id="@+id/action_adminFragment_to_adminMainFragment"
+            app:destination="@id/adminMainFragment" />
     </fragment>
-    <fragment android:id="@+id/storageManagmentFragment" />
-    <fragment android:id="@+id/adminOptionsFragment" >
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.goldie.menu.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
         <action
-            android:id="@+id/action_adminOptionsFragment_to_storageManagmentFragment"
-            app:destination="@id/storageManagmentFragment" />
+            android:id="@+id/action_menuFragment_to_froyoMenuFragment"
+            app:destination="@id/froyoMenuFragment" />
         <action
-            android:id="@+id/action_adminOptionsFragment_to_ordersManagementFragment"
-            app:destination="@id/ordersManagementFragment" />
+            android:id="@+id/action_menuFragment_to_iceCreamMenuFragment"
+            app:destination="@id/iceCreamMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_waffleMenuFragment"
+            app:destination="@id/waffleMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_crepeMenuFragment"
+            app:destination="@id/crepeMenuFragment" />
     </fragment>
-    <fragment android:id="@+id/ordersManagementFragment" />
-    <activity
-        android:id="@+id/menu"
-        android:name="com.goldie.menu.menu"
-        android:label="activity_menu"
-        tools:layout="@layout/activity_menu" />
-    <fragment android:id="@+id/sellerAdviceFragment" />
+    <fragment
+        android:id="@+id/froyoMenuFragment"
+        android:name="com.goldie.menu.FroyoMenuFragment"
+        android:label="Froyo Menu"
+        tools:layout="@layout/fragment_froyo_menu" />
+    <fragment
+        android:id="@+id/iceCreamMenuFragment"
+        android:name="com.goldie.menu.IceCreamMenuFragment"
+        android:label="Iceream Menu"
+        tools:layout="@layout/fragment_iceream_menu" />
+    <fragment
+        android:id="@+id/waffleMenuFragment"
+        android:name="com.goldie.menu.WaffleMenuFragment"
+        android:label="Waffle Menu"
+        tools:layout="@layout/fragment_waffle_menu" />
+    <fragment
+        android:id="@+id/crepeMenuFragment"
+        android:name="com.goldie.menu.CrepeMenuFragment"
+        android:label="Crepe Menu"
+        tools:layout="@layout/fragment_crepe_menu" />
+    <fragment
+        android:id="@+id/adminMainFragment"
+        android:name="com.goldie.admin.AdminMainFragment"
+        android:label="fragment_admin_main"
+        tools:layout="@layout/fragment_admin_main" >
+        <action
+            android:id="@+id/action_adminMainFragment_to_storageManagementFragment"
+            app:destination="@id/storageManagementFragment" />
+        <action
+            android:id="@+id/action_adminMainFragment_to_ordersManagementFragment2"
+            app:destination="@id/ordersManagementFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/storageManagementFragment"
+        android:name="com.goldie.admin.StorageManagementFragment"
+        android:label="fragment_storage_management"
+        tools:layout="@layout/fragment_storage_management" />
+    <fragment
+        android:id="@+id/ordersManagementFragment2"
+        android:name="com.goldie.admin.OrdersManagementFragment"
+        android:label="fragment_orders_management"
+        tools:layout="@layout/fragment_orders_management" />
+    <fragment
+        android:id="@+id/sellerAdviceFragment"
+        android:name="com.goldie.menu.SellerAdviceFragment"
+        android:label="fragment_seller_advice"
+        tools:layout="@layout/fragment_seller_advice" />
 </navigation>

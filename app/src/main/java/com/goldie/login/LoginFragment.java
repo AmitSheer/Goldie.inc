@@ -14,7 +14,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment {
-    Button mConfirmBtn,mRegisterBtn;
+    Button mConfirmBtn,mRegisterBtn,mAdminBtn;
     EditText mUsername, mPassword;
     public LoginFragment() {
         super(R.layout.fragment_login);
@@ -25,21 +25,30 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         mConfirmBtn = view.findViewById(R.id.button_confirm);
+        mRegisterBtn = view.findViewById(R.id.button_register);
+        mAdminBtn = view.findViewById(R.id.button_admin_login);
         mUsername = view.findViewById(R.id.edit_text_username);
         mPassword = view.findViewById(R.id.edit_text_password);
         mConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                NavDirections action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(mUsername.getText().toString(),mPassword.getText().toString());
+//                NavDirections action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
 //                Navigation.findNavController(view).navigate(action);
             }
         });
-//        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                NavDirections action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
-//                Navigation.findNavController(view).navigate(action);
-//            }
-//        });
+        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavDirections action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
+        mAdminBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavDirections action = LoginFragmentDirections.actionLoginFragmentToAdminFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+        });
     }
 }

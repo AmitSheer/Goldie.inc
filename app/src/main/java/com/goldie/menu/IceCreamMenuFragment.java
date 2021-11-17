@@ -7,23 +7,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.goldie.R;
 
-public class ice_cream_menu extends AppCompatActivity {
+public class IceCreamMenuFragment extends Fragment {
 
     RadioGroup strawberry;
     Button apply;
 
+    public IceCreamMenuFragment() {
+        super(R.layout.fragment_iceream_menu);
+    }
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.icereammuneu);
-        Button back_btn = (Button) findViewById(R.id.back);
-        back_btn.setOnClickListener(v -> openMenuPage());
-        strawberry = findViewById(R.id.sGroup);
-        apply = findViewById(R.id.apply);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+//        Button back_btn = (Button) view.findViewById(R.id.back);
+//        back_btn.setOnClickListener(v -> openMenuPage());
+        strawberry = view.findViewById(R.id.sGroup);
+        apply = view.findViewById(R.id.apply);
         apply.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -68,9 +75,9 @@ public class ice_cream_menu extends AppCompatActivity {
                 break;
         }
     }
-
-    public void openMenuPage() {
-        Intent intent = new Intent(this, menu.class);
-        startActivity(intent);
-    }
+//
+//    public void openMenuPage() {
+//        Intent intent = new Intent(this, MenuFragment.class);
+//        startActivity(intent);
+//    }
 }

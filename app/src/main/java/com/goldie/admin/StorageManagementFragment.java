@@ -1,4 +1,4 @@
-package com.goldie.login;
+package com.goldie.admin;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,13 +8,11 @@ import com.goldie.R;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 
-public class SettingsFragment extends Fragment {
+public class StorageManagementFragment extends Fragment {
 
-    public SettingsFragment() {
-        super(R.layout.fragment_settings);
+    public StorageManagementFragment() {
+        super(R.layout.fragment_storage_management);
     }
 
     @Override
