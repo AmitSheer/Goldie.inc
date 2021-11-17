@@ -10,27 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Goldieinc">
         <activity
-            android:name=".MainActivity"
+            android:name=".login.Register"
+            android:exported="false" />
+        <activity
+            android:name=".login.Login"
+            android:exported="false"
+       ></activity>
+        <activity
+            android:name="com.goldie.menu.menu"
             android:exported="true"
-            android:label="Home"
-            >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--        <activity-->
-        <!--            android:name=".login.Register"-->
-        <!--            android:exported="false" />-->
-        <!--        <activity-->
-        <!--            android:name=".login.Login"-->
-        <!--            android:exported="true"-->
-        <!--            android:label="@string/app_name"/>-->
+        <activity android:name=".menu.ice_cream_menu"/>
+        <activity android:name=".menu.crepe_menu"/>
+        <activity android:name=".menu.froyo_menu"/>
+        <activity android:name=".menu.waffle_menu">
+        </activity>
 
         <activity
             android:name=".menu.menu"
-            android:exported="false"></activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

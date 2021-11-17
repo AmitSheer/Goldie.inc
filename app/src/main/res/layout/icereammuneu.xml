@@ -9,53 +9,58 @@
 
     <ImageView
         android:id="@+id/stra"
-        android:layout_width="127dp"
-        android:layout_height="120dp"
+        android:layout_width="143dp"
+        android:layout_height="173dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@drawable/stra"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="143dp" />
-
-    <ImageView
-        android:id="@+id/vaniilapic"
-        android:layout_width="125dp"
-        android:layout_height="108dp"
-        app:srcCompat="@drawable/vanilla"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="270dp"
-        tools:layout_editor_absoluteY="277dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/Pistachiopic"
         android:layout_width="85dp"
         android:layout_height="97dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
         app:srcCompat="@drawable/pis"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="406dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="103dp"
         android:layout_height="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736"
         app:srcCompat="@drawable/chocolate"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="542dp" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/cupOrCone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amaranth"
         android:text="@string/cup_or_cone"
         android:textColor="@color/black"
         android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.191"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/straw"
@@ -65,11 +70,13 @@
         android:text="@string/strawberry"
         android:textColor="@color/black"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="143dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.259"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/Pistachio"
@@ -79,11 +86,13 @@
         android:text="@string/pistachio"
         android:textColor="@color/black"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="377dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/vanilla"
@@ -93,11 +102,14 @@
         android:text="@string/vanilla"
         android:textColor="@color/black"
         android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="246dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.257"
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/textView6"
@@ -107,211 +119,262 @@
         android:text="@string/chocolate"
         android:textColor="@color/black"
         android:textSize="27sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="518dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/imageButton"
-        android:layout_width="77dp"
-        android:layout_height="84dp"
+        android:layout_width="92dp"
+        android:layout_height="105dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
         app:srcCompat="@drawable/icecreamcon"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="53dp" />
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="86dp"
-        android:layout_height="64dp"
+        android:layout_width="97dp"
+        android:layout_height="76dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114"
         app:srcCompat="@drawable/icecreamcup"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="63dp" />
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-    </RadioGroup>
-
-    <RadioButton
-        android:id="@+id/one_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/one"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="572dp" />
-
-    <RadioButton
-        android:id="@+id/two_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/two"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="572dp" />
-
-    <RadioButton
-        android:id="@+id/three_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/three"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="572dp" />
-
-    <RadioButton
-        android:id="@+id/three_p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/three"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="436dp" />
-
-    <RadioButton
-        android:id="@+id/three_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/three"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="306dp" />
-
-    <RadioButton
-        android:id="@+id/three_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/three"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="183dp" />
-
-    <RadioButton
-        android:id="@+id/two_p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/two"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="436dp" />
-
-    <RadioButton
-        android:id="@+id/two_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/two"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="306dp" />
-
-    <RadioButton
-        android:id="@+id/two_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/two"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="207dp"
-        tools:layout_editor_absoluteY="183dp" />
-
-    <RadioButton
-        android:id="@+id/one_p"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/one"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="436dp" />
-
-    <RadioButton
-        android:id="@+id/one_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/one"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="306dp" />
-
-    <RadioButton
-        android:id="@+id/one_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/one"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="183dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/apply"
         android:layout_width="104dp"
         android:layout_height="59dp"
         android:text="@string/apply"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteY="643dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="104dp"
+        android:layout_height="59dp"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="157dp"
         android:layout_height="162dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/circle"
-        tools:layout_editor_absoluteX="253dp"
-        tools:layout_editor_absoluteY="-8dp"
         tools:ignore="MissingConstraints" />
 
+
+    <RadioGroup
+        android:id="@+id/sGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/one_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/one"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="UsingOnClickInXml" />
+
+        <RadioButton
+            android:id="@+id/two_s"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/two"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/three_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/three"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/vGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/one_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/one"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="UsingOnClickInXml" />
+
+        <RadioButton
+            android:id="@+id/two_v"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/two"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/three_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/three"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/pGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.651"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/one_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/one"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="UsingOnClickInXml" />
+
+        <RadioButton
+            android:id="@+id/two_p"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/two"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/three_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/three"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/cGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/one_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/one"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="UsingOnClickInXml" />
+
+        <RadioButton
+            android:id="@+id/two_c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/two"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/three_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/three"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/vaniilapic"
+        android:layout_width="125dp"
+        android:layout_height="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.373"
+        app:srcCompat="@drawable/vanilla"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
