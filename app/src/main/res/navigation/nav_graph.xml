@@ -1,47 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/NavDrawe">
-    <fragment android:id="@+id/NavDrawe" >
+    app:startDestination="@id/menuFragment">
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.goldie.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_NavDrawe_to_Login"
-            app:destination="@id/fragment_login" />
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
         <action
-            android:id="@+id/action_NavDrawe_to_fragment_update_info"
-            app:destination="@id/fragment_update_info" />
-        <action
-            android:id="@+id/action_NavDrawe_to_fragment_register"
-            app:destination="@id/fragment_register" />
+            android:id="@+id/action_loginFragment_to_adminFragment"
+            app:destination="@id/adminFragment" />
     </fragment>
-    <fragment android:id="@+id/fragment_login" >
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.goldie.login.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.goldie.shoppingcart.ShoppingCartFragment"
+        android:label="Shopping Cart"
+        tools:layout="@layout/fragment_shopping_cart" >
         <action
-            android:id="@+id/action_fragment_login_to_fragment_register"
-            app:destination="@id/fragment_register" />
+            android:id="@+id/action_shoppingCartFragment_to_paymentFragment2"
+            app:destination="@id/paymentFragment" />
     </fragment>
-    <fragment android:id="@+id/fragment_update_info" />
-    <fragment android:id="@+id/fragment_register" >
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.goldie.shoppingcart.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment" />
+    <fragment
+        android:id="@+id/adminFragment"
+        android:name="com.goldie.admin.AdminFragment"
+        android:label="Admin Login"
+        tools:layout="@layout/fragment_admin_manager" >
         <action
-            android:id="@+id/action_fragment_register_to_fragment_created_account2"
-            app:destination="@id/fragment_created_account" />
+            android:id="@+id/action_adminFragment_to_adminMainFragment"
+            app:destination="@id/adminMainFragment" />
     </fragment>
-    <fragment android:id="@+id/fragment_shopping_cart" >
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.goldie.menu.MenuFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_menu">
         <action
-            android:id="@+id/action_fragment_shopping_cart_to_fragment_place_order"
-            app:destination="@id/fragment_place_order" />
+            android:id="@+id/action_menuFragment_to_froyoMenuFragment"
+            app:destination="@id/froyoMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_iceCreamMenuFragment"
+            app:destination="@id/iceCreamMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_waffleMenuFragment"
+            app:destination="@id/waffleMenuFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_crepeMenuFragment"
+            app:destination="@id/crepeMenuFragment" />
     </fragment>
-    <action
-        android:id="@+id/action_global_fragment_shopping_cart"
-        app:destination="@id/fragment_shopping_cart"
-        />
-    <fragment android:id="@+id/fragment_place_order" >
-        <argument
-            android:name="item_list"
-            app:argType="string[]" />
+    <fragment
+        android:id="@+id/froyoMenuFragment"
+        android:name="com.goldie.menu.FroyoMenuFragment"
+        android:label="Froyo Menu"
+        tools:layout="@layout/fragment_froyo_menu" />
+    <fragment
+        android:id="@+id/iceCreamMenuFragment"
+        android:name="com.goldie.menu.IceCreamMenuFragment"
+        android:label="Iceream Menu"
+        tools:layout="@layout/fragment_iceream_menu" />
+    <fragment
+        android:id="@+id/waffleMenuFragment"
+        android:name="com.goldie.menu.WaffleMenuFragment"
+        android:label="Waffle Menu"
+        tools:layout="@layout/fragment_waffle_menu" />
+    <fragment
+        android:id="@+id/crepeMenuFragment"
+        android:name="com.goldie.menu.CrepeMenuFragment"
+        android:label="Crepe Menu"
+        tools:layout="@layout/fragment_crepe_menu" />
+    <fragment
+        android:id="@+id/adminMainFragment"
+        android:name="com.goldie.admin.AdminMainFragment"
+        android:label="fragment_admin_main"
+        tools:layout="@layout/fragment_admin_main" >
+        <action
+            android:id="@+id/action_adminMainFragment_to_storageManagementFragment"
+            app:destination="@id/storageManagementFragment" />
+        <action
+            android:id="@+id/action_adminMainFragment_to_ordersManagementFragment2"
+            app:destination="@id/ordersManagementFragment2" />
     </fragment>
-    <fragment android:id="@+id/fragment_created_account" />
-    <fragment android:id="@+id/main_view" />
-    <action
-        android:id="@+id/action_global_main_view"
-        app:destination="@id/main_view" />
+    <fragment
+        android:id="@+id/storageManagementFragment"
+        android:name="com.goldie.admin.StorageManagementFragment"
+        android:label="fragment_storage_management"
+        tools:layout="@layout/fragment_storage_management" />
+    <fragment
+        android:id="@+id/ordersManagementFragment2"
+        android:name="com.goldie.admin.OrdersManagementFragment"
+        android:label="fragment_orders_management"
+        tools:layout="@layout/fragment_orders_management" />
+    <fragment
+        android:id="@+id/sellerAdviceFragment"
+        android:name="com.goldie.menu.SellerAdviceFragment"
+        android:label="fragment_seller_advice"
+        tools:layout="@layout/fragment_seller_advice" />
 </navigation>

@@ -10,32 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Goldieinc">
         <activity
-            android:name=".login.Register"
-            android:exported="false" />
-        <activity
-            android:name=".login.Login"
-            android:exported="false"
-       ></activity>
-        <activity
-            android:name="com.goldie.menu.menu"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
+            <nav-graph android:value="@navigation/nav_graph" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".menu.ice_cream_menu"/>
-        <activity android:name=".menu.crepe_menu"/>
-        <activity android:name=".menu.froyo_menu"/>
-        <activity android:name=".menu.waffle_menu">
-        </activity>
-
-
-<!--        <meta-data-->
-<!--            android:name="preloaded_fonts"-->
-<!--            android:resource="@array/preloaded_fonts" />-->
     </application>
 
 </manifest>
