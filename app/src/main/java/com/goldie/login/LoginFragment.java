@@ -30,8 +30,8 @@ public class LoginFragment extends Fragment {
         mConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavDirections action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(mUsername.getText().toString(),mPassword.getText().toString());
-                Navigation.findNavController(view).navigate(action);
+//                NavDirections action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(mUsername.getText().toString(),mPassword.getText().toString());
+//                Navigation.findNavController(view).navigate(action);
             }
         });
 //        mRegisterBtn.setOnClickListener(new View.OnClickListener() {
