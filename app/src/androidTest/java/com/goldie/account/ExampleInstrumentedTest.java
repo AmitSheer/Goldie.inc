@@ -1,4 +1,4 @@
-package com.goldie.login;
+package com.goldie.account;
 
 import android.content.Context;
 

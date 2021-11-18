@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/ordersManagementFragment">
+
+    <fragment
+        android:id="@+id/ordersManagementFragment"
+        android:name="com.goldie.admin.OrdersManagementFragment"
+        android:label="fragment_orders_management"
+        tools:layout="@layout/fragment_orders_management" />
+    <fragment
+        android:id="@+id/storageManagementFragment"
+        android:name="com.goldie.admin.StorageManagementFragment"
+        android:label="fragment_storage_management"
+        tools:layout="@layout/fragment_storage_management" />
+</navigation>

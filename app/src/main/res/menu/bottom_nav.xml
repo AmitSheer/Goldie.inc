@@ -11,7 +11,7 @@
     <item
         android:id="@+id/loginFragment"
         android:icon="@drawable/ic_account"
-        android:title="Login/Account"
+        android:title="Account"
 
         app:showAsAction="never"/>
     <item
