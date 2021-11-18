@@ -28,8 +28,8 @@ public class AccountFragment extends Fragment {
         mLogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseLayer.fAuth.signOut();
-                Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
+                FirebaseAdapter.fAuth.signOut();
+                Toast.makeText(getContext(), "User Logged out", Toast.LENGTH_SHORT).show();
                 UserData.empty();
                 NavDirections action = AccountFragmentDirections.actionAccountFragmentToLoginFragment();
                 Navigation.findNavController(view).navigate(action);

@@ -93,5 +93,5 @@
         <action
             android:id="@+id/action_accountFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-    </fragment><action android:id="@+id/action_global_loginFragment" app:destination="@id/loginFragment"/>
+    </fragment>
 </navigation>

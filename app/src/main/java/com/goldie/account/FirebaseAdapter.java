@@ -13,10 +13,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
 
-public class FirebaseLayer {
+public class FirebaseAdapter {
     private static final String TAG = "DocSnippets";
 
-    static FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    public static FirebaseAuth fAuth = FirebaseAuth.getInstance();
     @SuppressLint("StaticFieldLeak")
     static FirebaseFirestore fDb = FirebaseFirestore.getInstance();
 

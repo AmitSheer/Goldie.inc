@@ -13,7 +13,6 @@ import com.goldie.account.data.UserData;
 import com.goldie.admin.AdminMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import androidx.annotation.NonNull;
@@ -33,7 +32,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(FirebaseLayer.fAuth.getCurrentUser()!=null){
+        if(FirebaseAdapter.fAuth.getCurrentUser()!=null){
             NavDirections action = LoginFragmentDirections.actionLoginFragmentToAccountFragment();
             Navigation.findNavController(view).navigate(action);
         }
@@ -58,10 +57,10 @@ public class LoginFragment extends Fragment {
                 }
 
                 //runs after validation
-                FirebaseLayer.fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+                FirebaseAdapter.fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
                         Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
-                        FirebaseLayer.UpdateUserData(email).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        FirebaseAdapter.UpdateUserData(email).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                             @Override
                             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                 if(UserData.IsAdmin){

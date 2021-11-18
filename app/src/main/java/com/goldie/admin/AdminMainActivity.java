@@ -1,16 +1,18 @@
 package com.goldie.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
+import com.goldie.MainActivity;
 import com.goldie.R;
-import com.goldie.account.LoginFragment;
-import com.goldie.account.LoginFragmentDirections;
-import com.google.android.material.bottomappbar.BottomAppBar;
+import com.goldie.account.FirebaseAdapter;
+import com.goldie.account.data.UserData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,7 +46,26 @@ public class AdminMainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         NavigationUI.setupWithNavController(toolbar,navController,appBarConfiguration);
         NavigationUI.setupWithNavController(bottomAppBar,navController);
-//        LoginFragmentDirections.actionGlobalLoginFragment();
+
+        bottomAppBar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.logout:
+                        Toast.makeText(getApplicationContext(), "Admin Logged out", Toast.LENGTH_SHORT).show();
+                        // LogOut
+                        FirebaseAdapter.fAuth.signOut();
+                        UserData.empty();
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        finish();
+                        break;
+                    default:
+                        return NavigationUI.onNavDestinationSelected(item,navController);
+                }
+
+                return true;
+            }
+        });
     }
 
 

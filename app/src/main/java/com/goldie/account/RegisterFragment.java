@@ -42,7 +42,7 @@ public class RegisterFragment extends Fragment {
         mEmail =view.findViewById(R.id.email);
 
 
-        if(FirebaseLayer.fAuth.getCurrentUser()!=null){
+        if(FirebaseAdapter.fAuth.getCurrentUser()!=null){
             NavDirections action = RegisterFragmentDirections.actionRegisterFragmentToMenuNav();
             Navigation.findNavController(view).navigate(action);
         }
@@ -70,7 +70,7 @@ public class RegisterFragment extends Fragment {
                 return;
             }
 
-            FirebaseLayer.fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+            FirebaseAdapter.fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
                     UserData.fill(full_name,password,email,phone);
