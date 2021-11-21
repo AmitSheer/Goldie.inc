@@ -12,7 +12,7 @@
 
 
 <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/black"
         android:layout_width="154dp"
         android:layout_height="160dp"
         android:background="@android:color/transparent"
@@ -23,11 +23,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.092"
-        app:srcCompat="@drawable/black"
+        app:srcCompat="@drawable/crepe_black_chocolate_btn"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/white"
         android:layout_width="157dp"
         android:layout_height="201dp"
         android:background="@android:color/transparent"
@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047"
-        app:srcCompat="@drawable/white"
+        app:srcCompat="@drawable/crepe_white_chocolate_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -85,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.409"
-        app:srcCompat="@drawable/strawberry"
+        app:srcCompat="@drawable/crepe_strawberr_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -116,7 +116,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.421"
-        app:srcCompat="@drawable/banana"
+        app:srcCompat="@drawable/crepe_banana_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -145,8 +145,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434"
-        app:srcCompat="@drawable/berry"
+        app:layout_constraintVertical_bias="0.429"
+        app:srcCompat="@drawable/crepe_berry_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -177,7 +177,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.626"
-        app:srcCompat="@drawable/gummybears"
+        app:srcCompat="@drawable/crepe_gummy_btn"
         tools:ignore="MissingConstraints" />
 
 
@@ -209,7 +209,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.626"
-        app:srcCompat="@drawable/oreo"
+        app:srcCompat="@drawable/crepe_oreo_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -240,7 +240,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.632"
-        app:srcCompat="@drawable/whippedcream"
+        app:srcCompat="@drawable/crepe_whipped_cream_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -271,7 +271,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.836"
-        app:srcCompat="@drawable/sprinklers"
+        app:srcCompat="@drawable/crepe_sprinklers_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -298,10 +298,11 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.843"
-        app:srcCompat="@drawable/chocolate_top"
+        app:srcCompat="@drawable/crepe_chocolate_top_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -332,7 +333,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.848"
-        app:srcCompat="@drawable/white_chocolate_top"
+        app:srcCompat="@drawable/crepe_white_choco_top_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -352,31 +353,16 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/apply"
+        android:id="@+id/applyInWaffle"
         android:layout_width="104dp"
         android:layout_height="59dp"
         android:text="@string/apply"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="104dp"
-        android:layout_height="59dp"
-        android:text="@string/back"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979"
-        tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
