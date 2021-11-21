@@ -8,14 +8,13 @@
     android:padding="16dp"
     android:background="@drawable/back"
 
-    tools:context=".login.LoginFragment">
+    tools:context=".account.LoginFragment">
 
     <EditText
+        android:id="@+id/edit_text_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edit_text_username"
-        android:hint="Username"
-        />
+        android:hint="Email" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

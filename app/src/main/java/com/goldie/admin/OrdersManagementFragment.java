@@ -36,18 +36,18 @@ public class OrdersManagementFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        expandableListView=view.findViewById(R.id.exp_list_view);
-        for (int i = 0; i < 11; i++) {
-            listGroup.add("Order "+i);
-            ArrayList<String> arraylist=new ArrayList<>();
-            for (int j = 0; j < 6; j++) {
-                arraylist.add("Item"+j);
-            }
-            listChild.put(listGroup.get(i),arraylist);
-        }
-        adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
-        expandableListView.setAdapter(adaptar);
-        adaptar.notifyDataSetChanged();
+//        expandableListView=view.findViewById(R.id.exp_list_view);
+//        for (int i = 0; i < 11; i++) {
+//            listGroup.add("Order "+i);
+//            ArrayList<String> arraylist=new ArrayList<>();
+//            for (int j = 0; j < 6; j++) {
+//                arraylist.add("Item"+j);
+//            }
+//            listChild.put(listGroup.get(i),arraylist);
+//        }
+//        adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
+//        expandableListView.setAdapter(adaptar);
+//        adaptar.notifyDataSetChanged();
     }
 
 

@@ -7,11 +7,14 @@
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_login.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_menu_camera.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/side_nav_bar.xml" value="0.22135416666666666" />
+        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_admin_main.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/crepemenu.xml" value="0.20520833333333333" />
+        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_account.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_main.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_manager.xml" value="0.36666666666666664" />
+        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_froyo_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
@@ -20,7 +23,7 @@
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_orders_management.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_payment.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_register.xml" value="0.20520833333333333" />
+        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_register.xml" value="0.33" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_seller_advice.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.20520833333333333" />
@@ -30,6 +33,7 @@
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_welcome.xml" value="0.3229166666666667" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/wafflemenu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/admin_bottom_nav.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/bottom_nav.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/drawer_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/nav_drawer.xml" value="0.36666666666666664" />
