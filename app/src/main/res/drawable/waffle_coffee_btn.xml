@@ -3,14 +3,14 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/classic_clicked" />
+        android:drawable="@drawable/coffee" />
 
     <item
         android:state_selected="true"
-        android:drawable="@drawable/classic_clicked" />
+        android:drawable="@drawable/coffee" />
 
     <item
-    android:state_pressed="false"
-    android:drawable="@drawable/classic" />
+        android:state_pressed="false"
+        android:drawable="@drawable/coffee_checked" />
 
 </selector>

@@ -15,7 +15,7 @@ import com.goldie.R;
 
 public class WaffleMenuFragment extends Fragment {
 
-    ImageButton classic;
+    ImageButton classic,coffee,butter,chocolate;
 
     public WaffleMenuFragment() {
         super(R.layout.fragment_waffle_menu);
@@ -27,6 +27,9 @@ public class WaffleMenuFragment extends Fragment {
 
         super.onViewCreated(view, savedInstanceState);
         classic = view.findViewById(R.id.waffleBtn);
+        coffee = view.findViewById(R.id.coffeeBtn);
+        butter = view.findViewById(R.id.ButterBtn);
+        chocolate = view.findViewById(R.id.ChocolateBtn);
 
         classic.setOnClickListener(new View.OnClickListener() {
             boolean checkActionOpen = false;
@@ -39,6 +42,51 @@ public class WaffleMenuFragment extends Fragment {
                 else {
                     checkActionOpen = false;
                     classic.setSelected(false);
+                }
+            }
+        });
+
+        coffee.setOnClickListener(new View.OnClickListener() {
+            boolean checkActionOpen = false;
+            @Override
+            public void onClick(View view) {
+                if (!checkActionOpen) {
+                    checkActionOpen = true;
+                    coffee.setSelected(true);
+                }
+                else {
+                    checkActionOpen = false;
+                    coffee.setSelected(false);
+                }
+            }
+        });
+
+        butter.setOnClickListener(new View.OnClickListener() {
+            boolean checkActionOpen = false;
+            @Override
+            public void onClick(View view) {
+                if (!checkActionOpen) {
+                    checkActionOpen = true;
+                    butter.setSelected(true);
+                }
+                else {
+                    checkActionOpen = false;
+                    butter.setSelected(false);
+                }
+            }
+        });
+
+        chocolate.setOnClickListener(new View.OnClickListener() {
+            boolean checkActionOpen = false;
+            @Override
+            public void onClick(View view) {
+                if (!checkActionOpen) {
+                    checkActionOpen = true;
+                    chocolate.setSelected(true);
+                }
+                else {
+                    checkActionOpen = false;
+                    chocolate.setSelected(false);
                 }
             }
         });
