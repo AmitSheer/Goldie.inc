@@ -313,7 +313,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/applyInWaffle"
+        android:id="@+id/applyInFroyo"
         android:layout_width="104dp"
         android:layout_height="59dp"
         android:text="@string/apply"

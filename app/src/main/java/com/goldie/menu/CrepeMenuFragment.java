@@ -14,9 +14,8 @@ import androidx.fragment.app.Fragment;
 import com.goldie.R;
 
 public class CrepeMenuFragment extends Fragment {
-
+    Button apply;
     ImageButton black,white,strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
-    //don't let press apply without choosing chocolate
 
     public CrepeMenuFragment() {
         super(R.layout.fragment_crepe_menu);
@@ -37,45 +36,37 @@ public class CrepeMenuFragment extends Fragment {
         sprinklers = view.findViewById(R.id.sprinklers_top);
         chocolate_top = view.findViewById(R.id.chocolate_top);
         white_choco_top = view.findViewById(R.id.white_choco_top);
+        apply = view.findViewById(R.id.applyInCrepe);
 
 
 
+        black.setOnClickListener(view1 -> {
+            if (!black.isSelected() && !white.isSelected()) {
+                black.setSelected(true);
+            }
 
-        black.setOnClickListener(new View.OnClickListener() {
-            boolean blackSelect = black.isSelected();
-            boolean whiteSelect = black.isSelected();
-            @Override
-            public void onClick(View view) {
-                if (!blackSelect) {
-                    blackSelect = true;
-                    whiteSelect=false;
-                    black.setSelected(true);
-                    white.setSelected(false);
-                }
-                else {
-                    blackSelect = false;
-                    black.setSelected(false);
-                    white.setSelected(true);
-                }
+            else if (!black.isSelected() && white.isSelected()) {
+                white.setSelected(false);
+                black.setSelected(true);
+            }
+
+            else {
+                black.setSelected(false);
             }
         });
 
-        white.setOnClickListener(new View.OnClickListener() {
-            boolean blackSelect = black.isSelected();
-            boolean whiteSelect = black.isSelected();
-            @Override
-            public void onClick(View view) {
-                if (!whiteSelect) {
-                    whiteSelect = true;
-                    blackSelect=false;
-                    white.setSelected(true);
-                    black.setSelected(false);
-                }
-                else {
-                    whiteSelect = false;
-                    white.setSelected(false);
-                    black.setSelected(true);
-                }
+        white.setOnClickListener(view1 -> {
+            if (!white.isSelected() && !black.isSelected()) {
+                white.setSelected(true);
+            }
+
+            else if (!white.isSelected() && black.isSelected()) {
+                black.setSelected(false);
+                white.setSelected(true);
+            }
+
+            else {
+                white.setSelected(false);
             }
         });
 
@@ -210,6 +201,15 @@ public class CrepeMenuFragment extends Fragment {
                 else {
                     checkActionOpen = false;
                     white_choco_top.setSelected(false);
+                }
+            }
+        });
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!black.isSelected() && !white.isSelected()) {
+                    // don't allow
                 }
             }
         });

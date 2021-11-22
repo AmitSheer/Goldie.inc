@@ -15,6 +15,7 @@ import com.goldie.R;
 
 public class FroyoMenuFragment extends Fragment {
 
+    Button apply;
     ImageButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
 
     public FroyoMenuFragment() {
@@ -33,49 +34,68 @@ public class FroyoMenuFragment extends Fragment {
         blueberry = view.findViewById(R.id.blueberryImage);
         strawberry = view.findViewById(R.id.strawberryImage);
         blackberry = view.findViewById(R.id.blackberryImage);
+        apply = view.findViewById(R.id.applyInFroyo);
 
-        small.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    small.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    small.setSelected(false);
-                }
+
+        small.setOnClickListener(view1 -> {
+            if (!small.isSelected() && !medium.isSelected() && !large.isSelected()) {
+                small.setSelected(true);
+            }
+
+            else if (!small.isSelected() && medium.isSelected() ) {
+                medium.setSelected(false);
+                small.setSelected(true);
+            }
+
+            else if (!small.isSelected() && large.isSelected() ) {
+                large.setSelected(false);
+                small.setSelected(true);
+            }
+
+            else {
+                small.setSelected(false);
             }
         });
 
-        medium.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    medium.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    medium.setSelected(false);
-                }
+        medium.setOnClickListener(view1 -> {
+            if (!medium.isSelected() && !small.isSelected() && !large.isSelected()) {
+                medium.setSelected(true);
+            }
+
+
+            else if (!medium.isSelected() && small.isSelected() ) {
+                small.setSelected(false);
+                medium.setSelected(true);
+            }
+
+            else if (!medium.isSelected() && large.isSelected() ) {
+                large.setSelected(false);
+                medium.setSelected(true);
+            }
+
+            else {
+                medium.setSelected(false);
             }
         });
 
-        large.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    large.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    large.setSelected(false);
-                }
+        large.setOnClickListener(view1 -> {
+            if (!medium.isSelected() && !small.isSelected() && !large.isSelected()) {
+                large.setSelected(true);
+            }
+
+
+            else if (!large.isSelected() && small.isSelected() ) {
+                small.setSelected(false);
+                large.setSelected(true);
+            }
+
+            else if (!large.isSelected() && medium.isSelected() ) {
+                medium.setSelected(false);
+                large.setSelected(true);
+            }
+
+            else {
+                large.setSelected(false);
             }
         });
 
@@ -165,6 +185,15 @@ public class FroyoMenuFragment extends Fragment {
                 else {
                     checkActionOpen = false;
                     blackberry.setSelected(false);
+                }
+            }
+        });
+
+        apply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!small.isSelected() && !medium.isSelected() && !large.isSelected()) {
+                    // don't allow
                 }
             }
         });
