@@ -16,7 +16,7 @@ import com.goldie.R;
 public class CrepeMenuFragment extends Fragment {
 
     ImageButton black,white,strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
-
+    //don't let press apply without choosing chocolate
 
     public CrepeMenuFragment() {
         super(R.layout.fragment_crepe_menu);
