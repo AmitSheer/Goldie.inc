@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.goldie.R;
 
 public class CrepeMenuFragment extends Fragment {
+    CrepeObject crepeObject;
     Button apply;
     ImageButton black,white,strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
 
@@ -25,6 +26,7 @@ public class CrepeMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        crepeObject= new CrepeObject();
         black = view.findViewById(R.id.black);
         white = view.findViewById(R.id.white);
         strawberry = view.findViewById(R.id.str_top);
@@ -43,165 +45,137 @@ public class CrepeMenuFragment extends Fragment {
         black.setOnClickListener(view1 -> {
             if (!black.isSelected() && !white.isSelected()) {
                 black.setSelected(true);
+                crepeObject.setDarkChocolate(true);
             }
 
             else if (!black.isSelected() && white.isSelected()) {
                 white.setSelected(false);
+                crepeObject.setWhiteChocolate(false);
                 black.setSelected(true);
+                crepeObject.setDarkChocolate(true);
             }
 
             else {
                 black.setSelected(false);
+                crepeObject.setDarkChocolate(false);
             }
         });
 
         white.setOnClickListener(view1 -> {
             if (!white.isSelected() && !black.isSelected()) {
                 white.setSelected(true);
+                crepeObject.setWhiteChocolate(true);
             }
 
             else if (!white.isSelected() && black.isSelected()) {
                 black.setSelected(false);
+                crepeObject.setDarkChocolate(false);
                 white.setSelected(true);
+                crepeObject.setWhiteChocolate(true);
             }
 
             else {
                 white.setSelected(false);
+                crepeObject.setWhiteChocolate(false);
             }
         });
 
-        strawberry.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    strawberry.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    strawberry.setSelected(false);
-                }
+        strawberry.setOnClickListener(view13 -> {
+            if (!strawberry.isSelected()) {
+                strawberry.setSelected(true);
+                crepeObject.setStrawberry(true);
+            }
+            else {
+                strawberry.setSelected(false);
+                crepeObject.setStrawberry(false);
             }
         });
 
-        banana.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    banana.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    banana.setSelected(false);
-                }
+        banana.setOnClickListener(view12 -> {
+            if (!banana.isSelected()) {
+                banana.setSelected(true);
+                crepeObject.setBanana(true);
+            }
+            else {
+                banana.setSelected(false);
+                crepeObject.setBanana(false);
             }
         });
 
-        berry.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    berry.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    berry.setSelected(false);
-                }
+        berry.setOnClickListener(view14 -> {
+            if (!berry.isSelected()) {
+                berry.setSelected(true);
+                crepeObject.setBlueberry(true);
+            }
+            else {
+                berry.setSelected(false);
+                crepeObject.setBlueberry(false);
             }
         });
 
-        gummy.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    gummy.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    gummy.setSelected(false);
-                }
+        gummy.setOnClickListener(view15 -> {
+            if (!gummy.isSelected()) {
+                gummy.setSelected(true);
+                crepeObject.setGummybears(true);
+            }
+            else {
+                gummy.setSelected(false);
+                crepeObject.setGummybears(false);
             }
         });
 
-        oreo.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    oreo.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    oreo.setSelected(false);
-                }
+        oreo.setOnClickListener(view16 -> {
+            if (!oreo.isSelected()) {
+                oreo.setSelected(true);
+                crepeObject.setOreo(true);
+            }
+            else {
+                oreo.setSelected(false);
+                crepeObject.setOreo(false);
             }
         });
 
-        cream.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    cream.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    cream.setSelected(false);
-                }
+        cream.setOnClickListener(view17 -> {
+            if (!cream.isSelected()) {
+                cream.setSelected(true);
+                crepeObject.setCream(true);
+            }
+            else {
+                cream.setSelected(false);
+                crepeObject.setCream(false);
             }
         });
 
-        sprinklers.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    sprinklers.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    sprinklers.setSelected(false);
-                }
+        sprinklers.setOnClickListener(view18 -> {
+            if (!sprinklers.isSelected()) {
+                sprinklers.setSelected(true);
+                crepeObject.setSprinklers(true);
+            }
+            else {
+                sprinklers.setSelected(false);
+                crepeObject.setSprinklers(false);
             }
         });
 
-        chocolate_top.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    chocolate_top.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    chocolate_top.setSelected(false);
-                }
+        chocolate_top.setOnClickListener(view19 -> {
+            if (!chocolate_top.isSelected()) {
+                chocolate_top.setSelected(true);
+                crepeObject.setDarkChocolateTop(true);
+            }
+            else {
+                chocolate_top.setSelected(false);
+                crepeObject.setDarkChocolateTop(false);
             }
         });
 
-        white_choco_top.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    checkActionOpen = true;
-                    white_choco_top.setSelected(true);
-                }
-                else {
-                    checkActionOpen = false;
-                    white_choco_top.setSelected(false);
-                }
+        white_choco_top.setOnClickListener(view110 -> {
+            if (!white_choco_top.isSelected()) {
+                white_choco_top.setSelected(true);
+                crepeObject.setWhiteChocolateTop(true);
+            }
+            else {
+                white_choco_top.setSelected(false);
+                crepeObject.setWhiteChocolateTop(false);
             }
         });
 
