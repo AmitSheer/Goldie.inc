@@ -16,10 +16,10 @@
         android:layout_height="173dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintHorizontal_bias="0.682"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354"
+        app:layout_constraintVertical_bias="0.415"
         app:srcCompat="@drawable/stra"
         tools:ignore="MissingConstraints" />
 
@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.741"
+        app:layout_constraintVertical_bias="0.783"
         app:srcCompat="@drawable/pis"
         tools:ignore="MissingConstraints" />
 
@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.321"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736"
+        app:layout_constraintVertical_bias="0.78"
         app:srcCompat="@drawable/chocolate"
         tools:ignore="MissingConstraints" />
 
@@ -78,7 +78,7 @@
         app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259"
+        app:layout_constraintVertical_bias="0.289"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -94,8 +94,9 @@
         app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571"
+        app:layout_constraintVertical_bias="0.615"
         tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/vanilla"
@@ -107,12 +108,11 @@
         android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintHorizontal_bias="0.244"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257"
+        app:layout_constraintVertical_bias="0.29"
         tools:ignore="MissingConstraints" />
-
 
     <TextView
         android:id="@+id/textView6"
@@ -127,7 +127,7 @@
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572"
+        app:layout_constraintVertical_bias="0.614"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -138,10 +138,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintVertical_bias="0.119"
         app:srcCompat="@drawable/icecreamcon"
         tools:ignore="MissingConstraints" />
 
@@ -153,39 +153,25 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
+        app:layout_constraintHorizontal_bias="0.439"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114"
+        app:layout_constraintVertical_bias="0.143"
         app:srcCompat="@drawable/icecreamcup"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/apply"
+        android:id="@+id/applyInCrepe"
         android:layout_width="104dp"
         android:layout_height="59dp"
         android:text="@string/apply"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/back"
-        android:layout_width="104dp"
-        android:layout_height="59dp"
-        android:text="@string/back"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintVertical_bias="0.976"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -211,7 +197,7 @@
         app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374"
+        app:layout_constraintVertical_bias="0.413"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -252,7 +238,7 @@
         app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374"
+        app:layout_constraintVertical_bias="0.413"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -294,7 +280,7 @@
         app:layout_constraintHorizontal_bias="0.651"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766"
+        app:layout_constraintVertical_bias="0.827"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -335,7 +321,7 @@
         app:layout_constraintHorizontal_bias="0.114"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.766"
+        app:layout_constraintVertical_bias="0.824"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -376,7 +362,7 @@
         app:layout_constraintHorizontal_bias="0.013"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.373"
+        app:layout_constraintVertical_bias="0.422"
         app:srcCompat="@drawable/vanilla"
         tools:ignore="MissingConstraints" />
 
