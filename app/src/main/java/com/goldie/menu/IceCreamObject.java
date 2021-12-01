@@ -1,19 +1,42 @@
 package com.goldie.menu;
 
 public class IceCreamObject {
-    private int[] flavor; //flavor[0]=chocolate, flavor[1]=vanilla, flavor[2]= strawberry, flavor[3]=chocolate
+    private int chocolate, vanilla, pistachio, strawberry;
     private boolean cup, cone;
 
     public IceCreamObject(){
-        flavor=new int[4];
     }
 
-    public int[] getFlavor() {
-        return flavor;
+    public int getChocolate() {
+        return chocolate;
     }
 
-    public void setFlavor(int[] flavor) {
-        this.flavor = flavor;
+    public void setChocolate(int chocolate) {
+        this.chocolate = chocolate;
+    }
+
+    public int getVanilla() {
+        return vanilla;
+    }
+
+    public void setVanilla(int vanilla) {
+        this.vanilla = vanilla;
+    }
+
+    public int getPistachio() {
+        return pistachio;
+    }
+
+    public void setPistachio(int pistachio) {
+        this.pistachio = pistachio;
+    }
+
+    public int getStrawberry() {
+        return strawberry;
+    }
+
+    public void setStrawberry(int strawberry) {
+        this.strawberry = strawberry;
     }
 
     public boolean isCup() {
