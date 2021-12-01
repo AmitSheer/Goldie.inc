@@ -15,7 +15,9 @@ import com.goldie.R;
 
 public class WaffleMenuFragment extends Fragment {
 
+    WaffleObject waffleObject;
     ImageButton classic,coffee,butter,chocolate;
+    Button apply;
 
     public WaffleMenuFragment() {
         super(R.layout.fragment_waffle_menu);
@@ -26,20 +28,25 @@ public class WaffleMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+        waffleObject= new WaffleObject();
         classic = view.findViewById(R.id.waffleBtn);
         coffee = view.findViewById(R.id.coffeeBtn);
         butter = view.findViewById(R.id.ButterBtn);
         chocolate = view.findViewById(R.id.ChocolateBtn);
+        apply = view.findViewById(R.id.applyInWaffle);
+
 
         classic.setOnClickListener(new View.OnClickListener() {
             boolean checkActionOpen = false;
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
+                    waffleObject.setClassic(true);
                     checkActionOpen = true;
                     classic.setSelected(true);
                 }
                 else {
+                    waffleObject.setClassic(false);
                     checkActionOpen = false;
                     classic.setSelected(false);
                 }
@@ -51,10 +58,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
+                    waffleObject.setCoffee(true);
                     checkActionOpen = true;
                     coffee.setSelected(true);
                 }
                 else {
+                    waffleObject.setCoffee(false);
                     checkActionOpen = false;
                     coffee.setSelected(false);
                 }
@@ -66,10 +75,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
+                    waffleObject.setButter(true);
                     checkActionOpen = true;
                     butter.setSelected(true);
                 }
                 else {
+                    waffleObject.setButter(false);
                     checkActionOpen = false;
                     butter.setSelected(false);
                 }
@@ -81,25 +92,21 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
+                    waffleObject.setChocolate(true);
                     checkActionOpen = true;
                     chocolate.setSelected(true);
                 }
                 else {
+                    waffleObject.setChocolate(true);
                     checkActionOpen = false;
                     chocolate.setSelected(false);
                 }
             }
         });
 
-//        setContentView(R.layout.fragment_waffle_menu);
-//        Button back_btn = (Button) findViewById(R.id.back);
-//        back_btn.setOnClickListener(v -> openMenuPage());
+        apply.setOnClickListener(v -> {
 
-
-//    public void openMenuPage(){
-//        Intent intent = new Intent(this, MenuFragment.class);
-//        startActivity(intent);
-//    }
+        });
 
     }
 }
