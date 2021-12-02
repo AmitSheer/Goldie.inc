@@ -1,39 +1,40 @@
 package com.goldie.menu;
 
 public class WaffleObject {
-    private boolean classic, coffee, butter, chocolate;
 
-    public WaffleObject(){}
+    private static class classicWaffle implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
 
-    public boolean isClassic() {
-        return classic;
+        public classicWaffle() {
+            productName = "classic";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public void setClassic(boolean classic) {
-        this.classic = classic;
+    private static class butterWaffle implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public butterWaffle() {
+            productName = "butterWaffle";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public boolean isCoffee() {
-        return coffee;
-    }
+    private static class coffeeWaffle implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
 
-    public void setCoffee(boolean coffee) {
-        this.coffee = coffee;
-    }
-
-    public boolean isButter() {
-        return butter;
-    }
-
-    public void setButter(boolean butter) {
-        this.butter = butter;
-    }
-
-    public boolean isChocolate() {
-        return chocolate;
-    }
-
-    public void setChocolate(boolean chocolate) {
-        this.chocolate = chocolate;
+        public coffeeWaffle() {
+            productName = "coffeeWaffle";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 }

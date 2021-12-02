@@ -1,57 +1,92 @@
 package com.goldie.menu;
 
 public class IceCreamObject {
-    private int chocolate, vanilla, pistachio, strawberry;
-    private boolean cup, cone;
+    public product[] serveIn;
+    public product[] flavor;
 
-    public IceCreamObject(){
+    public IceCreamObject() {
+        serveIn = new product[]{new iceCreamCup(), new iceCreamCone()};
+        flavor = new product[]{new vanilla(), new chocolate(), new strawberry(), new chocolate()};
+    };
+
+    private static class iceCreamCup implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public iceCreamCup() {
+            productName = "cup";
+            unitInStock = 1; //in stock
+            PricePerUnit = 0;
+        }
     }
 
-    public int getChocolate() {
-        return chocolate;
+    private static class iceCreamCone implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public iceCreamCone() {
+            productName = "cone";
+            unitInStock = 1; //in stock
+            PricePerUnit = 0;
+        }
     }
 
-    public void setChocolate(int chocolate) {
-        this.chocolate = chocolate;
+    private static class vanilla implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+        int numOfScoops;
+
+        public vanilla() {
+            productName = "vanilla";
+            unitInStock = 50;
+            PricePerUnit = 1;
+            numOfScoops = 0;
+        }
     }
 
-    public int getVanilla() {
-        return vanilla;
+    private static class chocolate implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+        int numOfScoops;
+
+        public chocolate() {
+            productName = "chocolate";
+            unitInStock = 50;
+            PricePerUnit = 1;
+            numOfScoops = 0;
+        }
     }
 
-    public void setVanilla(int vanilla) {
-        this.vanilla = vanilla;
+
+    private static class pistachio implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+        int numOfScoops;
+
+        public pistachio() {
+            productName = "pistachio";
+            unitInStock = 50;
+            PricePerUnit = 1;
+            numOfScoops = 0;
+        }
     }
 
-    public int getPistachio() {
-        return pistachio;
-    }
+    private static class strawberry implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+        int numOfScoops;
 
-    public void setPistachio(int pistachio) {
-        this.pistachio = pistachio;
-    }
-
-    public int getStrawberry() {
-        return strawberry;
-    }
-
-    public void setStrawberry(int strawberry) {
-        this.strawberry = strawberry;
-    }
-
-    public boolean isCup() {
-        return cup;
-    }
-
-    public void setCup(boolean cup) {
-        this.cup = cup;
-    }
-
-    public boolean isCone() {
-        return cone;
-    }
-
-    public void setCone(boolean cone) {
-        this.cone = cone;
+        public strawberry() {
+            productName = "strawberry";
+            unitInStock = 50;
+            PricePerUnit = 1;
+            numOfScoops = 0;
+        }
     }
 }

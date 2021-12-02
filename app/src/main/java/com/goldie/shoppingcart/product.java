@@ -5,7 +5,7 @@ package com.goldie.shoppingcart;
      * The class members are: Item as item name, amount - amount of purchased units for this item, and the price for one unit.
      * This class can: Create a product, get a product price, set a product price, set a product amount, get an item name, and get the product amount.
      */
-    public class productOrder {
+    public class product {
         /**
          * Represents the name of the item
          */
@@ -20,28 +20,50 @@ package com.goldie.shoppingcart;
         double price = 0;
 
         /**
+         * Describes how many units available in the stock.
+         */
+        int unitsInStock;
+
+        /**
          * Built for Firebase imports (required) , does nothing.
          */
-        public productOrder(){}
+        public product(){}
 
         /**
          * Constructor specifically for com.goldie.menu.Order class, this constructor creates a new productOrder
          * in case there is no such productOrder in the com.goldie.menu.Order Arraylist Member of com.goldie.menu.Order.
          */
-        public productOrder(String itemName, int amount, double price) {
+        public product(String itemName, int amount, double price, int unitsInStock) {
             this.itemName = itemName;
             this.amount = amount;
             this.price=price;
+            this.unitsInStock=unitsInStock;
         }
 
         /**
          * Copy constructor for a given com.goldie.menu.Order
          * @params product - an existing productOrder node
          */
-        public productOrder(productOrder product) {
+        public product(product product) {
             this.itemName = product.getItemName();
             this.amount = product.getAmount();
             this.price = product.getPrice();
+            this.unitsInStock= product.getUnitsInStock();
+        }
+
+        /**
+         * Returns the number of units available in stock.
+         * @return Number of units in int data type.
+         */
+        public int getUnitsInStock() {
+            return unitsInStock;
+        }
+
+        /**
+         * Sets the number of units in stock.
+         */
+        public void setUnitsInStock(int unitsInStock) {
+            this.unitsInStock = unitsInStock;
         }
 
         /**
