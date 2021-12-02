@@ -45,137 +45,137 @@ public class CrepeMenuFragment extends Fragment {
         black.setOnClickListener(view1 -> {
             if (!black.isSelected() && !white.isSelected()) {
                 black.setSelected(true);
-                crepeObject.setDarkChocolate(true);
+                crepeObject.chocolateType[0].setAmount(1);
             }
 
             else if (!black.isSelected() && white.isSelected()) {
                 white.setSelected(false);
-                crepeObject.setWhiteChocolate(false);
+                crepeObject.chocolateType[1].setAmount(0);
                 black.setSelected(true);
-                crepeObject.setDarkChocolate(true);
+                crepeObject.chocolateType[0].setAmount(1);
             }
 
             else {
                 black.setSelected(false);
-                crepeObject.setDarkChocolate(false);
+                crepeObject.chocolateType[0].setAmount(0);
             }
         });
 
         white.setOnClickListener(view1 -> {
             if (!white.isSelected() && !black.isSelected()) {
                 white.setSelected(true);
-                crepeObject.setWhiteChocolate(true);
+                crepeObject.chocolateType[1].setAmount(1);
             }
 
             else if (!white.isSelected() && black.isSelected()) {
                 black.setSelected(false);
-                crepeObject.setDarkChocolate(false);
+                crepeObject.chocolateType[0].setAmount(0);
                 white.setSelected(true);
-                crepeObject.setWhiteChocolate(true);
+                crepeObject.chocolateType[1].setAmount(1);
             }
 
             else {
                 white.setSelected(false);
-                crepeObject.setWhiteChocolate(false);
+                crepeObject.chocolateType[1].setAmount(0);
             }
         });
 
         strawberry.setOnClickListener(view13 -> {
             if (!strawberry.isSelected()) {
                 strawberry.setSelected(true);
-                crepeObject.setStrawberry(true);
+                crepeObject.toppings[0].setAmount(1);
             }
             else {
                 strawberry.setSelected(false);
-                crepeObject.setStrawberry(false);
+                crepeObject.toppings[0].setAmount(0);
             }
         });
 
         banana.setOnClickListener(view12 -> {
             if (!banana.isSelected()) {
                 banana.setSelected(true);
-                crepeObject.setBanana(true);
+                crepeObject.toppings[1].setAmount(1);
             }
             else {
                 banana.setSelected(false);
-                crepeObject.setBanana(false);
+                crepeObject.toppings[1].setAmount(0);
             }
         });
 
         berry.setOnClickListener(view14 -> {
             if (!berry.isSelected()) {
                 berry.setSelected(true);
-                crepeObject.setBlueberry(true);
+                crepeObject.toppings[2].setAmount(1);
             }
             else {
                 berry.setSelected(false);
-                crepeObject.setBlueberry(false);
+                crepeObject.toppings[2].setAmount(0);
             }
         });
 
         gummy.setOnClickListener(view15 -> {
             if (!gummy.isSelected()) {
                 gummy.setSelected(true);
-                crepeObject.setGummybears(true);
+                crepeObject.toppings[3].setAmount(1);
             }
             else {
                 gummy.setSelected(false);
-                crepeObject.setGummybears(false);
+                crepeObject.toppings[3].setAmount(0);
             }
         });
 
         oreo.setOnClickListener(view16 -> {
             if (!oreo.isSelected()) {
                 oreo.setSelected(true);
-                crepeObject.setOreo(true);
+                crepeObject.toppings[4].setAmount(1);
             }
             else {
                 oreo.setSelected(false);
-                crepeObject.setOreo(false);
+                crepeObject.toppings[4].setAmount(0);
             }
         });
 
         cream.setOnClickListener(view17 -> {
             if (!cream.isSelected()) {
                 cream.setSelected(true);
-                crepeObject.setCream(true);
+                crepeObject.toppings[5].setAmount(1);
             }
             else {
                 cream.setSelected(false);
-                crepeObject.setCream(false);
+                crepeObject.toppings[5].setAmount(0);
             }
         });
 
         sprinklers.setOnClickListener(view18 -> {
             if (!sprinklers.isSelected()) {
                 sprinklers.setSelected(true);
-                crepeObject.setSprinklers(true);
+                crepeObject.toppings[6].setAmount(1);
             }
             else {
                 sprinklers.setSelected(false);
-                crepeObject.setSprinklers(false);
+                crepeObject.toppings[6].setAmount(0);
             }
         });
 
         chocolate_top.setOnClickListener(view19 -> {
             if (!chocolate_top.isSelected()) {
                 chocolate_top.setSelected(true);
-                crepeObject.setDarkChocolateTop(true);
+                crepeObject.toppings[7].setAmount(1);
             }
             else {
                 chocolate_top.setSelected(false);
-                crepeObject.setDarkChocolateTop(false);
+                crepeObject.toppings[7].setAmount(0);
             }
         });
 
         white_choco_top.setOnClickListener(view110 -> {
             if (!white_choco_top.isSelected()) {
                 white_choco_top.setSelected(true);
-                crepeObject.setWhiteChocolateTop(true);
+                crepeObject.toppings[8].setAmount(1);
             }
             else {
                 white_choco_top.setSelected(false);
-                crepeObject.setWhiteChocolateTop(false);
+                crepeObject.toppings[8].setAmount(0);
             }
         });
 
