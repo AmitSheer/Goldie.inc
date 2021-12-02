@@ -1,40 +1,14 @@
 package com.goldie.menu;
 
+import com.goldie.shoppingcart.product;
+
 public class WaffleObject {
+    public product[] waffles;
 
-    private static class classicWaffle implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public classicWaffle() {
-            productName = "classic";
-            unitInStock = 50;
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class butterWaffle implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public butterWaffle() {
-            productName = "butterWaffle";
-            unitInStock = 50;
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class coffeeWaffle implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public coffeeWaffle() {
-            productName = "coffeeWaffle";
-            unitInStock = 50;
-            PricePerUnit = 0;
-        }
+    public WaffleObject() {
+        waffles = new product[]{new product("Classic Waffle", 0, 8, 50),
+                new product("Coffee Waffle", 0, 9, 50),
+                new product("Butter Waffle", 0, 10, 50),
+                new product("Chocolate Waffle", 0, 10, 50)};
     }
 }

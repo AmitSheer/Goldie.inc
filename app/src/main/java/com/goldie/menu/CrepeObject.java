@@ -1,148 +1,23 @@
 package com.goldie.menu;
 
+import com.goldie.shoppingcart.product;
+
 public class CrepeObject {
     public product[] chocolateType;
     public product[] toppings;
 
     public CrepeObject() {
-        chocolateType = new product[]{new darkChocolate(), new whiteChocolate()};
-        toppings = new product[]{new strawberryCrepeTopping(), new BananaCrepeTopping(),
-                new BlueberryCrepeTopping(), new GummyBearsCrepeTopping(),
-                new OreoCrepeTopping(), new WhippedCreamCrepeTopping(), new SprinklersCrepeTopping(),
-                new DarkChocolateTopping(), new WhiteChocolateTopping()};
-    }
-
-
-    private static class darkChocolate implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public darkChocolate() {
-            productName = "Dark chocolate";
-            unitInStock = 1; //in stock
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class whiteChocolate implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public whiteChocolate() {
-            productName = "White chocolate";
-            unitInStock = 1; //in stock
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class strawberryCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public strawberryCrepeTopping() {
-            productName = "Strawberry";
-            unitInStock = 1; //in stock
-            PricePerUnit = 1;
-        }
-    }
-
-    private static class BananaCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public BananaCrepeTopping() {
-            productName = "Banana";
-            unitInStock = 1; //in stock
-            PricePerUnit = 1;
-        }
-    }
-
-    private static class BlueberryCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public BlueberryCrepeTopping() {
-            productName = "Blueberry";
-            unitInStock = 1; //in stock
-            PricePerUnit = 1;
-        }
-    }
-
-    private static class GummyBearsCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public GummyBearsCrepeTopping() {
-            productName = "Gummy Bears";
-            unitInStock = 1; //in stock
-            PricePerUnit = 2;
-        }
-    }
-
-    private static class OreoCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public OreoCrepeTopping() {
-            productName = "Oreo";
-            unitInStock = 1; //in stock
-            PricePerUnit = 2;
-        }
-    }
-
-    private static class WhippedCreamCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public WhippedCreamCrepeTopping() {
-            productName = "Whipped Cream";
-            unitInStock = 1; //in stock
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class SprinklersCrepeTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public SprinklersCrepeTopping() {
-            productName = "Sprinklers";
-            unitInStock = 1; //in stock
-            PricePerUnit = 0;
-        }
-    }
-
-    private static class DarkChocolateTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public DarkChocolateTopping() {
-            productName = "Dark Chocolate Topping";
-            unitInStock = 1; //in stock
-            PricePerUnit = 1;
-        }
-    }
-
-    private static class WhiteChocolateTopping implements product {
-        String productName;
-        int unitInStock;
-        int PricePerUnit;
-
-        public WhiteChocolateTopping() {
-            productName = "White Chocolate Topping";
-            unitInStock = 1; //in stock
-            PricePerUnit = 1;
-        }
+        chocolateType = new product[]{new product("Dark chocolate", 0, 0, 1), /*1=in stock*/
+                new product("White chocolate", 0, 0, 1) /*1=in stock*/};
+        toppings = new product[]{new product("Strawberry", 0, 1, 1), /*1=in stock*/
+                new product("Banana", 0, 1, 1), /*1=in stock*/
+                new product("Blueberry", 0, 1, 1), /*1=in stock*/
+                new product("Gummy Bears", 0, 2, 1), /*1=in stock*/
+                new product("Oreo", 0, 2, 1), /*1=in stock*/
+                new product("Whipped Cream", 0, 0, 1), /*1=in stock*/
+                new product("Sprinklers", 0, 0, 1), /*1=in stock*/
+                new product("Dark Chocolate Topping", 0, 1, 1), /*1=in stock*/
+                new product("White Chocolate Topping", 0, 1, 1) /*1=in stock*/};
     }
 
 }
