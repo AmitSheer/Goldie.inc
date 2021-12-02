@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.goldie.R;
+import com.goldie.account.FirebaseAdapter;
+import com.goldie.account.data.UserData;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class FroyoMenuFragment extends Fragment {
 
@@ -372,7 +376,10 @@ public class FroyoMenuFragment extends Fragment {
         });
 
         apply.setOnClickListener(v -> {
-
+            if (large.isSelected()||medium.isSelected()||small.isSelected()){
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                refNewOrder.setValue(froyoObject);
+            }
         });
     }
 }

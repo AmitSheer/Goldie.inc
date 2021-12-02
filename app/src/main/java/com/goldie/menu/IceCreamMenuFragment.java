@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.goldie.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class IceCreamMenuFragment extends Fragment{
 
@@ -139,7 +141,10 @@ public class IceCreamMenuFragment extends Fragment{
         });
 
         apply.setOnClickListener(v -> {
-
+            if (cup.isSelected() || cone.isSelected()){
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                refNewOrder.setValue(iceCreamObject);
+            }
         });
     }
 

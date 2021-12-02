@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.goldie.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class CrepeMenuFragment extends Fragment {
     CrepeObject crepeObject;
@@ -179,12 +181,10 @@ public class CrepeMenuFragment extends Fragment {
             }
         });
 
-        apply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!black.isSelected() && !white.isSelected()) {
-                    // don't allow
-                }
+        apply.setOnClickListener(view111 -> {
+            if (black.isSelected() || white.isSelected()) {
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                refNewOrder.setValue(crepeObject);
             }
         });
     }

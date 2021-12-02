@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.goldie.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class WaffleMenuFragment extends Fragment {
 
@@ -105,7 +107,8 @@ public class WaffleMenuFragment extends Fragment {
         });
 
         apply.setOnClickListener(v -> {
-
+            DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+            refNewOrder.setValue(waffleObject);
         });
 
     }
