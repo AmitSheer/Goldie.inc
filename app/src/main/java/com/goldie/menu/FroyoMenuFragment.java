@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.goldie.R;
 import com.goldie.account.FirebaseAdapter;
@@ -22,6 +25,7 @@ public class FroyoMenuFragment extends Fragment {
     FroyoObject froyoObject;
     Button apply;
     ImageButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
+    boolean something_checked= false;
 
     public FroyoMenuFragment() {
         super(R.layout.fragment_froyo_menu);
@@ -128,6 +132,7 @@ public class FroyoMenuFragment extends Fragment {
                 &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 kiwi.setSelected(true);
                 froyoObject.flavor[0].setAmount(1);
+                something_checked=true;
             }
             else if(!kiwi.isSelected()&& peach.isSelected()){
                 kiwi.setSelected(true);
@@ -162,6 +167,7 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 kiwi.setSelected(false);
                 froyoObject.flavor[0].setAmount(0);
+                something_checked=false;
             }
         });
 
@@ -170,6 +176,7 @@ public class FroyoMenuFragment extends Fragment {
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 peach.setSelected(true);
                 froyoObject.flavor[1].setAmount(1);
+                something_checked=true;
             }
             else if(!peach.isSelected()&& kiwi.isSelected()){
                 peach.setSelected(true);
@@ -204,6 +211,7 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 peach.setSelected(false);
                 froyoObject.flavor[1].setAmount(0);
+                something_checked=false;
             }
         });
 
@@ -212,6 +220,7 @@ public class FroyoMenuFragment extends Fragment {
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 mango.setSelected(true);
                 froyoObject.flavor[2].setAmount(1);
+                something_checked=true;
             }
             else if(!mango.isSelected()&& kiwi.isSelected()){
                 mango.setSelected(true);
@@ -246,6 +255,7 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 mango.setSelected(false);
                 froyoObject.flavor[2].setAmount(0);
+                something_checked=false;
             }
         });
 
@@ -254,6 +264,7 @@ public class FroyoMenuFragment extends Fragment {
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 blueberry.setSelected(true);
                 froyoObject.flavor[3].setAmount(1);
+                something_checked=true;
             }
             else if(!blueberry.isSelected()&& kiwi.isSelected()){
                 blueberry.setSelected(true);
@@ -288,6 +299,7 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 blueberry.setSelected(false);
                 froyoObject.flavor[3].setAmount(0);
+                something_checked=false;
             }
         });
 
@@ -296,6 +308,7 @@ public class FroyoMenuFragment extends Fragment {
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 strawberry.setSelected(true);
                 froyoObject.flavor[4].setAmount(1);
+                something_checked=true;
             }
             else if(!strawberry.isSelected()&& kiwi.isSelected()){
                 strawberry.setSelected(true);
@@ -330,6 +343,7 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 strawberry.setSelected(false);
                 froyoObject.flavor[4].setAmount(0);
+                something_checked=false;
             }
         });
 
@@ -338,6 +352,7 @@ public class FroyoMenuFragment extends Fragment {
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 blackberry.setSelected(true);
                 froyoObject.flavor[5].setAmount(1);
+                something_checked=true;
             }
             else if(!blackberry.isSelected()&& kiwi.isSelected()){
                 blackberry.setSelected(true);
@@ -372,13 +387,24 @@ public class FroyoMenuFragment extends Fragment {
             else {
                 blackberry.setSelected(false);
                 froyoObject.flavor[5].setAmount(0);
+                something_checked=false;
             }
         });
 
         apply.setOnClickListener(v -> {
-            if (large.isSelected()||medium.isSelected()||small.isSelected()){
+            if (large.isSelected()||medium.isSelected()||small.isSelected()&&something_checked){
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
                 refNewOrder.setValue(froyoObject);
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+            else if (!something_checked){
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_LONG).show();
+            }
+            else if (!large.isSelected()&&!medium.isSelected()&&!small.isSelected())
+            {
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_LONG).show();
             }
         });
     }

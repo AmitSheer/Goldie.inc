@@ -56,4 +56,9 @@
     <string name="kivi">kivi</string>
     <string name="blackberry">blackberry</string>
     <string name="kiwi">kiwi</string>
+    <string name="the_products_added_to_your_shopping_cart">The products added to your shopping cart!</string>
+    <string name="what_would_you_like_to_do_next">What would you like to do next?</string>
+    <string name="go_back_to_menu">Go back to menu</string>
+    <string name="keep_shopping">Keep shopping</string>
+    <string name="edit_order_and_pay">edit order and pay</string>
 </resources>

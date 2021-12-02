@@ -7,13 +7,20 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
+import com.goldie.MainActivity;
 import com.goldie.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class IceCreamMenuFragment extends Fragment{
 
@@ -22,6 +29,7 @@ public class IceCreamMenuFragment extends Fragment{
     ImageButton cup, cone;
     RadioGroup strawberry, chocolate, vanilla, pistachio;
     Button apply;
+    boolean something_checked= false;
 
     public IceCreamMenuFragment() {
         super(R.layout.fragment_iceream_menu);
@@ -92,12 +100,15 @@ public class IceCreamMenuFragment extends Fragment{
             switch (checkedId) {
                 case R.id.one_s:
                     iceCreamObject.flavor[3].setAmount(1);
+                    something_checked=true;
                     break;
                 case R.id.two_s:
                     iceCreamObject.flavor[3].setAmount(2);
+                    something_checked=true;
                     break;
                 case R.id.three_s:
                     iceCreamObject.flavor[3].setAmount(3);
+                    something_checked=true;
             }
         });
 
@@ -105,12 +116,15 @@ public class IceCreamMenuFragment extends Fragment{
             switch (checkedId) {
                 case R.id.one_c:
                     iceCreamObject.flavor[1].setAmount(1);
+                    something_checked=true;
                     break;
                 case R.id.two_c:
                     iceCreamObject.flavor[1].setAmount(2);
+                    something_checked=true;
                     break;
                 case R.id.three_c:
                     iceCreamObject.flavor[1].setAmount(3);
+                    something_checked=true;
             }
         });
 
@@ -118,12 +132,15 @@ public class IceCreamMenuFragment extends Fragment{
             switch (checkedId) {
                 case R.id.one_v:
                     iceCreamObject.flavor[0].setAmount(1);
+                    something_checked=true;
                     break;
                 case R.id.two_v:
                     iceCreamObject.flavor[0].setAmount(2);
+                    something_checked=true;
                     break;
                 case R.id.three_v:
                     iceCreamObject.flavor[0].setAmount(3);
+                    something_checked=true;
             }
         });
 
@@ -141,9 +158,19 @@ public class IceCreamMenuFragment extends Fragment{
         });
 
         apply.setOnClickListener(v -> {
-            if (cup.isSelected() || cone.isSelected()){
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
-                refNewOrder.setValue(iceCreamObject);
+            if ((cup.isSelected() || cone.isSelected())&&something_checked){
+                    DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                    refNewOrder.setValue(iceCreamObject);
+                    Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                    NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();
+                    Navigation.findNavController(view).navigate(action);
+                }
+            else if (!something_checked){
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_LONG).show();
+            }
+            else if (!cup.isSelected()&&!cone.isSelected()){
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup or cone!", Toast.LENGTH_LONG).show();
+
             }
         });
     }

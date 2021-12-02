@@ -24,8 +24,8 @@
 
     <ImageButton
         android:id="@+id/icecream"
-        android:layout_width="281dp"
-        android:layout_height="146dp"
+        android:layout_width="284dp"
+        android:layout_height="85dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/icecream"
@@ -34,13 +34,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423"
+        app:layout_constraintVertical_bias="0.416"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/waffle"
-        android:layout_width="281dp"
-        android:layout_height="146dp"
+        android:layout_width="284dp"
+        android:layout_height="85dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/waffle"
@@ -49,13 +49,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_bias="0.558"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/crepes"
-        android:layout_width="272dp"
-        android:layout_height="140dp"
+        android:layout_width="284dp"
+        android:layout_height="85dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/crape"
@@ -64,13 +64,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.783"
+        app:layout_constraintVertical_bias="0.739"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/froyo"
-        android:layout_width="272dp"
-        android:layout_height="140dp"
+        android:layout_width="284dp"
+        android:layout_height="85dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/froyo"
@@ -79,7 +79,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.944"
+        app:layout_constraintVertical_bias="0.871"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

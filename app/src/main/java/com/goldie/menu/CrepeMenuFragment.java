@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.goldie.R;
 import com.google.firebase.database.DatabaseReference;
@@ -185,12 +188,13 @@ public class CrepeMenuFragment extends Fragment {
             if (black.isSelected() || white.isSelected()) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
                 refNewOrder.setValue(crepeObject);
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+            else{
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick type of chocolate!", Toast.LENGTH_LONG).show();
             }
         });
     }
-
-//    public void openMenuPage(){
-//        Intent intent = new Intent(this, MenuFragment.class);
-//        startActivity(intent);
-//    }
 }
