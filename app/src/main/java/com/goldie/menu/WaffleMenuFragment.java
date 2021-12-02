@@ -41,12 +41,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.setClassic(true);
+                    waffleObject.waffles[0].setAmount(1);
                     checkActionOpen = true;
                     classic.setSelected(true);
                 }
                 else {
-                    waffleObject.setClassic(false);
+                    waffleObject.waffles[0].setAmount(0);
                     checkActionOpen = false;
                     classic.setSelected(false);
                 }
@@ -58,12 +58,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.setCoffee(true);
+                    waffleObject.waffles[1].setAmount(1);
                     checkActionOpen = true;
                     coffee.setSelected(true);
                 }
                 else {
-                    waffleObject.setCoffee(false);
+                    waffleObject.waffles[1].setAmount(0);
                     checkActionOpen = false;
                     coffee.setSelected(false);
                 }
@@ -75,12 +75,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.setButter(true);
+                    waffleObject.waffles[2].setAmount(1);
                     checkActionOpen = true;
                     butter.setSelected(true);
                 }
                 else {
-                    waffleObject.setButter(false);
+                    waffleObject.waffles[2].setAmount(0);
                     checkActionOpen = false;
                     butter.setSelected(false);
                 }
@@ -92,12 +92,12 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.setChocolate(true);
+                    waffleObject.waffles[3].setAmount(1);
                     checkActionOpen = true;
                     chocolate.setSelected(true);
                 }
                 else {
-                    waffleObject.setChocolate(true);
+                    waffleObject.waffles[3].setAmount(0);
                     checkActionOpen = false;
                     chocolate.setSelected(false);
                 }
