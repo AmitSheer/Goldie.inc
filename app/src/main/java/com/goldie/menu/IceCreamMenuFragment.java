@@ -58,30 +58,30 @@ public class IceCreamMenuFragment extends Fragment{
 
         cup.setOnClickListener(view1 -> {
             if (!cup.isSelected() && !cone.isSelected()) {
-                iceCreamObject.setCup(true);
+                iceCreamObject.serveIn[0].setAmount(1);
                 cup.setSelected(true);
             } else if (!cup.isSelected() && cone.isSelected()) {
-                iceCreamObject.setCup(true);
-                iceCreamObject.setCone(false);
+                iceCreamObject.serveIn[0].setAmount(1);
+                iceCreamObject.serveIn[1].setAmount(0);
                 cone.setSelected(false);
                 cup.setSelected(true);
             } else {
-                iceCreamObject.setCup(false);
+                iceCreamObject.serveIn[0].setAmount(0);
                 cup.setSelected(false);
             }
         });
 
         cone.setOnClickListener(view1 -> {
             if (!cone.isSelected() && !cup.isSelected()) {
-                iceCreamObject.setCone(true);
+                iceCreamObject.serveIn[1].setAmount(1);
                 cone.setSelected(true);
             } else if (!cone.isSelected() && cup.isSelected()) {
-                iceCreamObject.setCone(true);
-                iceCreamObject.setCup(false);
+                iceCreamObject.serveIn[1].setAmount(1);
+                iceCreamObject.serveIn[0].setAmount(0);
                 cup.setSelected(false);
                 cone.setSelected(true);
             } else {
-                iceCreamObject.setCone(false);
+                iceCreamObject.serveIn[1].setAmount(0);
                 cone.setSelected(false);
             }
         });
@@ -89,52 +89,52 @@ public class IceCreamMenuFragment extends Fragment{
         strawberry.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_s:
-                    iceCreamObject.setStrawberry(1);
+                    iceCreamObject.flavor[3].setAmount(1);
                     break;
                 case R.id.two_s:
-                    iceCreamObject.setStrawberry(2);
+                    iceCreamObject.flavor[3].setAmount(2);
                     break;
                 case R.id.three_s:
-                    iceCreamObject.setStrawberry(3);
+                    iceCreamObject.flavor[3].setAmount(3);
             }
         });
 
         chocolate.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_c:
-                    iceCreamObject.setChocolate(1);
+                    iceCreamObject.flavor[1].setAmount(1);
                     break;
                 case R.id.two_c:
-                    iceCreamObject.setChocolate(2);
+                    iceCreamObject.flavor[1].setAmount(2);
                     break;
                 case R.id.three_c:
-                    iceCreamObject.setChocolate(3);
+                    iceCreamObject.flavor[1].setAmount(3);
             }
         });
 
         vanilla.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_v:
-                    iceCreamObject.setVanilla(1);
+                    iceCreamObject.flavor[0].setAmount(1);
                     break;
                 case R.id.two_v:
-                    iceCreamObject.setVanilla(2);
+                    iceCreamObject.flavor[0].setAmount(2);
                     break;
                 case R.id.three_v:
-                    iceCreamObject.setVanilla(3);
+                    iceCreamObject.flavor[0].setAmount(3);
             }
         });
 
         pistachio.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_p:
-                    iceCreamObject.setPistachio(1);
+                    iceCreamObject.flavor[2].setAmount(1);
                     break;
                 case R.id.two_p:
-                    iceCreamObject.setPistachio(2);
+                    iceCreamObject.flavor[2].setAmount(2);
                     break;
                 case R.id.three_p:
-                    iceCreamObject.setPistachio(3);
+                    iceCreamObject.flavor[2].setAmount(3);
             }
         });
 
