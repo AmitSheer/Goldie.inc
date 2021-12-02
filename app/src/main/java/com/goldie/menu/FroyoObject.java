@@ -1,80 +1,121 @@
 package com.goldie.menu;
 
 public class FroyoObject {
-    private boolean small, medium, large, kiwi, peach, mango, blueberry, blackberry, strawberry; //cupSize[0]=small, cupSize[1]=meduim, cupSize[2]=large
+    public product[] cupSize;
+    public product[] flavor;
 
-    public FroyoObject(){
+    public FroyoObject() {
+        cupSize = new product[]{new smallCup(), new mediumCup(), new largeCup()};
+        flavor = new product[]{new kiwiFroyo(), new peachFroyo(), new mangoFroyo(),
+                new blueberryFroyo(), new strawberryFroyo(), new blackberryFroyo()};
+    };
+
+
+    private static class smallCup implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public smallCup() {
+            productName = "Small cup";
+            unitInStock = 1; //in stock
+            PricePerUnit = 3;
+        }
     }
 
-    public boolean isSmall() {
-        return small;
+    private static class mediumCup implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public mediumCup() {
+            productName = "Medium cup";
+            unitInStock = 1; //in stock
+            PricePerUnit = 4;
+        }
     }
 
-    public void setSmall(boolean small) {
-        this.small = small;
+    private static class largeCup implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public largeCup() {
+            productName = "Large cup";
+            unitInStock = 1; //in stock
+            PricePerUnit = 6;
+        }
     }
 
-    public boolean isMedium() {
-        return medium;
+    private static class kiwiFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public kiwiFroyo() {
+            productName = "Kiwi";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public void setMedium(boolean medium) {
-        this.medium = medium;
+    private static class peachFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public peachFroyo() {
+            productName = "Peach";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public boolean isLarge() {
-        return large;
+    private static class mangoFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public mangoFroyo() {
+            productName = "Mango";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public void setLarge(boolean large) {
-        this.large = large;
+    private static class blueberryFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public blueberryFroyo() {
+            productName = "Blueberry";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public boolean isKiwi() {
-        return kiwi;
+    private static class strawberryFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
+
+        public strawberryFroyo() {
+            productName = "Strawberry";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 
-    public void setKiwi(boolean kiwi) {
-        this.kiwi = kiwi;
-    }
+    private static class blackberryFroyo implements product {
+        String productName;
+        int unitInStock;
+        int PricePerUnit;
 
-    public boolean isPeach() {
-        return peach;
-    }
-
-    public void setPeach(boolean peach) {
-        this.peach = peach;
-    }
-
-    public boolean isMango() {
-        return mango;
-    }
-
-    public void setMango(boolean mango) {
-        this.mango = mango;
-    }
-
-    public boolean isBlueberry() {
-        return blueberry;
-    }
-
-    public void setBlueberry(boolean blueberry) {
-        this.blueberry = blueberry;
-    }
-
-    public boolean isBlackberry() {
-        return blackberry;
-    }
-
-    public void setBlackberry(boolean blackberry) {
-        this.blackberry = blackberry;
-    }
-
-    public boolean isStrawberry() {
-        return strawberry;
-    }
-
-    public void setStrawberry(boolean strawberry) {
-        this.strawberry = strawberry;
+        public blackberryFroyo() {
+            productName = "Blackberry";
+            unitInStock = 50;
+            PricePerUnit = 0;
+        }
     }
 }

@@ -1,3 +1,5 @@
+package com.goldie.menu;
+
 import com.goldie.menu.CrepeObject;
 import com.goldie.menu.FroyoObject;
 import com.goldie.menu.IceCreamObject;

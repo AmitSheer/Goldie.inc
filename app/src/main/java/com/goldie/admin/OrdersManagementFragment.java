@@ -38,7 +38,7 @@ public class OrdersManagementFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 //        expandableListView=view.findViewById(R.id.exp_list_view);
 //        for (int i = 0; i < 11; i++) {
-//            listGroup.add("Order "+i);
+//            listGroup.add("com.goldie.menu.Order "+i);
 //            ArrayList<String> arraylist=new ArrayList<>();
 //            for (int j = 0; j < 6; j++) {
 //                arraylist.add("Item"+j);
@@ -59,7 +59,7 @@ public class OrdersManagementFragment extends Fragment {
 //            public void onDataChange(DataSnapshot dataSnapshot) {
 //                for (int i=0;i<20;i++)
 //                    System.out.println("WHAT\n");
-//                Order order = dataSnapshot.getValue(Order.class);
+//                com.goldie.menu.Order order = dataSnapshot.getValue(com.goldie.menu.Order.class);
 //                Item temp=order.order_items.get(0);
 //                System.out.println("HEREEEEEEEEEEEEEE     \n\n\n\n\n\n"+temp._id+"_____  I AMMMMMMMM____");
 //
@@ -72,10 +72,10 @@ public class OrdersManagementFragment extends Fragment {
 //        });
 //    }
 //    void writeneworder(){
-//        Order test=new Order();
+//        com.goldie.menu.Order test=new com.goldie.menu.Order();
 //        List<Item> items = new ArrayList<>();
 //        items.add(new Item("Chocolate",5));
-//        Order ord=new Order(items,500);
+//        com.goldie.menu.Order ord=new com.goldie.menu.Order(items,500);
 //        ref.child("orders").child("500").setValue(ord);
 //    }
 //

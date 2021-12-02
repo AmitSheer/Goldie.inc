@@ -51,17 +51,29 @@
             android:id="@+id/crepeMenuFragment"
             android:name="com.goldie.menu.CrepeMenuFragment"
             android:label="Crepe Menu"
-            tools:layout="@layout/fragment_crepe_menu" />
+            tools:layout="@layout/fragment_crepe_menu" >
+            <action
+                android:id="@+id/action_crepeMenuFragment_to_menuFragment"
+                app:destination="@id/menuFragment" />
+        </fragment>
         <fragment
             android:id="@+id/waffleMenuFragment"
             android:name="com.goldie.menu.WaffleMenuFragment"
             android:label="Waffle Menu"
-            tools:layout="@layout/fragment_waffle_menu" />
+            tools:layout="@layout/fragment_waffle_menu" >
+            <action
+                android:id="@+id/action_waffleMenuFragment_to_menuFragment"
+                app:destination="@id/menuFragment" />
+        </fragment>
         <fragment
             android:id="@+id/iceCreamMenuFragment"
             android:name="com.goldie.menu.IceCreamMenuFragment"
             android:label="Iceream Menu"
-            tools:layout="@layout/fragment_iceream_menu" />
+            tools:layout="@layout/fragment_iceream_menu" >
+            <action
+                android:id="@+id/action_iceCreamMenuFragment_to_menuFragment"
+                app:destination="@id/menuFragment" />
+        </fragment>
         <fragment
             android:id="@+id/menuFragment"
             android:name="com.goldie.menu.MenuFragment"
@@ -84,7 +96,11 @@
             android:id="@+id/froyoMenuFragment"
             android:name="com.goldie.menu.FroyoMenuFragment"
             android:label="Froyo Menu"
-            tools:layout="@layout/fragment_froyo_menu" />
+            tools:layout="@layout/fragment_froyo_menu" >
+            <action
+                android:id="@+id/action_froyoMenuFragment_to_menuFragment"
+                app:destination="@id/menuFragment" />
+        </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.goldie.account.AccountFragment"

@@ -1,7 +1,7 @@
 package com.goldie.shoppingcart;
 
     /**
-     * This class Contains information on a single item inside an Order of a costumer, it contains the Item name, the amount of units purchased of this product, and price per unit.
+     * This class Contains information on a single item inside an com.goldie.menu.Order of a costumer, it contains the Item name, the amount of units purchased of this product, and price per unit.
      * The class members are: Item as item name, amount - amount of purchased units for this item, and the price for one unit.
      * This class can: Create a product, get a product price, set a product price, set a product amount, get an item name, and get the product amount.
      */
@@ -25,8 +25,8 @@ package com.goldie.shoppingcart;
         public productOrder(){}
 
         /**
-         * Constructor specifically for Order class, this constructor creates a new productOrder
-         * in case there is no such productOrder in the Order Arraylist Member of Order.
+         * Constructor specifically for com.goldie.menu.Order class, this constructor creates a new productOrder
+         * in case there is no such productOrder in the com.goldie.menu.Order Arraylist Member of com.goldie.menu.Order.
          */
         public productOrder(String itemName, int amount, double price) {
             this.itemName = itemName;
@@ -35,7 +35,7 @@ package com.goldie.shoppingcart;
         }
 
         /**
-         * Copy constructor for a given Order
+         * Copy constructor for a given com.goldie.menu.Order
          * @params product - an existing productOrder node
          */
         public productOrder(productOrder product) {

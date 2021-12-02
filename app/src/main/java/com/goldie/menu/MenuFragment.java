@@ -1,5 +1,4 @@
 package com.goldie.menu;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -11,7 +10,6 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
-import com.google.firestore.v1.StructuredQuery;
 
 
 public class MenuFragment extends Fragment {
@@ -44,5 +42,23 @@ public class MenuFragment extends Fragment {
             Navigation.findNavController(view).navigate(action);
         });
     }
+//    public void openIceCreamPage(){
+//        Intent intent = new Intent(this, IceCreamMenuFragment.class);
+//        startActivity(intent);
+//    }
+//
+//    public void openWafflePage(){
+//        Intent intent = new Intent(this, waffle_menu.class);
+//        startActivity(intent);
+//    }
+//    public void openCrepePage(){
+//        Intent intent = new Intent(this, crepe_menu.class);
+//        startActivity(intent);
+//    }
+//
+//    public void openFroyoPage(){
+//        Intent intent = new Intent(this, FroyoMenuFragment.class);
+//        startActivity(intent);
+//    }
 
     }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
     /**
      * This class manages order as an finished order that is ready to be sent\pulled from Firebase DB.
-     * The class members are: userID String (Firebase UID of the user purchasing the current Order),
+     * The class members are: userID String (Firebase UID of the user purchasing the current com.goldie.menu.Order),
      * TotalOrder cost and Array-List of productOrder Class holding the Item, amount and price
      * for each and every item on the current order.
      * This class can(Methods): create an finished order, set User UID, add (or fill) products to the current order,
@@ -22,7 +22,7 @@ import java.util.ArrayList;
         }
 
         /**
-         * Constructor for Order Class
+         * Constructor for com.goldie.menu.Order Class
          * @param userUID Name of the user making the order.
          */
         public Order(String userUID) {
@@ -32,9 +32,9 @@ import java.util.ArrayList;
         }
 
         /**
-         * A copy constructor, input is an existing Order class Node,
-         * a copy if Order class is created.
-         * @param order Input the Order node to create.
+         * A copy constructor, input is an existing com.goldie.menu.Order class Node,
+         * a copy if com.goldie.menu.Order class is created.
+         * @param order Input the com.goldie.menu.Order node to create.
          */
         public Order(Order order) {
             this.userUID = order.userUID;
@@ -58,15 +58,15 @@ import java.util.ArrayList;
         }
 
         /**
-         * Use to get the Total Order Price.
-         * @return Returns the Total Order Price.
+         * Use to get the Total com.goldie.menu.Order Price.
+         * @return Returns the Total com.goldie.menu.Order Price.
          */
         public double getTotalPrice() {
             return totalPrice;
         }
 
         /**
-         * Sets the price of the Order,
+         * Sets the price of the com.goldie.menu.Order,
          * so that the total price is updated.
          */
         public void setTotalPrice(double price) {
