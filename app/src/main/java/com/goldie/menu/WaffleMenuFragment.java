@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class WaffleMenuFragment extends Fragment {
 
-    WaffleObject waffleObject;
+    WaffleObject waffleObject = new WaffleObject();
     ImageButton classic,coffee,butter,chocolate;
     Button apply;
     boolean something_checked=false;
@@ -47,13 +47,13 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.waffles[0].setAmount(1);
+                    waffleObject.waffles.get(0).setAmount(1);
                     checkActionOpen = true;
                     classic.setSelected(true);
                     something_checked=true;
                 }
                 else {
-                    waffleObject.waffles[0].setAmount(0);
+                    waffleObject.waffles.get(0).setAmount(0);
                     checkActionOpen = false;
                     something_checked=false;
                     classic.setSelected(false);
@@ -66,13 +66,13 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.waffles[1].setAmount(1);
+                    waffleObject.waffles.get(1).setAmount(1);
                     checkActionOpen = true;
                     something_checked=true;
                     coffee.setSelected(true);
                 }
                 else {
-                    waffleObject.waffles[1].setAmount(0);
+                    waffleObject.waffles.get(1).setAmount(0);
                     checkActionOpen = false;
                     something_checked=false;
                     coffee.setSelected(false);
@@ -85,13 +85,13 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.waffles[2].setAmount(1);
+                    waffleObject.waffles.get(2).setAmount(1);
                     checkActionOpen = true;
                     something_checked=true;
                     butter.setSelected(true);
                 }
                 else {
-                    waffleObject.waffles[2].setAmount(0);
+                    waffleObject.waffles.get(2).setAmount(0);
                     checkActionOpen = false;
                     something_checked=false;
                     butter.setSelected(false);
@@ -104,13 +104,13 @@ public class WaffleMenuFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (!checkActionOpen) {
-                    waffleObject.waffles[3].setAmount(1);
+                    waffleObject.waffles.get(3).setAmount(1);
                     checkActionOpen = true;
                     something_checked=true;
                     chocolate.setSelected(true);
                 }
                 else {
-                    waffleObject.waffles[3].setAmount(0);
+                    waffleObject.waffles.get(3).setAmount(0);
                     checkActionOpen = false;
                     something_checked=false;
                     chocolate.setSelected(false);
@@ -120,7 +120,8 @@ public class WaffleMenuFragment extends Fragment {
 
         apply.setOnClickListener(v -> {
             if (something_checked) {
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders")
+                        .child("1").child("Waffle").push();
                 refNewOrder.setValue(waffleObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
