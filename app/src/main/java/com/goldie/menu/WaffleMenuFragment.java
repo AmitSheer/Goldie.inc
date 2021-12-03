@@ -119,14 +119,14 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
         apply.setOnClickListener(v -> {
             if (something_checked) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("1").child("Waffle").push();
+                        child("User1").child("Waffle").push();
                 refNewOrder.setValue(waffleObject);
-                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
             }
             else{
-                Toast.makeText(requireActivity().getApplicationContext(), "Please choose product!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please choose product!", Toast.LENGTH_SHORT).show();
             }
         });
 

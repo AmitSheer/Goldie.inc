@@ -394,18 +394,18 @@ public class FroyoMenuFragment extends Fragment {
         apply.setOnClickListener(v -> {
             if (large.isSelected()||medium.isSelected()||small.isSelected()&&something_checked){
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("1").child("Froyo").push();
+                        child("User1").child("Froyo").push();
                 refNewOrder.setValue(froyoObject);
-                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
             }
             else if (!something_checked){
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
             }
             else if (!large.isSelected()&&!medium.isSelected()&&!small.isSelected())
             {
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_SHORT).show();
             }
         });
     }

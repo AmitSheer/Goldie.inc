@@ -15,6 +15,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.shoppingcart.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -187,14 +188,14 @@ public class CrepeMenuFragment extends Fragment {
         apply.setOnClickListener(view111 -> {
             if (black.isSelected() || white.isSelected()) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("1").child("Crepe").push();
+                        child("User1").child("Crepe").push();
                 refNewOrder.setValue(crepeObject);
-                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
             }
             else{
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick type of chocolate!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick type of chocolate!", Toast.LENGTH_SHORT).show();
             }
         });
     }
