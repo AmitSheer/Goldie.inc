@@ -1,17 +1,17 @@
 package com.goldie.menu;
 
-import com.goldie.shoppingcart.product;
+import com.goldie.shoppingcart.Product;
 
 public class IceCreamObject {
-    public product[] serveIn;
-    public product[] flavor;
+    public Product[] serveIn;
+    public Product[] flavor;
 
     public IceCreamObject() {
-        serveIn = new product[]{new product("Ice cream cup", 0, 0, 1), /*1=in stock*/
-                new product("Ice cream cone", 0, 0, 1)}; /*1=in stock*/
-        flavor = new product[]{new product("Vanilla ice cream", 0, 1, 50),
-                new product("Chocolate ice cream", 0, 1, 50),
-                new product("Pistachio ice cream", 0, 1, 50),
-                new product("Strawberry ice cream", 0, 1, 50)};
+        serveIn = new Product[]{new Product("Ice cream cup", 0, 0, 1), /*1=in stock*/
+                new Product("Ice cream cone", 0, 0, 1)}; /*1=in stock*/
+        flavor = new Product[]{new Product("Vanilla ice cream", 0, 1, 50),
+                new Product("Chocolate ice cream", 0, 1, 50),
+                new Product("Pistachio ice cream", 0, 1, 50),
+                new Product("Strawberry ice cream", 0, 1, 50)};
     }
 }
