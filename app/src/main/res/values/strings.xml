@@ -61,4 +61,7 @@
     <string name="go_back_to_menu">Go back to menu</string>
     <string name="keep_shopping">Keep shopping</string>
     <string name="edit_order_and_pay">edit order and pay</string>
+    <string name="up_to_3_topping">*up to 3 topping</string>
+    <string name="up_to_3_scoops">up to 3 scoops</string>
+    <string name="up_to_3_scoops_">*up to 3 scoops</string>
 </resources>

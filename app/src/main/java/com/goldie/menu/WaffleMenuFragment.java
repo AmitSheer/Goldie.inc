@@ -40,82 +40,133 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
         apply = view.findViewById(R.id.applyInWaffle);
 
 
-        classic.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.wafflesTypes.get(0).setAmount(1);
-                    checkActionOpen = true;
-                    classic.setSelected(true);
-                    something_checked=true;
-                }
-                else {
-                    waffleObject.wafflesTypes.get(0).setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    classic.setSelected(false);
-                }
+        classic.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                something_checked=true;
+            }
+            else if(!classic.isSelected()&& coffee.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!classic.isSelected()&& butter.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else if(!classic.isSelected()&& chocolate.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+                something_checked=false;
             }
         });
 
-        coffee.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.wafflesTypes.get(1).setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    coffee.setSelected(true);
-                }
-                else {
-                    waffleObject.wafflesTypes.get(1).setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    coffee.setSelected(false);
-                }
+        coffee.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                something_checked=true;
+            }
+            else if(!coffee.isSelected()&& classic.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!coffee.isSelected()&& butter.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else if(!coffee.isSelected()&& chocolate.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+                something_checked=false;
             }
         });
 
-        butter.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.wafflesTypes.get(2).setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    butter.setSelected(true);
-                }
-                else {
-                    waffleObject.wafflesTypes.get(2).setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    butter.setSelected(false);
-                }
+        butter.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                something_checked=true;
+            }
+            else if(!butter.isSelected()&& classic.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!butter.isSelected()&& coffee.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!butter.isSelected()&& chocolate.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+                something_checked=false;
             }
         });
 
-        chocolate.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.wafflesTypes.get(3).setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    chocolate.setSelected(true);
-                }
-                else {
-                    waffleObject.wafflesTypes.get(3).setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    chocolate.setSelected(false);
-                }
+        chocolate.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                something_checked=true;
+            }
+            else if(!chocolate.isSelected()&& classic.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!chocolate.isSelected()&& coffee.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!chocolate.isSelected()&& butter.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else {
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+                something_checked=false;
             }
         });
-
         apply.setOnClickListener(v -> {
             if (something_checked) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
