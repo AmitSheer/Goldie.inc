@@ -150,19 +150,23 @@ public class IceCreamMenuFragment extends Fragment {
             switch (checkedId) {
                 case R.id.one_p:
                     iceCreamObject.flavor.get(2).setAmount(1);
+                    something_checked=true;
                     break;
                 case R.id.two_p:
                     iceCreamObject.flavor.get(2).setAmount(2);
+                    something_checked=true;
                     break;
                 case R.id.three_p:
                     iceCreamObject.flavor.get(2).setAmount(3);
+                    something_checked=true;
             }
         });
 
         apply.setOnClickListener(v -> {
             if ((cup.isSelected() || cone.isSelected())&&something_checked){
 //add id before "ice cream"
-                    DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").child("1").child("Ice cream").push();
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child("1").child("Ice cream").push();
                     refNewOrder.setValue(iceCreamObject);
                     Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
                     NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();

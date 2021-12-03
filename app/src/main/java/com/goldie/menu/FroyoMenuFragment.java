@@ -393,7 +393,8 @@ public class FroyoMenuFragment extends Fragment {
 
         apply.setOnClickListener(v -> {
             if (large.isSelected()||medium.isSelected()||small.isSelected()&&something_checked){
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").child("1").child("Frozen yogurt").push();
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child("1").child("Froyo").push();
                 refNewOrder.setValue(froyoObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
