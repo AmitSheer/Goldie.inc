@@ -392,7 +392,7 @@ public class FroyoMenuFragment extends Fragment {
         });
 
         apply.setOnClickListener(v -> {
-            if (large.isSelected()||medium.isSelected()||small.isSelected()&&something_checked){
+            if ((large.isSelected()||medium.isSelected()||small.isSelected())&&something_checked){
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
                         child("User1").child("Froyo").push();
                 refNewOrder.setValue(froyoObject);
