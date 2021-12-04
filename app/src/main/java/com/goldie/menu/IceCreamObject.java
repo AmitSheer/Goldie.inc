@@ -18,4 +18,14 @@ public class IceCreamObject implements Serializable {
                 new Product("Pistachio ice cream", 0, 1, 50),
                 new Product("Strawberry ice cream", 0, 1, 50));
     }
+
+    // Copy Constructor
+    public IceCreamObject(IceCreamObject value) {
+        this.flavor = value.flavor;
+        this.serveIn = value.serveIn;
+    }
+
+    public String getClassName() {
+        return "Ice Cream";
+    }
 }

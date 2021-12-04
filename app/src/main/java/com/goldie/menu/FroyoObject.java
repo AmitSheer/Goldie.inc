@@ -23,6 +23,15 @@ public class FroyoObject implements Serializable {
                 new Product("Blackberry froyo", 0, 0, 50));
     }
 
-    ;
+    // Copy Constructor
+    public FroyoObject(FroyoObject value) {
+        this.cupSize = value.cupSize;
+        this.flavor = value.flavor;
+    }
+
+    public String getClassName() {
+        return "Froyo";
+    }
+
 
 }

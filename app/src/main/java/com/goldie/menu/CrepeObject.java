@@ -23,4 +23,14 @@ public class CrepeObject implements Serializable {
                 new Product("Dark Chocolate Topping", 0, 1, 1), /*1=in stock*/
                 new Product("White Chocolate Topping", 0, 1, 1) /*1=in stock*/);
     }
+
+    // Copy Constructor
+    public CrepeObject(CrepeObject value) {
+        this.chocolateType = value.chocolateType;
+        this.toppings = value.toppings;
+    }
+
+    public String getClassName() {
+        return "Crepe";
+    }
 }

@@ -110,4 +110,8 @@ public class Product {
     public void setUnitsInStock(int unitsInStock) {
         this.unitsInStock = unitsInStock;
     }
+
+    public String printProduct() {
+        return this.itemName + this.amount + this.price;
+    }
 }
