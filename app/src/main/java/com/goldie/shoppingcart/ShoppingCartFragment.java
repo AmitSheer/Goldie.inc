@@ -1,9 +1,13 @@
 package com.goldie.shoppingcart;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.goldie.R;
+import com.goldie.menu.IceCreamObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * This class is representing the Entire Order that the user have made.
@@ -38,22 +43,24 @@ public class ShoppingCartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        refOrders = FirebaseDatabase.getInstance().getReference("Orders");
+        refOrders = FirebaseDatabase.getInstance().getReference("Orders").child("User1");
+        ArrayList<String> orderInfoList = new ArrayList<>();
+        TextView productsList = view.findViewById(R.id.TextViewProductsList);
 
         // Listener to fetch order from fb
         ValueEventListener postListener = new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                // map of uid (order number unique id), Order (class)
-                Map<String, Order> allOrders = (Map<String, Order>) snapshot.getValue();
-                Order order;
-
-                for (Map.Entry<String, Order> currentOrder : allOrders.entrySet()) {
-                    order = currentOrder.getValue();
-                    if (order.getUserUID().equals(orderUID)) {
-                        clientOrder.add(order);
-                        break;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    IceCreamObject iceCreamClass = new IceCreamObject(Objects.requireNonNull(ds.getValue(IceCreamObject.class)));
+                    String newOrder = "";
+                    newOrder += iceCreamClass.getClassName() + "\n";
+                    productsList.setText(newOrder);
+                    int sizeOfFlavorList = iceCreamClass.flavor.size();
+                    int sizeOfServeInList = iceCreamClass.serveIn.size();
+                    for (int i = 0; i < sizeOfFlavorList; i++) {
+                        Product flavorProduct = new Product(iceCreamClass.flavor.get(i));
                     }
                 }
             };
@@ -62,6 +69,7 @@ public class ShoppingCartFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         };
+        refOrders.addValueEventListener(postListener);
 
         ValueEventListener eventListener = new ValueEventListener() {
 
@@ -70,21 +78,6 @@ public class ShoppingCartFragment extends Fragment {
 
                 Order currOrder = new Order(snapShot.getValue(Order.class));
 
-//               final LinearLayout viewLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
-//               LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-//                       LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//               params.setMargins(0, 0, 0, 20);
-//
-//               ArrayList<Button> addButtons = new ArrayList<>();
-//               ArrayList<Button> subButtons = new ArrayList<>();
-//               ArrayList<EditText> amountOfProduct = new ArrayList<>();
-//
-//                LinearLayout layout = new LinearLayout(view.getContext());
-//                layout.setOrientation(LinearLayout.VERTICAL);
-//
-//                TextView productName = new TextView(view.getContext());
-//                productName.setText("Product name: " + clientOrder.getName());
-//                ll.addView(productName)
             }
 
             @Override

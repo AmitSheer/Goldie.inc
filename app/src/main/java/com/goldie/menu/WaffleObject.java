@@ -15,4 +15,13 @@ public class WaffleObject implements Serializable {
                 new Product("Butter Waffle", 0, 10, 50),
                 new Product("Chocolate Waffle", 0, 10, 50));
     }
+
+    // Copy Constructor
+    public WaffleObject(WaffleObject value) {
+        this.wafflesTypes = value.wafflesTypes;
+    }
+
+    public String getClassName() {
+        return "Waffle";
+    }
 }
