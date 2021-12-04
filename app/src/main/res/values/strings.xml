@@ -64,4 +64,7 @@
     <string name="up_to_3_topping">*up to 3 topping</string>
     <string name="up_to_3_scoops">up to 3 scoops</string>
     <string name="up_to_3_scoops_">*up to 3 scoops</string>
+    <string name="chocolate1">Chocolate</string>
+    <string name="toppings">toppings</string>
+    <string name="flavors">Flavors</string>
 </resources>
