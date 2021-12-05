@@ -1,6 +1,5 @@
 package com.goldie.menu;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,18 +8,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.account.data.UserData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WaffleMenuFragment extends Fragment {
+public class WaffleMenuFragment extends Fragment { //change to pick just one
 
-    WaffleObject waffleObject;
+    WaffleObject waffleObject = new WaffleObject();
     ImageButton classic,coffee,butter,chocolate;
     Button apply;
     boolean something_checked=false;
@@ -42,92 +41,144 @@ public class WaffleMenuFragment extends Fragment {
         apply = view.findViewById(R.id.applyInWaffle);
 
 
-        classic.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.waffles[0].setAmount(1);
-                    checkActionOpen = true;
-                    classic.setSelected(true);
-                    something_checked=true;
-                }
-                else {
-                    waffleObject.waffles[0].setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    classic.setSelected(false);
-                }
+        classic.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                something_checked=true;
+            }
+            else if(!classic.isSelected()&& coffee.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!classic.isSelected()&& butter.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else if(!classic.isSelected()&& chocolate.isSelected()){
+                classic.setSelected(true);
+                waffleObject.wafflesTypes.get(0).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+                something_checked=false;
             }
         });
 
-        coffee.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.waffles[1].setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    coffee.setSelected(true);
-                }
-                else {
-                    waffleObject.waffles[1].setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    coffee.setSelected(false);
-                }
+        coffee.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                something_checked=true;
+            }
+            else if(!coffee.isSelected()&& classic.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!coffee.isSelected()&& butter.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else if(!coffee.isSelected()&& chocolate.isSelected()){
+                coffee.setSelected(true);
+                waffleObject.wafflesTypes.get(1).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+                something_checked=false;
             }
         });
 
-        butter.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.waffles[2].setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    butter.setSelected(true);
-                }
-                else {
-                    waffleObject.waffles[2].setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    butter.setSelected(false);
-                }
+        butter.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                something_checked=true;
+            }
+            else if(!butter.isSelected()&& classic.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!butter.isSelected()&& coffee.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!butter.isSelected()&& chocolate.isSelected()){
+                butter.setSelected(true);
+                waffleObject.wafflesTypes.get(2).setAmount(1);
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+            }
+            else {
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+                something_checked=false;
             }
         });
 
-        chocolate.setOnClickListener(new View.OnClickListener() {
-            boolean checkActionOpen = false;
-            @Override
-            public void onClick(View view) {
-                if (!checkActionOpen) {
-                    waffleObject.waffles[3].setAmount(1);
-                    checkActionOpen = true;
-                    something_checked=true;
-                    chocolate.setSelected(true);
-                }
-                else {
-                    waffleObject.waffles[3].setAmount(0);
-                    checkActionOpen = false;
-                    something_checked=false;
-                    chocolate.setSelected(false);
-                }
+        chocolate.setOnClickListener(view13 -> {
+            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
+                    &&!butter.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                something_checked=true;
+            }
+            else if(!chocolate.isSelected()&& classic.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                classic.setSelected(false);
+                waffleObject.wafflesTypes.get(0).setAmount(0);
+            }
+            else if(!chocolate.isSelected()&& coffee.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                coffee.setSelected(false);
+                waffleObject.wafflesTypes.get(1).setAmount(0);
+            }
+            else if(!chocolate.isSelected()&& butter.isSelected()){
+                chocolate.setSelected(true);
+                waffleObject.wafflesTypes.get(3).setAmount(1);
+                butter.setSelected(false);
+                waffleObject.wafflesTypes.get(2).setAmount(0);
+            }
+            else {
+                chocolate.setSelected(false);
+                waffleObject.wafflesTypes.get(3).setAmount(0);
+                something_checked=false;
             }
         });
-
         apply.setOnClickListener(v -> {
             if (something_checked) {
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child(UserData.Uid).child("Waffle").push();
                 refNewOrder.setValue(waffleObject);
-                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
             }
             else{
-                Toast.makeText(requireActivity().getApplicationContext(), "Please choose product!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please choose product!", Toast.LENGTH_SHORT).show();
             }
         });
 

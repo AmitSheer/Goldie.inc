@@ -20,6 +20,9 @@ public class FirebaseAdapter {
     @SuppressLint("StaticFieldLeak")
     static FirebaseFirestore fDb = FirebaseFirestore.getInstance();
 
+    public static Task<DocumentSnapshot> UpdateUserData(){
+        return UpdateUserData(fAuth.getCurrentUser().getEmail());
+    }
 
     public static Task<DocumentSnapshot> UpdateUserData(String email){
         DocumentReference docRef = fDb.collection("users").document(email);
@@ -30,9 +33,11 @@ public class FirebaseAdapter {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        UserData.Email = email;
                         UserData.FullName = document.getString("fullname");
                         UserData.IsAdmin = document.getBoolean("isAdmin");
                         UserData.Phone = document.getString("phone");
+                        UserData.Uid = document.getString("uid");
                     } else {
                         Log.d(TAG, "No such document");
                     }

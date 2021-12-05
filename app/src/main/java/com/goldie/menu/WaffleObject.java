@@ -1,14 +1,27 @@
 package com.goldie.menu;
 
-import com.goldie.shoppingcart.product;
+import com.goldie.shoppingcart.Product;
 
-public class WaffleObject {
-    public product[] waffles;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
+public class WaffleObject implements Serializable {
+    public List<Product> wafflesTypes;
 
     public WaffleObject() {
-        waffles = new product[]{new product("Classic Waffle", 0, 8, 50),
-                new product("Coffee Waffle", 0, 9, 50),
-                new product("Butter Waffle", 0, 10, 50),
-                new product("Chocolate Waffle", 0, 10, 50)};
+        wafflesTypes = Arrays.asList(new Product("Classic Waffle", 0, 8, 50),
+                new Product("Coffee Waffle", 0, 9, 50),
+                new Product("Butter Waffle", 0, 10, 50),
+                new Product("Chocolate Waffle", 0, 10, 50));
+    }
+
+    // Copy Constructor
+    public WaffleObject(WaffleObject value) {
+        this.wafflesTypes = value.wafflesTypes;
+    }
+
+    public String getClassName() {
+        return "Waffle";
     }
 }

@@ -17,19 +17,21 @@ import androidx.navigation.Navigation;
 
 import com.goldie.MainActivity;
 import com.goldie.R;
+import com.goldie.account.data.UserData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
-public class IceCreamMenuFragment extends Fragment{
+public class IceCreamMenuFragment extends Fragment {
 
-    IceCreamObject iceCreamObject;
+    IceCreamObject iceCreamObject = new IceCreamObject();
     RadioButton one_s, two_s, three_s, one_c, two_c, three_c, one_v, two_v, three_v, one_p, two_p, three_p;
     ImageButton cup, cone;
     RadioGroup strawberry, chocolate, vanilla, pistachio;
     Button apply;
-    boolean something_checked= false;
+    int chocolateNum=0, strawberryNum=0, pistachioNum=0, vanillaNum=0;
+
 
     public IceCreamMenuFragment() {
         super(R.layout.fragment_iceream_menu);
@@ -68,30 +70,30 @@ public class IceCreamMenuFragment extends Fragment{
 
         cup.setOnClickListener(view1 -> {
             if (!cup.isSelected() && !cone.isSelected()) {
-                iceCreamObject.serveIn[0].setAmount(1);
+                iceCreamObject.serveIn.get(0).setAmount(1);
                 cup.setSelected(true);
             } else if (!cup.isSelected() && cone.isSelected()) {
-                iceCreamObject.serveIn[0].setAmount(1);
-                iceCreamObject.serveIn[1].setAmount(0);
+                iceCreamObject.serveIn.get(0).setAmount(1);
+                iceCreamObject.serveIn.get(1).setAmount(0);
                 cone.setSelected(false);
                 cup.setSelected(true);
             } else {
-                iceCreamObject.serveIn[0].setAmount(0);
+                iceCreamObject.serveIn.get(0).setAmount(0);
                 cup.setSelected(false);
             }
         });
 
         cone.setOnClickListener(view1 -> {
             if (!cone.isSelected() && !cup.isSelected()) {
-                iceCreamObject.serveIn[1].setAmount(1);
+                iceCreamObject.serveIn.get(1).setAmount(1);
                 cone.setSelected(true);
             } else if (!cone.isSelected() && cup.isSelected()) {
-                iceCreamObject.serveIn[1].setAmount(1);
-                iceCreamObject.serveIn[0].setAmount(0);
+                iceCreamObject.serveIn.get(1).setAmount(1);
+                iceCreamObject.serveIn.get(0).setAmount(0);
                 cup.setSelected(false);
                 cone.setSelected(true);
             } else {
-                iceCreamObject.serveIn[1].setAmount(0);
+                iceCreamObject.serveIn.get(1).setAmount(0);
                 cone.setSelected(false);
             }
         });
@@ -99,81 +101,94 @@ public class IceCreamMenuFragment extends Fragment{
         strawberry.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_s:
-                    iceCreamObject.flavor[3].setAmount(1);
-                    something_checked=true;
+                        strawberryNum=1;
+                        iceCreamObject.flavor.get(3).setAmount(1);
                     break;
                 case R.id.two_s:
-                    iceCreamObject.flavor[3].setAmount(2);
-                    something_checked=true;
+                        strawberryNum=2;
+                        iceCreamObject.flavor.get(3).setAmount(2);
                     break;
                 case R.id.three_s:
-                    iceCreamObject.flavor[3].setAmount(3);
-                    something_checked=true;
+                        strawberryNum=3;
+                        iceCreamObject.flavor.get(3).setAmount(3);
+                    break;
             }
         });
 
         chocolate.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_c:
-                    iceCreamObject.flavor[1].setAmount(1);
-                    something_checked=true;
+                        iceCreamObject.flavor.get(1).setAmount(1);
+                        chocolateNum = 1;
                     break;
                 case R.id.two_c:
-                    iceCreamObject.flavor[1].setAmount(2);
-                    something_checked=true;
+                        iceCreamObject.flavor.get(1).setAmount(2);
+                        chocolateNum = 2;
                     break;
                 case R.id.three_c:
-                    iceCreamObject.flavor[1].setAmount(3);
-                    something_checked=true;
+                        chocolateNum=3;
+                        iceCreamObject.flavor.get(1).setAmount(3);
+                    break;
             }
         });
 
         vanilla.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_v:
-                    iceCreamObject.flavor[0].setAmount(1);
-                    something_checked=true;
+                        vanillaNum=1;
+                        iceCreamObject.flavor.get(0).setAmount(1);
+
                     break;
                 case R.id.two_v:
-                    iceCreamObject.flavor[0].setAmount(2);
-                    something_checked=true;
+                        vanillaNum=2;
+                        iceCreamObject.flavor.get(0).setAmount(2);
+
                     break;
                 case R.id.three_v:
-                    iceCreamObject.flavor[0].setAmount(3);
-                    something_checked=true;
+                        vanillaNum=3;
+                        iceCreamObject.flavor.get(0).setAmount(3);
+                    break;
             }
         });
 
         pistachio.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_p:
-                    iceCreamObject.flavor[2].setAmount(1);
+                        pistachioNum=1;
+                        iceCreamObject.flavor.get(2).setAmount(1);
                     break;
                 case R.id.two_p:
-                    iceCreamObject.flavor[2].setAmount(2);
+                        pistachioNum=2;
+                        iceCreamObject.flavor.get(2).setAmount(2);
+
                     break;
                 case R.id.three_p:
-                    iceCreamObject.flavor[2].setAmount(3);
+                        pistachioNum=3;
+                        iceCreamObject.flavor.get(2).setAmount(3);
+                    break;
             }
         });
 
         apply.setOnClickListener(v -> {
-            if ((cup.isSelected() || cone.isSelected())&&something_checked){
-                    DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+            int total=chocolateNum+vanillaNum+strawberryNum+pistachioNum;
+            if ((cup.isSelected() || cone.isSelected())&&(total>0&&total<=3)){
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child("User1").child("Ice cream").push();
                     refNewOrder.setValue(iceCreamObject);
-                    Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                     NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();
                     Navigation.findNavController(view).navigate(action);
                 }
-            else if (!something_checked){
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_LONG).show();
+            else if (total==0){
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
+            }
+            else if (total>3){
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
             }
             else if (!cup.isSelected()&&!cone.isSelected()){
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup or cone!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup or cone!", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
-
-
 }

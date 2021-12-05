@@ -9,6 +9,21 @@
     android:background="@drawable/back"
     tools:context=".menu.IceCreamMenuFragment">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/up_to_3_scoops_"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/stra"
@@ -53,23 +68,23 @@
         android:id="@+id/cupOrCone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="@font/kelly_coin"
         android:text="@string/cup_or_cone"
         android:textColor="@color/black"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.015"
+        app:layout_constraintVertical_bias="0.02"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/straw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="@font/kelly_coin"
         android:text="@string/strawberry"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -85,7 +100,7 @@
         android:id="@+id/Pistachio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="@font/kelly_coin"
         android:text="@string/pistachio"
         android:textColor="@color/black"
         android:textSize="25sp"
@@ -102,7 +117,7 @@
         android:id="@+id/vanilla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="@font/kelly_coin"
         android:text="@string/vanilla"
         android:textColor="@color/black"
         android:textSize="27sp"
@@ -118,7 +133,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="@font/kelly_coin"
         android:text="@string/chocolate"
         android:textColor="@color/black"
         android:textSize="27sp"
@@ -141,7 +156,7 @@
         app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119"
+        app:layout_constraintVertical_bias="0.091"
         app:srcCompat="@drawable/cone_btn"
         tools:ignore="MissingConstraints" />
 
@@ -153,10 +168,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintHorizontal_bias="0.429"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.143"
+        app:layout_constraintVertical_bias="0.114"
         app:srcCompat="@drawable/cup_btn"
         tools:ignore="MissingConstraints" />
 

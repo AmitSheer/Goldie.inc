@@ -1,17 +1,31 @@
 package com.goldie.menu;
 
-import com.goldie.shoppingcart.product;
+import com.goldie.shoppingcart.Product;
 
-public class IceCreamObject {
-    public product[] serveIn;
-    public product[] flavor;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+
+public class IceCreamObject implements Serializable {
+    public List<Product> serveIn;
+    public List<Product> flavor;
 
     public IceCreamObject() {
-        serveIn = new product[]{new product("Ice cream cup", 0, 0, 1), /*1=in stock*/
-                new product("Ice cream cone", 0, 0, 1)}; /*1=in stock*/
-        flavor = new product[]{new product("Vanilla ice cream", 0, 1, 50),
-                new product("Chocolate ice cream", 0, 1, 50),
-                new product("Pistachio ice cream", 0, 1, 50),
-                new product("Strawberry ice cream", 0, 1, 50)};
+        serveIn = Arrays.asList(new Product("Ice cream cup", 0, 0, 1), /*1=in stock*/
+                new Product("Ice cream cone", 0, 0, 1)); /*1=in stock*/
+        flavor = Arrays.asList(new Product("Vanilla ice cream", 0, 1, 50),
+                new Product("Chocolate ice cream", 0, 1, 50),
+                new Product("Pistachio ice cream", 0, 1, 50),
+                new Product("Strawberry ice cream", 0, 1, 50));
+    }
+
+    // Copy Constructor
+    public IceCreamObject(IceCreamObject value) {
+        this.flavor = value.flavor;
+        this.serveIn = value.serveIn;
+    }
+
+    public String getClassName() {
+        return "Ice Cream";
     }
 }

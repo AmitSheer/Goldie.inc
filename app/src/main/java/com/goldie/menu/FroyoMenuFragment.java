@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FroyoMenuFragment extends Fragment {
 
-    FroyoObject froyoObject;
+    FroyoObject froyoObject =new FroyoObject();
     Button apply;
     ImageButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
     boolean something_checked= false;
@@ -50,80 +50,80 @@ public class FroyoMenuFragment extends Fragment {
         small.setOnClickListener(view1 -> {
             if (!small.isSelected() && !medium.isSelected() && !large.isSelected()) {
                 small.setSelected(true);
-                froyoObject.cupSize[0].setAmount(1);
+                froyoObject.cupSize.get(0).setAmount(1);
             }
 
             else if (!small.isSelected() && medium.isSelected() ) {
                 medium.setSelected(false);
-                froyoObject.cupSize[1].setAmount(0);
+                froyoObject.cupSize.get(1).setAmount(0);
                 small.setSelected(true);
-                froyoObject.cupSize[0].setAmount(1);
+                froyoObject.cupSize.get(0).setAmount(1);
             }
 
             else if (!small.isSelected() && large.isSelected() ) {
                 large.setSelected(false);
-                froyoObject.cupSize[2].setAmount(0);
+                froyoObject.cupSize.get(2).setAmount(0);
                 small.setSelected(true);
-                froyoObject.cupSize[0].setAmount(1);
+                froyoObject.cupSize.get(0).setAmount(1);
             }
 
             else {
                 small.setSelected(false);
-                froyoObject.cupSize[0].setAmount(0);
+                froyoObject.cupSize.get(0).setAmount(0);
             }
         });
 
         medium.setOnClickListener(view1 -> {
             if (!medium.isSelected() && !small.isSelected() && !large.isSelected()) {
                 medium.setSelected(true);
-                froyoObject.cupSize[1].setAmount(1);
+                froyoObject.cupSize.get(1).setAmount(1);
             }
 
 
             else if (!medium.isSelected() && small.isSelected() ) {
                 small.setSelected(false);
-                froyoObject.cupSize[0].setAmount(0);
+                froyoObject.cupSize.get(0).setAmount(0);
                 medium.setSelected(true);
-                froyoObject.cupSize[1].setAmount(1);
+                froyoObject.cupSize.get(1).setAmount(1);
             }
 
             else if (!medium.isSelected() && large.isSelected() ) {
                 large.setSelected(false);
-                froyoObject.cupSize[2].setAmount(0);
+                froyoObject.cupSize.get(2).setAmount(0);
                 medium.setSelected(true);
-                froyoObject.cupSize[1].setAmount(1);
+                froyoObject.cupSize.get(1).setAmount(1);
             }
 
             else {
                 medium.setSelected(false);
-                froyoObject.cupSize[1].setAmount(0);
+                froyoObject.cupSize.get(1).setAmount(0);
             }
         });
 
         large.setOnClickListener(view1 -> {
             if (!medium.isSelected() && !small.isSelected() && !large.isSelected()) {
                 large.setSelected(true);
-                froyoObject.cupSize[2].setAmount(1);
+                froyoObject.cupSize.get(2).setAmount(1);
             }
 
 
             else if (!large.isSelected() && small.isSelected() ) {
                 small.setSelected(false);
-                froyoObject.cupSize[0].setAmount(0);
+                froyoObject.cupSize.get(0).setAmount(0);
                 large.setSelected(true);
-                froyoObject.cupSize[2].setAmount(1);
+                froyoObject.cupSize.get(2).setAmount(1);
             }
 
             else if (!large.isSelected() && medium.isSelected() ) {
                 medium.setSelected(false);
-                froyoObject.cupSize[1].setAmount(0);
+                froyoObject.cupSize.get(1).setAmount(0);
                 large.setSelected(true);
-                froyoObject.cupSize[2].setAmount(1);
+                froyoObject.cupSize.get(2).setAmount(1);
             }
 
             else {
                 large.setSelected(false);
-                froyoObject.cupSize[2].setAmount(0);
+                froyoObject.cupSize.get(2).setAmount(0);
             }
         });
 
@@ -131,42 +131,42 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                 &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 something_checked=true;
             }
             else if(!kiwi.isSelected()&& peach.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
             }
             else if(!kiwi.isSelected()&& mango.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
             }
             else if(!kiwi.isSelected()&& blueberry.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
             }
             else if(!kiwi.isSelected()&& strawberry.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
             }
             else if(!kiwi.isSelected()&& blackberry.isSelected()){
                 kiwi.setSelected(true);
-                froyoObject.flavor[0].setAmount(1);
+                froyoObject.flavor.get(0).setAmount(1);
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
             }
             else {
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
                 something_checked=false;
             }
         });
@@ -175,42 +175,42 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 something_checked=true;
             }
             else if(!peach.isSelected()&& kiwi.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
             }
             else if(!peach.isSelected()&& mango.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
             }
             else if(!peach.isSelected()&& blueberry.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
             }
             else if(!peach.isSelected()&& strawberry.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
             }
             else if(!peach.isSelected()&& blackberry.isSelected()){
                 peach.setSelected(true);
-                froyoObject.flavor[1].setAmount(1);
+                froyoObject.flavor.get(1).setAmount(1);
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
             }
             else {
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
                 something_checked=false;
             }
         });
@@ -219,42 +219,42 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 something_checked=true;
             }
             else if(!mango.isSelected()&& kiwi.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
             }
             else if(!mango.isSelected()&& peach.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
             }
             else if(!mango.isSelected()&& blueberry.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
             }
             else if(!mango.isSelected()&& strawberry.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
             }
             else if(!mango.isSelected()&& blackberry.isSelected()){
                 mango.setSelected(true);
-                froyoObject.flavor[2].setAmount(1);
+                froyoObject.flavor.get(2).setAmount(1);
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
             }
             else {
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
                 something_checked=false;
             }
         });
@@ -263,42 +263,42 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 something_checked=true;
             }
             else if(!blueberry.isSelected()&& kiwi.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
             }
             else if(!blueberry.isSelected()&& peach.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
             }
             else if(!blueberry.isSelected()&& mango.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
             }
             else if(!blueberry.isSelected()&& strawberry.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
             }
             else if(!blueberry.isSelected()&& blackberry.isSelected()){
                 blueberry.setSelected(true);
-                froyoObject.flavor[3].setAmount(1);
+                froyoObject.flavor.get(3).setAmount(1);
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
             }
             else {
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
                 something_checked=false;
             }
         });
@@ -307,42 +307,42 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 something_checked=true;
             }
             else if(!strawberry.isSelected()&& kiwi.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
             }
             else if(!strawberry.isSelected()&& peach.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
             }
             else if(!strawberry.isSelected()&& mango.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
             }
             else if(!strawberry.isSelected()&& blueberry.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
             }
             else if(!strawberry.isSelected()&& blackberry.isSelected()){
                 strawberry.setSelected(true);
-                froyoObject.flavor[4].setAmount(1);
+                froyoObject.flavor.get(4).setAmount(1);
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
             }
             else {
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
                 something_checked=false;
             }
         });
@@ -351,60 +351,61 @@ public class FroyoMenuFragment extends Fragment {
             if (!kiwi.isSelected()&&!peach.isSelected()&&!mango.isSelected()
                     &&!blueberry.isSelected()&& !blackberry.isSelected() && !strawberry.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 something_checked=true;
             }
             else if(!blackberry.isSelected()&& kiwi.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 kiwi.setSelected(false);
-                froyoObject.flavor[0].setAmount(0);
+                froyoObject.flavor.get(0).setAmount(0);
             }
             else if(!blackberry.isSelected()&& peach.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 peach.setSelected(false);
-                froyoObject.flavor[1].setAmount(0);
+                froyoObject.flavor.get(1).setAmount(0);
             }
             else if(!blackberry.isSelected()&& mango.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 mango.setSelected(false);
-                froyoObject.flavor[2].setAmount(0);
+                froyoObject.flavor.get(2).setAmount(0);
             }
             else if(!blackberry.isSelected()&& blueberry.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 blueberry.setSelected(false);
-                froyoObject.flavor[3].setAmount(0);
+                froyoObject.flavor.get(3).setAmount(0);
             }
             else if(!blackberry.isSelected()&& strawberry.isSelected()){
                 blackberry.setSelected(true);
-                froyoObject.flavor[5].setAmount(1);
+                froyoObject.flavor.get(5).setAmount(1);
                 strawberry.setSelected(false);
-                froyoObject.flavor[4].setAmount(0);
+                froyoObject.flavor.get(4).setAmount(0);
             }
             else {
                 blackberry.setSelected(false);
-                froyoObject.flavor[5].setAmount(0);
+                froyoObject.flavor.get(5).setAmount(0);
                 something_checked=false;
             }
         });
 
         apply.setOnClickListener(v -> {
-            if (large.isSelected()||medium.isSelected()||small.isSelected()&&something_checked){
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").push();
+            if ((large.isSelected()||medium.isSelected()||small.isSelected())&&something_checked){
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child("User1").child("Froyo").push();
                 refNewOrder.setValue(froyoObject);
-                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
             }
             else if (!something_checked){
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
             }
             else if (!large.isSelected()&&!medium.isSelected()&&!small.isSelected())
             {
-                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_SHORT).show();
             }
         });
     }

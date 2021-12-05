@@ -4,33 +4,35 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserData {
-    public static String FullName, Password,Email,Phone;
-    public static Boolean IsAdmin;
+    public static String FullName, Password,Email,Phone, Uid;
+    public static boolean IsAdmin;
     public UserData(){
-        this("","","","");
+        this("","","","","");
     }
-    public UserData(String fullName, String password, String email, String phone, boolean  isAdmin){
+    public UserData(String fullName, String password, String email, String phone, String uid, boolean  isAdmin){
         FullName = fullName;
         Password=password;
         Phone= phone;
         Email=email;
+        Uid = uid;
         IsAdmin=isAdmin;
     }
 
-    public UserData(String fullName, String password, String email, String phone){
+    public UserData(String fullName, String password, String email, String phone, String uid){
         FullName = fullName;
         Password=password;
         Phone= phone;
         Email=email;
+        Uid = uid;
         IsAdmin= false;
     }
 
-    public static void fill(String username, String password, String email, String phone, boolean  isAdmin){
-        new UserData(username, password, email, phone, isAdmin);
+    public static void fill(String username, String password, String email, String phone,String uid, boolean  isAdmin){
+        new UserData(username, password, email, phone, uid, isAdmin);
     }
 
-    public static void fill(String username, String password, String email, String phone){
-        new UserData(username, password, email, phone);
+    public static void fill(String username, String password, String email, String phone,String uid){
+        new UserData(username, password, email, phone, uid);
     }
 
     public static void empty(){
@@ -43,6 +45,7 @@ public class UserData {
         map.put("email",Email);
         map.put("isAdmin",IsAdmin);
         map.put("phone",Phone);
+        map.put("uid",Uid);
         return map;
     }
 
