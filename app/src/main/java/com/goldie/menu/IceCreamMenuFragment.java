@@ -181,7 +181,7 @@ public class IceCreamMenuFragment extends Fragment {
 
                 IceCreamObject iceCreamObject = new IceCreamObject(serveIn, flavArray);
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child(UserData.Uid).push();
+                        child(UserData.Uid).child("Ice cream").push();
                 refNewOrder.setValue(iceCreamObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();

@@ -139,11 +139,11 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
                     waffleType =new Product("Butter Waffle", 1, 10, 50);
                 }
                 else{
-                    waffleType = new Product("Chocolate Waffle", 0, 10, 50);
+                    waffleType = new Product("Chocolate Waffle", 1, 10, 50);
                 }
                 WaffleObject waffleObject = new WaffleObject(waffleType );
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child(UserData.Uid).push();
+                        child(UserData.Uid).child("Waffle").push();
                 refNewOrder.setValue(waffleObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();

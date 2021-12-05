@@ -223,7 +223,7 @@ public class CrepeMenuFragment extends Fragment {
                     topping.add(i, new Product("White Chocolate Topping", 1, 1, 1));
                 }
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child(UserData.Uid).push();
+                        child(UserData.Uid).child("Crepe").push();
                 CrepeObject crepeObject = new CrepeObject(chocolateType,topping);
                 refNewOrder.setValue(crepeObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
