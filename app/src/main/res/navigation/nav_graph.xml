@@ -41,7 +41,11 @@
         android:id="@+id/paymentFragment"
         android:name="com.goldie.shoppingcart.PaymentFragment"
         android:label="Payment"
-        tools:layout="@layout/fragment_payment" />
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sellerAdviceFragment"
         android:name="com.goldie.menu.SellerAdviceFragment"

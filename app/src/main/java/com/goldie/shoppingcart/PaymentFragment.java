@@ -1,25 +1,47 @@
 package com.goldie.shoppingcart;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.goldie.R;
+import com.goldie.menu.FroyoMenuFragmentDirections;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
-public class PaymentFragment extends Fragment {
-
+public class PaymentFragment extends Fragment implements TextWatcher {
+    int previousLength;
     Button mLoginBtn;
+    Button payment;
+    RadioButton credit;
+    RadioButton cash;
+    RadioGroup group;
+
     public PaymentFragment() {
         super(R.layout.fragment_payment);
     }
 
+    // @BindView(R.id.credit_card_expire_et)
+    EditText creditExpireEt;
+    // @BindView(R.id.credit_card_cvv_et)
+    EditText creditCVVEt;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        ConstraintLayout credit_box = view.findViewById(R.id.credit_layout);
+        //credit_box.setVisibility(View.INVISIBLE);
         super.onViewCreated(view, savedInstanceState);
+        group = view.findViewById(R.id.radioGroup);
 //        mLoginBtn = view.findViewById(R.id.button_login);
 //
 //        mLoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +50,68 @@ public class PaymentFragment extends Fragment {
 //                NavDirections action = HomeFragmentDirections.actionHomeFragmentToLoginFragment();
 //                Navigation.findNavController(view).navigate(action);
 //            }
-//        });
-
+//        });   pa
+        payment = view.findViewById(R.id.order);
+        payment.setOnClickListener(v -> {
+                    NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
+                    Navigation.findNavController(view).navigate(action);
+                });
+        credit = view.findViewById(R.id.credit);
+        cash = view.findViewById(R.id.cash);
+        creditCVVEt = view.findViewById(R.id.credit_card_cvv_et);
+        creditExpireEt = view.findViewById(R.id.credit_card_expire_et);
+        creditExpireEt.addTextChangedListener(this);
+        group.setOnCheckedChangeListener((group, checkedId) -> {
+            boolean isChecked = credit.isChecked();
+            //View credit_box=
+            if (isChecked) {
+                credit_box.setVisibility(View.VISIBLE);
+            } else {
+                credit_box.setVisibility(View.INVISIBLE);
+            }
+        });
     }
+
+
+//    @OnTextChanged(value = R.id.credit_card_expire_et, callback = BEFORE_TEXT_CHANGED)
+//    void beforeExpireEtChanged() {
+//        previousLength = creditExpireEt.getText().toString().length();
+//    }
+//
+//    @OnTextChanged(R.id.credit_card_expire_et)
+//    void autoFixAndMoveToNext() {
+//
+//    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        previousLength = creditExpireEt.getText().toString().length();
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        int length = creditExpireEt.getText().toString().trim().length();
+        if (previousLength <= length && length < 3) {
+            int month = Integer.parseInt(creditExpireEt.getText().toString());
+            if (length == 1 && month >= 2) {
+                String autoFixStr = "0" + month + "/";
+                creditExpireEt.setText(autoFixStr);
+                creditExpireEt.setSelection(3);
+            } else if (length == 2 && month <= 12) {
+                String autoFixStr = creditExpireEt.getText().toString() + "/";
+                creditExpireEt.setText(autoFixStr);
+                creditExpireEt.setSelection(3);
+            } else if (length == 2 && month > 12) {
+                creditExpireEt.setText("1");
+                creditExpireEt.setSelection(1);
+            }
+        } else if (length == 5) {
+            creditCVVEt.requestFocus(); // auto move to next edittext
+        }
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+    }
+
 }
