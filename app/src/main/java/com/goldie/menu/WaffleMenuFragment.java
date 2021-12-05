@@ -13,6 +13,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.account.data.UserData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -170,7 +171,7 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
         apply.setOnClickListener(v -> {
             if (something_checked) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("User1").child("Waffle").push();
+                        child(UserData.Uid).child("Waffle").push();
                 refNewOrder.setValue(waffleObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();

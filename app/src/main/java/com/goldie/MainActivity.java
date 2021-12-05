@@ -8,12 +8,19 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.goldie.account.FirebaseAdapter;
+import com.goldie.account.data.UserData;
+import com.goldie.admin.AdminMainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +37,22 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         NavigationUI.setupWithNavController(toolbar,navController);
         NavigationUI.setupWithNavController((BottomNavigationView) findViewById(R.id.bottom_nav),navController);
+        try {
+            FirebaseAdapter.UpdateUserData().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        if (UserData.IsAdmin) {
+                            Intent intent = new Intent(getBaseContext(), AdminMainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                }
+            });
+        }catch(Exception e){
+            navController.navigate(R.id.loginFragment);
+        }
     }
 
     @Override

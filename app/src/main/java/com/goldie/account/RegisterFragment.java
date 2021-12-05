@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -73,7 +74,8 @@ public class RegisterFragment extends Fragment {
             FirebaseAdapter.fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
-                    UserData.fill(full_name,password,email,phone);
+                    UUID uid = UUID.randomUUID();
+                    UserData.fill(full_name,password,email,phone, uid.toString());
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     db.collection("users").document(email).set(UserData.toMap()).addOnSuccessListener(new OnSuccessListener<Object>() {
                         @Override
