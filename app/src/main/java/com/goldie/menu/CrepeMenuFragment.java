@@ -14,11 +14,14 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.account.data.UserData;
+import com.goldie.shoppingcart.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class CrepeMenuFragment extends Fragment {
-    CrepeObject crepeObject = new CrepeObject();
     Button apply;
     ImageButton black,white,strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
     int numOfTopping=0;
@@ -31,7 +34,6 @@ public class CrepeMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        crepeObject= new CrepeObject();
         black = view.findViewById(R.id.black);
         white = view.findViewById(R.id.white);
         strawberry = view.findViewById(R.id.str_top);
@@ -50,50 +52,40 @@ public class CrepeMenuFragment extends Fragment {
         black.setOnClickListener(view1 -> {
             if (!black.isSelected() && !white.isSelected()) {
                 black.setSelected(true);
-                crepeObject.chocolateType.get(0).setAmount(1);
             }
 
             else if (!black.isSelected() && white.isSelected()) {
                 white.setSelected(false);
-                crepeObject.chocolateType.get(1).setAmount(0);
                 black.setSelected(true);
-                crepeObject.chocolateType.get(0).setAmount(1);
             }
 
             else {
                 black.setSelected(false);
-                crepeObject.chocolateType.get(0).setAmount(0);
             }
         });
 
         white.setOnClickListener(view1 -> {
             if (!white.isSelected() && !black.isSelected()) {
                 white.setSelected(true);
-                crepeObject.chocolateType.get(1).setAmount(1);
             }
 
             else if (!white.isSelected() && black.isSelected()) {
                 black.setSelected(false);
-                crepeObject.chocolateType.get(0).setAmount(0);
                 white.setSelected(true);
-                crepeObject.chocolateType.get(1).setAmount(1);
             }
 
             else {
                 white.setSelected(false);
-                crepeObject.chocolateType.get(1).setAmount(0);
             }
         });
 
         strawberry.setOnClickListener(view13 -> {
             if (!strawberry.isSelected()) {
                 strawberry.setSelected(true);
-                crepeObject.toppings.get(0).setAmount(1);
                 numOfTopping++;
             }
             else {
                 strawberry.setSelected(false);
-                crepeObject.toppings.get(0).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -101,12 +93,10 @@ public class CrepeMenuFragment extends Fragment {
         banana.setOnClickListener(view12 -> {
             if (!banana.isSelected()) {
                 banana.setSelected(true);
-                crepeObject.toppings.get(1).setAmount(1);
                 numOfTopping++;
             }
             else {
                 banana.setSelected(false);
-                crepeObject.toppings.get(1).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -114,12 +104,10 @@ public class CrepeMenuFragment extends Fragment {
         berry.setOnClickListener(view14 -> {
             if (!berry.isSelected()) {
                 berry.setSelected(true);
-                crepeObject.toppings.get(2).setAmount(1);
                 numOfTopping++;
             }
             else {
                 berry.setSelected(false);
-                crepeObject.toppings.get(2).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -127,12 +115,10 @@ public class CrepeMenuFragment extends Fragment {
         gummy.setOnClickListener(view15 -> {
             if (!gummy.isSelected()) {
                 gummy.setSelected(true);
-                crepeObject.toppings.get(3).setAmount(1);
                 numOfTopping++;
             }
             else {
                 gummy.setSelected(false);
-                crepeObject.toppings.get(3).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -140,12 +126,10 @@ public class CrepeMenuFragment extends Fragment {
         oreo.setOnClickListener(view16 -> {
             if (!oreo.isSelected()) {
                 oreo.setSelected(true);
-                crepeObject.toppings.get(4).setAmount(1);
                 numOfTopping++;
             }
             else {
                 oreo.setSelected(false);
-                crepeObject.toppings.get(4).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -153,12 +137,10 @@ public class CrepeMenuFragment extends Fragment {
         cream.setOnClickListener(view17 -> {
             if (!cream.isSelected()) {
                 cream.setSelected(true);
-                crepeObject.toppings.get(5).setAmount(1);
                 numOfTopping++;
             }
             else {
                 cream.setSelected(false);
-                crepeObject.toppings.get(5).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -166,12 +148,10 @@ public class CrepeMenuFragment extends Fragment {
         sprinklers.setOnClickListener(view18 -> {
             if (!sprinklers.isSelected()) {
                 sprinklers.setSelected(true);
-                crepeObject.toppings.get(6).setAmount(1);
                 numOfTopping++;
             }
             else {
                 sprinklers.setSelected(false);
-                crepeObject.toppings.get(6).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -179,12 +159,10 @@ public class CrepeMenuFragment extends Fragment {
         chocolate_top.setOnClickListener(view19 -> {
             if (!chocolate_top.isSelected()) {
                 chocolate_top.setSelected(true);
-                crepeObject.toppings.get(7).setAmount(1);
                 numOfTopping++;
             }
             else {
                 chocolate_top.setSelected(false);
-                crepeObject.toppings.get(7).setAmount(0);
                 numOfTopping--;
             }
         });
@@ -192,20 +170,61 @@ public class CrepeMenuFragment extends Fragment {
         white_choco_top.setOnClickListener(view110 -> {
             if (!white_choco_top.isSelected()) {
                 white_choco_top.setSelected(true);
-                crepeObject.toppings.get(8).setAmount(1);
                 numOfTopping++;
             }
             else {
                 white_choco_top.setSelected(false);
-                crepeObject.toppings.get(8).setAmount(0);
                 numOfTopping--;
             }
         });
 
         apply.setOnClickListener(view111 -> {
             if (black.isSelected() || white.isSelected()&&numOfTopping<=3) {
+                Product chocolateType;
+                ArrayList<Product> topping = new ArrayList<>();
+                if (black.isSelected()){
+                    chocolateType = new Product("Dark chocolate", 1, 0, 1);
+                }
+                else {
+                    chocolateType = new Product("White chocolate", 1, 0, 1);
+                }
+                int i = 0;
+                if (strawberry.isSelected()) {
+                    topping.add(i, new Product("Strawberry", 1, 1, 1));
+                    i++;
+                }
+                if (banana.isSelected()) {
+                    topping.add(i, new Product("Banana", 1, 1, 1));
+                    i++;
+                }
+                if (berry.isSelected()) {
+                    topping.add(i, new Product("Blueberry", 1, 1, 1));
+                    i++;
+                }
+                if (gummy.isSelected()) {
+                    topping.add(i, new Product("Gummy Bears", 1, 2, 1));
+                }
+                if (oreo.isSelected()) {
+                    topping.add(i, new Product("Oreo", 1, 2, 1));
+                    i++;
+                }
+                if (cream.isSelected()) {
+                    topping.add(i, new Product("Whipped Cream", 1, 0, 1));
+                    i++;
+                }
+                if (sprinklers.isSelected()) {
+                    topping.add(i, new Product("Sprinklers", 1, 0, 1));
+                    i++;
+                }
+                if (chocolate_top.isSelected()) {
+                    topping.add(i, new Product("Dark Chocolate Topping", 1, 1, 1));
+                }
+                if (white_choco_top.isSelected()) {
+                    topping.add(i, new Product("White Chocolate Topping", 1, 1, 1));
+                }
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("User1").child("Crepe").push();
+                        child(UserData.Uid).push();
+                CrepeObject crepeObject = new CrepeObject(chocolateType,topping);
                 refNewOrder.setValue(crepeObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();

@@ -18,19 +18,23 @@ import androidx.navigation.Navigation;
 import com.goldie.MainActivity;
 import com.goldie.R;
 import com.goldie.account.data.UserData;
+import com.goldie.shoppingcart.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class IceCreamMenuFragment extends Fragment {
 
-    IceCreamObject iceCreamObject = new IceCreamObject();
+
     RadioButton one_s, two_s, three_s, one_c, two_c, three_c, one_v, two_v, three_v, one_p, two_p, three_p;
     ImageButton cup, cone;
     RadioGroup strawberry, chocolate, vanilla, pistachio;
     Button apply;
-    int chocolateNum=0, strawberryNum=0, pistachioNum=0, vanillaNum=0;
+    int chocolateNum = 0, strawberryNum = 0, pistachioNum = 0, vanillaNum = 0;
 
 
     public IceCreamMenuFragment() {
@@ -42,7 +46,6 @@ public class IceCreamMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        iceCreamObject = new IceCreamObject();
         cup = view.findViewById(R.id.cup);
         cone = view.findViewById(R.id.cone);
 
@@ -70,30 +73,22 @@ public class IceCreamMenuFragment extends Fragment {
 
         cup.setOnClickListener(view1 -> {
             if (!cup.isSelected() && !cone.isSelected()) {
-                iceCreamObject.serveIn.get(0).setAmount(1);
                 cup.setSelected(true);
             } else if (!cup.isSelected() && cone.isSelected()) {
-                iceCreamObject.serveIn.get(0).setAmount(1);
-                iceCreamObject.serveIn.get(1).setAmount(0);
                 cone.setSelected(false);
                 cup.setSelected(true);
             } else {
-                iceCreamObject.serveIn.get(0).setAmount(0);
                 cup.setSelected(false);
             }
         });
 
         cone.setOnClickListener(view1 -> {
             if (!cone.isSelected() && !cup.isSelected()) {
-                iceCreamObject.serveIn.get(1).setAmount(1);
                 cone.setSelected(true);
             } else if (!cone.isSelected() && cup.isSelected()) {
-                iceCreamObject.serveIn.get(1).setAmount(1);
-                iceCreamObject.serveIn.get(0).setAmount(0);
                 cup.setSelected(false);
                 cone.setSelected(true);
             } else {
-                iceCreamObject.serveIn.get(1).setAmount(0);
                 cone.setSelected(false);
             }
         });
@@ -101,16 +96,13 @@ public class IceCreamMenuFragment extends Fragment {
         strawberry.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_s:
-                        strawberryNum=1;
-                        iceCreamObject.flavor.get(3).setAmount(1);
+                    strawberryNum = 1;
                     break;
                 case R.id.two_s:
-                        strawberryNum=2;
-                        iceCreamObject.flavor.get(3).setAmount(2);
+                    strawberryNum = 2;
                     break;
                 case R.id.three_s:
-                        strawberryNum=3;
-                        iceCreamObject.flavor.get(3).setAmount(3);
+                    strawberryNum = 3;
                     break;
             }
         });
@@ -118,16 +110,13 @@ public class IceCreamMenuFragment extends Fragment {
         chocolate.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_c:
-                        iceCreamObject.flavor.get(1).setAmount(1);
-                        chocolateNum = 1;
+                    chocolateNum = 1;
                     break;
                 case R.id.two_c:
-                        iceCreamObject.flavor.get(1).setAmount(2);
-                        chocolateNum = 2;
+                    chocolateNum = 2;
                     break;
                 case R.id.three_c:
-                        chocolateNum=3;
-                        iceCreamObject.flavor.get(1).setAmount(3);
+                    chocolateNum = 3;
                     break;
             }
         });
@@ -135,18 +124,15 @@ public class IceCreamMenuFragment extends Fragment {
         vanilla.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_v:
-                        vanillaNum=1;
-                        iceCreamObject.flavor.get(0).setAmount(1);
+                    vanillaNum = 1;
 
                     break;
                 case R.id.two_v:
-                        vanillaNum=2;
-                        iceCreamObject.flavor.get(0).setAmount(2);
+                    vanillaNum = 2;
 
                     break;
                 case R.id.three_v:
-                        vanillaNum=3;
-                        iceCreamObject.flavor.get(0).setAmount(3);
+                    vanillaNum = 3;
                     break;
             }
         });
@@ -154,38 +140,57 @@ public class IceCreamMenuFragment extends Fragment {
         pistachio.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_p:
-                        pistachioNum=1;
-                        iceCreamObject.flavor.get(2).setAmount(1);
+                    pistachioNum = 1;
                     break;
                 case R.id.two_p:
-                        pistachioNum=2;
-                        iceCreamObject.flavor.get(2).setAmount(2);
+                    pistachioNum = 2;
 
                     break;
                 case R.id.three_p:
-                        pistachioNum=3;
-                        iceCreamObject.flavor.get(2).setAmount(3);
+                    pistachioNum = 3;
                     break;
             }
         });
 
         apply.setOnClickListener(v -> {
-            int total=chocolateNum+vanillaNum+strawberryNum+pistachioNum;
-            if ((cup.isSelected() || cone.isSelected())&&(total>0&&total<=3)){
-                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child("User1").child("Ice cream").push();
-                    refNewOrder.setValue(iceCreamObject);
-                    Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
-                    NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();
-                    Navigation.findNavController(view).navigate(action);
+            int total = chocolateNum + vanillaNum + strawberryNum + pistachioNum;
+            if ((cup.isSelected() || cone.isSelected()) && (total > 0 && total <= 3)) {
+                Product serveIn;
+                List<Product> flavArray = new ArrayList<>();
+                if (cup.isSelected()) {
+                    serveIn = new Product("Ice cream cup", 1, 0, 1);
+                } else {
+                    serveIn = new Product("Ice cream cone", 1, 0, 1);
                 }
-            else if (total==0){
+                int i = 0;
+                if (strawberryNum > 0) {
+                    flavArray.add(i, new Product("Strawberry ice cream", strawberryNum, 1, 50));
+                    i++;
+                }
+                if (chocolateNum > 0) {
+                    flavArray.add(i, new Product("Chocolate ice cream", chocolateNum, 1, 50));
+                    i++;
+                }
+                if (vanillaNum > 0) {
+                    flavArray.add(i, new Product("Vanilla ice cream", vanillaNum, 1, 50));
+                    i++;
+                }
+                if (pistachioNum > 0) {
+                    flavArray.add(i, new Product("Pistachio ice cream", pistachioNum, 1, 50));
+                }
+
+                IceCreamObject iceCreamObject = new IceCreamObject(serveIn, flavArray);
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child(UserData.Uid).push();
+                refNewOrder.setValue(iceCreamObject);
+                Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
+                NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();
+                Navigation.findNavController(view).navigate(action);
+            } else if (total == 0) {
                 Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
-            }
-            else if (total>3){
+            } else if (total > 3) {
                 Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
-            }
-            else if (!cup.isSelected()&&!cone.isSelected()){
+            } else if (!cup.isSelected() && !cone.isSelected()) {
                 Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup or cone!", Toast.LENGTH_SHORT).show();
 
             }

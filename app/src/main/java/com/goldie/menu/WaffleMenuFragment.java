@@ -14,15 +14,14 @@ import androidx.navigation.Navigation;
 
 import com.goldie.R;
 import com.goldie.account.data.UserData;
+import com.goldie.shoppingcart.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class WaffleMenuFragment extends Fragment { //change to pick just one
 
-    WaffleObject waffleObject = new WaffleObject();
     ImageButton classic,coffee,butter,chocolate;
     Button apply;
-    boolean something_checked=false;
 
     public WaffleMenuFragment() {
         super(R.layout.fragment_waffle_menu);
@@ -33,7 +32,6 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
-        waffleObject= new WaffleObject();
         classic = view.findViewById(R.id.waffleBtn);
         coffee = view.findViewById(R.id.coffeeBtn);
         butter = view.findViewById(R.id.ButterBtn);
@@ -45,31 +43,21 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
             if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
                     &&!butter.isSelected()){
                 classic.setSelected(true);
-                waffleObject.wafflesTypes.get(0).setAmount(1);
-                something_checked=true;
             }
             else if(!classic.isSelected()&& coffee.isSelected()){
                 classic.setSelected(true);
-                waffleObject.wafflesTypes.get(0).setAmount(1);
                 coffee.setSelected(false);
-                waffleObject.wafflesTypes.get(1).setAmount(0);
             }
             else if(!classic.isSelected()&& butter.isSelected()){
                 classic.setSelected(true);
-                waffleObject.wafflesTypes.get(0).setAmount(1);
                 butter.setSelected(false);
-                waffleObject.wafflesTypes.get(2).setAmount(0);
             }
             else if(!classic.isSelected()&& chocolate.isSelected()){
                 classic.setSelected(true);
-                waffleObject.wafflesTypes.get(0).setAmount(1);
                 chocolate.setSelected(false);
-                waffleObject.wafflesTypes.get(3).setAmount(0);
             }
             else {
                 classic.setSelected(false);
-                waffleObject.wafflesTypes.get(0).setAmount(0);
-                something_checked=false;
             }
         });
 
@@ -77,31 +65,21 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
             if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
                     &&!butter.isSelected()){
                 coffee.setSelected(true);
-                waffleObject.wafflesTypes.get(1).setAmount(1);
-                something_checked=true;
             }
             else if(!coffee.isSelected()&& classic.isSelected()){
                 coffee.setSelected(true);
-                waffleObject.wafflesTypes.get(1).setAmount(1);
                 classic.setSelected(false);
-                waffleObject.wafflesTypes.get(0).setAmount(0);
             }
             else if(!coffee.isSelected()&& butter.isSelected()){
                 coffee.setSelected(true);
-                waffleObject.wafflesTypes.get(1).setAmount(1);
                 butter.setSelected(false);
-                waffleObject.wafflesTypes.get(2).setAmount(0);
             }
             else if(!coffee.isSelected()&& chocolate.isSelected()){
                 coffee.setSelected(true);
-                waffleObject.wafflesTypes.get(1).setAmount(1);
                 chocolate.setSelected(false);
-                waffleObject.wafflesTypes.get(3).setAmount(0);
             }
             else {
                 coffee.setSelected(false);
-                waffleObject.wafflesTypes.get(1).setAmount(0);
-                something_checked=false;
             }
         });
 
@@ -109,31 +87,21 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
             if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
                     &&!butter.isSelected()){
                 butter.setSelected(true);
-                waffleObject.wafflesTypes.get(2).setAmount(1);
-                something_checked=true;
             }
             else if(!butter.isSelected()&& classic.isSelected()){
                 butter.setSelected(true);
-                waffleObject.wafflesTypes.get(2).setAmount(1);
                 classic.setSelected(false);
-                waffleObject.wafflesTypes.get(0).setAmount(0);
             }
             else if(!butter.isSelected()&& coffee.isSelected()){
                 butter.setSelected(true);
-                waffleObject.wafflesTypes.get(2).setAmount(1);
                 coffee.setSelected(false);
-                waffleObject.wafflesTypes.get(1).setAmount(0);
             }
             else if(!butter.isSelected()&& chocolate.isSelected()){
                 butter.setSelected(true);
-                waffleObject.wafflesTypes.get(2).setAmount(1);
                 chocolate.setSelected(false);
-                waffleObject.wafflesTypes.get(3).setAmount(0);
             }
             else {
                 butter.setSelected(false);
-                waffleObject.wafflesTypes.get(2).setAmount(0);
-                something_checked=false;
             }
         });
 
@@ -141,37 +109,41 @@ public class WaffleMenuFragment extends Fragment { //change to pick just one
             if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
                     &&!butter.isSelected()){
                 chocolate.setSelected(true);
-                waffleObject.wafflesTypes.get(3).setAmount(1);
-                something_checked=true;
             }
             else if(!chocolate.isSelected()&& classic.isSelected()){
                 chocolate.setSelected(true);
-                waffleObject.wafflesTypes.get(3).setAmount(1);
                 classic.setSelected(false);
-                waffleObject.wafflesTypes.get(0).setAmount(0);
             }
             else if(!chocolate.isSelected()&& coffee.isSelected()){
                 chocolate.setSelected(true);
-                waffleObject.wafflesTypes.get(3).setAmount(1);
                 coffee.setSelected(false);
-                waffleObject.wafflesTypes.get(1).setAmount(0);
             }
             else if(!chocolate.isSelected()&& butter.isSelected()){
                 chocolate.setSelected(true);
-                waffleObject.wafflesTypes.get(3).setAmount(1);
                 butter.setSelected(false);
-                waffleObject.wafflesTypes.get(2).setAmount(0);
             }
             else {
                 chocolate.setSelected(false);
-                waffleObject.wafflesTypes.get(3).setAmount(0);
-                something_checked=false;
             }
         });
         apply.setOnClickListener(v -> {
-            if (something_checked) {
+            if (classic.isSelected()||coffee.isSelected()||butter.isSelected()||chocolate.isSelected()) {
+                Product waffleType ;
+                if (classic.isSelected()){
+                    waffleType = new Product("Classic Waffle", 1, 8, 50);
+                }
+                else if (butter.isSelected()){
+                    waffleType =new Product("Coffee Waffle", 1, 9, 50);
+                }
+                else if (butter.isSelected()){
+                    waffleType =new Product("Butter Waffle", 1, 10, 50);
+                }
+                else{
+                    waffleType = new Product("Chocolate Waffle", 0, 10, 50);
+                }
+                WaffleObject waffleObject = new WaffleObject(waffleType );
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                        child(UserData.Uid).child("Waffle").push();
+                        child(UserData.Uid).push();
                 refNewOrder.setValue(waffleObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
