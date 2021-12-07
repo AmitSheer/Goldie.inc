@@ -10,25 +10,21 @@
     tools:context=".menu.CrepeMenuFragment">
 
 
-
-
     <TextView
         android:id="@+id/choloateTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kelly_coin"
         android:text="@string/chocolate1"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textColor="@color/purple_700"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023"
         tools:ignore="MissingConstraints" />
-
-
 
     <ImageButton
         android:id="@+id/str_top"
@@ -47,19 +43,19 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/str_price"
-        android:layout_width="28dp"
-        android:layout_height="30dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_1"
+        android:id="@+id/str_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/strawberry"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533"
+        app:layout_constraintVertical_bias="0.531"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -78,22 +74,21 @@
         app:srcCompat="@drawable/crepe_banana_btn"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
-        android:id="@+id/banana_price"
-        android:layout_width="33dp"
-        android:layout_height="34dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_1"
+        android:id="@+id/banana_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/banana"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536"
+        app:layout_constraintVertical_bias="0.535"
         tools:ignore="MissingConstraints" />
-
 
     <ImageButton
         android:id="@+id/berry_top"
@@ -113,19 +108,19 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/berry_price"
-        android:layout_width="33dp"
-        android:layout_height="34dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_1"
+        android:id="@+id/berry_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/blueberry"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536"
+        app:layout_constraintVertical_bias="0.535"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -146,50 +141,51 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/gummy_price"
-        android:layout_width="34dp"
-        android:layout_height="29dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_2"
+        android:id="@+id/gummy_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/gummibear"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.729"
+        app:layout_constraintVertical_bias="0.717"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/oreo_top"
-        android:tag="@string/oreo"
         android:layout_width="97dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="@string/oreo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645"
+        app:layout_constraintVertical_bias="0.661"
         app:srcCompat="@drawable/crepe_oreo_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/oreo_price"
-        android:layout_width="37dp"
-        android:layout_height="36dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_2"
+        android:id="@+id/oreo_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/oreo"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.732"
+        app:layout_constraintVertical_bias="0.717"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -209,150 +205,165 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/cream_price"
-        android:layout_width="33dp"
-        android:layout_height="33dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_0"
+        android:id="@+id/cream_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/whipped_cream"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
+        app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733"
+        app:layout_constraintVertical_bias="0.717"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/sprinklers_top"
-        android:tag="@string/sprinklers"
         android:layout_width="96dp"
         android:layout_height="81dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="@string/sprinklers"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.832"
         app:srcCompat="@drawable/crepe_sprinklers_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/sprinklers_price"
-        android:layout_width="35dp"
-        android:layout_height="31dp"
-        android:fontFamily="sans-serif-black"
-        android:text="0$"
+        android:id="@+id/sprinklers_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/sprinklers"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887"
+        app:layout_constraintVertical_bias="0.878"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/chocolate_top"
-        android:tag="@string/chocolate"
-
         android:layout_width="115dp"
+
         android:layout_height="92dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="@string/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866"
+        app:layout_constraintVertical_bias="0.846"
         app:srcCompat="@drawable/crepe_chocolate_top_btn"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/chocolate_price"
-        android:layout_width="41dp"
-        android:layout_height="28dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_1"
+        android:id="@+id/chocolate_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/dark_chocolate"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.887"
+        app:layout_constraintVertical_bias="0.878"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/white_choco_top"
-        android:tag="@string/white_chocolate"
-
         android:layout_width="106dp"
+
         android:layout_height="80dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="@string/white_chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.831"
         app:srcCompat="@drawable/crepe_white_choco_top_btn"
         tools:ignore="MissingConstraints" />
 
+
     <TextView
-        android:id="@+id/white_choco_price"
-        android:layout_width="39dp"
-        android:layout_height="42dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/_1"
+        android:id="@+id/white_choco_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fresh"
+        android:text="@string/white_chocolote"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.905"
+        app:layout_constraintVertical_bias="0.878"
         tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/topping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kelly_coin"
         android:text="@string/toppings"
-        android:textColor="@color/black"
-        android:textSize="40sp"
+        android:textColor="@color/purple_700"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305"
+        app:layout_constraintVertical_bias="0.337"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/_5_per_crepe"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="165dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/up_to_3_topping"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376"
+        app:layout_constraintVertical_bias="0.071"
         tools:ignore="MissingConstraints" />
-
 
     <Button
         android:id="@+id/applyInCrepe"
@@ -374,27 +385,29 @@
         android:layout_height="160dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.229"
+        app:layout_constraintHorizontal_bias="0.291"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087"
+        app:layout_constraintVertical_bias="0.127"
         app:srcCompat="@drawable/crepe_black_chocolate_btn"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/white"
-        android:layout_width="157dp"
-        android:layout_height="201dp"
+        android:layout_width="190dp"
+        android:layout_height="184dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        android:tag="white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049"
+        app:layout_constraintVertical_bias="0.101"
         app:srcCompat="@drawable/crepe_white_chocolate_btn"
         tools:ignore="MissingConstraints" />
 
