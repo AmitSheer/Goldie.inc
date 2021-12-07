@@ -1,5 +1,7 @@
 package com.goldie.shoppingcart;
 
+import static com.goldie.MainActivity.order;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +13,8 @@ import android.widget.RadioGroup;
 
 import com.goldie.R;
 import com.goldie.menu.FroyoMenuFragmentDirections;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,7 +30,8 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     RadioButton credit;
     RadioButton cash;
     RadioGroup group;
-
+    public static String order_id;
+    private static Integer counter=0;
     public PaymentFragment() {
         super(R.layout.fragment_payment);
     }
@@ -38,6 +43,9 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        order_id="Order ";
+        order_id+=counter.toString();
+        counter++;
         ConstraintLayout credit_box = view.findViewById(R.id.credit_layout);
         //credit_box.setVisibility(View.INVISIBLE);
         super.onViewCreated(view, savedInstanceState);
@@ -53,6 +61,11 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 //        });   pa
         payment = view.findViewById(R.id.order);
         payment.setOnClickListener(v -> {
+            DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                    child(String.valueOf(order_id)).push();
+            //CrepeObject crepeObject = new CrepeObject(chocolateType,topping);
+                    refNewOrder.setValue(order);
+                    order.clear();
                     NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
                     Navigation.findNavController(view).navigate(action);});
         credit = view.findViewById(R.id.credit);

@@ -47,17 +47,20 @@
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/froyo_small_cup_btn.xml" value="0.2359375" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/ic_home.xml" value="0.403125" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/small_cup.xml" value="0.2359375" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/expandable_header.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/expendable_product.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_account.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_admin_main.xml" value="0.1296875" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_admin_manager.xml" value="0.1296875" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_froyo_menu.xml" value="0.3875" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_iceream_menu.xml" value="0.39791666666666664" />
-        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_orders_management.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_orders_management.xml" value="0.25" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_payment.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_waffle_menu.xml" value="0.39791666666666664" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/list_item.xml" value="0.15715579710144928" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/menu/admin_bottom_nav.xml" value="0.38697916666666665" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout-notouch/test.xml" value="0.12610229276895943" />

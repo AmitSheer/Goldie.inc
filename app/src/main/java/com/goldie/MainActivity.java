@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
-    public static HashMap<Integer,Product> order;
+    public static HashMap<String,Product> order;
     //Order order2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -14,7 +14,8 @@ public class Product {
      * Describes how many units are ordered within the same item.
      */
     int amount;
-    public static int product_id=0;
+    public static String product_id;
+    private static long counter;
     /**
      * Describes the price for each unit.
      */
@@ -36,7 +37,9 @@ public class Product {
      * in case there is no such productOrder in the com.goldie.menu.Order Arraylist Member of com.goldie.menu.Order.
      */
     public Product(String itemName, int amount, double price, int unitsInStock) {
-        product_id++;
+        product_id=""+counter;
+        counter++;
+        //product_id++;
         this.itemName = itemName;
         this.amount = amount;
         this.price=price;
