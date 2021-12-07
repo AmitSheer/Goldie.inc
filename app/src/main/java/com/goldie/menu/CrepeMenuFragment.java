@@ -82,6 +82,7 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         v.setSelected(!v.isSelected());
         if (crepeObject.toppings.size() == 3) {
             v.setSelected(false);
+            Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 topping!", Toast.LENGTH_SHORT).show();
             return;
         }
         if (v.isSelected()) {
