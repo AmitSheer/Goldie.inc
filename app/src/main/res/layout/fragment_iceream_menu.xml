@@ -13,10 +13,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:text="@string/up_to_3_scoops_"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -143,36 +143,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.614"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/cone"
-        android:layout_width="92dp"
-        android:layout_height="105dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091"
-        app:srcCompat="@drawable/cone_btn"
-        tools:ignore="MissingConstraints" />
-
-    <ImageButton
-        android:id="@+id/cup"
-        android:layout_width="97dp"
-        android:layout_height="76dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.429"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114"
-        app:srcCompat="@drawable/cup_btn"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -380,5 +350,39 @@
         app:layout_constraintVertical_bias="0.422"
         app:srcCompat="@drawable/vanilla"
         tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/serve_in"
+        android:layout_width="197dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView11"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cupOrCone"
+        app:layout_constraintVertical_bias="1.0">
+
+        <RadioButton
+            android:id="@+id/cone"
+            android:layout_width="92dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableEnd="@drawable/cone_btn"
+            android:scaleType="fitCenter"
+            tools:ignore="MissingConstraints" />
+
+        <RadioButton
+            android:id="@+id/cup"
+            android:layout_width="102dp"
+            android:layout_height="103dp"
+            android:background="@android:color/transparent"
+            android:button="@null"
+            android:drawableEnd="@drawable/cup_btn"
+            android:scaleType="fitCenter"
+            tools:ignore="MissingConstraints" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

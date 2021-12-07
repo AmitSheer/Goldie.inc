@@ -17,18 +17,25 @@ import android.view.MenuItem;
 import com.goldie.account.FirebaseAdapter;
 import com.goldie.account.data.UserData;
 import com.goldie.admin.AdminMainActivity;
+import com.goldie.shoppingcart.Product;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.List;
 
+public class MainActivity extends AppCompatActivity {
+    public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
-
+    public static HashMap<Integer,Product> order;
+    //Order order2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        order=new HashMap<>();
+        order_id++;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FragmentManager fragmentManager = getSupportFragmentManager();

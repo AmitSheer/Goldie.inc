@@ -3,21 +3,33 @@ package com.goldie.menu;
 import com.goldie.shoppingcart.Product;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
-public class CrepeObject implements Serializable {
-    public Product chocolateType;
-    public List<Product> toppings;
+public class CrepeObject extends Product implements Serializable {
+    //public List<Product> chocolateType;
+    public String chocolateType;
+    public List<String> toppings;
 
-    public CrepeObject(Product chocolateType, List<Product> toppings) {
+    public CrepeObject(String chocolateType, List<String> toppings) {
         this.chocolateType=chocolateType;
         this.toppings=toppings;
     }
 
+    public CrepeObject(){
+        super("Crepe",0,5,1);
+        chocolateType="";
+        toppings=new ArrayList<>();
+    }
     // Copy Constructor
-    public CrepeObject(CrepeObject other) {
-        this.chocolateType = other.chocolateType;
-        this.toppings = other.toppings;
+    public CrepeObject(CrepeObject value) {
+        this.chocolateType = value.chocolateType;
+        this.toppings = value.toppings;
+    }
+
+    public String getClassName() {
+        return "Crepe";
     }
 }

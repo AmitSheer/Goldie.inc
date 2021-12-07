@@ -10,35 +10,7 @@
     tools:context=".menu.CrepeMenuFragment">
 
 
-    <ImageButton
-        android:id="@+id/black"
-        android:layout_width="154dp"
-        android:layout_height="160dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.229"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087"
-        app:srcCompat="@drawable/crepe_black_chocolate_btn"
-        tools:ignore="MissingConstraints" />
 
-    <ImageButton
-        android:id="@+id/white"
-        android:layout_width="157dp"
-        android:layout_height="201dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.826"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049"
-        app:srcCompat="@drawable/crepe_white_chocolate_btn"
-        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/choloateTxt"
@@ -56,40 +28,11 @@
         app:layout_constraintVertical_bias="0.023"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/topping"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
-        android:text="@string/toppings"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="165dp"
-        android:layout_height="36dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/up_to_3_topping"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376"
-        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/str_top"
+        android:tag="@string/strawberry"
         android:layout_width="93dp"
         android:layout_height="85dp"
         android:background="@android:color/transparent"
@@ -123,6 +66,7 @@
         android:id="@+id/banana_top"
         android:layout_width="89dp"
         android:layout_height="75dp"
+        android:tag="@string/banana"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -153,6 +97,8 @@
 
     <ImageButton
         android:id="@+id/berry_top"
+        android:tag="@string/berry"
+
         android:layout_width="149dp"
         android:layout_height="131dp"
         android:background="@android:color/transparent"
@@ -184,6 +130,8 @@
 
     <ImageButton
         android:id="@+id/gummy_top"
+        android:tag="@string/gummy"
+
         android:layout_width="94dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
@@ -215,6 +163,7 @@
 
     <ImageButton
         android:id="@+id/oreo_top"
+        android:tag="@string/oreo"
         android:layout_width="97dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
@@ -245,6 +194,7 @@
 
     <ImageButton
         android:id="@+id/cream_top"
+        android:tag="@string/cream"
         android:layout_width="92dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -276,6 +226,7 @@
 
     <ImageButton
         android:id="@+id/sprinklers_top"
+        android:tag="@string/sprinklers"
         android:layout_width="96dp"
         android:layout_height="81dp"
         android:background="@android:color/transparent"
@@ -307,6 +258,8 @@
 
     <ImageButton
         android:id="@+id/chocolate_top"
+        android:tag="@string/chocolate"
+
         android:layout_width="115dp"
         android:layout_height="92dp"
         android:background="@android:color/transparent"
@@ -338,6 +291,8 @@
 
     <ImageButton
         android:id="@+id/white_choco_top"
+        android:tag="@string/white_chocolate"
+
         android:layout_width="106dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -366,6 +321,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.905"
         tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/topping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kelly_coin"
+        android:text="@string/toppings"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.305"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="165dp"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/up_to_3_topping"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376"
+        tools:ignore="MissingConstraints" />
+
 
     <Button
         android:id="@+id/applyInCrepe"
@@ -380,4 +367,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976"
         tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/group_filling"
+        android:layout_width="309dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="9dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/topping"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choloateTxt">
+
+        <RadioButton
+            android:id="@+id/filling_white"
+            android:layout_width="150dp"
+            android:layout_height="123dp"
+            android:button="@null"
+            android:drawableEnd="@drawable/crepe_white_chocolate_btn"
+            tools:ignore="MissingConstraints" />
+
+        <RadioButton
+            android:id="@+id/filling_black"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableEnd="@drawable/crepe_black_chocolate_btn"
+            tools:ignore="MissingConstraints" />
+    </RadioGroup>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

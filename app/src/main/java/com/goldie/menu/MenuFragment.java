@@ -10,14 +10,19 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.shoppingcart.Product;
+//import com.goldie.shoppingcart.product;
 
+import java.util.HashMap;
+import java.util.List;
 
+//Arraylist<produts> order;
+// Hashmap<product,Integer> order;
 public class MenuFragment extends Fragment {
-
     public MenuFragment() {
         super(R.layout.fragment_menu);
     }
-
+   // HashMap<product,Integer> shoppinglist;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

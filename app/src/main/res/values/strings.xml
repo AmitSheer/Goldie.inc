@@ -68,4 +68,14 @@
     <string name="chocolate1">Chocolate</string>
     <string name="toppings">toppings</string>
     <string name="flavors">Flavors</string>
+    <string name="banana_top">banana</string>
+    <string name="berry_top">berry</string>
+    <string name="gummy">gummy</string>
+    <string name="berry">berry</string>
+    <string name="banana">banana</string>
+    <string name="cream">cream</string>
+    <string name="oreo">oreo</string>
+    <string name="sprinklers">sprinklers</string>
+    <string name="white_chocolate">white_chocolate</string>
+    <string name="Classic">Classic</string>
 </resources>

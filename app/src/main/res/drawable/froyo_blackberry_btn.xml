@@ -3,14 +3,14 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/froyo_blueberry" />
+        android:drawable="@drawable/froryo_blackberry" />
 
     <item
         android:state_selected="true"
-        android:drawable="@drawable/froyo_blueberry" />
+        android:drawable="@drawable/froryo_blackberry" />
 
     <item
         android:state_pressed="false"
-        android:drawable="@drawable/froyo_blueberry_checkd" />
+        android:drawable="@drawable/froryo_blackberry_checked" />
 
 </selector>

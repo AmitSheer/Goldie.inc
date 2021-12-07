@@ -54,8 +54,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         payment = view.findViewById(R.id.order);
         payment.setOnClickListener(v -> {
                     NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
-                    Navigation.findNavController(view).navigate(action);
-                });
+                    Navigation.findNavController(view).navigate(action);});
         credit = view.findViewById(R.id.credit);
         cash = view.findViewById(R.id.cash);
         creditCVVEt = view.findViewById(R.id.credit_card_cvv_et);
@@ -77,6 +76,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 //    void beforeExpireEtChanged() {
 //        previousLength = creditExpireEt.getText().toString().length();
 //    }
+
 //
 //    @OnTextChanged(R.id.credit_card_expire_et)
 //    void autoFixAndMoveToNext() {
