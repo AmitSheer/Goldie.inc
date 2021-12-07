@@ -25,7 +25,7 @@ public class FroyoMenuFragment extends Fragment {
     Button apply;
     ImageButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
     boolean something_checked = false;
-    FroyoObject frozen=new FroyoObject();
+    FroyoObject frozen = new FroyoObject();
 
 
     public FroyoMenuFragment() {
@@ -244,6 +244,7 @@ public class FroyoMenuFragment extends Fragment {
                 something_checked = false;
             }
         });
+
 
         apply.setOnClickListener(v -> {
             if ((large.isSelected() || medium.isSelected() || small.isSelected()) && something_checked) {
