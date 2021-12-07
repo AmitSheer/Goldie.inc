@@ -78,4 +78,13 @@
     <string name="sprinklers">sprinklers</string>
     <string name="white_chocolate">white_chocolate</string>
     <string name="Classic">Classic</string>
+    <string name="strawberry_1">strawberry_1</string>
+    <string name="berry_1">berry_1</string>
+    <string name="banana_1">banana_1</string>
+    <string name="gummy_2">gummy_2</string>
+    <string name="oreo_2">oreo_2</string>
+    <string name="cream_0">cream_0</string>
+    <string name="sprinklers_0">sprinklers_0</string>
+    <string name="chocolate_1">chocolate_1</string>
+    <string name="white_chocolate_1">white chocolate_1</string>
 </resources>

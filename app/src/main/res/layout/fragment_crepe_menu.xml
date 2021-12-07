@@ -32,7 +32,7 @@
 
     <ImageButton
         android:id="@+id/str_top"
-        android:tag="@string/strawberry"
+        android:tag="@string/strawberry_1"
         android:layout_width="93dp"
         android:layout_height="85dp"
         android:background="@android:color/transparent"
@@ -66,7 +66,7 @@
         android:id="@+id/banana_top"
         android:layout_width="89dp"
         android:layout_height="75dp"
-        android:tag="@string/banana"
+        android:tag="@string/banana_1"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +97,7 @@
 
     <ImageButton
         android:id="@+id/berry_top"
-        android:tag="@string/berry"
+        android:tag="@string/berry_1"
 
         android:layout_width="149dp"
         android:layout_height="131dp"
@@ -130,7 +130,7 @@
 
     <ImageButton
         android:id="@+id/gummy_top"
-        android:tag="@string/gummy"
+        android:tag="@string/gummy_2"
 
         android:layout_width="94dp"
         android:layout_height="82dp"
@@ -163,7 +163,7 @@
 
     <ImageButton
         android:id="@+id/oreo_top"
-        android:tag="@string/oreo"
+        android:tag="@string/oreo_2"
         android:layout_width="97dp"
         android:layout_height="82dp"
         android:background="@android:color/transparent"
@@ -194,7 +194,7 @@
 
     <ImageButton
         android:id="@+id/cream_top"
-        android:tag="@string/cream"
+        android:tag="@string/cream_0"
         android:layout_width="92dp"
         android:layout_height="80dp"
         android:background="@android:color/transparent"
@@ -226,7 +226,7 @@
 
     <ImageButton
         android:id="@+id/sprinklers_top"
-        android:tag="@string/sprinklers"
+        android:tag="@string/sprinklers_0"
         android:layout_width="96dp"
         android:layout_height="81dp"
         android:background="@android:color/transparent"
@@ -258,7 +258,7 @@
 
     <ImageButton
         android:id="@+id/chocolate_top"
-        android:tag="@string/chocolate"
+        android:tag="@string/chocolate_1"
 
         android:layout_width="115dp"
         android:layout_height="92dp"
@@ -291,7 +291,7 @@
 
     <ImageButton
         android:id="@+id/white_choco_top"
-        android:tag="@string/white_chocolate"
+        android:tag="@string/white_chocolate_1"
 
         android:layout_width="106dp"
         android:layout_height="80dp"

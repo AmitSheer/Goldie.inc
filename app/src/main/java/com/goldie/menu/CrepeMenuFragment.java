@@ -84,10 +84,16 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
             v.setSelected(false);
             return;
         }
+        String tag=(String)v.getTag();
+        String name=tag.substring(0,tag.length()-2);
+        int price=Character.getNumericValue(tag.charAt(tag.length()-1));
         if (v.isSelected()) {
-            crepeObject.toppings.add((String) v.getTag());
+            crepeObject.toppings.add(name);
+            crepeObject.setPrice(crepeObject.getPrice()+price);
         } else {
             crepeObject.toppings.remove((String) v.getTag());
+            crepeObject.setPrice(crepeObject.getPrice()-price);
+
         }
     }
 }
