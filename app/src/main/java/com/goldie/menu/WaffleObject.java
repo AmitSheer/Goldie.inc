@@ -8,10 +8,6 @@ import java.util.List;
 
 public class WaffleObject extends Product implements Serializable {
     public String waffleType ;
-//    public WaffleObject(Product waffle) {
-//        this.waffleType =waffle;
-////        wafflesTypes = Arrays.asList(new Product("Classic Waffle", 0, 8, 50),
-//    }
     public WaffleObject(){
         super("Waffle",1, 0, 1);
         waffleType="";

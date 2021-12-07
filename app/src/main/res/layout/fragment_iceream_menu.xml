@@ -351,38 +351,35 @@
         app:srcCompat="@drawable/vanilla"
         tools:ignore="MissingConstraints" />
 
-    <RadioGroup
-        android:id="@+id/serve_in"
-        android:layout_width="197dp"
-        android:layout_height="118dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintHorizontal_bias="0.666"
+    <ImageButton
+        android:id="@+id/cone"
+        android:layout_width="92dp"
+        android:layout_height="105dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupOrCone"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        app:srcCompat="@drawable/cone_btn"
+        tools:ignore="MissingConstraints" />
 
-        <RadioButton
-            android:id="@+id/cone"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:drawableEnd="@drawable/cone_btn"
-            android:scaleType="fitCenter"
+    <ImageButton
+        android:id="@+id/cup"
+        android:layout_width="97dp"
+        android:layout_height="76dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.429"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114"
+        app:srcCompat="@drawable/cup_btn"
+        tools:ignore="MissingConstraints" />
 
-            tools:ignore="MissingConstraints" />
-
-        <RadioButton
-            android:id="@+id/cup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:drawableEnd="@drawable/cup_btn"
-            android:scaleType="fitCenter"
-            tools:ignore="MissingConstraints" />
-    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
