@@ -368,34 +368,35 @@
         app:layout_constraintVertical_bias="0.976"
         tools:ignore="MissingConstraints" />
 
-    <RadioGroup
-        android:id="@+id/group_filling"
-        android:layout_width="309dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="9dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/topping"
+    <ImageButton
+        android:id="@+id/black"
+        android:layout_width="154dp"
+        android:layout_height="160dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choloateTxt">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@drawable/crepe_black_chocolate_btn"
+        tools:ignore="MissingConstraints" />
 
-        <RadioButton
-            android:id="@+id/filling_white"
-            android:layout_width="150dp"
-            android:layout_height="123dp"
-            android:button="@null"
-            android:drawableEnd="@drawable/crepe_white_chocolate_btn"
-            tools:ignore="MissingConstraints" />
-
-        <RadioButton
-            android:id="@+id/filling_black"
-            android:layout_width="173dp"
-            android:layout_height="match_parent"
-            android:button="@null"
-            android:drawableEnd="@drawable/crepe_black_chocolate_btn"
-            tools:ignore="MissingConstraints" />
-    </RadioGroup>
+    <ImageButton
+        android:id="@+id/white"
+        android:layout_width="157dp"
+        android:layout_height="201dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049"
+        app:srcCompat="@drawable/crepe_white_chocolate_btn"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

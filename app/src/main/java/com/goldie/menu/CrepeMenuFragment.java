@@ -27,8 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CrepeMenuFragment extends Fragment implements View.OnClickListener {
     Button apply;
-    RadioButton black, white;
-    ImageButton strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
+    ImageButton black, white, strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
     RadioGroup crepe_filling;
     CrepeObject crepeObject;
 
@@ -40,8 +39,8 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        black = view.findViewById(R.id.filling_black);
-        white = view.findViewById(R.id.filling_white);
+        black = view.findViewById(R.id.black);
+        white = view.findViewById(R.id.white);
         crepeObject = new CrepeObject();
         strawberry = view.findViewById(R.id.str_top);
         strawberry.setOnClickListener(this);
@@ -62,10 +61,32 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         white_choco_top = view.findViewById(R.id.white_choco_top);
         white_choco_top.setOnClickListener(this);
         apply = view.findViewById(R.id.applyInCrepe);
-        crepe_filling = view.findViewById(R.id.group_filling);
-        crepe_filling.setOnCheckedChangeListener((group, checkedId) -> crepeObject.chocolateType = (black.getId() == group.getCheckedRadioButtonId()) ? "black" : "white");
+        black.setOnClickListener(view1 -> {
+            if (!black.isSelected() && !white.isSelected()) {
+                black.setSelected(true);
+            } else if (!black.isSelected() && white.isSelected()) {
+                white.setSelected(false);
+                black.setSelected(true);
+            } else {
+                black.setSelected(false);
+            }
+        });
+
+        white.setOnClickListener(view1 -> {
+            if (!white.isSelected() && !black.isSelected()) {
+                white.setSelected(true);
+            } else if (!white.isSelected() && black.isSelected()) {
+                black.setSelected(false);
+                white.setSelected(true);
+            } else {
+                white.setSelected(false);
+            }
+        });
+
         apply.setOnClickListener(view111 -> {
-            if (!crepeObject.chocolateType.equals("")) {
+            if (black.isSelected() || white.isSelected()) {
+                if (black.isSelected()) crepeObject.chocolateType = "black";
+                else crepeObject.chocolateType = "white";
                 crepeObject.setAmount(crepeObject.getAmount() + 1);
                 order.put(Product.product_id, crepeObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
@@ -82,10 +103,13 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         v.setSelected(!v.isSelected());
         if (crepeObject.toppings.size() == 3) {
             v.setSelected(false);
-            Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 topping!", Toast.LENGTH_SHORT).show();
-            return;
+            if (crepeObject.toppings.contains(v.getTag())) {
+                crepeObject.toppings.remove((String) v.getTag());
+            } else {
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 topping!", Toast.LENGTH_SHORT).show();
+            }
         }
-        if (v.isSelected()) {
+        else if (v.isSelected()) {
             crepeObject.toppings.add((String) v.getTag());
         } else {
             crepeObject.toppings.remove((String) v.getTag());
