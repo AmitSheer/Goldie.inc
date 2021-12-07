@@ -29,12 +29,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class IceCreamMenuFragment extends Fragment {
+public class IceCreamMenuFragment extends Fragment implements View.OnClickListener {
 
 
     RadioButton one_s, two_s, three_s, one_c, two_c, three_c, one_v, two_v, three_v, one_p, two_p, three_p;
     RadioGroup strawberry, chocolate, vanilla, pistachio,serve_in;
     Button apply;
+    ImageButton selected;
     int chocolateNum = 0, strawberryNum = 0, pistachioNum = 0, vanillaNum = 0;
     ImageButton cup, cone;
     IceCreamObject iceCream;
@@ -49,7 +50,9 @@ public class IceCreamMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cup = view.findViewById(R.id.cup);
+        cup.setOnClickListener(this);
         cone = view.findViewById(R.id.cone);
+        cone.setOnClickListener(this);
 
         strawberry = view.findViewById(R.id.sGroup);
         one_s = view.findViewById(R.id.one_s);
@@ -72,27 +75,6 @@ public class IceCreamMenuFragment extends Fragment {
         three_p = view.findViewById(R.id.three_p);
         iceCream=new IceCreamObject();
         apply = view.findViewById(R.id.applyInIceCream);
-        cup.setOnClickListener(view1 -> {
-            if (!cup.isSelected() && !cone.isSelected()) {
-                cup.setSelected(true);
-            } else if (!cup.isSelected() && cone.isSelected()) {
-                cone.setSelected(false);
-                cup.setSelected(true);
-            } else {
-                cup.setSelected(false);
-            }
-        });
-
-        cone.setOnClickListener(view1 -> {
-            if (!cone.isSelected() && !cup.isSelected()) {
-                cone.setSelected(true);
-            } else if (!cone.isSelected() && cup.isSelected()) {
-                cup.setSelected(false);
-                cone.setSelected(true);
-            } else {
-                cone.setSelected(false);
-            }
-        });
 
         strawberry.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
@@ -153,8 +135,7 @@ public class IceCreamMenuFragment extends Fragment {
         apply.setOnClickListener(v -> {
             int total = chocolateNum + vanillaNum + strawberryNum + pistachioNum;
             if ((total > 0 && total <= 3)&&(cup.isSelected()||cone.isSelected())) {
-                if (cone.isSelected()) iceCream.serveIn="cone";
-                else iceCream.serveIn="cup";
+
                 for (int i = 0; i < chocolateNum; i++) iceCream.flavorArray.add("Chocolate");
                 for (int i = 0; i < strawberryNum; i++) iceCream.flavorArray.add("Strawberry");
                 for (int i = 0; i < vanillaNum; i++) iceCream.flavorArray.add("Vanilla");
@@ -173,5 +154,18 @@ public class IceCreamMenuFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        v.setSelected(!v.isSelected());
+        if (selected != null) {
+            selected.setSelected(false);
+            iceCream.serveIn = "";
+        }
+        selected = v.findViewById(v.getId());
+        if (v.isSelected()) {
+            iceCream.serveIn = (String) v.getTag();
+        }
     }
 }

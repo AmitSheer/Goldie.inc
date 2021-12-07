@@ -20,7 +20,7 @@ import com.goldie.shoppingcart.Product;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WaffleMenuFragment extends Fragment implements View.OnClickListener { //change to pick just one
+public class WaffleMenuFragment extends Fragment implements View.OnClickListener {
 
     ImageButton classic, coffee, butter, chocolate;
     Button apply;
