@@ -65,7 +65,7 @@ public class ShoppingCartFragment extends Fragment {
 //        }
         ArrayList<String> addons=new ArrayList<>();
         for (Map.Entry<String,Product> product:order.entrySet()) {
-            listProduct.add(product.getValue().itemName+"_"+product.getKey());
+            listProduct.add(product.getKey());
             if(product.getValue() instanceof IceCreamObject) {
                 addons.add("Served In: "+((IceCreamObject) product.getValue()).serveIn);
                 addons.addAll(((IceCreamObject) product.getValue()).flavorArray);

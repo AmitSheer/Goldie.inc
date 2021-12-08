@@ -64,8 +64,9 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         apply = view.findViewById(R.id.applyInCrepe);
         apply.setOnClickListener(view111 -> {
             if (black.isSelected() || white.isSelected()) {
+                crepeObject.product_id="Crepe_"+crepeObject.product_id;
                 crepeObject.setAmount(crepeObject.getAmount() + 1);
-                order.put(Product.product_id, crepeObject);
+                order.put(crepeObject.getProduct_id(), crepeObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);

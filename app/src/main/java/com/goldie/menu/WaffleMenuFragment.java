@@ -59,7 +59,8 @@ public class WaffleMenuFragment extends Fragment implements View.OnClickListener
                         waffle.setPrice(10);
                     }
                 }
-                order.put(Product.product_id, waffle);
+                waffle.product_id="Waffle_"+waffle.product_id;
+                order.put(waffle.getProduct_id(), waffle);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
