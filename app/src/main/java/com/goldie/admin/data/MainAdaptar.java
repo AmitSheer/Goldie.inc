@@ -37,7 +37,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
     @Override
     public Object getGroup(int groupPosition) {
 
-        return listGroup.get(groupPosition).getProduct_id();
+        return listGroup.get(groupPosition);
     }
 
     @Override
@@ -63,13 +63,16 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String group=(String) getGroup(groupPosition);
+        Product group=(Product) getGroup(groupPosition);
         if(convertView==null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_order, null);
         }
             TextView textView = convertView.findViewById(R.id.list_parent);
-            textView.setText(group.substring(0,group.indexOf('_')));
+            TextView priceView = convertView.findViewById(R.id.list_parent_price);
+        String id=group.getProduct_id();
+        textView.setText(id.substring(0,id.indexOf('_')));
+        priceView.setText("Price: "+group.getPrice()+"$");
         return convertView;
     }
 
