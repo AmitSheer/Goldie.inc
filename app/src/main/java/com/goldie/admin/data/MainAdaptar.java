@@ -28,7 +28,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        return listChild.get(listGroup.get(i)).size();
+        String child=listGroup.get(i).substring(listGroup.get(i).indexOf('_')+1);
+        return listChild.get(child).size();
     }
 
     @Override
@@ -38,7 +39,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listChild.get(listGroup.get(groupPosition)).get(childPosition);
+        String child=listGroup.get(groupPosition).substring(listGroup.get(groupPosition).indexOf('_')+1);
+        return listChild.get(child).get(childPosition);
     }
 
     @Override
@@ -64,7 +66,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.list_order, null);
         }
             TextView textView = convertView.findViewById(R.id.list_parent);
-            textView.setText(group);
+            textView.setText(group.substring(0,group.indexOf('_')));
         return convertView;
     }
 

@@ -27,9 +27,6 @@ public class FroyoObject extends Product implements Serializable {
         this.flavor = other.flavor;
     }
 
-    public String getClassName() {
-        return "Froyo";
-    }
 
 
 }
