@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/back"
-    tools:context=".menu.MenuFragment">
+    tools:context=".shop.menu.MenuFragment">
 
     <ImageView
         android:id="@+id/imageView2"

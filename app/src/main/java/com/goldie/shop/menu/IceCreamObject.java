@@ -1,6 +1,6 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 
-import com.goldie.shoppingcart.Product;
+import com.goldie.shop.shoppingcart.Product;
 
 import java.io.Serializable;
 import java.util.ArrayList;

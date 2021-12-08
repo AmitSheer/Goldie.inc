@@ -1,6 +1,6 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 
-import static com.goldie.MainActivity.order;
+import static com.goldie.shop.ShopActivity.order;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
-import com.goldie.shoppingcart.Product;
+import com.goldie.shop.shoppingcart.Product;
 
 public class FroyoMenuFragment extends Fragment {
 

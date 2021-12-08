@@ -1,30 +1,19 @@
-package com.goldie.shoppingcart;
+package com.goldie.shop.shoppingcart;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.goldie.R;
-import com.goldie.menu.IceCreamObject;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
-
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * This class is representing the Entire Order that the user have made.

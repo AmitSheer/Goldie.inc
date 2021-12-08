@@ -31,8 +31,8 @@ public class AccountFragment extends Fragment {
                 FirebaseAdapter.fAuth.signOut();
                 Toast.makeText(getContext(), "User Logged out", Toast.LENGTH_SHORT).show();
                 UserData.empty();
-                NavDirections action = AccountFragmentDirections.actionAccountFragmentToLoginFragment();
-                Navigation.findNavController(view).navigate(action);
+//                NavDirections action = AccountFragmentDirections.actionAccountFragmentToLoginFragment();
+//                Navigation.findNavController(view).navigate(action);
             }
         });
     }

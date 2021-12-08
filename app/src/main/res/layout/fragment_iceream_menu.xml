@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:background="@drawable/back"
-    tools:context=".menu.IceCreamMenuFragment">
+    tools:context=".shop.menu.IceCreamMenuFragment">
 
     <TextView
         android:id="@+id/textView"

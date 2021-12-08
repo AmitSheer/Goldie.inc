@@ -1,6 +1,6 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 
-import static com.goldie.MainActivity.order;
+import static com.goldie.shop.ShopActivity.order;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +15,7 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
-import com.goldie.account.data.UserData;
-import com.goldie.shoppingcart.Product;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.goldie.shop.shoppingcart.Product;
 
 public class WaffleMenuFragment extends Fragment implements View.OnClickListener { //change to pick just one
 
