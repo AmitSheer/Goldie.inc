@@ -10,17 +10,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.goldie.R;
 
-import java.util.HashMap;
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class ExpandableAdaptar extends RecyclerView.Adapter<ExpandableAdaptar.ViewHolder> {
 
     private static int VIEW_TYPE_ORDER = 0;
     private static int VIEW_TYPE_PRODUCT = 1;
-    boolean isExpanded = false;
-    HashMap<String, String> order;
-
-    public ExpandableAdaptar(HashMap<String, String> _order) {
+    static boolean isExpanded = false;
+    List<String> order;
+    public String order_id;
+    public ExpandableAdaptar(List<String> _order,String _order_id) {
         order = _order;
+        this.order_id=_order_id;
     }
 
     @NonNull
@@ -37,9 +39,11 @@ public class ExpandableAdaptar extends RecyclerView.Adapter<ExpandableAdaptar.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if(holder.getClass()==ViewHolder.OrderViewHolder.class){
-            
+            ((ViewHolder.OrderViewHolder) holder).onBind(order_id);
         }
-
+        if(holder.getClass()==ViewHolder.productViewHolder.class){
+            ((ViewHolder.productViewHolder) holder).onBind(order.get(position-1));
+        }
     }
 
     @Override
@@ -61,18 +65,53 @@ public class ExpandableAdaptar extends RecyclerView.Adapter<ExpandableAdaptar.Vi
         }
         //return super.getItemViewType(position);
     }
-
-    static public class ViewHolder extends RecyclerView.ViewHolder {
+//    private void onOrderClick(){
+//        View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                isExpanded=!isExpanded;
+//                if(isExpanded){
+//                    notifyItemRangeChanged(1,order.size());
+//                    notifyItemChanged(0);
+//                }
+//                else{
+//                    notifyItemRangeRemoved(1,order.size());
+//                    notifyItemChanged(0);
+//                }
+//            }
+//
+//        };
+//    }
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View v) {
             super(v);
         }
 
-        static class OrderViewHolder extends ViewHolder {
+        public class OrderViewHolder extends ViewHolder {
             private TextView orderTextView;
-
+            View v;
             public OrderViewHolder(View v) {
                 super(v);
+                this.v=v;
                 orderTextView = v.findViewById(R.id.Order_Textview);
+            }
+            void onBind(String order_num){
+            orderTextView.setText(order_num);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    isExpanded=!isExpanded;
+                    if(isExpanded){
+                        notifyItemRangeChanged(1,order.size());
+                        notifyItemChanged(0);
+                    }
+                    else{
+                        notifyItemRangeRemoved(1,order.size());
+                        notifyItemChanged(0);
+                    }
+                }
+            });
             }
         }
 
@@ -82,6 +121,9 @@ public class ExpandableAdaptar extends RecyclerView.Adapter<ExpandableAdaptar.Vi
             public productViewHolder(View v) {
                 super(v);
                 productTextView = v.findViewById(R.id.Product_TextView);
+            }
+            void onBind(String product){
+                productTextView.setText(product);
             }
         }
     }
