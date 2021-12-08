@@ -58,7 +58,8 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
 
         apply.setOnClickListener(v -> {
             if ((large.isSelected() || medium.isSelected() || small.isSelected()) && something_checked) {
-                order.put(Product.product_id, frozen);
+                frozen.product_id="Froyo_"+frozen.product_id;
+                order.put(frozen.getProduct_id(), frozen);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);

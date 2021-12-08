@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import com.goldie.R;
+import com.goldie.shoppingcart.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
     Context context;
     ArrayList<String> listGroup;
     HashMap<String,ArrayList<String>> listChild;
+
     public MainAdaptar(Context context, ArrayList<String> listGroup, HashMap<String,ArrayList<String>> listChild){
         this.context=context;
         this.listGroup=listGroup;
@@ -28,7 +30,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        String child=listGroup.get(i).substring(listGroup.get(i).indexOf('_')+1);
+        String child=listGroup.get(i);
         return listChild.get(child).size();
     }
 
@@ -39,8 +41,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        String child=listGroup.get(groupPosition).substring(listGroup.get(groupPosition).indexOf('_')+1);
-        return listChild.get(child).get(childPosition);
+        String child=listGroup.get(groupPosition);
+        return listChild.get(listGroup.get(groupPosition)).get(childPosition);
     }
 
     @Override

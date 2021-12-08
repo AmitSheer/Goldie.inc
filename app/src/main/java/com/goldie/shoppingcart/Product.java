@@ -16,9 +16,10 @@ public class Product {
      * Describes how many units are ordered within the same item.
      */
     int amount;
-    public static String product_id;
+    public  String product_id;
     ArrayList<String> addons;
     private static long counter;
+
     /**
      * Describes the price for each unit.
      */
@@ -42,7 +43,6 @@ public class Product {
     public Product(String itemName, int amount, double price, int unitsInStock) {
         product_id=""+counter;
         counter++;
-        //product_id++;
         this.itemName = itemName;
         this.amount = amount;
         this.price=price;
@@ -75,6 +75,9 @@ public class Product {
         this.itemName = itemName;
     }
 
+    public  String getProduct_id() {
+        return product_id;
+    }
     /**
      * Returns the amount of a given product.
      * @return amount of a product in Integer data type.
