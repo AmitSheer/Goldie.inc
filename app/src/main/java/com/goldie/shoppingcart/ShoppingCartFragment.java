@@ -38,7 +38,7 @@ public class ShoppingCartFragment extends Fragment {
     FirebaseAuth fb;
     //String orderUID = "";
     ExpandableListView exp_list;
-    ArrayList<String> listProduct =new ArrayList<>();
+    ArrayList<Product> listProduct =new ArrayList<>();
     HashMap<String,ArrayList<String>> listAddOn =new HashMap<>();
     MainAdaptar adaptar;
     public ShoppingCartFragment() {
@@ -64,24 +64,24 @@ public class ShoppingCartFragment extends Fragment {
 //            listChild.put(listGroup.get(i),arraylist);
 //        }
         ArrayList<String> addons=new ArrayList<>();
-        for (Map.Entry<String,Product> product:order.entrySet()) {
-            listProduct.add(product.getKey());
-            if(product.getValue() instanceof IceCreamObject) {
-                addons.add("Served In: "+((IceCreamObject) product.getValue()).serveIn);
-                addons.addAll(((IceCreamObject) product.getValue()).flavorArray);
+        for (Product product:order.values()) {
+            listProduct.add(product);
+            if(product instanceof IceCreamObject) {
+                addons.add("Served In: "+((IceCreamObject) product).serveIn);
+                addons.addAll(((IceCreamObject) product).flavorArray);
             }
-            if(product.getValue() instanceof FroyoObject) {
-                addons.add("Cup Size:"+((FroyoObject) product.getValue()).cupSize);
-                addons.add("Flavor: "+((FroyoObject) product.getValue()).flavor);
+            if(product instanceof FroyoObject) {
+                addons.add("Cup Size:"+((FroyoObject) product).cupSize);
+                addons.add("Flavor: "+((FroyoObject) product).flavor);
             }
-            if(product.getValue() instanceof CrepeObject) {
-                addons.add("Filling: "+((CrepeObject) product.getValue()).chocolateType);
-                addons.addAll(((CrepeObject) product.getValue()).toppings);
+            if(product instanceof CrepeObject) {
+                addons.add("Filling: "+((CrepeObject) product).chocolateType);
+                addons.addAll(((CrepeObject) product).toppings);
             }
-            if(product.getValue() instanceof WaffleObject) {
-                addons.add("Type: "+((WaffleObject) product.getValue()).waffleType);
+            if(product instanceof WaffleObject) {
+                addons.add("Type: "+((WaffleObject) product).waffleType);
             }
-            listAddOn.put(product.getKey(), (ArrayList<String>) addons.clone());
+            listAddOn.put(product.getProduct_id(), (ArrayList<String>) addons.clone());
             addons.clear();
         }
         adaptar = new MainAdaptar(this.getContext(), listProduct, listAddOn);
