@@ -2,6 +2,16 @@
 <selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:drawable="@drawable/black" android:state_checked="true"/>
-    <item android:drawable="@drawable/black_checked"    android:state_checked="false"/>
+    <item
+        android:state_pressed="true"
+        android:drawable="@drawable/black" />
+
+    <item
+        android:state_selected="true"
+        android:drawable="@drawable/black" />
+
+    <item
+        android:state_pressed="false"
+        android:drawable="@drawable/black_checked" />
+
 </selector>

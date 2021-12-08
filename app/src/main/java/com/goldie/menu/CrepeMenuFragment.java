@@ -27,9 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CrepeMenuFragment extends Fragment implements View.OnClickListener {
     Button apply;
-    RadioButton black, white;
-    ImageButton strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top;
-    RadioGroup crepe_filling;
+    ImageButton black, white, strawberry, banana, berry, gummy, oreo, cream, sprinklers, chocolate_top, white_choco_top,selectedChoco;
     CrepeObject crepeObject;
 
     public CrepeMenuFragment() {
@@ -40,8 +38,10 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        black = view.findViewById(R.id.filling_black);
-        white = view.findViewById(R.id.filling_white);
+        black = view.findViewById(R.id.black);
+        black.setOnClickListener(this);
+        white = view.findViewById(R.id.white);
+        white.setOnClickListener(this);
         crepeObject = new CrepeObject();
         strawberry = view.findViewById(R.id.str_top);
         strawberry.setOnClickListener(this);
@@ -62,10 +62,9 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         white_choco_top = view.findViewById(R.id.white_choco_top);
         white_choco_top.setOnClickListener(this);
         apply = view.findViewById(R.id.applyInCrepe);
-        crepe_filling = view.findViewById(R.id.group_filling);
-        crepe_filling.setOnCheckedChangeListener((group, checkedId) -> crepeObject.chocolateType = (black.getId() == group.getCheckedRadioButtonId()) ? "black" : "white");
+
         apply.setOnClickListener(view111 -> {
-            if (!crepeObject.chocolateType.equals("")) {
+            if (black.isSelected() || white.isSelected()) {
                 crepeObject.setAmount(crepeObject.getAmount() + 1);
                 order.put(Product.product_id, crepeObject);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
@@ -79,21 +78,42 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        v.setSelected(!v.isSelected());
-        if (crepeObject.toppings.size() == 3) {
-            v.setSelected(false);
-            return;
-        }
-        String tag=(String)v.getTag();
-        String name=tag.substring(0,tag.length()-2);
-        int price=Character.getNumericValue(tag.charAt(tag.length()-1));
-        if (v.isSelected()) {
-            crepeObject.toppings.add(name);
-            crepeObject.setPrice(crepeObject.getPrice()+price);
-        } else {
-            crepeObject.toppings.remove((String) v.getTag());
-            crepeObject.setPrice(crepeObject.getPrice()-price);
-
+        switch (v.getId()) {
+            case R.id.str_top:
+            case R.id.banana_top:
+            case R.id.berry_top:
+            case R.id.gummy_top:
+            case R.id.oreo_top:
+            case R.id.cream_top:
+            case R.id.sprinklers_top:
+            case R.id.chocolate_top:
+            case R.id.white_choco_top:
+                v.setSelected(!v.isSelected());
+                if (crepeObject.toppings.size() == 3) {
+                    v.setSelected(false);
+                    if (crepeObject.toppings.contains(v.getTag())) {
+                        crepeObject.toppings.remove((String) v.getTag());
+                    } else {
+                        Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 topping!", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (v.isSelected()) {
+                    crepeObject.toppings.add((String) v.getTag());
+                } else {
+                    crepeObject.toppings.remove((String) v.getTag());
+                }
+                break;
+            case R.id.black:
+            case R.id.white:
+                v.setSelected(!v.isSelected());
+                if (selectedChoco != null) {
+                    selectedChoco.setSelected(false);
+                    crepeObject.chocolateType = "";
+                }
+                selectedChoco = v.findViewById(v.getId());
+                if (v.isSelected()) {
+                    crepeObject.chocolateType = (String) v.getTag();
+                }
+                break;
         }
     }
 }
