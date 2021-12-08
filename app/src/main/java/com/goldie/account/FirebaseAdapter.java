@@ -46,7 +46,7 @@ public class FirebaseAdapter {
                         UserData.FullName = document.getString("fullname");
                         UserData.IsAdmin = document.getBoolean("isAdmin");
                         UserData.Phone = document.getString("phone");
-                        UserData.Uid = document.getString("uid");
+                        UserData.Uid = fAuth.getUid();
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -72,8 +72,7 @@ public class FirebaseAdapter {
         });
     }
     private static Task<Void> addUserToDB(String email, String password, String full_name, String phone){
-        UUID uid = UUID.randomUUID();
-        UserData.fill(full_name,password,email,phone, uid.toString());
+        UserData.fill(full_name,password,email,phone, fAuth.getUid());
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         return db.collection("users").document(email).set(UserData.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

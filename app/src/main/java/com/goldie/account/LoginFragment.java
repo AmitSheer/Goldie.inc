@@ -63,26 +63,6 @@ public class LoginFragment extends Fragment {
                         Toast.makeText(getContext(), "Error ! "+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-//                FirebaseAdapter.fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
-//                    if(task.isSuccessful()){
-//                        Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
-//                        FirebaseAdapter.UpdateUserData(email).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                                if(UserData.IsAdmin){
-//                                    Intent intent = new Intent(getContext(), AdminMainActivity.class);
-//                                    startActivity(intent);
-//                                    getActivity().finish();
-//                                }else{
-//                                    NavDirections action = LoginFragmentDirections.actionLoginFragmentToMenuFragment();
-//                                    Navigation.findNavController(view).navigate(action);
-//                                }
-//                            }
-//                        });
-//                    }else{
-//                        Toast.makeText(getContext(), "Error ! "+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-//                    }
-//                });
             }
         });
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
