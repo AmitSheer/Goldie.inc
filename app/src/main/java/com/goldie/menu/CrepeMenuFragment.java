@@ -62,7 +62,6 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
         white_choco_top = view.findViewById(R.id.white_choco_top);
         white_choco_top.setOnClickListener(this);
         apply = view.findViewById(R.id.applyInCrepe);
-
         apply.setOnClickListener(view111 -> {
             if (black.isSelected() || white.isSelected()) {
                 crepeObject.setAmount(crepeObject.getAmount() + 1);

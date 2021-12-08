@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private Toolbar toolbar;
     public static HashMap<String,Product> order;
-    //Order order2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         order=new HashMap<>();
@@ -45,15 +44,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(toolbar,navController);
         NavigationUI.setupWithNavController((BottomNavigationView) findViewById(R.id.bottom_nav),navController);
         try {
-            FirebaseAdapter.UpdateUserData().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        if (UserData.IsAdmin) {
-                            Intent intent = new Intent(getBaseContext(), AdminMainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
+            FirebaseAdapter.UpdateUserData().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    if (UserData.IsAdmin) {
+                        Intent intent = new Intent(getBaseContext(), AdminMainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 }
             });

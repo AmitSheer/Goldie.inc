@@ -1,5 +1,7 @@
 package com.goldie.shoppingcart;
 
+import java.util.ArrayList;
+
 /**
  * This class Contains information on a single item inside an com.goldie.menu.Order of a costumer, it contains the Item name, the amount of units purchased of this product, and price per unit.
  * The class members are: Item as item name, amount - amount of purchased units for this item, and the price for one unit.
@@ -15,6 +17,7 @@ public class Product {
      */
     int amount;
     public static String product_id;
+    ArrayList<String> addons;
     private static long counter;
     /**
      * Describes the price for each unit.
