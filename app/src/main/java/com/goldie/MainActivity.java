@@ -24,16 +24,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
-    public static HashMap<String,Product> order;
+    public static LinkedHashMap<String,Product> order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order=new HashMap<>();
+        order=new LinkedHashMap<>();
         order_id++;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

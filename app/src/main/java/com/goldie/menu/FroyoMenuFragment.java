@@ -33,6 +33,7 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
         super(R.layout.fragment_froyo_menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -58,7 +59,21 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
 
         apply.setOnClickListener(v -> {
             if ((large.isSelected() || medium.isSelected() || small.isSelected()) && something_checked) {
-                frozen.product_id="Froyo_"+frozen.product_id;
+                switch (selectedSize.getId()){
+                    case R.id.large:{
+                        frozen.setPrice(6);
+                        break;
+                    }
+                    case R.id.medium:{
+                        frozen.setPrice(4);
+                        break;
+                    }
+                    case R.id.small:{
+                        frozen.setPrice(3);
+                        break;
+                    }
+                }
+                frozen.product_id = "Froyo_" + frozen.product_id;
                 order.put(frozen.getProduct_id(), frozen);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
