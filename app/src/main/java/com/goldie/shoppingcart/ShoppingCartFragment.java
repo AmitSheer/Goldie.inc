@@ -1,20 +1,20 @@
 package com.goldie.shoppingcart;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
+import static com.goldie.MainActivity.order;
 
 import com.goldie.R;
+import com.goldie.admin.data.MainAdaptar;
+import com.goldie.menu.CrepeObject;
+import com.goldie.menu.FroyoObject;
 import com.goldie.menu.IceCreamObject;
+import com.goldie.menu.WaffleObject;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,8 +23,8 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Objects;
+import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * This class is representing the Entire Order that the user have made.
@@ -36,7 +36,10 @@ public class ShoppingCartFragment extends Fragment {
     DatabaseReference refOrders;
     FirebaseAuth fb;
     //String orderUID = "";
-
+    ExpandableListView exp_list;
+    ArrayList<String> listProduct =new ArrayList<>();
+    HashMap<String,ArrayList<String>> listAddOn =new HashMap<>();
+    MainAdaptar adaptar;
     public ShoppingCartFragment() {
         super(R.layout.fragment_shopping_cart);
     }
@@ -50,6 +53,39 @@ public class ShoppingCartFragment extends Fragment {
                     Navigation.findNavController(view).navigate(action);
                 }
         );
+        exp_list=view.findViewById(R.id.exp_list_view_shopping);
+//        for (int i = 0; i < 11; i++) {
+//            listGroup.add("com.goldie.menu.Order "+i);
+//            ArrayList<String> arraylist=new ArrayList<>();
+//            for (int j = 0; j < 6; j++) {
+//                arraylist.add("Item"+j);
+//            }
+//            listChild.put(listGroup.get(i),arraylist);
+//        }
+        ArrayList<String> addons=new ArrayList<>();
+        for (Product product:order.values()) {
+            listProduct.add(product.itemName);
+            if(product instanceof IceCreamObject) {
+                addons.add("Served In: "+((IceCreamObject) product).serveIn);
+                addons.addAll(((IceCreamObject) product).flavorArray);
+            }
+            if(product instanceof FroyoObject) {
+                addons.add("Cup Size:"+((FroyoObject) product).cupSize);
+                addons.add("Flavor: "+((FroyoObject) product).flavor);
+            }
+            if(product instanceof CrepeObject) {
+                addons.add("Filling: "+((CrepeObject) product).chocolateType);
+                addons.addAll(((CrepeObject) product).toppings);
+            }
+            if(product instanceof WaffleObject) {
+                addons.add("Type: "+((WaffleObject) product).waffleType);
+            }
+            listAddOn.put(product.getItemName(), (ArrayList<String>) addons.clone());
+            addons.clear();
+        }
+        adaptar = new MainAdaptar(this.getContext(), listProduct, listAddOn);
+        exp_list.setAdapter(adaptar);
+        adaptar.notifyDataSetChanged();
 //        refOrders = FirebaseDatabase.getInstance().getReference("Orders").child("User1");
 //        ArrayList<String> orderInfoList = new ArrayList<>();
         TextView productsList = view.findViewById(R.id.TextViewProductsList);

@@ -12,7 +12,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -36,18 +36,18 @@ public class OrdersManagementFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        expandableListView=view.findViewById(R.id.exp_list_view);
-//        for (int i = 0; i < 11; i++) {
-//            listGroup.add("com.goldie.menu.Order "+i);
-//            ArrayList<String> arraylist=new ArrayList<>();
-//            for (int j = 0; j < 6; j++) {
-//                arraylist.add("Item"+j);
-//            }
-//            listChild.put(listGroup.get(i),arraylist);
-//        }
-//        adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
-//        expandableListView.setAdapter(adaptar);
-//        adaptar.notifyDataSetChanged();
+        expandableListView=view.findViewById(R.id.exp_list_view);
+        for (int i = 0; i < 11; i++) {
+            listGroup.add("com.goldie.menu.Order "+i);
+            ArrayList<String> arraylist=new ArrayList<>();
+            for (int j = 0; j < 6; j++) {
+                arraylist.add("Item"+j);
+            }
+            listChild.put(listGroup.get(i),arraylist);
+        }
+        adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
+        expandableListView.setAdapter(adaptar);
+        adaptar.notifyDataSetChanged();
     }
 
 
@@ -62,7 +62,6 @@ public class OrdersManagementFragment extends Fragment {
 //                com.goldie.menu.Order order = dataSnapshot.getValue(com.goldie.menu.Order.class);
 //                Item temp=order.order_items.get(0);
 //                System.out.println("HEREEEEEEEEEEEEEE     \n\n\n\n\n\n"+temp._id+"_____  I AMMMMMMMM____");
-//
 //            }
 //
 //            @Override
