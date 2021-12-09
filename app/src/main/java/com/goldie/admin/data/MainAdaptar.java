@@ -1,11 +1,17 @@
 package com.goldie.admin.data;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.goldie.MainActivity;
+
 
 import com.goldie.R;
 import com.goldie.shoppingcart.Product;
@@ -36,7 +42,6 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public Object getGroup(int groupPosition) {
-
         return listGroup.get(groupPosition);
     }
 
@@ -63,16 +68,51 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        Product group=(Product) getGroup(groupPosition);
-        if(convertView==null) {
+        Product group = (Product) getGroup(groupPosition);
+        if(convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_order, null);
         }
-            TextView textView = convertView.findViewById(R.id.list_parent);
-            TextView priceView = convertView.findViewById(R.id.list_parent_price);
-        String id=group.getProduct_id();
+        TextView textView = convertView.findViewById(R.id.list_parent);
+        TextView priceView = convertView.findViewById(R.id.list_parent_price);
+        ImageView deleteIconView = convertView.findViewById(R.id.icon_delete);
+        String id = group.getProduct_id();
         textView.setText(id.substring(0,id.indexOf('_')));
         priceView.setText("Price: "+group.getPrice()+"$");
+
+        deleteIconView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete Order?");
+                builder.setMessage("Do you want to remove current order?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        Product product = listGroup.get(groupPosition);
+                        // Get product name and product id to remove it properly
+                        String productName = product.getItemName();
+                        String productID = product.getProduct_id();
+                        // Remove the product name from child with the array and remove the product from the group position
+                        listChild.remove(productName);
+                        listGroup.remove(groupPosition);
+                        // Remove from the order hashmap (in class MainActivity) using productID
+                        MainActivity.order.remove(productID);
+                        // Lets the adapter know it needs to be refresed
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
         return convertView;
     }
 

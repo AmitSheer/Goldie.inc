@@ -71,7 +71,7 @@ public class ShoppingCartFragment extends Fragment {
                 addons.addAll(((IceCreamObject) product).flavorArray);
             }
             if(product instanceof FroyoObject) {
-                addons.add("Cup Size:"+((FroyoObject) product).cupSize);
+                addons.add("Cup Size: "+((FroyoObject) product).cupSize);
                 addons.add("Flavor: "+((FroyoObject) product).flavor);
             }
             if(product instanceof CrepeObject) {
@@ -89,7 +89,7 @@ public class ShoppingCartFragment extends Fragment {
         adaptar.notifyDataSetChanged();
 //        refOrders = FirebaseDatabase.getInstance().getReference("Orders").child("User1");
 //        ArrayList<String> orderInfoList = new ArrayList<>();
-        TextView productsList = view.findViewById(R.id.TextViewProductsList);
+//        TextView productsList = view.findViewById(R.id.TextViewProductsList);
 
         // Listener to fetch order from fb
 //        ValueEventListener postListener = new ValueEventListener() {

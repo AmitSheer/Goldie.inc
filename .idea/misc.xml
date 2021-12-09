@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Goldie.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.16666666666666666" />
+        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_order.xml" value="0.16666666666666666" />
+        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_product.xml" value="0.16666666666666666" />
+        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_product_1.xml" value="0.1" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_login.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_menu_camera.xml" value="0.22135416666666666" />
