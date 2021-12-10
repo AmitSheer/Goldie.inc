@@ -10,11 +10,11 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.goldie.MainActivity;
+import com.goldie.shop.ShopActivity;
 
 
 import com.goldie.R;
-import com.goldie.shoppingcart.Product;
+import com.goldie.shop.shoppingcart.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -98,7 +98,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
                         listChild.remove(productName);
                         listGroup.remove(groupPosition);
                         // Remove from the order hashmap (in class MainActivity) using productID
-                        MainActivity.order.remove(productID);
+                        ShopActivity.order.remove(productID);
                         // Lets the adapter know it needs to be refresed
                         notifyDataSetChanged();
                     }
