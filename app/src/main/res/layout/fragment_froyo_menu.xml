@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/kelly_coin"
         android:text="@string/flavors"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_700"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,10 +30,10 @@
         android:id="@+id/kiviTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/kiwi"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.136"
@@ -42,14 +42,29 @@
         app:layout_constraintVertical_bias="0.608"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/kiviImage"
+        android:layout_width="136dp"
+        android:layout_height="137dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="kiwi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.473"
+        app:srcCompat="@drawable/froyo_kivi_btn" />
+
     <TextView
         android:id="@+id/peachTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/peach"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,14 +72,28 @@
         app:layout_constraintVertical_bias="0.608"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/peachImage"
+        android:layout_width="157dp"
+        android:layout_height="151dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="peach"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481"
+        app:srcCompat="@drawable/froyo_peach_btn" />
+
     <TextView
         android:id="@+id/magoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/mango"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"
@@ -73,14 +102,29 @@
         app:layout_constraintVertical_bias="0.608"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/magoImage"
+        android:layout_width="122dp"
+        android:layout_height="159dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="mango"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471"
+        app:srcCompat="@drawable/froyo_mango_btn" />
+
     <TextView
         android:id="@+id/blueberryTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/blueberry"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
@@ -89,14 +133,29 @@
         app:layout_constraintVertical_bias="0.874"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/blueberryImage"
+        android:layout_width="122dp"
+        android:layout_height="136dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="blueberry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786"
+        app:srcCompat="@drawable/froyo_blueberry_btn" />
+
     <TextView
         android:id="@+id/strawberryTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/strawberry"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -105,14 +164,28 @@
         app:layout_constraintVertical_bias="0.874"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/strawberryImage"
+        android:layout_width="141dp"
+        android:layout_height="142dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="strawberry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794"
+        app:srcCompat="@drawable/froyo_strawberry_btn" />
+
     <TextView
         android:id="@+id/blackberryTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/kelly_coin"
+        android:fontFamily="@font/fresh"
         android:text="@string/blackberry"
         android:textColor="@color/black"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
@@ -121,19 +194,50 @@
         app:layout_constraintVertical_bias="0.874"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/blackberryImage"
+        android:layout_width="121dp"
+        android:layout_height="143dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="blackberry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.785"
+        app:srcCompat="@drawable/froyo_blackberry_btn" />
+
+    <ImageButton
+        android:id="@+id/small"
+        android:tag="small"
+        android:layout_width="96dp"
+        android:layout_height="66dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
+        app:srcCompat="@drawable/froyo_small_cup_btn"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/cupTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kelly_coin"
         android:text="Cup size"
-        android:textColor="@color/black"
+        android:textColor="@color/purple_700"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"
+        app:layout_constraintVertical_bias="0.02"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -184,6 +288,38 @@
         app:layout_constraintVertical_bias="0.265"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/medium"
+        android:layout_width="123dp"
+        android:layout_height="89dp"
+        android:tag="medium"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.119"
+        app:srcCompat="@drawable/froyo_medium_cup_btn"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/large"
+        android:layout_width="82dp"
+        android:layout_height="121dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:tag="large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:srcCompat="@drawable/froyo_large_cup_btn"
+        tools:ignore="MissingConstraints" />
+
     <Button
         android:id="@+id/applyInFroyo"
         android:layout_width="104dp"
@@ -198,122 +334,7 @@
         app:layout_constraintVertical_bias="0.976"
         tools:ignore="MissingConstraints" />
 
-    <RadioGroup
-        android:id="@+id/size"
-        android:orientation="horizontal"
-        android:layout_width="408dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/mediumCupPrice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupTxt" >
 
-        <RadioButton
-            android:id="@+id/small_cup"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_small_cup_btn"
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:tag="small" />
-
-        <RadioButton
-            android:id="@+id/medium_cup"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_medium_cup_btn"
-            android:layout_width="7dp"
-            android:layout_height="113dp"
-            android:layout_weight="1"
-            android:tag="medium"
-             />
-
-        <RadioButton
-            android:id="@+id/large_cup"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_large_cup_btn"
-            android:layout_width="11dp"
-            android:layout_height="113dp"
-            android:layout_weight="1"
-            android:tag="large"/>
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/flavor_1"
-        android:layout_width="411dp"
-        android:layout_height="141dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flavor"
-        >
-
-        <RadioButton
-            android:id="@+id/kiwi"
-            android:layout_width="141dp"
-            android:layout_height="141dp"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_kivi_btn"
-            android:tag="@string/kiwi" />
-
-        <RadioButton
-            android:id="@+id/peach"
-            android:layout_width="149dp"
-            android:layout_height="137dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_peach_btn"
-            android:tag="@string/peach" />
-
-        <RadioButton
-            android:id="@+id/mango"
-            android:layout_width="131dp"
-            android:layout_height="139dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_mango_btn"
-            android:tag="@string/mango" />
-
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/flavor_2"
-        android:layout_width="409dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="13dp"
-        app:layout_constraintBottom_toTopOf="@+id/strawberryTxt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/peachTxt"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/blueberry"
-            android:layout_width="126dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_blueberry_btn"
-            android:tag="@string/blueberry" />
-
-        <RadioButton
-            android:id="@+id/strawberry"
-            android:layout_width="139dp"
-            android:layout_height="135dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_strawberry_btn"
-            android:tag="@string/strawberry" />
-
-        <RadioButton
-            android:id="@+id/blackberry"
-            android:layout_width="136dp"
-            android:layout_height="135dp"
-            android:layout_weight="1"
-            android:button="@null"
-            android:drawableEnd="@drawable/froyo_blackberry_btn"
-            android:tag="@string/blackberry"/>
-    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

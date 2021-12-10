@@ -24,17 +24,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ShopActivity extends AppCompatActivity {
     public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
-    public static HashMap<String,Product> order;
     //Order order2;
+    public static LinkedHashMap<String,Product> order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order=new HashMap<>();
+        order=new LinkedHashMap<>();
         order_id++;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);

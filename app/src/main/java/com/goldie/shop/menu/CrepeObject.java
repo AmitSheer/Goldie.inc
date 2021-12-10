@@ -27,7 +27,5 @@ public class CrepeObject extends Product implements Serializable {
         this.toppings = value.toppings;
     }
 
-    public String getClassName() {
-        return "Crepe";
-    }
+
 }

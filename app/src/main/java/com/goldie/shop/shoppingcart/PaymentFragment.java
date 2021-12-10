@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.goldie.R;
 import com.google.firebase.database.DatabaseReference;
@@ -39,13 +40,14 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     EditText creditExpireEt;
     // @BindView(R.id.credit_card_cvv_et)
     EditText creditCVVEt;
-
+    TextView total_price_view;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         order_id="Order ";
         order_id+=counter.toString();
         counter++;
         ConstraintLayout credit_box = view.findViewById(R.id.credit_layout);
+        total_price_view=view.findViewById(R.id.total_price);
         //credit_box.setVisibility(View.INVISIBLE);
         super.onViewCreated(view, savedInstanceState);
         group = view.findViewById(R.id.radioGroup);
@@ -58,6 +60,12 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 //                Navigation.findNavController(view).navigate(action);
 //            }
 //        });   pa
+        Double total_price=0.0;
+        for (Product product:
+             order.values()) {
+            total_price+=product.getPrice();
+        }
+        total_price_view.setText(total_price_view.getText()+total_price.toString()+"$");
         payment = view.findViewById(R.id.order);
         payment.setOnClickListener(v -> {
             DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").

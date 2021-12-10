@@ -15,6 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment"
+        android:textStyle="bold"
+        android:textSize="30sp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +26,8 @@
         android:id="@+id/radioGroup"
         android:layout_width="203dp"
         android:layout_height="98dp"
+        android:layout_marginTop="144dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
@@ -133,6 +135,20 @@
 
         />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/total_price"
+        android:layout_width="272dp"
+        android:layout_height="45dp"
+        android:text="Total Price: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.464" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

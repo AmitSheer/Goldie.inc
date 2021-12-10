@@ -19,13 +19,15 @@ import androidx.navigation.Navigation;
 import com.goldie.R;
 import com.goldie.shop.shoppingcart.Product;
 
-public class IceCreamMenuFragment extends Fragment {
+public class IceCreamMenuFragment extends Fragment implements View.OnClickListener {
 
 
-    RadioButton cup,cone,one_s, two_s, three_s, one_c, two_c, three_c, one_v, two_v, three_v, one_p, two_p, three_p;
+    RadioButton one_s, two_s, three_s, one_c, two_c, three_c, one_v, two_v, three_v, one_p, two_p, three_p;
     RadioGroup strawberry, chocolate, vanilla, pistachio,serve_in;
     Button apply;
+    ImageButton selected;
     int chocolateNum = 0, strawberryNum = 0, pistachioNum = 0, vanillaNum = 0;
+    ImageButton cup, cone;
     IceCreamObject iceCream;
 
     public IceCreamMenuFragment() {
@@ -38,13 +40,15 @@ public class IceCreamMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         cup = view.findViewById(R.id.cup);
+        cup.setOnClickListener(this);
         cone = view.findViewById(R.id.cone);
+        cone.setOnClickListener(this);
 
         strawberry = view.findViewById(R.id.sGroup);
         one_s = view.findViewById(R.id.one_s);
         two_s = view.findViewById(R.id.two_s);
         three_s = view.findViewById(R.id.three_s);
-        serve_in=view.findViewById(R.id.serve_in);
+
         chocolate = view.findViewById(R.id.cGroup);
         one_c = view.findViewById(R.id.one_c);
         two_c = view.findViewById(R.id.two_c);
@@ -61,26 +65,15 @@ public class IceCreamMenuFragment extends Fragment {
         three_p = view.findViewById(R.id.three_p);
         iceCream=new IceCreamObject();
         apply = view.findViewById(R.id.applyInIceCream);
-        serve_in.setOnCheckedChangeListener((group, checkedId) -> {
-                    iceCream.serveIn = (cup.getId() == group.getCheckedRadioButtonId()) ? "cup" : "cone";
-                }
-        );
-
-        strawberry.setOnClickListener((group) -> {
-            switch (strawberry.getCheckedRadioButtonId()) {
+        strawberry.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
                 case R.id.one_s:
-                    if(one_s.isSelected())
-                        strawberry.clearCheck();
                     strawberryNum = 1;
                     break;
                 case R.id.two_s:
-                    if(two_s.isSelected())
-                        strawberry.clearCheck();
                     strawberryNum = 2;
                     break;
                 case R.id.three_s:
-                    if(three_s.isSelected())
-                        strawberry.clearCheck();
                     strawberryNum = 3;
                     break;
             }
@@ -89,18 +82,12 @@ public class IceCreamMenuFragment extends Fragment {
         chocolate.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_c:
-                    if(one_c.isSelected())
-                        chocolate.clearCheck();
                     chocolateNum = 1;
                     break;
                 case R.id.two_c:
-                    if(two_c.isSelected())
-                        chocolate.clearCheck();
                     chocolateNum = 2;
                     break;
                 case R.id.three_c:
-                    if(three_c.isSelected())
-                        chocolate.clearCheck();
                     chocolateNum = 3;
                     break;
             }
@@ -109,18 +96,12 @@ public class IceCreamMenuFragment extends Fragment {
         vanilla.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_v:
-                    if(one_v.isSelected())
-                        vanilla.clearCheck();
                     vanillaNum = 1;
                     break;
                 case R.id.two_v:
-                    if(two_v.isSelected())
-                        vanilla.clearCheck();
                     vanillaNum = 2;
                     break;
                 case R.id.three_v:
-                    if(three_v.isSelected())
-                        vanilla.clearCheck();
                     vanillaNum = 3;
                     break;
             }
@@ -129,32 +110,26 @@ public class IceCreamMenuFragment extends Fragment {
         pistachio.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.one_p:
-                    if(one_p.isSelected())
-                        pistachio.clearCheck();
                     pistachioNum = 1;
                     break;
                 case R.id.two_p:
-                    if(two_p.isSelected())
-                        pistachio.clearCheck();
                     pistachioNum = 2;
                     break;
                 case R.id.three_p:
-                    if(three_p.isSelected())
-                        pistachio.clearCheck();
                     pistachioNum = 3;
                     break;
             }
         });
-
         apply.setOnClickListener(v -> {
             int total = chocolateNum + vanillaNum + strawberryNum + pistachioNum;
-            if (!iceCream.serveIn.equals("") && (total > 0 && total <= 3)) {
+            if ((total > 0 && total <= 3)&&(cup.isSelected()||cone.isSelected())) {
+                iceCream.product_id="Ice Cream_"+iceCream.product_id;
                 for (int i = 0; i < chocolateNum; i++) iceCream.flavorArray.add("Chocolate");
                 for (int i = 0; i < strawberryNum; i++) iceCream.flavorArray.add("Strawberry");
                 for (int i = 0; i < vanillaNum; i++) iceCream.flavorArray.add("Vanilla");
                 for (int i = 0; i < pistachioNum; i++) iceCream.flavorArray.add("Pistachio");
                 iceCream.setPrice(total);
-                order.put(Product.product_id,iceCream);
+                order.put(iceCream.getProduct_id(),iceCream);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = IceCreamMenuFragmentDirections.actionIceCreamMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
@@ -167,5 +142,18 @@ public class IceCreamMenuFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        v.setSelected(!v.isSelected());
+        if (selected != null) {
+            selected.setSelected(false);
+            iceCream.serveIn = "";
+        }
+        selected = v.findViewById(v.getId());
+        if (v.isSelected()) {
+            iceCream.serveIn = (String) v.getTag();
+        }
     }
 }

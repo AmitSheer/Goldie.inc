@@ -1,22 +1,30 @@
 package com.goldie.admin.data;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.goldie.MainActivity;
+
+
 import com.goldie.R;
+import com.goldie.shoppingcart.Product;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainAdaptar extends BaseExpandableListAdapter {
     Context context;
-    ArrayList<String> listGroup;
+    ArrayList<Product> listGroup;
     HashMap<String,ArrayList<String>> listChild;
-    public MainAdaptar(Context context, ArrayList<String> listGroup, HashMap<String,ArrayList<String>> listChild){
+
+    public MainAdaptar(Context context, ArrayList<Product> listGroup, HashMap<String,ArrayList<String>> listChild){
         this.context=context;
         this.listGroup=listGroup;
         this.listChild=listChild;
@@ -28,7 +36,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        return listChild.get(listGroup.get(i)).size();
+        String child=listGroup.get(i).getProduct_id();
+        return listChild.get(child).size();
     }
 
     @Override
@@ -38,7 +47,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return listChild.get(listGroup.get(groupPosition)).get(childPosition);
+        String child=listGroup.get(groupPosition).getProduct_id();
+        return listChild.get(child).get(childPosition);
     }
 
     @Override
@@ -58,17 +68,51 @@ public class MainAdaptar extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String group=(String) getGroup(groupPosition);
-        if(convertView==null) {
+        Product group = (Product) getGroup(groupPosition);
+        if(convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_group, null);
+            convertView = layoutInflater.inflate(R.layout.list_order, null);
         }
-            TextView textView = convertView.findViewById(R.id.list_parent);
-            //String sGroup = String.valueOf(getGroup(groupPosition));
-            textView.setText(group);
-//            textView.setTypeface(null, Typeface.BOLD);
-//            textView.setTextColor(Color.BLUE);
+        TextView textView = convertView.findViewById(R.id.list_parent);
+        TextView priceView = convertView.findViewById(R.id.list_parent_price);
+        ImageView deleteIconView = convertView.findViewById(R.id.icon_delete);
+        String id = group.getProduct_id();
+        textView.setText(id.substring(0,id.indexOf('_')));
+        priceView.setText("Price: "+group.getPrice()+"$");
 
+        deleteIconView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete Order?");
+                builder.setMessage("Do you want to remove current order?");
+                builder.setCancelable(true);
+                builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        Product product = listGroup.get(groupPosition);
+                        // Get product name and product id to remove it properly
+                        String productName = product.getItemName();
+                        String productID = product.getProduct_id();
+                        // Remove the product name from child with the array and remove the product from the group position
+                        listChild.remove(productName);
+                        listGroup.remove(groupPosition);
+                        // Remove from the order hashmap (in class MainActivity) using productID
+                        MainActivity.order.remove(productID);
+                        // Lets the adapter know it needs to be refresed
+                        notifyDataSetChanged();
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int id) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
         return convertView;
     }
 
@@ -77,30 +121,12 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         String child=(String) getChild(groupPosition,childPosition);
         if(convertView==null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = layoutInflater.inflate(R.layout.list_item, null);
+            convertView = layoutInflater.inflate(R.layout.list_product, null);
         }
         TextView textView = convertView.findViewById(R.id.list_child);
-        //String sGroup = String.valueOf(getGroup(groupPosition));
         textView.setText(child);
-//            textView.setTypeface(null, Typeface.BOLD);
-//            textView.setTextColor(Color.BLUE);
-
+        //textView.setBackgroundColor(Color.TRANSPARENT);
         return convertView;
-
-
-
-//        convertView=LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_selectable_list_item,parent,false);
-//        TextView textView=convertView.findViewById(android.R.id.text1);
-//        String sChild=String.valueOf(getChild(groupPosition,childPosition));
-//        textView.setText(sChild);
-//        textView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(parent.getContext(),sChild,Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-        //return convertView;
     }
 
     @Override

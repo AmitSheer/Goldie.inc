@@ -17,7 +17,7 @@ import androidx.navigation.Navigation;
 import com.goldie.R;
 import com.goldie.shop.shoppingcart.Product;
 
-public class WaffleMenuFragment extends Fragment implements View.OnClickListener { //change to pick just one
+public class WaffleMenuFragment extends Fragment implements View.OnClickListener {
 
     ImageButton classic, coffee, butter, chocolate;
     Button apply;
@@ -44,100 +44,9 @@ public class WaffleMenuFragment extends Fragment implements View.OnClickListener
         apply = view.findViewById(R.id.applyInWaffle);
 
         waffle = new WaffleObject();
-//        classic.setOnClickListener(view13 -> {
-//            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
-//                    &&!butter.isSelected()){
-//                classic.setSelected(true);
-//            }
-//            else if(!classic.isSelected()&& coffee.isSelected()){
-//                classic.setSelected(true);
-//                coffee.setSelected(false);
-//            }
-//            else if(!classic.isSelected()&& butter.isSelected()){
-//                classic.setSelected(true);
-//                butter.setSelected(false);
-//            }
-//            else if(!classic.isSelected()&& chocolate.isSelected()){
-//                classic.setSelected(true);
-//                chocolate.setSelected(false);
-//            }
-//            else {
-//                classic.setSelected(false);
-//            }
-//        });
-//
-//        coffee.setOnClickListener(view13 -> {
-//            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
-//                    &&!butter.isSelected()){
-//                coffee.setSelected(true);
-//            }
-//            else if(!coffee.isSelected()&& classic.isSelected()){
-//                coffee.setSelected(true);
-//                classic.setSelected(false);
-//            }
-//            else if(!coffee.isSelected()&& butter.isSelected()){
-//                coffee.setSelected(true);
-//                butter.setSelected(false);
-//            }
-//            else if(!coffee.isSelected()&& chocolate.isSelected()){
-//                coffee.setSelected(true);
-//                chocolate.setSelected(false);
-//            }
-//            else {
-//                coffee.setSelected(false);
-//            }
-//        });
-//
-//        butter.setOnClickListener(view13 -> {
-//            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
-//                    &&!butter.isSelected()){
-//                butter.setSelected(true);
-//            }
-//            else if(!butter.isSelected()&& classic.isSelected()){
-//                butter.setSelected(true);
-//                classic.setSelected(false);
-//            }
-//            else if(!butter.isSelected()&& coffee.isSelected()){
-//                butter.setSelected(true);
-//                coffee.setSelected(false);
-//            }
-//            else if(!butter.isSelected()&& chocolate.isSelected()){
-//                butter.setSelected(true);
-//                chocolate.setSelected(false);
-//            }
-//            else {
-//                butter.setSelected(false);
-//            }
-//        });
-//
-//        chocolate.setOnClickListener(view13 -> {
-//            if (!classic.isSelected()&&!chocolate.isSelected()&&!coffee.isSelected()
-//                    &&!butter.isSelected()){
-//                chocolate.setSelected(true);
-//            }
-//            else if(!chocolate.isSelected()&& classic.isSelected()){
-//                chocolate.setSelected(true);
-//                classic.setSelected(false);
-//            }
-//            else if(!chocolate.isSelected()&& coffee.isSelected()){
-//                chocolate.setSelected(true);
-//                coffee.setSelected(false);
-//            }
-//            else if(!chocolate.isSelected()&& butter.isSelected()){
-//                chocolate.setSelected(true);
-//                butter.setSelected(false);
-//            }
-//            else {
-//                chocolate.setSelected(false);
-//            }
-//        });
 
         apply.setOnClickListener(v -> {
             if (!waffle.waffleType.equals("")) {
-                //WaffleObject waffleObject = new WaffleObject(waffleType );
-//                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-//                        child(UserData.Uid).child("Waffle").push();
-//                refNewOrder.setValue(waffleObject);
                 if (waffle.waffleType.equals("classic")) {
                     waffle.setPrice(8);
                 } else {
@@ -147,7 +56,8 @@ public class WaffleMenuFragment extends Fragment implements View.OnClickListener
                         waffle.setPrice(10);
                     }
                 }
-                order.put(Product.product_id, waffle);
+                waffle.product_id="Waffle_"+waffle.product_id;
+                order.put(waffle.getProduct_id(), waffle);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = WaffleMenuFragmentDirections.actionWaffleMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);

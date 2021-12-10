@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -19,14 +20,15 @@ import androidx.navigation.Navigation;
 import com.goldie.R;
 import com.goldie.shop.shoppingcart.Product;
 
-public class FroyoMenuFragment extends Fragment {
+public class FroyoMenuFragment extends Fragment implements View.OnClickListener {
 
     Button apply;
-    RadioGroup size, flavor_1, flavor_2;
-    RadioButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
-    FroyoObject frozen;
-    int flag=0;
-    RadioButton selected;
+    ImageButton small, medium, large, kiwi, peach, mango, blueberry, strawberry, blackberry;
+    ImageButton selectedFlave, selectedSize;
+    boolean something_checked = false;
+    FroyoObject frozen = new FroyoObject();
+
+
     public FroyoMenuFragment() {
         super(R.layout.fragment_froyo_menu);
     }
@@ -35,118 +37,91 @@ public class FroyoMenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        frozen = new FroyoObject();
-        small = view.findViewById(R.id.small_cup);
-        medium = view.findViewById(R.id.medium_cup);
-        large = view.findViewById(R.id.large_cup);
-        kiwi = view.findViewById(R.id.kiwi);
-        peach = view.findViewById(R.id.peach);
-        mango = view.findViewById(R.id.mango);
-        blueberry = view.findViewById(R.id.blueberry);
-        strawberry = view.findViewById(R.id.strawberry);
-        blackberry = view.findViewById(R.id.blackberry);
+        small = view.findViewById(R.id.small);
+        small.setOnClickListener(this);
+        medium = view.findViewById(R.id.medium);
+        medium.setOnClickListener(this);
+        large = view.findViewById(R.id.large);
+        large.setOnClickListener(this);
+        kiwi = view.findViewById(R.id.kiviImage);
+        kiwi.setOnClickListener(this);
+        peach = view.findViewById(R.id.peachImage);
+        peach.setOnClickListener(this);
+        mango = view.findViewById(R.id.magoImage);
+        mango.setOnClickListener(this);
+        blueberry = view.findViewById(R.id.blueberryImage);
+        blueberry.setOnClickListener(this);
+        strawberry = view.findViewById(R.id.strawberryImage);
+        strawberry.setOnClickListener(this);
+        blackberry = view.findViewById(R.id.blackberryImage);
+        blackberry.setOnClickListener(this);
         apply = view.findViewById(R.id.applyInFroyo);
-        flavor_2 = view.findViewById(R.id.flavor_2);
-        flavor_1 = view.findViewById(R.id.flavor_1);
-        size = view.findViewById(R.id.size);
-        size.setOnCheckedChangeListener(((group, checkedId) -> {
-            switch (group.getCheckedRadioButtonId()) {
-                case R.id.small_cup: {
-                    frozen.cupSize = "small";
-                    frozen.setPrice(3);
-                    large.setSelected(false);
-                    medium.setSelected(false);
-                    small.setSelected(true);
-                    break;
-                }
-                case R.id.medium_cup: {
-                    frozen.cupSize = "medium";
-                    frozen.setPrice(4);
-
-                    large.setSelected(false);
-                    small.setSelected(false);
-                    medium.setSelected(true);
-                    break;
-                }
-                case R.id.large_cup: {
-                    frozen.cupSize = "large";
-                    frozen.setPrice(5);
-                    small.setSelected(false);
-                    medium.setSelected(false);
-                    large.setSelected(true);
-                    break;
-                }
-            }
-        }));
-        flavor_1.setOnCheckedChangeListener((group, checkedId) -> {
-                    if(selected!=null)
-                        selected.setSelected(false);
-                    switch (group.getCheckedRadioButtonId()) {
-                        case R.id.kiwi: {
-                            frozen.flavor = "kiwi";
-                            kiwi.setSelected(true);
-                            selected=kiwi;
-                            break;
-                        }
-                        case R.id.peach: {
-                            frozen.flavor = "peach";
-                            peach.setSelected(true);
-                            selected=peach;
-                            break;
-                        }
-                        case R.id.mango: {
-                            frozen.flavor = "mango";
-                            mango.setSelected(true);
-                            selected=mango;
-                            break;
-                        }
-                    }
-                   // flag=1;
-                   // flavor_1.setSelected(true);
-                }
-        );
-
-        flavor_2.setOnCheckedChangeListener((group, checkedId) -> {
-                    if (selected!=null)
-                        selected.setSelected(false);
-                    switch (group.getCheckedRadioButtonId()) {
-                        case R.id.blueberry: {
-                            frozen.flavor = "blueberry";
-                            blueberry.setSelected(true);
-                            selected=blueberry;
-                            break;
-                        }
-                        case R.id.strawberry: {
-                            frozen.flavor = "strawberry";
-                            strawberry.setSelected(true);
-                            selected=strawberry;
-                            break;
-                        }
-                        case R.id.blackberry: {
-                            frozen.flavor = "blackberry";
-                            blackberry.setSelected(true);
-                            selected=blackberry;
-                            break;
-                        }
-                    }
-                    flag=2;
-                }
-        );
 
         apply.setOnClickListener(v -> {
-            if (!frozen.flavor.equals("") && !frozen.cupSize.equals("")) {
-                order.put(Product.product_id, frozen);
+            if ((large.isSelected() || medium.isSelected() || small.isSelected()) && something_checked) {
+                switch (selectedSize.getId()){
+                    case R.id.large:{
+                        frozen.setPrice(6);
+                        break;
+                    }
+                    case R.id.medium:{
+                        frozen.setPrice(4);
+                        break;
+                    }
+                    case R.id.small:{
+                        frozen.setPrice(3);
+                        break;
+                    }
+                }
+                frozen.product_id = "Froyo_" + frozen.product_id;
+                order.put(frozen.getProduct_id(), frozen);
                 Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
                 NavDirections action = FroyoMenuFragmentDirections.actionFroyoMenuFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
-            } else {
-                if (frozen.flavor.equals("")) {
-                    Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_SHORT).show();
-                }
-            }
 
+            } else if (!something_checked) {
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick flavor!", Toast.LENGTH_SHORT).show();
+            } else if (!large.isSelected() && !medium.isSelected() && !small.isSelected()) {
+                Toast.makeText(requireActivity().getApplicationContext(), "Please pick cup size!", Toast.LENGTH_SHORT).show();
+            }
         });
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.kiviImage:
+            case R.id.magoImage:
+            case R.id.peachImage:
+            case R.id.blueberryImage:
+            case R.id.strawberryImage:
+            case R.id.blackberryImage:
+                v.setSelected(!v.isSelected());
+                if (selectedFlave != null) {
+                    selectedFlave.setSelected(false);
+                    frozen.flavor = "";
+                    something_checked = false;
+                }
+                selectedFlave = v.findViewById(v.getId());
+                if (v.isSelected()) {
+                    frozen.flavor = (String) v.getTag();
+                    something_checked = true;
+                }
+                break;
+            case R.id.small:
+            case R.id.medium:
+            case R.id.large:
+                v.setSelected(!v.isSelected());
+                if (selectedSize != null) {
+                    selectedSize.setSelected(false);
+                    frozen.cupSize = "";
+                }
+                selectedSize = v.findViewById(v.getId());
+                if (v.isSelected()) {
+                    frozen.cupSize = (String) v.getTag();
+                }
+                break;
+        }
     }
 }
