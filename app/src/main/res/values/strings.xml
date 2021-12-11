@@ -84,4 +84,6 @@
     <string name="up_to_3_topping">*up to 3 topping</string>
     <string name="_5_per_crepe">*5$ per crepe</string>
     <string name="_1_per_scoop">*1$ per scoop</string>
+    <string name="payment">Payment</string>
+    <string name="product_list">Product List</string>
 </resources>

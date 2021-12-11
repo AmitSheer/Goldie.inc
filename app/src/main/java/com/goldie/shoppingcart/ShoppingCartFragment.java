@@ -33,7 +33,7 @@ import java.util.Map;
  * And than there is filling of the products purchased to the text View.
  */
 public class ShoppingCartFragment extends Fragment {
-    Button place_order;
+    Button payment;
     DatabaseReference refOrders;
     FirebaseAuth fb;
     //String orderUID = "";
@@ -41,6 +41,7 @@ public class ShoppingCartFragment extends Fragment {
     ArrayList<Product> listProduct =new ArrayList<>();
     HashMap<String,ArrayList<String>> listAddOn =new HashMap<>();
     MainAdaptar adaptar;
+
     public ShoppingCartFragment() {
         super(R.layout.fragment_shopping_cart);
     }
@@ -48,8 +49,8 @@ public class ShoppingCartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        place_order = view.findViewById(R.id.place_order);
-        place_order.setOnClickListener(v -> {
+        payment = view.findViewById(R.id.payment);
+        payment.setOnClickListener(v -> {
                     NavDirections action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToPaymentFragment2();
                     Navigation.findNavController(view).navigate(action);
                 }
@@ -65,7 +66,9 @@ public class ShoppingCartFragment extends Fragment {
 //        }
         ArrayList<String> addons=new ArrayList<>();
         for (Product product:order.values()) {
-            listProduct.add(product);
+            if (!listProduct.contains(product)) {
+                listProduct.add(product);
+            }
             if(product instanceof IceCreamObject) {
                 addons.add("Served In: "+((IceCreamObject) product).serveIn);
                 addons.addAll(((IceCreamObject) product).flavorArray);
