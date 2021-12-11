@@ -1,4 +1,4 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 
 import android.os.Bundle;
 import android.view.View;

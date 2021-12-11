@@ -7,7 +7,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.goldie.MainActivity;
+import com.goldie.shop.ShopActivity;
 import com.goldie.R;
 import com.goldie.account.FirebaseAdapter;
 import com.goldie.account.data.UserData;
@@ -56,7 +56,7 @@ public class AdminMainActivity extends AppCompatActivity {
                         // LogOut
                         FirebaseAdapter.fAuth.signOut();
                         UserData.empty();
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), ShopActivity.class));
                         finish();
                         break;
                     default:

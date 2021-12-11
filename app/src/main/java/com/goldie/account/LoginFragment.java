@@ -31,12 +31,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        if(FirebaseAdapter.fAuth.getCurrentUser()!=null){
-            NavDirections action = LoginFragmentDirections.actionLoginFragmentToAccountFragment();
-            Navigation.findNavController(view).navigate(action);
-        }
-
         mConfirmBtn = view.findViewById(R.id.button_confirm);
         mRegisterBtn = view.findViewById(R.id.button_register);
         mEmail = view.findViewById(R.id.edit_text_email);
@@ -57,22 +51,14 @@ public class LoginFragment extends Fragment {
                 }
 
                 //runs after validation
-                FirebaseAdapter.fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
-                    if(task.isSuccessful()){
-                        Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
-                        FirebaseAdapter.UpdateUserData(email).addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                if(UserData.IsAdmin){
-                                    Intent intent = new Intent(getContext(), AdminMainActivity.class);
-                                    startActivity(intent);
-                                    getActivity().finish();
-                                }else{
-                                    NavDirections action = LoginFragmentDirections.actionLoginFragmentToMenuFragment();
-                                    Navigation.findNavController(view).navigate(action);
-                                }
-                            }
-                        });
+                FirebaseAdapter.Login(email,password).addOnCompleteListener(task->{
+                    if(task.isSuccessful()) {
+                        try {
+                            LoginViewNav.ChangeViewByUserType((LoginActivity) getActivity());
+                            Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            Toast.makeText(getContext(), "Error ! "+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }else{
                         Toast.makeText(getContext(), "Error ! "+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }

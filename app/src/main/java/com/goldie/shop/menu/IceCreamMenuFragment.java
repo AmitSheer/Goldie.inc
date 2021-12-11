@@ -1,6 +1,6 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 
-import static com.goldie.MainActivity.order;
+import static com.goldie.shop.ShopActivity.order;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,17 +17,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
-import com.goldie.MainActivity;
 import com.goldie.R;
-import com.goldie.account.data.UserData;
-import com.goldie.shoppingcart.Product;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import com.goldie.shop.shoppingcart.Product;
 
 public class IceCreamMenuFragment extends Fragment implements View.OnClickListener {
 

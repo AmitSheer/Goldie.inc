@@ -42,12 +42,6 @@ public class RegisterFragment extends Fragment {
         mPhone =view.findViewById(R.id.phone);
         mEmail =view.findViewById(R.id.email);
 
-
-        if(FirebaseAdapter.fAuth.getCurrentUser()!=null){
-            NavDirections action = RegisterFragmentDirections.actionRegisterFragmentToMenuNav();
-            Navigation.findNavController(view).navigate(action);
-        }
-
         mRegisterBtn.setOnClickListener(v -> {
             String email = mEmail.getText().toString().trim();
             String password = mPassword.getText().toString().trim();
@@ -71,29 +65,34 @@ public class RegisterFragment extends Fragment {
                 return;
             }
 
-            FirebaseAdapter.fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+            FirebaseAdapter.Register(email,password,full_name,phone).addOnCompleteListener(task->{
                 if(task.isSuccessful()){
                     Toast.makeText(getContext(), "User Created", Toast.LENGTH_SHORT).show();
-                    UUID uid = UUID.randomUUID();
-                    UserData.fill(full_name,password,email,phone, uid.toString());
-                    FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    db.collection("users").document(email).set(UserData.toMap()).addOnSuccessListener(new OnSuccessListener<Object>() {
-                        @Override
-                        public void onSuccess(Object o) {
-                            Log.d(TAG, "DocumentSnapshot added with ID: " + email);
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w(TAG, "Error adding document", e);
-                                }
-                    });
-                    NavDirections action = RegisterFragmentDirections.actionRegisterFragmentToMenuNav();
-                    Navigation.findNavController(view).navigate(action);
+                    LoginViewNav.ChangeViewByUserType(getActivity());
                 }else{
                     Toast.makeText(getContext(), "Error ! "+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
+//            FirebaseAdapter.fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
+//                if(task.isSuccessful()){
+//                    UUID uid = UUID.randomUUID();
+//                    UserData.fill(full_name,password,email,phone, uid.toString());
+//                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+//                    db.collection("users").document(email).set(UserData.toMap()).addOnSuccessListener(new OnSuccessListener<Object>() {
+//                        @Override
+//                        public void onSuccess(Object o) {
+//                            Log.d(TAG, "DocumentSnapshot added with ID: " + email);
+//                        }
+//                    }).addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Log.w(TAG, "Error adding document", e);
+//                                }
+//                    });
+//                }else{
+//                    Toast.makeText(getContext(), "Error ! "+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            });
         });
 
     }

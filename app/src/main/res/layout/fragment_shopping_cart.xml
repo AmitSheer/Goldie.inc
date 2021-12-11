@@ -8,7 +8,7 @@
     android:gravity="center"
     android:background="@drawable/back"
     android:orientation="vertical"
-    tools:context=".shoppingcart.ShoppingCartFragment">
+    tools:context=".shop.shoppingcart.ShoppingCartFragment">
 
     <ExpandableListView
         android:id="@+id/exp_list_view_shopping"

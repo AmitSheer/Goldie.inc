@@ -1,6 +1,6 @@
-package com.goldie.shoppingcart;
+package com.goldie.shop.shoppingcart;
 
-import static com.goldie.MainActivity.order;
+import static com.goldie.shop.ShopActivity.order;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.goldie.R;
-import com.goldie.menu.FroyoMenuFragmentDirections;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -1,18 +1,18 @@
-package com.goldie.shoppingcart;
+package com.goldie.shop.shoppingcart;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
-import static com.goldie.MainActivity.order;
+import static com.goldie.shop.ShopActivity.order;
 
 import com.goldie.R;
 import com.goldie.admin.data.MainAdaptar;
-import com.goldie.menu.CrepeObject;
-import com.goldie.menu.FroyoObject;
-import com.goldie.menu.IceCreamObject;
-import com.goldie.menu.WaffleObject;
+import com.goldie.shop.menu.CrepeObject;
+import com.goldie.shop.menu.FroyoObject;
+import com.goldie.shop.menu.IceCreamObject;
+import com.goldie.shop.menu.WaffleObject;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 

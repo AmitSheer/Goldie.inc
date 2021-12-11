@@ -1,4 +1,4 @@
-package com.goldie.menu;
+package com.goldie.shop.menu;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,11 +10,8 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
-import com.goldie.shoppingcart.Product;
-//import com.goldie.shoppingcart.product;
+//import com.goldie.shop.shoppingcart.product;
 
-import java.util.HashMap;
-import java.util.List;
 
 //Arraylist<produts> order;
 // Hashmap<product,Integer> order;

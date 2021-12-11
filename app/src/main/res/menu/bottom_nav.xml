@@ -2,18 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.goldie.MainActivity">
+    tools:context="com.goldie.shop.ShopActivity">
     <item
         android:id="@+id/menuFragment"
         android:icon="@drawable/ic_menu"
         android:title="Menu"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/loginFragment"
-        android:icon="@drawable/ic_account"
-        android:title="Account"
-
-        app:showAsAction="never"/>
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"
+        app:showAsAction="never" />
     <item
         android:id="@+id/shoppingCartFragment"
         android:icon="@drawable/ic_shopping_cart"
