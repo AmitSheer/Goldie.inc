@@ -90,8 +90,7 @@ public class PaymentFragment extends Fragment implements TextWatcher {
             }
         });
     }
-
-
+    
 //    @OnTextChanged(value = R.id.credit_card_expire_et, callback = BEFORE_TEXT_CHANGED)
 //    void beforeExpireEtChanged() {
 //        previousLength = creditExpireEt.getText().toString().length();
