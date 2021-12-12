@@ -1,5 +1,7 @@
 package com.goldie.admin;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.goldie.account.LoginViewNav;
 import com.goldie.shop.ShopActivity;
 import com.goldie.R;
 import com.goldie.account.FirebaseAdapter;
@@ -38,6 +41,7 @@ public class AdminMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+        LoginViewNav.ChangeViewByUserType(this);
         FragmentManager fragmentManager = getSupportFragmentManager();
         navController = ((NavHostFragment) fragmentManager.findFragmentById(R.id.admin_nav_host_fragment)).getNavController();
         toolbar = findViewById(R.id.admin_toolbar);
@@ -52,12 +56,30 @@ public class AdminMainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.logout:
-                        Toast.makeText(getApplicationContext(), "Admin Logged out", Toast.LENGTH_SHORT).show();
-                        // LogOut
-                        FirebaseAdapter.fAuth.signOut();
-                        UserData.empty();
-                        startActivity(new Intent(getApplicationContext(), ShopActivity.class));
-                        finish();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(AdminMainActivity.this);
+
+                        builder.setTitle("Sure you want to logout?");
+                        builder.setCancelable(true);
+                        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int id) {
+                                Toast.makeText(getApplicationContext(), "Admin Logged out", Toast.LENGTH_SHORT).show();
+                                // LogOut
+                                FirebaseAdapter.fAuth.signOut();
+                                UserData.empty();
+                                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int id) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+
                         break;
                     default:
                         return NavigationUI.onNavDestinationSelected(item,navController);

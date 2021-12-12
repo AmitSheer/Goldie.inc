@@ -8,11 +8,14 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.goldie.R;
@@ -48,17 +51,36 @@ public class ShopActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(toolbar,navController);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
         LoginViewNav.ChangeViewByUserType(this);
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.logout:
-                        Toast.makeText(getApplicationContext(), "User Logged out", Toast.LENGTH_SHORT).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ShopActivity.this);
+
+                        builder.setTitle("Sure you want to logout?");
+                        builder.setCancelable(true);
+                        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int id) {
+                                Toast.makeText(getApplicationContext(), "User Logged out", Toast.LENGTH_SHORT).show();
+                                FirebaseAdapter.fAuth.signOut();
+                                UserData.empty();
+                                startActivity(new Intent(getApplicationContext(), ShopActivity.class));
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int id) {
+                                dialogInterface.cancel();
+                            }
+                        });
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
                         // LogOut
-                        FirebaseAdapter.fAuth.signOut();
-                        UserData.empty();
-                        startActivity(new Intent(getApplicationContext(), ShopActivity.class));
-                        finish();
+
                         break;
                     default:
                         return NavigationUI.onNavDestinationSelected(item,navController);

@@ -47,7 +47,7 @@ public class OrdersManagementFragment extends Fragment {
         }
         //adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
         expandableListView.setAdapter(adaptar);
-        adaptar.notifyDataSetChanged();
+//        adaptar.notifyDataSetChanged();
     }
 
 
