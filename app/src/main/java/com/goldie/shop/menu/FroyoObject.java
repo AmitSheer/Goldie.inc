@@ -9,10 +9,6 @@ public class FroyoObject extends Product implements Serializable {
     public String cupSize;
     public String flavor;
 
-//    public FroyoObject(Product cupSize, Product flavor) {
-//        this.cupSize=cupSize;
-//        this.flavor=flavor;
-//    }
     public FroyoObject(){
         super("Froyo", 1, 0, 1);
         cupSize="";

@@ -84,6 +84,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         TextView priceView = convertView.findViewById(R.id.list_parent_price);
         ImageView deleteIconView = convertView.findViewById(R.id.icon_delete);
         String id = group.getProduct_id();
+        // Separate the product name from the product id
         textView.setText(id.substring(0,id.indexOf('_')));
         priceView.setText("Price: "+group.getPrice()+"$");
 
@@ -93,8 +94,8 @@ public class MainAdaptar extends BaseExpandableListAdapter {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Delete Order?");
-                builder.setMessage("Do you want to remove current order?");
+                builder.setTitle("Delete Product?");
+                builder.setMessage("Do you want to remove current product?");
                 builder.setCancelable(true);
                 // If the user clicks accept - deletes the order from all places
                 builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {

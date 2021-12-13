@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CrepeObject extends Product implements Serializable {
-    //public List<Product> chocolateType;
     public String chocolateType;
     public List<String> toppings;
 
