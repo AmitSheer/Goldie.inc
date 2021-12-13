@@ -31,11 +31,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class ShopActivity extends AppCompatActivity {
+    // Keeps track of the order id number
     public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
-    //Order order2;
+    // Map of all orders
     public static LinkedHashMap<String,Product> order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +53,17 @@ public class ShopActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
         LoginViewNav.ChangeViewByUserType(this);
 
+        // Listens to logout being clicked
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.logout:
+                        // Build the alert dialog
                         AlertDialog.Builder builder = new AlertDialog.Builder(ShopActivity.this);
-
                         builder.setTitle("Sure you want to logout?");
                         builder.setCancelable(true);
+                        // If the user clicks confirm - navigate to login screen
                         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int id) {
@@ -71,12 +74,14 @@ public class ShopActivity extends AppCompatActivity {
                                 finish();
                             }
                         });
+                        // If the user clicks cancel - cancel the alert dialog box
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int id) {
                                 dialogInterface.cancel();
                             }
                         });
+                        // Create the alert dialog and present it
                         AlertDialog alertDialog = builder.create();
                         alertDialog.show();
                         // LogOut

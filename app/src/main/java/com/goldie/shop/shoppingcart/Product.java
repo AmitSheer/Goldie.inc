@@ -16,8 +16,10 @@ public class Product {
      * Describes how many units are ordered within the same item.
      */
     int amount;
-    public  String product_id;
-    ArrayList<String> addons;
+    /**
+     * Represents the product id and a counter to count each product as different.
+     */
+    public String product_id;
     private static long counter;
 
     /**
@@ -37,8 +39,8 @@ public class Product {
 
 
     /**
-     * Constructor specifically for com.goldie.shop.menu.Order class, this constructor creates a new productOrder
-     * in case there is no such productOrder in the com.goldie.shop.menu.Order Arraylist Member of com.goldie.shop.menu.Order.
+     * Constructor specifically for com.goldie.shop.menu.Order class, this constructor creates a new product
+     * in case there is no such product in the com.goldie.shop.menu.Order Arraylist Member of com.goldie.shop.menu.Order.
      */
     public Product(String itemName, int amount, double price, int unitsInStock) {
         product_id=""+counter;
@@ -51,7 +53,7 @@ public class Product {
 
     /**
      * Copy constructor for a given com.goldie.shop.menu.Order
-     * @params product - an existing productOrder node
+     * @params product - an existing product node
      */
     public Product(Product product) {
         this.itemName = product.getItemName();
@@ -102,7 +104,7 @@ public class Product {
     }
 
     /**
-     * Sets the amount of a given product.
+     * Sets the price of a given product.
      */
     public void setPrice(double price) {
         this.price = price;
