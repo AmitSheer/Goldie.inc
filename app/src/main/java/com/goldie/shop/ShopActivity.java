@@ -9,12 +9,15 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ import com.goldie.account.LoginViewNav;
 import com.goldie.account.data.UserData;
 import com.goldie.shop.shoppingcart.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.HashMap;
@@ -35,6 +39,7 @@ public class ShopActivity extends AppCompatActivity {
     private NavController navController;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
+    private FloatingActionButton callerFab;
     //Order order2;
     public static LinkedHashMap<String,Product> order;
     @Override
@@ -51,6 +56,19 @@ public class ShopActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(toolbar,navController);
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
         LoginViewNav.ChangeViewByUserType(this);
+        callerFab = findViewById(R.id.callerFab);
+        callerFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri number = Uri.parse("tel:Demo Number");
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                try {
+                    startActivity(callIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
