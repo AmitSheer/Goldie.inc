@@ -19,9 +19,14 @@ import com.goldie.shop.shoppingcart.Product;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class represents an adapter of extendable list - the group is the products and the children's are the toppings, addons, sizes, etc.
+ */
 public class MainAdaptar extends BaseExpandableListAdapter {
     Context context;
+    // List of all products
     ArrayList<Product> listGroup;
+    // Map of the product id and an arraylist of all children's
     HashMap<String,ArrayList<String>> listChild;
 
     public MainAdaptar(Context context, ArrayList<Product> listGroup, HashMap<String,ArrayList<String>> listChild){
@@ -66,6 +71,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         return false;
     }
 
+    // Used to inflate the products list so it will get the right number of rows
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         Product group = (Product) getGroup(groupPosition);
@@ -73,20 +79,25 @@ public class MainAdaptar extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_order, null);
         }
+        // Get from layout xml to present it in the text
         TextView textView = convertView.findViewById(R.id.list_parent);
         TextView priceView = convertView.findViewById(R.id.list_parent_price);
         ImageView deleteIconView = convertView.findViewById(R.id.icon_delete);
         String id = group.getProduct_id();
+        // Separate the product name from the product id
         textView.setText(id.substring(0,id.indexOf('_')));
         priceView.setText("Price: "+group.getPrice()+"$");
 
+        // Listens to delete icon being clicked
         deleteIconView.setOnClickListener(new View.OnClickListener() {
+            // If clicked, build the alert dialog
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Delete Order?");
-                builder.setMessage("Do you want to remove current order?");
+                builder.setTitle("Delete Product?");
+                builder.setMessage("Do you want to remove current product?");
                 builder.setCancelable(true);
+                // If the user clicks accept - deletes the order from all places
                 builder.setPositiveButton("Accept", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int id) {
@@ -99,16 +110,18 @@ public class MainAdaptar extends BaseExpandableListAdapter {
                         listGroup.remove(groupPosition);
                         // Remove from the order hashmap (in class MainActivity) using productID
                         ShopActivity.order.remove(productID);
-                        // Lets the adapter know it needs to be refresed
+                        // Lets the adapter know it needs to be refreshed
                         notifyDataSetChanged();
                     }
                 });
+                // If the user clicks cancel - cancel the alert dialog box
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int id) {
                         dialogInterface.cancel();
                     }
                 });
+                // Create the alert dialog and present it
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
@@ -116,6 +129,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    // Used to inflate the children's list so it will get the right number of rows
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         String child=(String) getChild(groupPosition,childPosition);
@@ -125,7 +139,6 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         }
         TextView textView = convertView.findViewById(R.id.list_child);
         textView.setText(child);
-        //textView.setBackgroundColor(Color.TRANSPARENT);
         return convertView;
     }
 

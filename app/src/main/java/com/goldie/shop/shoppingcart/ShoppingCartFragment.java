@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
+
 import static com.goldie.shop.ShopActivity.order;
 
 import com.goldie.R;
@@ -13,8 +13,6 @@ import com.goldie.shop.menu.CrepeObject;
 import com.goldie.shop.menu.FroyoObject;
 import com.goldie.shop.menu.IceCreamObject;
 import com.goldie.shop.menu.WaffleObject;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,29 +21,26 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
- * This class is representing the Entire Order that the user have made.
- * First there is a greeting line that Says Hello {User First Name, User Last name}
- * And than there is filling of the products purchased to the text View.
+ * This class is representing the entire order that the user have made.
+ * Using expandable list view to show the entire order of the product and its children's (toppings, addons, sizes, etc).
  */
 public class ShoppingCartFragment extends Fragment {
     Button payment;
-    DatabaseReference refOrders;
-    FirebaseAuth fb;
-    //String orderUID = "";
     ExpandableListView exp_list;
+    // List of all products
     ArrayList<Product> listProduct =new ArrayList<>();
-    HashMap<String,ArrayList<String>> listAddOn =new HashMap<>();
+    // Map of the product id and an arraylist of all children's
+    HashMap<String,ArrayList<String>> mapAddOn =new HashMap<>();
     MainAdaptar adaptar;
 
     public ShoppingCartFragment() {
         super(R.layout.fragment_shopping_cart);
     }
 
+    // Navigate to shopping cart fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -56,15 +51,10 @@ public class ShoppingCartFragment extends Fragment {
                 }
         );
         exp_list=view.findViewById(R.id.exp_list_view_shopping);
-//        for (int i = 0; i < 11; i++) {
-//            listGroup.add("com.goldie.menu.Order "+i);
-//            ArrayList<String> arraylist=new ArrayList<>();
-//            for (int j = 0; j < 6; j++) {
-//                arraylist.add("Item"+j);
-//            }
-//            listChild.put(listGroup.get(i),arraylist);
-//        }
+
+        // list of all children's
         ArrayList<String> addons=new ArrayList<>();
+        // Loop over order map on all products and add to the list the products and to the map all the children's
         for (Product product:order.values()) {
             if (!listProduct.contains(product)) {
                 listProduct.add(product);
@@ -84,56 +74,13 @@ public class ShoppingCartFragment extends Fragment {
             if(product instanceof WaffleObject) {
                 addons.add("Type: "+((WaffleObject) product).waffleType);
             }
-            listAddOn.put(product.getProduct_id(), (ArrayList<String>) addons.clone());
+            mapAddOn.put(product.getProduct_id(), (ArrayList<String>) addons.clone());
             addons.clear();
         }
-        adaptar = new MainAdaptar(this.getContext(), listProduct, listAddOn);
+        // Use the constructor of main adapter with the new product lists and the map with all the children's
+        adaptar = new MainAdaptar(this.getContext(), listProduct, mapAddOn);
         exp_list.setAdapter(adaptar);
+        // Used to refresh the adapter
         adaptar.notifyDataSetChanged();
-//        refOrders = FirebaseDatabase.getInstance().getReference("Orders").child("User1");
-//        ArrayList<String> orderInfoList = new ArrayList<>();
-//        TextView productsList = view.findViewById(R.id.TextViewProductsList);
-
-        // Listener to fetch order from fb
-//        ValueEventListener postListener = new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot ds : snapshot.getChildren()) {
-//                    IceCreamObject iceCreamClass = new IceCreamObject(Objects.requireNonNull(ds.getValue(IceCreamObject.class)));
-//                    String newOrder = "";
-//                    newOrder += iceCreamClass.getClassName() + "\n";
-//                    productsList.setText(newOrder);
-//                    int sizeOfFlavorList = iceCreamClass.flavor.size();
-//                    int sizeOfServeInList = iceCreamClass.serveIn.size();
-//                    for (int i = 0; i < sizeOfFlavorList; i++) {
-//                        Product flavorProduct = new Product(iceCreamClass.flavor.get(i));
-//                    }
-//                }
-//            }
-//
-//            ;
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        };
-        //refOrders.addValueEventListener(postListener);
-
-//        ValueEventListener eventListener = new ValueEventListener() {
-//
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapShot) {
-//
-//                Order currOrder = new Order(snapShot.getValue(Order.class));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//
-//        };
     }
-
 }
