@@ -59,6 +59,7 @@ public class ShopActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNavigationView,navController);
         LoginViewNav.ChangeViewByUserType(this);
         callerFab = findViewById(R.id.callerFab);
+        //listener for on click of fab
         callerFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

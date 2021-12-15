@@ -35,17 +35,23 @@ public class UserData {
         new UserData(username, password, email, phone, uid);
     }
 
+    /**
+     * cleans all user data
+     */
     public static void empty(){
         new UserData();
     }
 
+    /**
+     * changes user data to Map for easy save to database
+     * @return Map of user data
+     */
     public static Map<String,Object> toMap(){
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("fullname", FullName);
         map.put("email",Email);
         map.put("isAdmin",IsAdmin);
         map.put("phone",Phone);
-        map.put("uid",Uid);
         return map;
     }
 

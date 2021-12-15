@@ -13,6 +13,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import androidx.annotation.NonNull;
 
 public class LoginViewNav  {
+    /**
+     * chage the view to the right one depending on the type of user currently logged in
+     * @param activity the current activity
+     */
     public static void ChangeViewByUserType(Activity activity){
         try {
             FirebaseAdapter.UpdateUserData().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

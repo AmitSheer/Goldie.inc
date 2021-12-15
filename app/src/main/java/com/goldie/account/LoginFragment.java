@@ -35,6 +35,7 @@ public class LoginFragment extends Fragment {
         mRegisterBtn = view.findViewById(R.id.button_register);
         mEmail = view.findViewById(R.id.edit_text_email);
         mPassword = view.findViewById(R.id.edit_text_password);
+        //sends the user data to the firebase adapter for login
         mConfirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +66,7 @@ public class LoginFragment extends Fragment {
                 });
             }
         });
+        //changes the user view to the register fragment
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

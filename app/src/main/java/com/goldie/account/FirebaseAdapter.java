@@ -29,10 +29,19 @@ public class FirebaseAdapter {
     @SuppressLint("StaticFieldLeak")
     static FirebaseFirestore fDb = FirebaseFirestore.getInstance();
 
+    /**
+     * update current user in app local storage
+     * @return task of user data
+     */
     public static Task<DocumentSnapshot> UpdateUserData(){
         return UpdateUserData(fAuth.getCurrentUser().getEmail());
     }
 
+    /**
+     * find user data in database based on user email
+     * @param email user email
+     * @return task of user data from database
+     */
     public static Task<DocumentSnapshot> UpdateUserData(String email){
         DocumentReference docRef = fDb.collection("users").document(email);
         return docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -57,11 +66,24 @@ public class FirebaseAdapter {
         });
     }
 
+    /**
+     * log user into app using firebase
+     * @param email
+     * @param password
+     * @return task of athintication
+     */
     public static Task<AuthResult> Login(String email, String password){
         return fAuth.signInWithEmailAndPassword(email,password);
     }
 
-
+    /**
+     * register user in app and save relevant data to database
+     * @param email
+     * @param password
+     * @param full_name
+     * @param phone
+     * @return registration task
+     */
     public static Task<AuthResult> Register(String email, String password, String full_name, String phone){
         return fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
@@ -71,6 +93,15 @@ public class FirebaseAdapter {
             }
         });
     }
+
+    /**
+     * adds user data to database, firebase database, into user collection
+     * @param email
+     * @param password
+     * @param full_name
+     * @param phone
+     * @return task of empty value only
+     */
     private static Task<Void> addUserToDB(String email, String password, String full_name, String phone){
         UserData.fill(full_name,password,email,phone, fAuth.getUid());
         FirebaseFirestore db = FirebaseFirestore.getInstance();
