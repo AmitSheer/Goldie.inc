@@ -1,13 +1,20 @@
-package com.goldie.shop.menu;
+package com.goldie.admin;
 
 import android.os.Bundle;
 import android.view.View;
-
-import com.goldie.R;
+import android.widget.ExpandableListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.goldie.R;
+import com.goldie.admin.data.MainAdaptar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SellerAdviceFragment extends Fragment {
 
@@ -15,17 +22,9 @@ public class SellerAdviceFragment extends Fragment {
         super(R.layout.fragment_seller_advice);
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        setContentView(R.layout.fragment_crepe_menu);
-//        Button back_btn = (Button) findViewById(R.id.back);
-//        back_btn.setOnClickListener(v -> openMenuPage());
     }
 
-//    public void openMenuPage(){
-//        Intent intent = new Intent(this, MenuFragment.class);
-//        startActivity(intent);
-//    }
 }

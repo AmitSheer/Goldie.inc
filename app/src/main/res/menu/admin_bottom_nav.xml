@@ -14,6 +14,11 @@
         android:title="Storage"
         app:showAsAction="never" />
     <item
+        android:id="@+id/sellerAdviceFragment"
+        android:icon="@drawable/ic_send"
+        android:title="Advice"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/logout"
         android:icon="@drawable/ic_logout"
         android:title="Logout"

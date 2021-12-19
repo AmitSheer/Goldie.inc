@@ -46,7 +46,7 @@ public class AdminMainActivity extends AppCompatActivity {
         navController = ((NavHostFragment) fragmentManager.findFragmentById(R.id.admin_nav_host_fragment)).getNavController();
         toolbar = findViewById(R.id.admin_toolbar);
         bottomAppBar = findViewById(R.id.admin_bottom_nav);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.ordersManagementFragment, R.id.storageManagementFragment).build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.ordersManagementFragment, R.id.storageManagementFragment,R.id.sellerAdviceFragment).build();
         setSupportActionBar(toolbar);
         NavigationUI.setupWithNavController(toolbar,navController,appBarConfiguration);
         NavigationUI.setupWithNavController(bottomAppBar,navController);
