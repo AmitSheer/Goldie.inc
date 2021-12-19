@@ -22,13 +22,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public class OrdersManagementFragment extends Fragment {
-    ExpandableListView expandableListView;
-    public FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
-    public DatabaseReference ref = mDatabase.getReference();
-    public DatabaseReference readDB=mDatabase.getReference();
-    ArrayList<String> listGroup=new ArrayList<>();
-    HashMap<String,ArrayList<String>> listChild=new HashMap<>();
-    MainAdaptar adaptar;
+//    ExpandableListView expandableListView;
+//    public FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
+//    public DatabaseReference ref = mDatabase.getReference();
+//    public DatabaseReference readDB=mDatabase.getReference();
+//    ArrayList<String> listGroup=new ArrayList<>();
+//    HashMap<String,ArrayList<String>> listChild=new HashMap<>();
+//    MainAdaptar adaptar;
     public OrdersManagementFragment() {
         super(R.layout.fragment_orders_management);
     }
@@ -36,18 +36,18 @@ public class OrdersManagementFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        expandableListView=view.findViewById(R.id.exp_list_view);
-        for (int i = 0; i < 11; i++) {
-            listGroup.add("com.goldie.menu.Order "+i);
-            ArrayList<String> arraylist=new ArrayList<>();
-            for (int j = 0; j < 6; j++) {
-                arraylist.add("Item"+j);
-            }
-            listChild.put(listGroup.get(i),arraylist);
-        }
-        //adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
-        expandableListView.setAdapter(adaptar);
-//        adaptar.notifyDataSetChanged();
+//        expandableListView=view.findViewById(R.id.exp_list_view);
+//        for (int i = 0; i < 11; i++) {
+//            listGroup.add("com.goldie.menu.Order "+i);
+//            ArrayList<String> arraylist=new ArrayList<>();
+//            for (int j = 0; j < 6; j++) {
+//                arraylist.add("Item"+j);
+//            }
+//            listChild.put(listGroup.get(i),arraylist);
+//        }
+//        //adaptar = new MainAdaptar(this.getContext(),listGroup,listChild);
+//        expandableListView.setAdapter(adaptar);
+////        adaptar.notifyDataSetChanged();
     }
 
 

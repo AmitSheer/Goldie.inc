@@ -15,4 +15,9 @@
         android:name="com.goldie.admin.StorageManagementFragment"
         android:label="fragment_storage_management"
         tools:layout="@layout/fragment_storage_management" />
+    <fragment
+        android:id="@+id/sellerAdviceFragment"
+        android:name="com.goldie.admin.SellerAdviceFragment"
+        android:label="fragment_seller_advice"
+        tools:layout="@layout/fragment_seller_advice" />
 </navigation>

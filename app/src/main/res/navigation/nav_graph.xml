@@ -23,11 +23,6 @@
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/sellerAdviceFragment"
-        android:name="com.goldie.shop.menu.SellerAdviceFragment"
-        android:label="Seller Advice"
-        tools:layout="@layout/fragment_seller_advice" />
-        <fragment
             android:id="@+id/crepeMenuFragment"
             android:name="com.goldie.shop.menu.CrepeMenuFragment"
             android:label="Crepe Menu"
