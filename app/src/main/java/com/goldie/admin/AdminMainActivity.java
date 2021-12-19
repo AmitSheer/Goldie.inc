@@ -33,15 +33,11 @@ public class AdminMainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private BottomNavigationView bottomAppBar;
 
-    public AdminMainActivity() {
-        super(R.layout.activity_admin_main);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_main);
         LoginViewNav.ChangeViewByUserType(this);
+        setContentView(R.layout.activity_admin_main);
         FragmentManager fragmentManager = getSupportFragmentManager();
         navController = ((NavHostFragment) fragmentManager.findFragmentById(R.id.admin_nav_host_fragment)).getNavController();
         toolbar = findViewById(R.id.admin_toolbar);
@@ -66,9 +62,7 @@ public class AdminMainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Admin Logged out", Toast.LENGTH_SHORT).show();
                                 // LogOut
                                 FirebaseAdapter.fAuth.signOut();
-                                UserData.empty();
-                                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
-                                finish();
+                                LoginViewNav.ChangeViewByUserType(AdminMainActivity.this);
                             }
                         });
                         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -88,23 +82,5 @@ public class AdminMainActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.options_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        return NavigationUI.onNavDestinationSelected(item,navController) || super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        return navController.navigateUp()||super.onSupportNavigateUp();
     }
 }
