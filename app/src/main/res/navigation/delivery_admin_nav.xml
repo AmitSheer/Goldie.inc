@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/delivery_admin_nav"
-    app:startDestination="@id/deliveryMenuFragmnet">
+    app:startDestination="@id/deliveryMenuFragment">
 
-    <fragment android:id="@+id/deliveryMenuFragmnet" >
+    <fragment
+        android:id="@+id/deliveryMenuFragment"
+        android:name="com.goldie.admin.DeliveryMenuFragment"
+        android:label="Deliveries"
+        tools:layout="@layout/fragment_delivery_menu">
         <action
-            android:id="@+id/action_deliveryMenuFragmnet_to_delivery"
+            android:id="@+id/action_deliveryMenuFragment_to_deliveryDetailsFragment"
             app:destination="@id/deliveryDetailsFragment" />
     </fragment>
-    <fragment android:id="@+id/deliveryDetailsFragment" />
+    <fragment
+        android:id="@+id/deliveryDetailsFragment"
+        android:name="com.goldie.admin.DeliveryDetailsFragment"
+        android:label="Delivery Details"
+        tools:layout="@layout/fragment_delivery_details" />
 </navigation>
