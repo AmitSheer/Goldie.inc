@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/delivery_admin_nav"
+    app:startDestination="@id/DeliveryMain">
+
+    <fragment
+        android:id="@+id/DeliveryMain"
+        android:label="DeliveryMain" >
+        <action
+            android:id="@+id/action_DeliveryMain_to_DeliveryOrderDetails"
+            app:destination="@id/DeliveryOrderDetails" />
+    </fragment>
+    <fragment android:id="@+id/DeliveryOrderDetails" />
+</navigation>
