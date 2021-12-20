@@ -86,4 +86,5 @@
     <string name="_1_per_scoop">*1$ per scoop</string>
     <string name="payment">Payment</string>
     <string name="product_list">Product List</string>
+    <string name="storage_management">Storage Management</string>
 </resources>
