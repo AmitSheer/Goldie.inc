@@ -30,7 +30,10 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return store_collection.size();
+        if (store_collection!=null) {
+            return store_collection.size();
+        }
+        return 0;
     }
 
     @Override
