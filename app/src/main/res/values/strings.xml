@@ -87,4 +87,6 @@
     <string name="payment">Payment</string>
     <string name="product_list">Product List</string>
     <string name="storage_management">Storage Management</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

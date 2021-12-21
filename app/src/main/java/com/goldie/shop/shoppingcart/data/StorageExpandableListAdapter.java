@@ -1,4 +1,4 @@
-package com.goldie.admin.data;
+package com.goldie.shop.shoppingcart.data;//package com.goldie.admin.data;
 
 import android.app.AlertDialog;
 import android.content.Context;

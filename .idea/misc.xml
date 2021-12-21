@@ -3,27 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Goldie.inc/app/src/main/res/layout/fragment_payment.xml" value="0.22" />
-        <entry key="..\:/Goldie.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.16666666666666666" />
-        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_order.xml" value="0.16666666666666666" />
-        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_product.xml" value="0.16666666666666666" />
-        <entry key="..\:/Goldie.inc/app/src/main/res/layout/list_product_1.xml" value="0.1" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_login.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/ic_menu_camera.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/drawable/side_nav_bar.xml" value="0.22135416666666666" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout-v26/activity_shop.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_admin_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_login.xml" value="0.37864583333333335" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_main_nav.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/activity_shop.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/crepemenu.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_main.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_manager.xml" value="0.36666666666666664" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_admin_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_froyo_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
@@ -40,71 +28,12 @@
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_waffle_menu.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_welcom.xml" value="0.20520833333333333" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/fragment_welcome.xml" value="0.3229166666666667" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/main_fragment.xml" value="0.35260416666666666" />
-        <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/sample_dddd.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/layout/wafflemenu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/bottom_nav.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/drawer_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/nav_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/New folder/Goldie.inc/app/src/main/res/menu/options_menu.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/fragment_storage_management.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/fragment_waffle_menu.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/list_order.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/list_product.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/list_product_1.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/plus_item.xml" value="0.4" />
-        <entry key="..\:/Users/neta2/Desktop/C.S/year 3/Goldie.inc/app/src/main/res/layout/storage_product.xml" value="0.2" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/clicked_button.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/coffee_wafflle_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_banana_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_berry_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_black_chocolate_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_chocolate_top_btn.xml" value="1.096875" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_gummy_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_oreo_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_sprinklers_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_strawberr_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_whipped_cream_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_white_choco_top_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/crepe_white_chocolate_btn.xml" value="0.1828125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_blackberry_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_blueberry_btn.xml" value="1.2678571428571428" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_kivi_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_large_cup_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_mango_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_medium_cup_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_peach_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_small_cup_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/froyo_strawberry_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/waffle_butter_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/drawable/waffle_chocolate_btn.xml" value="0.2703125" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/font/amaranth.xml" value="0.284375" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_login.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_menu.xml" value="0.264" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/activity_menu2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/crepemenu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_admin_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_admin_manager.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_froyo_menu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_iceream_menu.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_login.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_menu.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_navbar.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_orders_management.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_register.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_seller_advice.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_shopping_cart.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_storage_management.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/fragment_waffle_menu.xml" value="0.264" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/froyomenu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/icereammuneu.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/list_item.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/neta2/Desktop/Goldie.inc/app/src/main/res/layout/wafflemenu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/cone_btn.xml" value="0.4140625" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/crepe_black_chocolate_btn.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/crepe_chocolate_top_btn.xml" value="0.26979166666666665" />
@@ -119,6 +48,7 @@
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/ic_home.xml" value="0.403125" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/drawable/small_cup.xml" value="0.2359375" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/expandable_header.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/expandable_order.xml" value="0.19427083333333334" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/expendable_product.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_account.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_admin_main.xml" value="0.1296875" />
@@ -126,6 +56,7 @@
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_crepe_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_froyo_menu.xml" value="0.3875" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_iceream_menu.xml" value="0.39791666666666664" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_order_details.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_orders_management.xml" value="0.25" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_payment.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/fragment_seller_advice.xml" value="0.38697916666666665" />
@@ -135,6 +66,7 @@
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/list_order.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/list_product.xml" value="0.22" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/list_product_1.xml" value="0.33" />
+        <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/plus_item.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/layout/tree_layout.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/menu/admin_bottom_nav.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/talso/AndroidStudioProjects/Golda.inc/app/src/main/res/menu/bottom_nav.xml" value="0.38697916666666665" />

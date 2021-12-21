@@ -60,13 +60,17 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 //        for (Product product: order.values()) {
 //            total_price+=product.getPrice();
 //        }
+        double d=order.getTotalPrice();
         total_price_view.setText(total_price_view.getText()+order.getTotalPrice().toString()+"$");
         payment = view.findViewById(R.id.order);
         // Upload to firebase the order that the user have made
         payment.setOnClickListener(v -> {
             DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                    child(order.getOrder_id()).push();
-                    refNewOrder.setValue(order);
+                    child("Order "+order.getOrder_id());
+                    refNewOrder.child("User_ID").setValue(order.getUserUID());
+                    refNewOrder.child("Products").setValue(order.products);
+                    refNewOrder.child("Address").setValue(order.getAddress());
+                    refNewOrder.child("Delivery").setValue(order.is_delivery);
                     order=new Order();
                     NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
                     Navigation.findNavController(view).navigate(action);});

@@ -3,6 +3,7 @@ package com.goldie.shop.shoppingcart;
 import static com.goldie.shop.ShopActivity.order;
 
 import com.goldie.account.data.UserData;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,10 +21,13 @@ public class Order {
     String userUID;
     String  order_id;
     String address;
-    double totalPrice;
     boolean is_delivery;
     private static long counter;
     HashMap<String,Product> products;
+
+    public boolean isIs_delivery() {
+        return is_delivery;
+    }
 
     /**
      * Built for Firebase imports (required) , does nothing.
@@ -32,13 +36,30 @@ public class Order {
         order_id=""+counter;
         counter++;
         is_delivery=false;
+        address="";
         this.products = new HashMap<>();
         //this.totalPrice = 0;
-        this.userUID = "";
+        this.userUID = UserData.Uid;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setIs_delivery(boolean is_delivery) {
+        this.is_delivery = is_delivery;
+    }
+
+    public void setProducts(HashMap<String, Product> products) {
+        this.products = products;
     }
 
     public String getOrder_id() {
         return order_id;
+    }
+
+    public HashMap<String, Product> getProducts() {
+        return products;
     }
 
     public String getAddress() {
@@ -103,7 +124,7 @@ public class Order {
         for (Product product: products.values()) {
             total_price+=product.getPrice();
         }
-        return totalPrice;
+        return total_price;
     }
 //
 //    /**
