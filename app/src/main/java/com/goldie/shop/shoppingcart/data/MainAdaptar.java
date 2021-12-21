@@ -1,4 +1,4 @@
-package com.goldie.admin.data;
+package com.goldie.shop.shoppingcart.data;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -87,7 +87,6 @@ public class MainAdaptar extends BaseExpandableListAdapter {
         // Separate the product name from the product id
         textView.setText(id.substring(0,id.indexOf('_')));
         priceView.setText("Price: "+group.getPrice()+"$");
-
         // Listens to delete icon being clicked
         deleteIconView.setOnClickListener(new View.OnClickListener() {
             // If clicked, build the alert dialog

@@ -8,7 +8,7 @@ import android.widget.ExpandableListView;
 import static com.goldie.shop.ShopActivity.order;
 
 import com.goldie.R;
-import com.goldie.admin.data.MainAdaptar;
+import com.goldie.shop.shoppingcart.data.MainAdaptar;
 import com.goldie.shop.menu.CrepeObject;
 import com.goldie.shop.menu.FroyoObject;
 import com.goldie.shop.menu.IceCreamObject;

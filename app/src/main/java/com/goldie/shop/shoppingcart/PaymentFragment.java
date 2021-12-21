@@ -23,6 +23,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import java.util.HashMap;
+
 /**
  * This class represents the payment fragment that takes care of the payment of the orders from the user.
  */
@@ -45,8 +47,8 @@ public class PaymentFragment extends Fragment implements TextWatcher {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         // After order is made, put an order id unique number with an order
-        order_id="Order ";
-        order_id+=counter.toString();
+//        order_id="Order ";
+//        order_id+=counter.toString();
         counter++;
         ConstraintLayout credit_box = view.findViewById(R.id.credit_layout);
         total_price_view=view.findViewById(R.id.total_price);
@@ -54,19 +56,18 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         group = view.findViewById(R.id.radioGroup);
 
         // Sum all the products price to a total price
-        Double total_price=0.0;
-        for (Product product:
-             order.values()) {
-            total_price+=product.getPrice();
-        }
-        total_price_view.setText(total_price_view.getText()+total_price.toString()+"$");
+//        Double total_price=0.0;
+//        for (Product product: order.values()) {
+//            total_price+=product.getPrice();
+//        }
+        total_price_view.setText(total_price_view.getText()+order.getTotalPrice().toString()+"$");
         payment = view.findViewById(R.id.order);
         // Upload to firebase the order that the user have made
         payment.setOnClickListener(v -> {
             DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                    child(String.valueOf(order_id)).push();
+                    child(order.getOrder_id()).push();
                     refNewOrder.setValue(order);
-                    order.clear();
+                    order=new Order();
                     NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
                     Navigation.findNavController(view).navigate(action);});
         credit = view.findViewById(R.id.credit);

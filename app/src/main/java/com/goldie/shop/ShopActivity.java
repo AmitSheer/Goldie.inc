@@ -25,6 +25,7 @@ import com.goldie.R;
 import com.goldie.account.FirebaseAdapter;
 import com.goldie.account.LoginViewNav;
 import com.goldie.account.data.UserData;
+import com.goldie.shop.shoppingcart.Order;
 import com.goldie.shop.shoppingcart.Product;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -43,11 +44,12 @@ public class ShopActivity extends AppCompatActivity {
     // Map of all orders
     private FloatingActionButton callerFab;
 
-    public static LinkedHashMap<String,Product> order;
+    //public static LinkedHashMap<String,Product> order;
+    public static Order order=new Order();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        order=new LinkedHashMap<>();
-        order_id++;
+//        order=new Order();
+//        order_id++;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
         FragmentManager fragmentManager = getSupportFragmentManager();
