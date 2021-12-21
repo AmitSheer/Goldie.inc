@@ -8,7 +8,7 @@ import android.widget.ExpandableListView;
 import static com.goldie.shop.ShopActivity.order;
 
 import com.goldie.R;
-import com.goldie.admin.data.MainAdaptar;
+import com.goldie.shop.shoppingcart.data.MainAdaptar;
 import com.goldie.shop.menu.CrepeObject;
 import com.goldie.shop.menu.FroyoObject;
 import com.goldie.shop.menu.IceCreamObject;
@@ -51,7 +51,6 @@ public class ShoppingCartFragment extends Fragment {
                 }
         );
         exp_list=view.findViewById(R.id.exp_list_view_shopping);
-
         // list of all children's
         ArrayList<String> addons=new ArrayList<>();
         // Loop over order map on all products and add to the list the products and to the map all the children's

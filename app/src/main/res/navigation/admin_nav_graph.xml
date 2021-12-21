@@ -9,7 +9,16 @@
         android:id="@+id/ordersManagementFragment"
         android:name="com.goldie.admin.OrdersManagementFragment"
         android:label="fragment_orders_management"
-        tools:layout="@layout/fragment_orders_management" />
+        tools:layout="@layout/fragment_orders_management" >
+        <action
+            android:id="@+id/action_ordersManagementFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment"
+            >
+            <argument
+                android:name="order_id"
+                app:argType="string"/>
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/storageManagementFragment"
         android:name="com.goldie.admin.StorageManagementFragment"
@@ -20,4 +29,13 @@
         android:name="com.goldie.admin.SellerAdviceFragment"
         android:label="fragment_seller_advice"
         tools:layout="@layout/fragment_seller_advice" />
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.goldie.admin.OrderDetailsFragment"
+        android:label="fragment_order_details"
+        tools:layout="@layout/fragment_order_details" >
+        <argument
+            android:name="order_id"
+            app:argType="string" />
+    </fragment>
 </navigation>
