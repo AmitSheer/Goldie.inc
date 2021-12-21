@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +68,7 @@ public class StorageManagementFragment extends Fragment {
         Waffle = new String[]{"classic", "coffee", "butter", "chocolate"};
         Crepe = new String[]{"white chocolate", "dark chocolate", "strawberry", "banana",
                 "blueberry", "gummy bears", "oreo", "whipped cream", "sprinklers",
-                "dark chocolate topping", "white chocolate top"};
+                "dark chocolate topping", "white chocolate topping"};
         Froyo = new String[]{"kiwi", "mango", "peach", "strawberry", "blueberry", "blackberry"};
         return fillUnitInStock("ice cream", IceCream).addOnCompleteListener(task -> {
             fillUnitInStock("waffle", Waffle).addOnCompleteListener(task1 -> {
@@ -90,7 +91,7 @@ public class StorageManagementFragment extends Fragment {
                     DocumentSnapshot doc = task.getResult();
                     assert doc != null;
                     if (doc.exists()) {
-                        String unitInStockS = doc.getString(arr[i]);
+                        Long unitInStockS = (Long) doc.get(arr[i]);
                         arr[i] = arr[i] + ": " + unitInStockS;
                     }
                 }
@@ -112,35 +113,6 @@ public class StorageManagementFragment extends Fragment {
     }
     private void loadChild(String[] product) {
         childList = new ArrayList<>();
-        for (int i = 0; i < product.length; i++) {
-            childList.add(product[i]);
-        }
+        childList.addAll(Arrays.asList(product));
     }
-
-
-//
-//        private void createStockList() {
-//            IceCreamStock= new Long[4];
-//            WaffleStock= new Long[4];
-//            CrepeStock= new Long[11];
-//            FroyoStock= new Long[6];
-//            FirebaseFirestore db;
-//            db = FirebaseFirestore.getInstance();
-//            DocumentReference docRef = db.collection("stock").document("ice cream");
-//            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                @Override
-//                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                    if (task.isSuccessful()){
-//                        DocumentSnapshot doc=task.getResult();
-//                        if (doc.exists()){
-//                            Long pis =  doc.getLong("pistachio");
-//
-//                        }
-//                        else{
-//                            Log.d("document", "No data");
-//                        }
-//                    }
-//                }
-//            });
-//        }
 }
