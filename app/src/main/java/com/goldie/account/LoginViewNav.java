@@ -3,6 +3,7 @@ package com.goldie.account;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.goldie.admin.DeliveriesAdminMainActivity;
 import com.goldie.shop.ShopActivity;
 import com.goldie.account.data.UserData;
 import com.goldie.admin.AdminMainActivity;
@@ -24,12 +25,18 @@ public class LoginViewNav  {
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                     if (task.isSuccessful()) {
                         Intent intent;
-                        if (UserData.IsAdmin && activity.getClass()!=AdminMainActivity.class) {
-                            intent = new Intent(activity.getBaseContext(), AdminMainActivity.class);
+                        if(UserData.IsDelivery && activity.getClass()!= DeliveriesAdminMainActivity.class){
+                            intent = new Intent(activity.getBaseContext(), DeliveriesAdminMainActivity.class);
                             activity.startActivity(intent);
                             activity.finish();
-                        } else if(!UserData.IsAdmin && activity.getClass()!= ShopActivity.class){
+                        }
+                        else if(!UserData.IsAdmin && !UserData.IsDelivery && activity.getClass()!= ShopActivity.class){
                             intent = new Intent(activity.getBaseContext(), ShopActivity.class);
+                            activity.startActivity(intent);
+                            activity.finish();
+                        }
+                        else if (UserData.IsAdmin && activity.getClass()!=AdminMainActivity.class) {
+                            intent = new Intent(activity.getBaseContext(), AdminMainActivity.class);
                             activity.startActivity(intent);
                             activity.finish();
                         }

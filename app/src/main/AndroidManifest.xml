@@ -21,6 +21,12 @@ package="com.goldie">
         <nav-graph android:value="@navigation/admin_nav_graph" />
     </activity>
     <activity
+        android:name=".admin.DeliveriesAdminMainActivity"
+        android:exported="true"
+        android:label="@string/app_name">
+        <nav-graph android:value="@navigation/delivery_admin_nav" />
+    </activity>
+    <activity
         android:name=".account.LoginActivity"
         android:exported="true"
         android:label="@string/app_name">

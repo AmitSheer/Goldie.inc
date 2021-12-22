@@ -16,6 +16,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.security.spec.ECField;
 import java.util.UUID;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,11 @@ public class FirebaseAdapter {
                         UserData.Email = email;
                         UserData.FullName = document.getString("fullname");
                         UserData.IsAdmin = document.getBoolean("isAdmin");
+                        try {
+                            UserData.IsDelivery = document.getBoolean("isDelivery");
+                        }catch (Exception e){
+                            UserData.IsDelivery = false;
+                        }
                         UserData.Phone = document.getString("phone");
                         UserData.Uid = fAuth.getUid();
                     } else {

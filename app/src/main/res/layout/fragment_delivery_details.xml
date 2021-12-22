@@ -21,11 +21,11 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         android:background="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/user_phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/userPhoneNumber" />
 
 
     <TextView
-        android:id="@+id/order_id"
+        android:id="@+id/orderId"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="3dp"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.045" />
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="3dp"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_id" />
+        app:layout_constraintTop_toBottomOf="@+id/orderId" />
 
     <TextView
         android:id="@+id/address"
@@ -74,10 +74,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
 
     <TextView
-        android:id="@+id/user_phone_number"
+        android:id="@+id/userPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="3dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/address" />
 
     <Button
-        android:id="@+id/confirm_delivery"
+        android:id="@+id/confirmDelivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
