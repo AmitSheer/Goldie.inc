@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.goldie.R;
-//import com.goldie.admin.data.StorageExpandableListAdapter;
+
+import com.goldie.shop.shoppingcart.data.StorageExpandableListAdapter;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -27,7 +29,7 @@ public class StorageManagementFragment extends Fragment {
     List<String> childList;
     Map<String, List<String>> store_collection;
     ExpandableListView expandableListView;
-//    StorageExpandableListAdapter expandableListAdapter;
+    StorageExpandableListAdapter expandableListAdapter;
 
 
     public StorageManagementFragment() {
@@ -39,9 +41,9 @@ public class StorageManagementFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         createArrays().addOnCompleteListener(task -> {
             expandableListView = view.findViewById(R.id.exp_list_view_storage);
-//            expandableListAdapter = new StorageExpandableListAdapter(super.getContext(), groupList, store_collection);
-//            expandableListView.setAdapter(expandableListAdapter);
-//            expandableListAdapter.notifyDataSetChanged();
+            expandableListAdapter = new StorageExpandableListAdapter(super.getContext(), groupList, store_collection);
+            expandableListView.setAdapter(expandableListAdapter);
+            expandableListAdapter.notifyDataSetChanged();
 
             expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
@@ -54,30 +56,33 @@ public class StorageManagementFragment extends Fragment {
                     lastExpandedPosition = i;
                 }
             });
+            expandableListAdapter.notifyDataSetChanged();
+
         });
     }
 
     private Task<DocumentSnapshot> createArrays() {
         store_collection = new HashMap<>();
         groupList = new ArrayList<>();
-        groupList.add("Ice Cream");
-        groupList.add("Waffle");
-        groupList.add("Crepe");
-        groupList.add("Frozen Yogurt");
-        IceCream = new String[]{"vanilla", "chocolate", "strawberry", "pistachio"};
-        Waffle = new String[]{"classic", "coffee", "butter", "chocolate"};
-        Crepe = new String[]{"white chocolate", "dark chocolate", "strawberry", "banana",
-                "blueberry", "gummy bears", "oreo", "whipped cream", "sprinklers",
-                "dark chocolate topping", "white chocolate topping"};
-        Froyo = new String[]{"kiwi", "mango", "peach", "strawberry", "blueberry", "blackberry"};
-        return fillUnitInStock("ice cream", IceCream).addOnCompleteListener(task -> {
-            fillUnitInStock("waffle", Waffle).addOnCompleteListener(task1 -> {
-                fillUnitInStock("crepe", Crepe).addOnCompleteListener(task2 -> {
-                    fillUnitInStock("frozen yogurt", Froyo).addOnCompleteListener(task3 -> {
-
-                    });
+        groupList.add("ice cream");
+        groupList.add("waffle");
+        groupList.add("crepe");
+        groupList.add("frozen yogurt");
+        return fillUnitInStock("ice cream", IceCream).continueWithTask(new Continuation<DocumentSnapshot, Task<DocumentSnapshot>>() {
+            @Override
+            public Task<DocumentSnapshot> then(@NonNull Task<DocumentSnapshot> task) throws Exception {
+                 return fillUnitInStock("waffle", Waffle).continueWithTask(new Continuation<DocumentSnapshot, Task<DocumentSnapshot>>() {
+                    @Override
+                    public Task<DocumentSnapshot> then(@NonNull Task<DocumentSnapshot> task) throws Exception {
+                         return fillUnitInStock("crepe", Crepe).continueWithTask(new Continuation<DocumentSnapshot, Task<DocumentSnapshot>>() {
+                            @Override
+                            public Task<DocumentSnapshot> then(@NonNull Task<DocumentSnapshot> task) throws Exception {
+                                return  fillUnitInStock("frozen yogurt", Froyo);
+                            }
+                        });
+                    }
                 });
-            });
+            }
         });
 
     }
@@ -87,32 +92,19 @@ public class StorageManagementFragment extends Fragment {
         DocumentReference docRef = db.collection("stock").document(product);
         return docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                for (int i = 0; i < arr.length; i++) {
+                List<String> list = new ArrayList<>();
                     DocumentSnapshot doc = task.getResult();
                     assert doc != null;
                     if (doc.exists()) {
-                        Long unitInStockS = (Long) doc.get(arr[i]);
-                        arr[i] = arr[i] + ": " + unitInStockS;
-                    }
+                        Map<String, Object> map = doc.getData();
+                        if (map != null) {
+                            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                                list.add(entry.getKey()+": "+entry.getValue().toString());
+                            }
+                        }
                 }
-                for (String group : groupList) {
-                    if (group.equals("Ice Cream")) {
-                        loadChild(IceCream);
-                    } else if (group.equals("Waffle")) {
-                        loadChild(Waffle);
-                    } else if (group.equals("Crepe")) {
-                        loadChild(Crepe);
-                    } else {
-                        loadChild(Froyo);
-                    }
-                    store_collection.put(group, childList);
-                }
+                store_collection.put(product, list);
             }
         });
-
-    }
-    private void loadChild(String[] product) {
-        childList = new ArrayList<>();
-        childList.addAll(Arrays.asList(product));
     }
 }
