@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -56,6 +57,7 @@ public class OrdersManagementFragment extends Fragment {
                     order_list.add(child.getKey());
                 }
                 orders_view.setLayoutManager(new LinearLayoutManager(getActivity()));
+                orders_view.addItemDecoration(new DividerItemDecoration(orders_view.getContext(), DividerItemDecoration.VERTICAL));
                 orders_view.scrollToPosition(0);
                 adaptar= new OrderAdaptar(getContext(),order_list);
                 orders_view.setAdapter(adaptar);

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.goldie.R;
 import com.goldie.admin.data.OrderDetailsAdaptar;
@@ -43,6 +44,7 @@ public class OrderDetailsFragment extends Fragment {
     private static final String ARG_PARAM = "order_id";
     private Order order;
     private String mParam;
+    TextView order_id;
     Button deliver;
     OrderDetailsAdaptar adaptar;
     HashMap<String,ArrayList<String>> mapAddOn =new HashMap<>();
@@ -73,7 +75,8 @@ public class OrderDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         deliver=view.findViewById(R.id.deliver);
-
+        order_id=view.findViewById(R.id.Order_id_details);
+        order_id.setText(mParam);
         Context ct=this.getContext();
         order=new Order();
         exp_list=view.findViewById(R.id.products_list);
@@ -89,7 +92,7 @@ public class OrderDetailsFragment extends Fragment {
         orders_ref.child("Orders").child(mParam).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                parse_order(task);
+                order=Order.parse_order(task);
                 ArrayList<String> addons=new ArrayList<>();
                 // Loop over order map on all products and add to the list the products and to the map all the children's
                 //ArrayList<Product> productsss= (ArrayList<Product>) order.values();
@@ -125,75 +128,7 @@ public class OrderDetailsFragment extends Fragment {
 
 
     }
-    public void parse_order(Task<DataSnapshot> task){
-        Iterable<DataSnapshot> content = task.getResult().getChildren();
-        for (DataSnapshot child : content) {
-            switch(child.getKey()){
-                case "Address":{
-                    order.setAddress((String)child.getValue());
-                    break;
-                }
-                case "User_ID":{
-                    order.setUserUID((String)child.getValue());
-                    break;
-                }
-                case "Delivery":{
-                    order.setIs_delivery((Boolean)child.getValue());
-                    break;
-                }
-                case "Products":{
-                    parse_products(child);
-                    //order.setProducts((HashMap<String,Product>)child.getValue());
-                }
 
-            }
-            //order_list.add(child.getKey());
-        }
-    }
-    public void parse_products(DataSnapshot child){
-        //Product product_spec=new Product();
-        for (DataSnapshot product: child.getChildren()) {
-            String key=product.getKey().substring(0,product.getKey().length()-2);
-//            product_spec.product_id=product.getKey();
-//            product_spec.setItemName((String)product.child("itemName").getValue());
-//            product_spec.setPrice((Long)product.child("price").getValue());
-//            product_spec.product_id=product.getKey();
-            switch (key){
-                case "Ice Cream":{
-                    IceCreamObject ice_cream=new IceCreamObject();
-                    ice_cream.serveIn=(String)product.child("serveIn").getValue();
-                    for (DataSnapshot flavor:product.child("flavorArray").getChildren()) {
-                        ice_cream.flavorArray.add((String)flavor.getValue());
-                    }
-                    order.put(product.getKey(),ice_cream);
-                    break;
-                }
-                case "Crepe":{
-                    CrepeObject crepe=new CrepeObject();
-                    crepe.chocolateType=(String)product.child("chocolateType").getValue();
-                    for (DataSnapshot flavor:product.child("toppings").getChildren()) {
-                        crepe.toppings.add((String)flavor.getValue());
-                    }
-                    order.put(product.getKey(),crepe);
-                    break;
-                }
-                case "Waffle":{
-                    WaffleObject waffle=new WaffleObject();
-                    waffle.waffleType=(String)product.child("waffleType").getValue();
-                    order.put(product.getKey(),waffle);
-                    break;
-                }
-                case "Froyo":{
-                    FroyoObject froyo=new FroyoObject();
-                    froyo.cupSize=(String)product.child("cupSize").getValue();
-                    froyo.flavor=(String)product.child("flavor").getValue();
-                    order.put(product.getKey(),froyo);
-                    break;
-                }
-            }
-            //order.put(product.getKey(),product_spec);
-        }
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

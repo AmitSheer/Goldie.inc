@@ -25,12 +25,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orders_list"
-        android:layout_width="425dp"
-        android:layout_height="653dp"
+        android:layout_width="410dp"
+        android:layout_height="577dp"
         android:layout_marginTop="47dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

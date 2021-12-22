@@ -25,7 +25,7 @@ public class OrderAdaptar extends RecyclerView.Adapter<OrderAdaptar.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_product,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.expandable_order,parent,false);
         return new ViewHolder(v);
     }
 
@@ -51,7 +51,7 @@ public class OrderAdaptar extends RecyclerView.Adapter<OrderAdaptar.ViewHolder> 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            textView = (TextView) view.findViewById(R.id.list_child);
+            textView = (TextView) view.findViewById(R.id.Order_Textview);
             view.setOnClickListener(this);
         }
 

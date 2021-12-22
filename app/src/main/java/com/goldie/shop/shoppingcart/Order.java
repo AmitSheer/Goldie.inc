@@ -1,8 +1,15 @@
 package com.goldie.shop.shoppingcart;
 
-import static com.goldie.shop.ShopActivity.order;
+
+import androidx.annotation.NonNull;
 
 import com.goldie.account.data.UserData;
+import com.goldie.shop.menu.CrepeObject;
+import com.goldie.shop.menu.FroyoObject;
+import com.goldie.shop.menu.IceCreamObject;
+import com.goldie.shop.menu.WaffleObject;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
@@ -125,6 +132,74 @@ public class Order {
             total_price+=product.getPrice();
         }
         return total_price;
+    }
+    public static Order parse_order(Task<DataSnapshot> task){
+        Order order=new Order();
+        Iterable<DataSnapshot> content = task.getResult().getChildren();
+        for (DataSnapshot child : content) {
+            switch(child.getKey()){
+                case "Address":{
+                    order.setAddress((String)child.getValue());
+                    break;
+                }
+                case "User_ID":{
+                    order.setUserUID((String)child.getValue());
+                    break;
+                }
+                case "Delivery":{
+                    order.setIs_delivery((Boolean)child.getValue());
+                    break;
+                }
+                case "Products":{
+                    parse_products(child,order);
+                    //order.setProducts((HashMap<String,Product>)child.getValue());
+                }
+
+            }
+            //order_list.add(child.getKey());
+        }
+        return order;
+    }
+    public static void parse_products(@NonNull DataSnapshot child,Order order){
+        //Product product_spec=new Product();
+        for (DataSnapshot product: child.getChildren()) {
+            String key=product.getKey().substring(0,product.getKey().length()-2);
+
+            switch (key){
+                case "Ice Cream":{
+                    IceCreamObject ice_cream=new IceCreamObject();
+                    ice_cream.serveIn=(String)product.child("serveIn").getValue();
+                    for (DataSnapshot flavor:product.child("flavorArray").getChildren()) {
+                        ice_cream.flavorArray.add((String)flavor.getValue());
+                    }
+                    order.put(product.getKey(),ice_cream);
+                    break;
+                }
+                case "Crepe":{
+                    CrepeObject crepe=new CrepeObject();
+                    crepe.chocolateType=(String)product.child("chocolateType").getValue();
+                    for (DataSnapshot flavor:product.child("toppings").getChildren()) {
+                        crepe.toppings.add((String)flavor.getValue());
+                    }
+                    order.put(product.getKey(),crepe);
+                    break;
+                }
+                case "Waffle":{
+                    WaffleObject waffle=new WaffleObject();
+                    waffle.waffleType=(String)product.child("waffleType").getValue();
+                    order.put(product.getKey(),waffle);
+                    break;
+                }
+                case "Froyo":{
+                    FroyoObject froyo=new FroyoObject();
+                    froyo.cupSize=(String)product.child("cupSize").getValue();
+                    froyo.flavor=(String)product.child("flavor").getValue();
+                    order.put(product.getKey(),froyo);
+                    break;
+                }
+            }
+            //order.put(product.getKey(),product_spec);
+        }
     }
 //
 //    /**

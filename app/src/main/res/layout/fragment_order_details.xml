@@ -26,7 +26,8 @@
             android:id="@+id/Order_id_details"
             android:layout_width="139dp"
             android:layout_height="40dp"
-            android:text="TextView"
+            android:textStyle="bold"
+            android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
