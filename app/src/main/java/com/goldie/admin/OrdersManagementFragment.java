@@ -23,13 +23,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class OrdersManagementFragment extends Fragment {
-//    ExpandableListView expandableListView;
     public FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
     public DatabaseReference ref = mDatabase.getReference();
     public DatabaseReference readDB=mDatabase.getReference();
-//    ArrayList<String> listGroup=new ArrayList<>();
-//    HashMap<String,ArrayList<String>> listChild=new HashMap<>();
-//    MainAdaptar adaptar;
     OrderAdaptar adaptar;
     RecyclerView orders_view;
     public ArrayList<String> order_list;

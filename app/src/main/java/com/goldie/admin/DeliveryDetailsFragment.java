@@ -2,18 +2,29 @@ package com.goldie.admin;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.github.gcacace.signaturepad.views.SignaturePad;
 import com.goldie.R;
 
 public class DeliveryDetailsFragment extends Fragment {
     private SignaturePad signaturePad;
+    private TextView orderId,  userName, address, userPhoneNumber;
+    private Button confirmDeliveryBtn,clearBtn;
     public DeliveryDetailsFragment() {
-        super(R.layout.fragment_orders_management);
+        super(R.layout.fragment_delivery_details);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -21,6 +32,9 @@ public class DeliveryDetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         signaturePad = (SignaturePad) view.findViewById(R.id.signaturePad);
+        clearBtn = (Button)view.findViewById(R.id.clearButton);
+        confirmDeliveryBtn = view.findViewById(R.id.confirmDelivery);
+
         signaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
 
             @Override
@@ -35,7 +49,22 @@ public class DeliveryDetailsFragment extends Fragment {
 
             @Override
             public void onClear() {
-                //Event triggered when the pad is cleared
+                clearBtn.setEnabled(false);
+            }
+        });
+
+        confirmDeliveryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: 12/22/2021 delete from firebase the relevant document, and save signature and something else and send receipt in email
+                NavDirections action = DeliveryDetailsFragmentDirections.actionDeliveryDetailsFragmentToDeliveryMenuFragment();
+                Navigation.findNavController(v).navigate(action);
+            }
+        });
+        clearBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signaturePad.clear();
             }
         });
     }

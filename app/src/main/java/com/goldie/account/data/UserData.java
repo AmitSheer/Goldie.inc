@@ -5,17 +5,18 @@ import java.util.Map;
 
 public class UserData {
     public static String FullName, Password,Email,Phone, Uid;
-    public static boolean IsAdmin;
+    public static boolean IsAdmin,IsDelivery;
     public UserData(){
         this("","","","","");
     }
-    public UserData(String fullName, String password, String email, String phone, String uid, boolean  isAdmin){
+    public UserData(String fullName, String password, String email, String phone, String uid, boolean  isAdmin,boolean isDelivery){
         FullName = fullName;
         Password=password;
         Phone= phone;
         Email=email;
         Uid = uid;
         IsAdmin=isAdmin;
+        IsDelivery=isDelivery;
     }
 
     public UserData(String fullName, String password, String email, String phone, String uid){
@@ -25,10 +26,11 @@ public class UserData {
         Email=email;
         Uid = uid;
         IsAdmin= false;
+        IsDelivery = false;
     }
 
-    public static void fill(String username, String password, String email, String phone,String uid, boolean  isAdmin){
-        new UserData(username, password, email, phone, uid, isAdmin);
+    public static void fill(String username, String password, String email, String phone,String uid, boolean  isAdmin,boolean isDelivery){
+        new UserData(username, password, email, phone, uid, isAdmin,isDelivery);
     }
 
     public static void fill(String username, String password, String email, String phone,String uid){

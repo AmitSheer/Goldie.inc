@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.goldie.R;
-import com.goldie.admin.data.StorageExpandableListAdapter;
+//import com.goldie.admin.data.StorageExpandableListAdapter;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -27,7 +27,7 @@ public class StorageManagementFragment extends Fragment {
     List<String> childList;
     Map<String, List<String>> store_collection;
     ExpandableListView expandableListView;
-    StorageExpandableListAdapter expandableListAdapter;
+//    StorageExpandableListAdapter expandableListAdapter;
 
 
     public StorageManagementFragment() {
@@ -39,9 +39,9 @@ public class StorageManagementFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         createArrays().addOnCompleteListener(task -> {
             expandableListView = view.findViewById(R.id.exp_list_view_storage);
-            expandableListAdapter = new StorageExpandableListAdapter(super.getContext(), groupList, store_collection);
-            expandableListView.setAdapter(expandableListAdapter);
-            expandableListAdapter.notifyDataSetChanged();
+//            expandableListAdapter = new StorageExpandableListAdapter(super.getContext(), groupList, store_collection);
+//            expandableListView.setAdapter(expandableListAdapter);
+//            expandableListAdapter.notifyDataSetChanged();
 
             expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
