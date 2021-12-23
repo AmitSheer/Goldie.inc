@@ -24,7 +24,6 @@ import java.util.Map;
 public class StorageManagementFragment extends Fragment {
     String[] IceCream, Waffle, Crepe, Froyo;
     List<String> groupList;
-    List<String> childList;
     Map<String, List<String>> store_collection;
     ExpandableListView expandableListView;
     StorageExpandableListAdapter expandableListAdapter;
@@ -42,7 +41,6 @@ public class StorageManagementFragment extends Fragment {
             expandableListAdapter = new StorageExpandableListAdapter(super.getContext(), groupList, store_collection);
             expandableListView.setAdapter(expandableListAdapter);
             expandableListAdapter.notifyDataSetChanged();
-
             expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
                 int lastExpandedPosition = -1;
 

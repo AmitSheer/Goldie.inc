@@ -18,18 +18,18 @@ import com.goldie.R;
 import com.goldie.admin.StorageManagementFragment;
 import com.goldie.shop.ShopActivity;
 import com.goldie.shop.shoppingcart.Product;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
-    private Context context;
-    private Map<String, List<String>> store_collection;
-    private List<String> groupList;
-    private TextView tv;
-    static Dialog d;
-
+    private final Context context;
+    private final Map<String, List<String>> store_collection;
+    private final List<String> groupList;
+    private int add , inStock;
     public StorageExpandableListAdapter(Context context, List<String> groupList, Map<String, List<String>> store_collection){
         this.context=context;
         this.store_collection=store_collection;
@@ -88,7 +88,11 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        String product = store_collection.get(groupList.get(groupPosition)).get(childPosition);
+        String str = store_collection.get(groupList.get(groupPosition)).get(childPosition);
+        String[] strings = str.split(": ");
+        String product= strings[0];
+        inStock = Integer.parseInt(strings[1]);
+        String mainProduct = groupList.get(groupPosition);
         if(convertView==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView= inflater.inflate(R.layout.plus_item,null);
@@ -97,6 +101,7 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
         item.setText(product);
         ImageView plus = convertView.findViewById(R.id.plus);
         //need to send to another page
+        String finalProduct = product;
         plus.setOnClickListener(new View.OnClickListener() {
             // If clicked, moves to different activity
             @Override
@@ -106,24 +111,19 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
                 builder.setCancelable(true);
                 final NumberPicker numberPicker = new NumberPicker(context);
                 builder.setView(numberPicker);
-                numberPicker.setMaxValue(360);
+                numberPicker.setMaxValue(500);
                 numberPicker.setMinValue(0);
-                numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-                    @Override
-                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
-                    }
-                });
+                numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> add =newVal);
                 builder.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int id) {
-
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        DocumentReference docRef = db.collection("stock").document(mainProduct);
+                        inStock+=add;
+                        add=0;
+                        docRef.update(finalProduct,inStock+add);
                     }});
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int id) {
-                        dialogInterface.cancel();
-                    }});
+                builder.setNegativeButton("Cancel", (dialogInterface, id) -> dialogInterface.cancel());
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
             }
