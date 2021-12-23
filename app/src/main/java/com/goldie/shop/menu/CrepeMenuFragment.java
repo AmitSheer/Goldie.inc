@@ -77,21 +77,35 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
                         }
                     }
                 }
+                apply.setOnClickListener(view111 -> {
+                    if (black.isSelected() || white.isSelected()) {
+                        crepeObject.product_id = "Crepe_" + crepeObject.product_id;
+                        crepeObject.setAmount(crepeObject.getAmount() + 1);
+                        order.put(crepeObject.getProduct_id(), crepeObject);
+                        Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
+                        updateDB(doc);
+                        NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();
+                        Navigation.findNavController(view).navigate(action);
+                    } else {
+                        Toast.makeText(requireActivity().getApplicationContext(), "Please pick type of chocolate!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-            apply.setOnClickListener(view111 -> {
-                if (black.isSelected() || white.isSelected()) {
-                    crepeObject.product_id = "Crepe_" + crepeObject.product_id;
-                    crepeObject.setAmount(crepeObject.getAmount() + 1);
-                    order.put(crepeObject.getProduct_id(), crepeObject);
-                    Toast.makeText(requireActivity().getApplicationContext(), "Product added to shopping cart!", Toast.LENGTH_SHORT).show();
-                    NavDirections action = CrepeMenuFragmentDirections.actionCrepeMenuFragmentToMenuFragment();
-                    Navigation.findNavController(view).navigate(action);
-                } else {
-                    Toast.makeText(requireActivity().getApplicationContext(), "Please pick type of chocolate!", Toast.LENGTH_SHORT).show();
-                }
-            });
+
         });
 
+    }
+
+    private void updateDB(DocumentSnapshot doc) {
+        for (Map.Entry<String, Long> entry : currentStock.entrySet()) {
+            String product = entry.getKey();
+            Long inDB = (Long) doc.get(product);
+            Long current = currentStock.get(product);
+            assert inDB != null;
+            if (!inDB.equals(current)){
+                docRef.update(product,current);
+            }
+        }
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -145,13 +159,25 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
                 if (currentStock.get(v.getTag())!=0) {
                     v.setSelected(!v.isSelected());
                     if (selectedChoco != null) {
-
                         selectedChoco.setSelected(false);
                         crepeObject.chocolateType = "";
+                        // unselect old one
+                        long current=currentStock.get((String) selectedChoco.getTag());
+                        current++;
+                        currentStock.put((String) selectedChoco.getTag(),current);
+                        crepeObject.toppings.add((String) v.getTag());
                     }
                     selectedChoco = v.findViewById(v.getId());
                     if (v.isSelected()) {
+                        // select new one
+                        long current=currentStock.get((String) selectedChoco.getTag());
+                        current--;
+                        currentStock.put((String) v.getTag(),current);
+                        crepeObject.toppings.add((String) v.getTag());
                         crepeObject.chocolateType = (String) v.getTag();
+                    }
+                    else {
+                        selectedChoco=null;
                     }
                     break;
                 }
