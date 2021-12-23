@@ -174,6 +174,9 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                 if (v.isSelected()) {
                     frozen.cupSize = (String) v.getTag();
                 }
+                else{
+                    selectedSize=null;
+                }
                 break;
         }
     }

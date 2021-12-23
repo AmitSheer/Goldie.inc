@@ -193,5 +193,8 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
         if (v.isSelected()) {
             iceCream.serveIn = (String) v.getTag();
         }
+        else {
+            selected=null;
+        }
     }
 }
