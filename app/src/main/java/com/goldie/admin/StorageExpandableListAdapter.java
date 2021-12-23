@@ -29,7 +29,7 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
     private final Context context;
     private final Map<String, List<String>> store_collection;
     private final List<String> groupList;
-    private int add , inStock;
+    private int add=0 , inStock=0;
     public StorageExpandableListAdapter(Context context, List<String> groupList, Map<String, List<String>> store_collection){
         this.context=context;
         this.store_collection=store_collection;
@@ -88,11 +88,7 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        String str = store_collection.get(groupList.get(groupPosition)).get(childPosition);
-        String[] strings = str.split(": ");
-        String product= strings[0];
-        inStock = Integer.parseInt(strings[1]);
-        String mainProduct = groupList.get(groupPosition);
+        String product = store_collection.get(groupList.get(groupPosition)).get(childPosition);
         if(convertView==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView= inflater.inflate(R.layout.plus_item,null);
@@ -101,13 +97,15 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
         item.setText(product);
         ImageView plus = convertView.findViewById(R.id.plus);
         //need to send to another page
-        String finalProduct = product;
         plus.setOnClickListener(new View.OnClickListener() {
-            // If clicked, moves to different activity
             @Override
             public void onClick(View view) {
+                String[] strings = product.split(": ");
+                String productName= strings[0];
+                inStock = Integer.parseInt(strings[1]);
+                String mainProduct = groupList.get(groupPosition);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Add to stock");
+                builder.setTitle("Add "+productName +" to stock");
                 builder.setCancelable(true);
                 final NumberPicker numberPicker = new NumberPicker(context);
                 builder.setView(numberPicker);
@@ -119,9 +117,11 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
                     public void onClick(DialogInterface dialogInterface, int id) {
                         FirebaseFirestore db = FirebaseFirestore.getInstance();
                         DocumentReference docRef = db.collection("stock").document(mainProduct);
-                        inStock+=add;
+                        int newVal=inStock+=add;
                         add=0;
-                        docRef.update(finalProduct,inStock+add);
+                        docRef.update(productName,newVal);
+                        store_collection.get(groupList.get(groupPosition)).set(childPosition,productName+": "+newVal);
+                        notifyDataSetChanged();
                     }});
                 builder.setNegativeButton("Cancel", (dialogInterface, id) -> dialogInterface.cancel());
                 AlertDialog alertDialog = builder.create();
