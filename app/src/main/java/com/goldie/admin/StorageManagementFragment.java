@@ -6,7 +6,6 @@ import android.widget.ExpandableListView;
 
 import com.goldie.R;
 
-import com.goldie.shop.shoppingcart.data.StorageExpandableListAdapter;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
@@ -18,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
