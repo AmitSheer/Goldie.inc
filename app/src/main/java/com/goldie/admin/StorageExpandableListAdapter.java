@@ -1,23 +1,16 @@
 package com.goldie.admin;//package com.goldie.admin.data;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.goldie.R;
-import com.goldie.admin.StorageManagementFragment;
-import com.goldie.shop.ShopActivity;
-import com.goldie.shop.shoppingcart.Product;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -100,6 +93,10 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                 product name consists of name: unit in stock
+                 separate name and inStock
+                */
                 String[] strings = product.split(": ");
                 String productName= strings[0];
                 inStock = Integer.parseInt(strings[1]);
@@ -112,17 +109,15 @@ public class StorageExpandableListAdapter extends BaseExpandableListAdapter {
                 numberPicker.setMaxValue(500);
                 numberPicker.setMinValue(0);
                 numberPicker.setOnValueChangedListener((picker, oldVal, newVal) -> add =newVal);
-                builder.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int id) {
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
-                        DocumentReference docRef = db.collection("stock").document(mainProduct);
-                        int newVal=inStock+=add;
-                        add=0;
-                        docRef.update(productName,newVal);
-                        store_collection.get(groupList.get(groupPosition)).set(childPosition,productName+": "+newVal);
-                        notifyDataSetChanged();
-                    }});
+                builder.setPositiveButton("Apply", (dialogInterface, id) -> {
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    DocumentReference docRef = db.collection("stock").document(mainProduct);
+                    int newVal=inStock+=add;
+                    add=0;
+                    docRef.update(productName,newVal);
+                    store_collection.get(groupList.get(groupPosition)).set(childPosition,productName+": "+newVal);
+                    notifyDataSetChanged();
+                });
                 builder.setNegativeButton("Cancel", (dialogInterface, id) -> dialogInterface.cancel());
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
