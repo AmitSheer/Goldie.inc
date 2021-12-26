@@ -30,11 +30,9 @@ public class DeliveryDetailsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         signaturePad = (SignaturePad) view.findViewById(R.id.signaturePad);
         clearBtn = (Button)view.findViewById(R.id.clearButton);
         confirmDeliveryBtn = view.findViewById(R.id.confirmDelivery);
-
         signaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
 
             @Override

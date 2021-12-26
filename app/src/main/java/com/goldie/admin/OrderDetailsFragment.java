@@ -40,6 +40,8 @@ public class OrderDetailsFragment extends Fragment {
     public FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
     public DatabaseReference orders_ref =mDatabase.getReference();
     public DatabaseReference delivery_ref=mDatabase.getReference().child("Deliveries");
+    public DatabaseReference finish_ref=mDatabase.getReference().child("Finished Orders");
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM = "order_id";
     private Order order;
@@ -69,7 +71,6 @@ public class OrderDetailsFragment extends Fragment {
         if (getArguments() != null) {
             mParam = getArguments().getString(ARG_PARAM);
         }
-        //readDB.child()
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -80,14 +81,14 @@ public class OrderDetailsFragment extends Fragment {
         Context ct=this.getContext();
         order=new Order();
         exp_list=view.findViewById(R.id.products_list);
-        deliver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(order.isIs_delivery()){
-                    delivery_ref.child(mParam).setValue(order);
-                }
-                orders_ref.child("Orders").child(mParam).removeValue();
+        deliver.setOnClickListener(v -> {
+            if(order.isIs_delivery()){
+                delivery_ref.child(mParam).setValue(order);
             }
+            else{
+                finish_ref.child(mParam).setValue(order);
+            }
+            orders_ref.child("Orders").child(mParam).removeValue();
         });
         orders_ref.child("Orders").child(mParam).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -122,7 +123,6 @@ public class OrderDetailsFragment extends Fragment {
                 exp_list.setAdapter(adaptar);
                 adaptar.notifyDataSetChanged();
             }
-
 
         });
 

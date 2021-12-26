@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goldie.R;
 import com.google.firebase.database.DatabaseReference;
@@ -65,15 +66,22 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         payment = view.findViewById(R.id.order);
         // Upload to firebase the order that the user have made
         payment.setOnClickListener(v -> {
-            DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
-                    child("Order "+order.getOrder_id());
-                    refNewOrder.child("User_ID").setValue(order.getUserUID());
-                    refNewOrder.child("Products").setValue(order.products);
-                    refNewOrder.child("Address").setValue(order.getAddress());
-                    refNewOrder.child("Delivery").setValue(order.is_delivery);
-                    order=new Order();
-                    NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
-                    Navigation.findNavController(view).navigate(action);});
+            if(group.getCheckedRadioButtonId()!=-1) {
+                DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
+                        child("Order " + order.getOrder_id());
+                refNewOrder.child("User_ID").setValue(order.getUserUID());
+                refNewOrder.child("Products").setValue(order.products);
+                refNewOrder.child("Address").setValue(order.getAddress());
+                refNewOrder.child("Delivery").setValue(order.is_delivery);
+                order = new Order();
+                NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+            else{
+                Toast.makeText(requireActivity().getApplicationContext(), "Please payment method", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         credit = view.findViewById(R.id.credit);
         cash = view.findViewById(R.id.cash);
         creditCVVEt = view.findViewById(R.id.credit_card_cvv_et);
