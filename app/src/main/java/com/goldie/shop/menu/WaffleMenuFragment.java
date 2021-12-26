@@ -96,8 +96,7 @@ public class WaffleMenuFragment extends Fragment implements View.OnClickListener
             String product = entry.getKey();
             Long inDB = (Long) doc.get(product);
             Long current = currentStock.get(product);
-            assert inDB != null;
-            if (!inDB.equals(current)) {
+            if (inDB != null && !inDB.equals(current)) {
                 docRef.update(product, current);
             }
         }
@@ -107,7 +106,7 @@ public class WaffleMenuFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         //check if selection is in stock
-        if (currentStock.get(v.getTag()) != 0) {
+        if (currentStock != null && currentStock.get(v.getTag()) != 0) {
             v.setSelected(!v.isSelected());
             if (selected != null) {
                 selected.setSelected(false);

@@ -1,5 +1,6 @@
 package com.goldie.shop.shoppingcart.data;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,10 +15,16 @@ import com.goldie.shop.ShopActivity;
 
 
 import com.goldie.R;
+import com.goldie.shop.menu.WaffleObject;
 import com.goldie.shop.shoppingcart.Product;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * This class represents an adapter of extendable list - the group is the products and the children's are the toppings, addons, sizes, etc.
@@ -28,6 +35,10 @@ public class MainAdaptar extends BaseExpandableListAdapter {
     ArrayList<Product> listGroup;
     // Map of the product id and an arraylist of all children's
     HashMap<String,ArrayList<String>> listChild;
+    FirebaseFirestore db;
+    DocumentReference docRef;
+    HashMap<String, Long> currentStock = new HashMap<>();
+
 
     public MainAdaptar(Context context, ArrayList<Product> listGroup, HashMap<String,ArrayList<String>> listChild){
         this.context=context;
@@ -72,6 +83,7 @@ public class MainAdaptar extends BaseExpandableListAdapter {
     }
 
     // Used to inflate the products list so it will get the right number of rows
+    @SuppressLint("SetTextI18n")
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         Product group = (Product) getGroup(groupPosition);
@@ -111,6 +123,19 @@ public class MainAdaptar extends BaseExpandableListAdapter {
                         ShopActivity.order.remove(productID);
                         // Lets the adapter know it needs to be refreshed
                         notifyDataSetChanged();
+                        db = FirebaseFirestore.getInstance();
+                        if (productName.equals("Ice Cream")) {
+                            updateDBStock("ice cream", productID);
+                        }
+                        else if (productName.equals("Froyo")) {
+                            updateDBStock("frozen yogurt", productID);
+                        }
+                        else if (productName.equals("Crepe")) {
+                            updateDBStock("crepe", productID);
+                        }
+                        else {
+                            updateDBStock("waffle", productID);
+                        }
                     }
                 });
                 // If the user clicks cancel - cancel the alert dialog box
@@ -126,6 +151,42 @@ public class MainAdaptar extends BaseExpandableListAdapter {
             }
         });
         return convertView;
+    }
+
+    private void updateDBStock(String productName, String productID) {
+        docRef = db.collection("stock").document(productName);
+        docRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DocumentSnapshot doc = task.getResult();
+                assert doc != null;
+                if (doc.exists()) {
+                    Map<String, Object> map = doc.getData();
+                    if (map != null) {
+                        for (Map.Entry<String, Object> entry : map.entrySet()) {
+                           for (String child : Objects.requireNonNull(listChild.get(productID))) {
+                               if (child.toLowerCase().contains(entry.getKey().toLowerCase())) {
+                                   Long newValue = (Long) entry.getValue()+1;
+                                   entry.setValue(newValue);
+                                   currentStock.put(entry.getKey(), newValue);
+                                   updateDB(doc);
+                               }
+                           }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    private void updateDB(DocumentSnapshot doc) {
+        for (Map.Entry<String, Long> entry : currentStock.entrySet()) {
+            String product = entry.getKey();
+            Long inDB = (Long) doc.get(product);
+            Long current = currentStock.get(product);
+            if (inDB != null && !inDB.equals(current)) {
+                docRef.update(product, current);
+            }
+        }
     }
 
     // Used to inflate the children's list so it will get the right number of rows
