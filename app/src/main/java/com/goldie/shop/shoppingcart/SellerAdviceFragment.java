@@ -1,4 +1,4 @@
-package com.goldie.admin;
+package com.goldie.shop.shoppingcart;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

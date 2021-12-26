@@ -40,15 +40,15 @@
                 android:id="@+id/action_waffleMenuFragment_to_menuFragment"
                 app:destination="@id/menuFragment" />
         </fragment>
-        <fragment
-            android:id="@+id/iceCreamMenuFragment"
-            android:name="com.goldie.shop.menu.IceCreamMenuFragment"
-            android:label="Iceream Menu"
-            tools:layout="@layout/fragment_iceream_menu" >
-            <action
-                android:id="@+id/action_iceCreamMenuFragment_to_menuFragment"
-                app:destination="@id/menuFragment" />
-        </fragment>
+    <fragment
+        android:id="@+id/iceCreamMenuFragment"
+        android:name="com.goldie.shop.menu.IceCreamMenuFragment"
+        android:label="IceCream Menu"
+        tools:layout="@layout/fragment_iceream_menu">
+        <action
+            android:id="@+id/action_iceCreamMenuFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
         <fragment
             android:id="@+id/menuFragment"
             android:name="com.goldie.shop.menu.MenuFragment"
@@ -76,4 +76,13 @@
                 android:id="@+id/action_froyoMenuFragment_to_menuFragment"
                 app:destination="@id/menuFragment" />
         </fragment>
+    <fragment
+        android:id="@+id/sellerAdviceFragment"
+        android:name="com.goldie.shop.shoppingcart.SellerAdviceFragment"
+        android:label="Seller Advice"
+        tools:layout="@layout/fragment_seller_advice">
+        <action
+            android:id="@+id/action_sellerAdviceFragment_to_shoppingCartFragment"
+            app:destination="@id/shoppingCartFragment" />
+    </fragment>
 </navigation>
