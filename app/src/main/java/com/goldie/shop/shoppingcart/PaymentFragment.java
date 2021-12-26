@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.goldie.R;
+import com.goldie.account.data.UserData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -64,6 +65,8 @@ public class PaymentFragment extends Fragment implements TextWatcher {
         double d=order.getTotalPrice();
         total_price_view.setText(total_price_view.getText()+order.getTotalPrice().toString()+"$");
         payment = view.findViewById(R.id.order);
+        order.setPhoneNumber(UserData.Phone);
+        order.setUserName(UserData.FullName);
         // Upload to firebase the order that the user have made
         payment.setOnClickListener(v -> {
             if(group.getCheckedRadioButtonId()!=-1) {
@@ -72,6 +75,8 @@ public class PaymentFragment extends Fragment implements TextWatcher {
                 refNewOrder.child("User_ID").setValue(order.getUserUID());
                 refNewOrder.child("Products").setValue(order.products);
                 refNewOrder.child("Address").setValue(order.getAddress());
+                refNewOrder.child("PhoneNumber").setValue(order.getPhoneNumber());
+                refNewOrder.child("UserName").setValue(order.getUserName());
                 refNewOrder.child("Delivery").setValue(order.is_delivery);
                 order = new Order();
                 NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();

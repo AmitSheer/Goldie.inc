@@ -1,4 +1,4 @@
-package com.goldie.admin;
+package com.goldie.admin.manager;
 
 import android.content.Context;
 import android.os.Bundle;

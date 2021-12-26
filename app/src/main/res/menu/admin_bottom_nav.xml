@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.goldie.admin.AdminMainActivity">
+    tools:context="com.goldie.admin.manager.AdminMainActivity">
     <item
         android:id="@+id/ordersManagementFragment"
         android:icon="@drawable/ic_orders_list"

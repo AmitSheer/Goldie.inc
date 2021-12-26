@@ -3,10 +3,10 @@ package com.goldie.account;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.goldie.admin.DeliveriesAdminMainActivity;
+import com.goldie.admin.delivery.DeliveriesAdminMainActivity;
 import com.goldie.shop.ShopActivity;
 import com.goldie.account.data.UserData;
-import com.goldie.admin.AdminMainActivity;
+import com.goldie.admin.manager.AdminMainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
