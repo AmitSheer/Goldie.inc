@@ -111,13 +111,14 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
 
         });
     }
+
     private void updateDB(DocumentSnapshot doc) {
         for (Map.Entry<String, Long> entry : currentStock.entrySet()) {
             String product = entry.getKey();
             Long inDB = (Long) doc.get(product);
             Long current = currentStock.get(product);
-            if (inDB != null && !inDB.equals(current)){
-                docRef.update(product,current);
+            if (inDB != null && !inDB.equals(current)) {
+                docRef.update(product, current);
             }
         }
     }
@@ -133,8 +134,7 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
             case R.id.blueberryImage:
             case R.id.strawberryImage:
             case R.id.blackberryImage:
-                //check if selection is in stock
-                if (currentStock.get(v.getTag())!=0) {
+                if (currentStock != null && currentStock.get(v.getTag()) != 0) {
                     v.setSelected(!v.isSelected());
                     if (selectedFlave != null) {
                         selectedFlave.setSelected(false);
@@ -143,7 +143,6 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                         long current = currentStock.get((String) selectedFlave.getTag());
                         current++;
                         currentStock.put((String) selectedFlave.getTag(), current);
-                        something_checked = false;
                     }
                     selectedFlave = v.findViewById(v.getId());
                     if (v.isSelected()) {
@@ -151,16 +150,16 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                         long current = currentStock.get((String) selectedFlave.getTag());
                         current--;
                         currentStock.put((String) v.getTag(), current);
-                        frozen.flavor = (String) v.getTag();
-                        something_checked = true;
                     } else {
                         selectedFlave = null;
                     }
-                    break;
-                }
-                else {
+
+                    frozen.flavor = (String) v.getTag();
+
+                } else {
                     Toast.makeText(v.getContext(), "The product is out of stock, please pick something else", Toast.LENGTH_SHORT).show();
                 }
+                break;
             case R.id.small:
             case R.id.medium:
             case R.id.large:
@@ -172,9 +171,8 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                 selectedSize = v.findViewById(v.getId());
                 if (v.isSelected()) {
                     frozen.cupSize = (String) v.getTag();
-                }
-                else{
-                    selectedSize=null;
+                } else {
+                    selectedSize = null;
                 }
                 break;
         }
