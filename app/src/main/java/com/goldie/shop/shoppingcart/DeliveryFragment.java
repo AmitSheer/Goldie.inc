@@ -52,7 +52,7 @@ public class DeliveryFragment extends Fragment {
         Street = view.findViewById(R.id.street);
         ConstraintLayout delivery_layout = view.findViewById(R.id.delivery_layout);
 
-        if (order.is_delivery) {
+        if (order.isIs_delivery()) {
             group.check(delivery.getId());
         }
 

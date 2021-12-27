@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Observable;
+import java.util.Random;
 
 /**
  * This class manages order as an finished order that is ready to be sent\pulled from Firebase DB.
@@ -32,12 +33,11 @@ public class Order extends Observable {
         this.order_id = order_id;
     }
 
-    String order_id;
-    String address;
-    String phoneNumber;
-    String userName;
-    boolean is_delivery;
-    private static long counter;
+    private String order_id;
+    private String address;
+    private String phoneNumber;
+    private String userName;
+    private boolean is_delivery;
     HashMap<String, Product> products;
 
 
@@ -65,8 +65,10 @@ public class Order extends Observable {
      * Built for Firebase imports (required) , does nothing.
      */
     public Order() {
-        order_id = "" + counter;
-        counter++;
+//        order_id = "" + counter;
+//        counter++;
+        Random rand=new Random();
+        order_id= ""+rand.nextInt();
         is_delivery = false;
         address = "";
         this.products = new HashMap<>();
