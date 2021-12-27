@@ -3,11 +3,11 @@
 
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/froyo_" />
+        android:drawable="@drawable/froyo_peach" />
 
     <item
         android:state_selected="true"
-        android:drawable="@drawable/froyo_" />
+        android:drawable="@drawable/froyo_peach" />
 
     <item
         android:state_pressed="false"

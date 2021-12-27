@@ -97,7 +97,7 @@
         android:layout_height="131dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:tag="@string/strawberry"
+        android:tag="@string/blueberry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
