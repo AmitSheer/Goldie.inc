@@ -16,6 +16,8 @@ import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.goldie.R;
+import com.goldie.shop.menu.FroyoObject;
+import com.goldie.shop.menu.WaffleObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +26,7 @@ import java.util.Random;
 
 public class SellerAdviceFragment extends Fragment {
     HashMap<Integer, String> discountedProducts = new HashMap<>();
-    ArrayList<Integer> discountedPrices = new ArrayList<>();
+    ArrayList<Double> discountedPrices = new ArrayList<>();
     ArrayList<Integer> drawableItemNumber = new ArrayList<>();
     Button addToShoppingCartButton;
 
@@ -40,7 +42,7 @@ public class SellerAdviceFragment extends Fragment {
         Random random = new Random();
         int randomItem = (int) random.nextInt(discountedProducts.size());
         int randomDrawable = drawableItemNumber.get(randomItem);
-        int randomPrice = random.nextInt(discountedPrices.size())+1;
+        double randomPrice = random.nextInt(discountedPrices.size())+1;
 
         TextView itemName = view.findViewById(R.id.nameOfDiscountedItem);
         itemName.setText("This week's winner:\n" + discountedProducts.get(randomDrawable));
@@ -50,16 +52,39 @@ public class SellerAdviceFragment extends Fragment {
 
         TextView discountedPrice = view.findViewById(R.id.priceOfDiscountedItem);
         discountedPrice.setText("Only " + randomPrice + "$ !");
-        // Need to put in order (maybe) the product from the picture - problems with data not matching
-       // order.put();
 
-        // Doesnt work - crashes app
-//        addToShoppingCartButton = view.findViewById(R.id.addToShoppingCartButton);
-//        addToShoppingCartButton.setOnClickListener(v -> {
-//                    NavDirections action = SellerAdviceFragmentDirections.actionSellerAdviceFragmentToShoppingCartFragment();
-//                    Navigation.findNavController(view).navigate(action);
-//                }
-//        );
+
+        addToShoppingCartButton = view.findViewById(R.id.addToShoppingCartButton);
+        addToShoppingCartButton.setOnClickListener(v -> {
+                addToShoppingCart(randomDrawable, randomPrice);
+                NavDirections action = SellerAdviceFragmentDirections.actionSellerAdviceFragmentToShoppingCartFragment();
+                Navigation.findNavController(view).navigate(action);
+            }
+        );
+
+    }
+
+    private void addToShoppingCart(int randomDrawable, double randomPrice) {
+        String product = discountedProducts.get(randomDrawable);
+        if (product == null) {
+            return;
+        }
+        String typeOrFlavor = product.substring(0, product.indexOf(" ")).toLowerCase();
+        if (product.contains("Waffle")) {
+            WaffleObject waffle = new WaffleObject();
+            waffle.product_id = "Waffle_" + waffle.product_id;
+            waffle.waffleType = typeOrFlavor;
+            waffle.setPrice(randomPrice);
+            order.put(waffle.getProduct_id(), waffle);
+        }
+        else if (product.contains("Froyo")) {
+            FroyoObject froyo = new FroyoObject();
+            froyo.product_id = "Froyo_" + froyo.product_id;
+            froyo.flavor = typeOrFlavor;
+            froyo.cupSize = "small";
+            froyo.setPrice(randomPrice);
+            order.put(froyo.getProduct_id(), froyo);
+        }
     }
 
     private void addItemToArrayList() {
@@ -74,7 +99,7 @@ public class SellerAdviceFragment extends Fragment {
         discountedProducts.put(R.drawable.froyo_strawberry, "Strawberry Froyo");
         discountedProducts.put(R.drawable.froryo_blackberry, "Blackberry Froyo");
         drawableItemNumber.addAll(discountedProducts.keySet());
-        discountedPrices.add(1);
-        discountedPrices.add(2);
+        discountedPrices.add(1.0);
+        discountedPrices.add(2.0);
     }
 }
