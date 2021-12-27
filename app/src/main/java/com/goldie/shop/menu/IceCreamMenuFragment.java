@@ -37,6 +37,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
     int chocolateNum = 0, strawberryNum = 0, pistachioNum = 0, vanillaNum = 0;
     ImageButton cup, cone;
     IceCreamObject iceCream;
+    long cStock, sStock, pStock, vStock;
 
     public IceCreamMenuFragment() {
         super(R.layout.fragment_iceream_menu);
@@ -85,18 +86,21 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                         for (Map.Entry<String, Object> entry : map.entrySet()) {
                             currentStock.put(entry.getKey(), (Long) entry.getValue());
                         }
+                        cStock=currentStock.get("chocolate");
+                        sStock=currentStock.get("strawberry");
+                        vStock=currentStock.get("vanilla");
+                        pStock=currentStock.get("pistachio");
                     }
                 }
                 strawberry.setOnValueChangedListener((picker, oldVal, newVal) -> {
                     if (newVal + chocolateNum + vanillaNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    else if (currentStock.get("strawberry") < newVal) {
+                    else if (sStock < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         strawberryNum = newVal;
-                        long current = currentStock.get("strawberry");
-                        current=newVal;
+                        long current=sStock-newVal;
                         currentStock.put("strawberry", current);
                     }
                 });
@@ -105,12 +109,11 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + chocolateNum + strawberryNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    else if (currentStock.get("vanilla") < newVal) {
+                    else if (vStock < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         vanillaNum = newVal;
-                        long current = currentStock.get("vanilla");
-                        current=newVal;
+                        long current=vStock-newVal;
                         currentStock.put("vanilla", current);
                     }
                 });
@@ -118,12 +121,11 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + vanillaNum + strawberryNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    else if (currentStock.get("chocolate") < newVal) {
+                    else if (cStock < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         chocolateNum = newVal;
-                        long current = currentStock.get("chocolate");
-                        current=newVal;
+                        long current=cStock-newVal;
                         currentStock.put("chocolate", current);
                     }
                 });
@@ -132,13 +134,12 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + vanillaNum + strawberryNum + chocolateNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    else if (currentStock.get("pistachio") < newVal) {
+                    else if (pStock < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         pistachioNum = newVal;
-                        long current = currentStock.get("pistachio");
-                        current=newVal;
-                        currentStock.put("pistachio", current);
+                        long current=pStock-newVal;
+                        System.out.println(current);
                     }
                 });
 
