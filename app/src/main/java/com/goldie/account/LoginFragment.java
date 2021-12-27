@@ -59,7 +59,6 @@ public class LoginFragment extends Fragment {
                         try {
                             LoginViewNav.ChangeViewByUserType((LoginActivity) getActivity());
                             Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
-                            order=new Order();
                         } catch (Exception e) {
                             Toast.makeText(getContext(), "Error ! "+ e.getMessage(), Toast.LENGTH_SHORT).show();
                         }

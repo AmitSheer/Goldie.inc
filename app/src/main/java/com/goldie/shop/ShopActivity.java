@@ -37,7 +37,6 @@ import java.util.List;
 
 public class ShopActivity extends AppCompatActivity {
     // Keeps track of the order id number
-    public static int order_id=0;
     private NavController navController;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
@@ -45,7 +44,7 @@ public class ShopActivity extends AppCompatActivity {
     private FloatingActionButton callerFab;
 
     //public static LinkedHashMap<String,Product> order;
-    public static Order order;//=new Order();
+    public static Order order=new Order();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        order=new Order();
