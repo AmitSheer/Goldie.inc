@@ -1,5 +1,7 @@
 package com.goldie.account;
 
+import static com.goldie.shop.ShopActivity.order;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,7 +12,6 @@ import android.widget.Toast;
 
 import com.goldie.R;
 import com.goldie.account.data.UserData;
-import com.goldie.admin.AdminMainActivity;
 import com.goldie.shop.shoppingcart.Order;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
