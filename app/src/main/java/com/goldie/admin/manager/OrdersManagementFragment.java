@@ -1,4 +1,4 @@
-package com.goldie.admin;
+package com.goldie.admin.manager;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

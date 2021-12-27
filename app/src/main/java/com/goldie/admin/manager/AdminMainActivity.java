@@ -1,19 +1,14 @@
-package com.goldie.admin;
+package com.goldie.admin.manager;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.goldie.account.LoginViewNav;
-import com.goldie.shop.ShopActivity;
 import com.goldie.R;
 import com.goldie.account.FirebaseAdapter;
-import com.goldie.account.data.UserData;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 

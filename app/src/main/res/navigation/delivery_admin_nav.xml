@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/deliveryMenuFragment"
-        android:name="com.goldie.admin.DeliveryMenuFragment"
+        android:name="com.goldie.admin.delivery.DeliveryMenuFragment"
         android:label="Deliveries"
         tools:layout="@layout/fragment_delivery_menu">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/deliveryDetailsFragment"
-        android:name="com.goldie.admin.DeliveryDetailsFragment"
+        android:name="com.goldie.admin.delivery.DeliveryDetailsFragment"
         android:label="Delivery Details"
         tools:layout="@layout/fragment_delivery_details" >
         <argument

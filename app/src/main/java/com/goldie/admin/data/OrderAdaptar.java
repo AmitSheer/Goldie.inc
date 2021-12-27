@@ -12,10 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.goldie.R;
-import com.goldie.admin.OrdersManagementFragment;
-import com.goldie.admin.OrdersManagementFragmentDirections;
-import com.goldie.shop.shoppingcart.Order;
-import com.goldie.shop.shoppingcart.PaymentFragmentDirections;
+import com.goldie.admin.manager.OrdersManagementFragmentDirections;
 
 import java.util.ArrayList;
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ordersManagementFragment"
-        android:name="com.goldie.admin.OrdersManagementFragment"
+        android:name="com.goldie.admin.manager.OrdersManagementFragment"
         android:label="Orders Management"
         tools:layout="@layout/fragment_orders_management">
         <action
@@ -20,12 +20,12 @@
     </fragment>
     <fragment
         android:id="@+id/storageManagementFragment"
-        android:name="com.goldie.admin.StorageManagementFragment"
+        android:name="com.goldie.admin.manager.StorageManagementFragment"
         android:label="Storage Management"
         tools:layout="@layout/fragment_storage_management" />
     <fragment
         android:id="@+id/orderDetailsFragment"
-        android:name="com.goldie.admin.OrderDetailsFragment"
+        android:name="com.goldie.admin.manager.OrderDetailsFragment"
         android:label="Order Details"
         tools:layout="@layout/fragment_order_details">
         <argument

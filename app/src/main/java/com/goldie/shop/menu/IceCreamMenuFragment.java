@@ -175,8 +175,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
             String product = entry.getKey();
             Long inDB = (Long) doc.get(product);
             Long current = currentStock.get(product);
-            assert inDB != null;
-            if (!inDB.equals(current)) {
+            if (inDB != null && !inDB.equals(current)) {
                 docRef.update(product, current);
             }
         }

@@ -15,6 +15,7 @@ import com.google.firebase.firestore.auth.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Observable;
 
 /**
  * This class manages order as an finished order that is ready to be sent\pulled from Firebase DB.
@@ -24,13 +25,37 @@ import java.util.HashMap;
  * This class can(Methods): create an finished order, set User UID, add (or fill) products to the current order,
  * get the quantity of each item on request and set the total order price.
  */
-public class Order {
+public class Order extends Observable {
     String userUID;
-    String  order_id;
+
+    public void setOrder_id(String order_id) {
+        this.order_id = order_id;
+    }
+
+    String order_id;
     String address;
+    String phoneNumber;
+    String userName;
     boolean is_delivery;
     private static long counter;
-    HashMap<String,Product> products;
+    HashMap<String, Product> products;
+
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public boolean isIs_delivery() {
         return is_delivery;
@@ -40,10 +65,10 @@ public class Order {
      * Built for Firebase imports (required) , does nothing.
      */
     public Order() {
-        order_id=""+counter;
+        order_id = "" + counter;
         counter++;
-        is_delivery=false;
-        address="";
+        is_delivery = false;
+        address = "";
         this.products = new HashMap<>();
         //this.totalPrice = 0;
         this.userUID = UserData.Uid;
@@ -73,16 +98,19 @@ public class Order {
         return address;
     }
 
-    public void put(String key, Product value){
-        products.put(key,value);
+    public void put(String key, Product value) {
+        products.put(key, value);
     }
-    public void remove(String key){
+
+    public void remove(String key) {
         products.remove(key);
     }
-    public Collection<Product> values(){
+
+    public Collection<Product> values() {
         return products.values();
     }
-    public void clear(){
+
+    public void clear() {
         products.clear();
     }
 //    /**
@@ -109,6 +137,7 @@ public class Order {
 
     /**
      * Returns the user UID from firebase DB.
+     *
      * @return Name of a product in String data type.
      */
     public String getUserUID() {
@@ -124,77 +153,132 @@ public class Order {
 
     /**
      * Use to get the Total com.goldie.shop.menu.Order Price.
+     *
      * @return Returns the Total com.goldie.shop.menu.Order Price.
      */
     public Double getTotalPrice() {
-        double total_price=0;
-        for (Product product: products.values()) {
-            total_price+=product.getPrice();
+        double total_price = 0;
+        for (Product product : products.values()) {
+            total_price += product.getPrice();
         }
         return total_price;
     }
-    public static Order parse_order(Task<DataSnapshot> task){
-        Order order=new Order();
-        Iterable<DataSnapshot> content = task.getResult().getChildren();
+
+    public static Order parse_order(DataSnapshot dataSnapshot) {
+        Order order = new Order();
+        Iterable<DataSnapshot> content = dataSnapshot.getChildren();
         for (DataSnapshot child : content) {
-            switch(child.getKey()){
-                case "Address":{
-                    order.setAddress((String)child.getValue());
+            switch (child.getKey()) {
+                case "Address": {
+                    order.setAddress((String) child.getValue());
                     break;
                 }
-                case "User_ID":{
-                    order.setUserUID((String)child.getValue());
+                case "User_ID": {
+                    order.setUserUID((String) child.getValue());
                     break;
                 }
-                case "Delivery":{
-                    order.setIs_delivery((Boolean)child.getValue());
+                case "Delivery": {
+                    order.setIs_delivery((Boolean) child.getValue());
                     break;
                 }
-                case "Products":{
-                    parse_products(child,order);
+                case "Products": {
+                    parse_products(child, order);
+                    break;
                     //order.setProducts((HashMap<String,Product>)child.getValue());
                 }
+                case "UserName": {
+                    order.setUserName((String) child.getValue());
+                    break;
+                }
+                case "PhoneNumber": {
+                    order.setPhoneNumber((String) child.getValue());
+                    break;
+                }
+
 
             }
             //order_list.add(child.getKey());
         }
         return order;
     }
-    public static void parse_products(@NonNull DataSnapshot child,Order order){
-        //Product product_spec=new Product();
-        for (DataSnapshot product: child.getChildren()) {
-            String key=product.getKey().substring(0,product.getKey().length()-2);
 
-            switch (key){
-                case "Ice Cream":{
-                    IceCreamObject ice_cream=new IceCreamObject();
-                    ice_cream.serveIn=(String)product.child("serveIn").getValue();
-                    for (DataSnapshot flavor:product.child("flavorArray").getChildren()) {
-                        ice_cream.flavorArray.add((String)flavor.getValue());
+    public static Order parse_order(Task<DataSnapshot> task) {
+        Order order = new Order();
+        Iterable<DataSnapshot> content = task.getResult().getChildren();
+        for (DataSnapshot child : content) {
+            switch (child.getKey()) {
+                case "address": {
+                    order.setAddress((String) child.getValue());
+                    break;
+                }
+                case "userUID": {
+                    order.setUserUID((String) child.getValue());
+                    break;
+                }
+                case "is_delivery": {
+                    order.setIs_delivery((Boolean) child.getValue());
+                    break;
+                }
+                case "products": {
+                    parse_products(child, order);
+                    break;
+                    //order.setProducts((HashMap<String,Product>)child.getValue());
+                }
+                case "userName": {
+                    order.setUserName((String) child.getValue());
+                    break;
+                }
+                case "phoneNumber": {
+                    order.setPhoneNumber((String) child.getValue());
+                    break;
+                }
+                case "order_id": {
+                    order.setOrder_id((String) child.getValue());
+                    break;
+                }
+
+
+            }
+            //order_list.add(child.getKey());
+        }
+        return order;
+    }
+
+    public static void parse_products(@NonNull DataSnapshot child, Order order) {
+        //Product product_spec=new Product();
+        for (DataSnapshot product : child.getChildren()) {
+            String key = product.getKey().substring(0, product.getKey().length() - 2);
+
+            switch (key) {
+                case "Ice Cream": {
+                    IceCreamObject ice_cream = new IceCreamObject();
+                    ice_cream.serveIn = (String) product.child("serveIn").getValue();
+                    for (DataSnapshot flavor : product.child("flavorArray").getChildren()) {
+                        ice_cream.flavorArray.add((String) flavor.getValue());
                     }
-                    order.put(product.getKey(),ice_cream);
+                    order.put(product.getKey(), ice_cream);
                     break;
                 }
-                case "Crepe":{
-                    CrepeObject crepe=new CrepeObject();
-                    crepe.chocolateType=(String)product.child("chocolateType").getValue();
-                    for (DataSnapshot flavor:product.child("toppings").getChildren()) {
-                        crepe.toppings.add((String)flavor.getValue());
+                case "Crepe": {
+                    CrepeObject crepe = new CrepeObject();
+                    crepe.chocolateType = (String) product.child("chocolateType").getValue();
+                    for (DataSnapshot flavor : product.child("toppings").getChildren()) {
+                        crepe.toppings.add((String) flavor.getValue());
                     }
-                    order.put(product.getKey(),crepe);
+                    order.put(product.getKey(), crepe);
                     break;
                 }
-                case "Waffle":{
-                    WaffleObject waffle=new WaffleObject();
-                    waffle.waffleType=(String)product.child("waffleType").getValue();
-                    order.put(product.getKey(),waffle);
+                case "Waffle": {
+                    WaffleObject waffle = new WaffleObject();
+                    waffle.waffleType = (String) product.child("waffleType").getValue();
+                    order.put(product.getKey(), waffle);
                     break;
                 }
-                case "Froyo":{
-                    FroyoObject froyo=new FroyoObject();
-                    froyo.cupSize=(String)product.child("cupSize").getValue();
-                    froyo.flavor=(String)product.child("flavor").getValue();
-                    order.put(product.getKey(),froyo);
+                case "Froyo": {
+                    FroyoObject froyo = new FroyoObject();
+                    froyo.cupSize = (String) product.child("cupSize").getValue();
+                    froyo.flavor = (String) product.child("flavor").getValue();
+                    order.put(product.getKey(), froyo);
                     break;
                 }
             }

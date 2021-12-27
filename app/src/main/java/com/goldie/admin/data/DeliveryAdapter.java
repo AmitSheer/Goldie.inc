@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.goldie.R;
-import com.goldie.admin.DeliveryMenuFragmentDirections;
+import com.goldie.admin.delivery.DeliveryMenuFragmentDirections;
 
 import java.util.ArrayList;
 

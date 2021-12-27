@@ -1,4 +1,4 @@
-package com.goldie.admin;
+package com.goldie.admin.delivery;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.goldie.R;
 import com.goldie.admin.data.DeliveryAdapter;
-import com.goldie.admin.data.OrderAdaptar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -22,12 +21,11 @@ import java.util.ArrayList;
 
 public class DeliveryMenuFragment extends Fragment {
 
-    public FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
-    public DatabaseReference ref = mDatabase.getReference();
-    public DatabaseReference readDB=mDatabase.getReference();
+    private FirebaseDatabase mDatabase=FirebaseDatabase.getInstance();
+    private DatabaseReference readDB=mDatabase.getReference();
     DeliveryAdapter adapter;
     RecyclerView orders_view;
-    public ArrayList<String> order_list;
+    private ArrayList<String> order_list;
     public DeliveryMenuFragment() {
         super(R.layout.fragment_delivery_menu);
     }

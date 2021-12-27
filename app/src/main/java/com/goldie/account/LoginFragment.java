@@ -1,7 +1,5 @@
 package com.goldie.account;
 
-import static com.goldie.shop.ShopActivity.order;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
