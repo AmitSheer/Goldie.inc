@@ -53,10 +53,10 @@ public class SellerAdviceFragment extends Fragment {
         // Need to put in order (maybe) the product from the picture - problems with data not matching
        // order.put();
 
+        // Doesnt work - crashes app
 //        addToShoppingCartButton = view.findViewById(R.id.addToShoppingCartButton);
 //        addToShoppingCartButton.setOnClickListener(v -> {
-//            // ask tal about .pass to shopping cart page instead of payment page
-//                    NavDirections action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToPaymentFragment2();
+//                    NavDirections action = SellerAdviceFragmentDirections.actionSellerAdviceFragmentToShoppingCartFragment();
 //                    Navigation.findNavController(view).navigate(action);
 //                }
 //        );
@@ -69,7 +69,7 @@ public class SellerAdviceFragment extends Fragment {
         discountedProducts.put(R.drawable.coholate, "Chocolate Waffle");
         discountedProducts.put(R.drawable.froyo_kivi, "Kiwi Froyo");
         discountedProducts.put(R.drawable.froyo_mango, "Mango Froyo");
-        discountedProducts.put(R.drawable.froyo_peach_btn, "Peach Froyo");
+        discountedProducts.put(R.drawable.froyo_peach, "Peach Froyo");
         discountedProducts.put(R.drawable.froyo_blueberry, "Blueberry Froyo");
         discountedProducts.put(R.drawable.froyo_strawberry, "Strawberry Froyo");
         discountedProducts.put(R.drawable.froryo_blackberry, "Blackberry Froyo");

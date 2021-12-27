@@ -79,7 +79,7 @@
     <fragment
         android:id="@+id/sellerAdviceFragment"
         android:name="com.goldie.shop.shoppingcart.SellerAdviceFragment"
-        android:label="Seller Advice"
+        android:label="Seller's Advice"
         tools:layout="@layout/fragment_seller_advice">
         <action
             android:id="@+id/action_sellerAdviceFragment_to_shoppingCartFragment"
