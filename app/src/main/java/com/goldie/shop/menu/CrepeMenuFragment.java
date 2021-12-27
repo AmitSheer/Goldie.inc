@@ -164,7 +164,7 @@ public class CrepeMenuFragment extends Fragment implements View.OnClickListener 
                         long current=currentStock.get((String) selectedChoco.getTag());
                         current++;
                         currentStock.put((String) selectedChoco.getTag(),current);
-                        crepeObject.toppings.add((String) v.getTag());
+                        crepeObject.chocolateType= (String) v.getTag();
                     }
                     selectedChoco = v.findViewById(v.getId());
                     if (v.isSelected()) {

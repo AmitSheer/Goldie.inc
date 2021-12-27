@@ -91,12 +91,12 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + chocolateNum + vanillaNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    if (currentStock.get("strawberry") < newVal) {
+                    else if (currentStock.get("strawberry") < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         strawberryNum = newVal;
                         long current = currentStock.get("strawberry");
-                        current=current-strawberryNum+oldVal;
+                        current=newVal;
                         currentStock.put("strawberry", current);
                     }
                 });
@@ -105,12 +105,12 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + chocolateNum + strawberryNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    if (currentStock.get("vanilla") < newVal) {
+                    else if (currentStock.get("vanilla") < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         vanillaNum = newVal;
                         long current = currentStock.get("vanilla");
-                        current=current-vanillaNum+oldVal;
+                        current=newVal;
                         currentStock.put("vanilla", current);
                     }
                 });
@@ -118,12 +118,12 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + vanillaNum + strawberryNum + pistachioNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    if (currentStock.get("chocolate") < newVal) {
+                    else if (currentStock.get("chocolate") < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         chocolateNum = newVal;
                         long current = currentStock.get("chocolate");
-                        current=current-chocolateNum+oldVal;
+                        current=newVal;
                         currentStock.put("chocolate", current);
                     }
                 });
@@ -132,12 +132,12 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                     if (newVal + vanillaNum + strawberryNum + chocolateNum > 3) {
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
-                    if (currentStock.get("pistachio") < newVal) {
+                    else if (currentStock.get("pistachio") < newVal) {
                         Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         pistachioNum = newVal;
                         long current = currentStock.get("pistachio");
-                        current=current-pistachioNum+oldVal;
+                        current=newVal;
                         currentStock.put("pistachio", current);
                     }
                 });
