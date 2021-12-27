@@ -45,7 +45,7 @@ public class ShopActivity extends AppCompatActivity {
     private FloatingActionButton callerFab;
 
     //public static LinkedHashMap<String,Product> order;
-    public static Order order=new Order();
+    public static Order order;//=new Order();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        order=new Order();

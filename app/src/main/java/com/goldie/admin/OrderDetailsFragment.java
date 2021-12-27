@@ -90,40 +90,37 @@ public class OrderDetailsFragment extends Fragment {
             }
             orders_ref.child("Orders").child(mParam).removeValue();
         });
-        orders_ref.child("Orders").child(mParam).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                order=Order.parse_order(task);
-                ArrayList<String> addons=new ArrayList<>();
-                // Loop over order map on all products and add to the list the products and to the map all the children's
-                //ArrayList<Product> productsss= (ArrayList<Product>) order.values();
-                int k=0;
-                //HashMap<String,Product> product_list= (HashMap<String, Product>) order.values();
-                for (Product product:order.values()) {
-                    if(product instanceof IceCreamObject) {
-                        addons.add("Served In: "+((IceCreamObject) product).serveIn);
-                        addons.addAll(((IceCreamObject) product).flavorArray);
-                    }
-                    if(product instanceof FroyoObject) {
-                        addons.add("Cup Size: "+((FroyoObject) product).cupSize);
-                        addons.add("Flavor: "+((FroyoObject) product).flavor);
-                    }
-                    if(product instanceof CrepeObject) {
-                        addons.add("Filling: "+((CrepeObject) product).chocolateType);
-                        addons.addAll(((CrepeObject) product).toppings);
-                    }
-                    if(product instanceof WaffleObject) {
-                        addons.add("Type: "+((WaffleObject) product).waffleType);
-                    }
-                    mapAddOn.put(product.getProduct_id(), (ArrayList<String>) addons.clone());
-                    addons.clear();
-                }
-                ArrayList<Product> products = new ArrayList<>(order.getProducts().values());
-                OrderDetailsAdaptar adaptar=new OrderDetailsAdaptar(ct,products, mapAddOn);
-                exp_list.setAdapter(adaptar);
-                adaptar.notifyDataSetChanged();
-            }
 
+        orders_ref.child("Orders").child(mParam).get().addOnCompleteListener(task -> {
+            order=Order.parse_order(task);
+            ArrayList<String> addons=new ArrayList<>();
+            // Loop over order map on all products and add to the list the products and to the map all the children's
+            //ArrayList<Product> productsss= (ArrayList<Product>) order.values();
+            int k=0;
+            //HashMap<String,Product> product_list= (HashMap<String, Product>) order.values();
+            for (Product product:order.values()) {
+                if(product instanceof IceCreamObject) {
+                    addons.add("Served In: "+((IceCreamObject) product).serveIn);
+                    addons.addAll(((IceCreamObject) product).flavorArray);
+                }
+                if(product instanceof FroyoObject) {
+                    addons.add("Cup Size: "+((FroyoObject) product).cupSize);
+                    addons.add("Flavor: "+((FroyoObject) product).flavor);
+                }
+                if(product instanceof CrepeObject) {
+                    addons.add("Filling: "+((CrepeObject) product).chocolateType);
+                    addons.addAll(((CrepeObject) product).toppings);
+                }
+                if(product instanceof WaffleObject) {
+                    addons.add("Type: "+((WaffleObject) product).waffleType);
+                }
+                mapAddOn.put(product.getProduct_id(), (ArrayList<String>) addons.clone());
+                addons.clear();
+            }
+            ArrayList<Product> products = new ArrayList<>(order.getProducts().values());
+            OrderDetailsAdaptar adaptar=new OrderDetailsAdaptar(ct,products, mapAddOn);
+            exp_list.setAdapter(adaptar);
+            adaptar.notifyDataSetChanged();
         });
 
 
