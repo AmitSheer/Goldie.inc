@@ -10,8 +10,8 @@
         android:label="Shopping Cart"
         tools:layout="@layout/fragment_shopping_cart" >
         <action
-            android:id="@+id/action_shoppingCartFragment_to_paymentFragment2"
-            app:destination="@id/paymentFragment" />
+            android:id="@+id/action_shoppingCartFragment_to_deliveryFragment"
+            app:destination="@id/deliveryFragment" />
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
@@ -84,5 +84,14 @@
         <action
             android:id="@+id/action_sellerAdviceFragment_to_shoppingCartFragment"
             app:destination="@id/shoppingCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deliveryFragment"
+        android:name="com.goldie.shop.shoppingcart.DeliveryFragment"
+        android:label="fragment_delivery"
+        tools:layout="@layout/fragment_delivery" >
+        <action
+            android:id="@+id/action_deliveryFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
 </navigation>
