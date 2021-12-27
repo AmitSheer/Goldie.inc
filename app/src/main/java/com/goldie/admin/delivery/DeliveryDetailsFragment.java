@@ -42,9 +42,13 @@ public class DeliveryDetailsFragment extends Fragment {
         userName=(TextView)view.findViewById(R.id.userName);
         address = (TextView)view.findViewById(R.id.address);
         userPhoneNumber = (TextView)view.findViewById(R.id.userPhoneNumber);
+        clearBtn.setEnabled(false);
+        confirmDeliveryBtn.setEnabled(false);
         signaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
+                clearBtn.setEnabled(true);
+                confirmDeliveryBtn.setEnabled(true);
                 //Event triggered when the pad is touched
             }
 
@@ -56,6 +60,7 @@ public class DeliveryDetailsFragment extends Fragment {
             @Override
             public void onClear() {
                 clearBtn.setEnabled(false);
+                confirmDeliveryBtn.setEnabled(false);
             }
         });
 

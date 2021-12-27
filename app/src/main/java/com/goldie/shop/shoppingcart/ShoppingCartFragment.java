@@ -46,7 +46,7 @@ public class ShoppingCartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         payment = view.findViewById(R.id.payment);
         payment.setOnClickListener(v -> {
-                    NavDirections action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToPaymentFragment2();
+                    NavDirections action = ShoppingCartFragmentDirections.actionShoppingCartFragmentToDeliveryFragment();
                     Navigation.findNavController(view).navigate(action);
                 }
         );

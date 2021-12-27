@@ -21,7 +21,7 @@ import static com.goldie.shop.ShopActivity.order;
 
 public class DeliveryFragment extends Fragment {
 
-    private Button  payBtn;
+    private Button payBtn;
     RadioButton delivery;
     RadioButton takeout;
     RadioGroup group;
@@ -33,8 +33,8 @@ public class DeliveryFragment extends Fragment {
 
     public DeliveryFragment() {
         super(R.layout.fragment_delivery);
-        // Required empty public constructor
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +52,12 @@ public class DeliveryFragment extends Fragment {
         Street = view.findViewById(R.id.street);
         ConstraintLayout delivery_layout = view.findViewById(R.id.delivery_layout);
 
-        if (order.is_delivery){
+        if (order.is_delivery) {
             group.check(delivery.getId());
         }
 
         group.setOnCheckedChangeListener((group, checkedId) -> {
-            boolean isChecked = takeout.isChecked();
+            boolean isChecked = delivery.isChecked();
             if (isChecked) {
                 delivery_layout.setVisibility(View.VISIBLE);
             } else {
@@ -65,25 +65,51 @@ public class DeliveryFragment extends Fragment {
             }
         });
 
-        payBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(delivery.isChecked()&&checkValidAddress()) {
+        payBtn.setOnClickListener(v -> {
+            if (delivery.isChecked()) {
+                if (checkValidAddress()) {
                     order.setIs_delivery(true);
+
+                    if (HouseNumber.getText().toString().length() > 0) {
+                        order.setAddress(City.getText().toString() + "," + Street.getText().toString() + "," + HouseNumber.getText().toString());
+                    } else {
+                        order.setAddress(City.getText().toString() + "," + Street.getText().toString());
+
+                    }
                     NavDirections action = DeliveryFragmentDirections.actionDeliveryFragmentToPaymentFragment();
                     Navigation.findNavController(view).navigate(action);
-                }else if(takeout.isChecked()){
-                    order.setIs_delivery(false);
-                    NavDirections action = DeliveryFragmentDirections.actionDeliveryFragmentToPaymentFragment();
-                    Navigation.findNavController(view).navigate(action);
-                }else{
-                    Toast.makeText(getActivity().getApplicationContext(), "Invalid Address", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(view.getContext(), "Invalid Address", Toast.LENGTH_SHORT).show();
                 }
+            } else if (takeout.isChecked()) {
+                order.setIs_delivery(false);
+                NavDirections action = DeliveryFragmentDirections.actionDeliveryFragmentToPaymentFragment();
+                Navigation.findNavController(view).navigate(action);
             }
         });
     }
 
-    private boolean checkValidAddress(){
-        return Street.getText().toString().trim().length()!=0&&City.getText().toString().trim().length()!=0&&Double.parseDouble(HouseNumber.getText().toString().trim())>0;
+    private boolean checkValidAddress() {
+        if (City.getText().toString().trim().length() == 0) {
+            City.setError("Bad City Name");
+            return false;
+        }
+        if (Street.getText().toString().trim().length() == 0) {
+            Street.setError("Bad Street Name");
+            return false;
+        }
+        try {
+            //if length is 0 then fine if not 0 then needs to be more then 0 and convertable
+            if (Double.parseDouble(HouseNumber.getText().toString().trim()) <= 0) {
+                HouseNumber.setError("Bad House Number Name");
+                return false;
+            }
+        } catch (Exception e) {
+            if (HouseNumber.getText().toString().trim().length() != 0) {
+                HouseNumber.setError("Bad House Number Name");
+                return false;
+            }
+        }
+        return true;
     }
 }

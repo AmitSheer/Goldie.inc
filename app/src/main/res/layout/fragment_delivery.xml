@@ -11,34 +11,21 @@
     tools:context=".shop.shoppingcart.DeliveryFragment"
     >
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Payment"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
-
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="203dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="110dp"
+        android:layout_width="298dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <RadioButton
             android:id="@+id/takeout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Takeout" />
 
         <RadioButton
@@ -48,24 +35,12 @@
             android:text="Delivery" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/pay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/delivery_layout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginBottom="6dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="6dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/pay"
         app:layout_constraintEnd_toEndOf="parent"
@@ -108,8 +83,8 @@
             android:id="@+id/houseNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:ems="10"
             android:hint="House Number"
             android:inputType="number"
@@ -121,5 +96,15 @@
             app:layout_constraintTop_toBottomOf="@+id/street"
             app:layout_constraintVertical_bias="0.517" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

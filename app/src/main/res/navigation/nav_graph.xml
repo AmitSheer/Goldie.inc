@@ -88,8 +88,8 @@
     <fragment
         android:id="@+id/deliveryFragment"
         android:name="com.goldie.shop.shoppingcart.DeliveryFragment"
-        android:label="fragment_delivery"
-        tools:layout="@layout/fragment_delivery" >
+        android:label="Delivery"
+        tools:layout="@layout/fragment_delivery">
         <action
             android:id="@+id/action_deliveryFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />

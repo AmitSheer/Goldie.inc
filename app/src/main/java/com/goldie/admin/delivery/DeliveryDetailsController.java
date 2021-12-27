@@ -34,5 +34,6 @@ public class DeliveryDetailsController {
         DatabaseReference finish_ref = mDataset.child("Finished Orders").child(deliveryOrder.getOrder_id());
         finish_ref.child("order").setValue(deliveryOrder);
         finish_ref.child("signature").setValue(signatureSvg);
+        delivery_ref.child("Order "+deliveryOrder.getOrder_id()).removeValue();
     }
 }

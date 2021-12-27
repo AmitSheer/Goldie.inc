@@ -72,12 +72,13 @@ public class PaymentFragment extends Fragment implements TextWatcher {
             if(group.getCheckedRadioButtonId()!=-1) {
                 DatabaseReference refNewOrder = FirebaseDatabase.getInstance().getReference().child("Orders").
                         child("Order " + order.getOrder_id());
-                refNewOrder.child("User_ID").setValue(order.getUserUID());
-                refNewOrder.child("Products").setValue(order.products);
-                refNewOrder.child("Address").setValue(order.getAddress());
-                refNewOrder.child("PhoneNumber").setValue(order.getPhoneNumber());
-                refNewOrder.child("UserName").setValue(order.getUserName());
-                refNewOrder.child("Delivery").setValue(order.is_delivery);
+                refNewOrder.setValue(order);
+//                refNewOrder.child("User_ID").setValue(order.getUserUID());
+//                refNewOrder.child("Products").setValue(order.products);
+//                refNewOrder.child("Address").setValue(order.getAddress());
+//                refNewOrder.child("PhoneNumber").setValue(order.getPhoneNumber());
+//                refNewOrder.child("UserName").setValue(order.getUserName());
+//                refNewOrder.child("Delivery").setValue(order.is_delivery);
                 order = new Order();
                 NavDirections action = PaymentFragmentDirections.actionPaymentFragmentToMenuFragment();
                 Navigation.findNavController(view).navigate(action);
