@@ -140,6 +140,7 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                         selectedFlave.setSelected(false);
                         frozen.flavor = "";
                         // unselect old one
+                        something_checked=false;
                         long current = currentStock.get((String) selectedFlave.getTag());
                         current++;
                         currentStock.put((String) selectedFlave.getTag(), current);
@@ -147,6 +148,7 @@ public class FroyoMenuFragment extends Fragment implements View.OnClickListener 
                     selectedFlave = v.findViewById(v.getId());
                     if (v.isSelected()) {
                         // select new one
+                        something_checked=true;
                         long current = currentStock.get((String) selectedFlave.getTag());
                         current--;
                         currentStock.put((String) v.getTag(), current);

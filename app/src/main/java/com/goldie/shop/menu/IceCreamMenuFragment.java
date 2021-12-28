@@ -97,7 +97,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
                     else if (sStock < newVal) {
-                        Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "out of stock, please pick pick less scoops or chose a different flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         strawberryNum = newVal;
                         long current=sStock-newVal;
@@ -110,7 +110,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
                     else if (vStock < newVal) {
-                        Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "out of stock, please pick pick less scoops or chose a different flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         vanillaNum = newVal;
                         long current=vStock-newVal;
@@ -122,7 +122,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
                     else if (cStock < newVal) {
-                        Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "out of stock, please pick pick less scoops or chose a different flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         chocolateNum = newVal;
                         long current=cStock-newVal;
@@ -135,7 +135,7 @@ public class IceCreamMenuFragment extends Fragment implements View.OnClickListen
                         Toast.makeText(requireActivity().getApplicationContext(), "Please pick up to 3 scoops!", Toast.LENGTH_SHORT).show();
                     }
                     else if (pStock < newVal) {
-                        Toast.makeText(view.getContext(), "Not enough scoops please choose another flavor", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "out of stock, please pick pick less scoops or chose a different flavor", Toast.LENGTH_SHORT).show();
                     } else {
                         pistachioNum = newVal;
                         long current=pStock-newVal;
