@@ -10,8 +10,14 @@ import com.goldie.shop.menu.IceCreamObject;
 import com.goldie.shop.menu.WaffleObject;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -67,8 +73,8 @@ public class Order extends Observable {
     public Order() {
 //        order_id = "" + counter;
 //        counter++;
-        Random rand=new Random();
-        order_id= ""+rand.nextInt();
+        Random rand = new Random();
+        order_id = "" + Math.abs(rand.nextInt());
         is_delivery = false;
         address = "";
         this.products = new HashMap<>();
@@ -115,27 +121,8 @@ public class Order extends Observable {
     public void clear() {
         products.clear();
     }
-//    /**
-//     * Constructor for com.goldie.shop.menu.Order Class
-//     * @param userUID Name of the user making the order.
-//     */
-//    public Order() {
-//        this.userUID = userUID;
-//        //is_delivered=false;
-//        this.products = new
-//        this.totalPrice = 0;
-//    }
 
-//    /**
-//     * A copy constructor, input is an existing com.goldie.shop.menu.Order class Node,
-//     * a copy if com.goldie.shop.menu.Order class is created.
-//     * @param order Input the com.goldie.shop.menu.Order node to create.
-//     */
-//    public Order(Order order) {
-//        this.userUID = order.userUID;
-//        this.totalPrice = order.totalPrice;
-//        this.itemQuantity = order.itemQuantity;
-//    }
+
 
     /**
      * Returns the user UID from firebase DB.
@@ -249,7 +236,7 @@ public class Order extends Observable {
     public static void parse_products(@NonNull DataSnapshot child, Order order) {
         //Product product_spec=new Product();
         for (DataSnapshot product : child.getChildren()) {
-            String key = product.getKey().substring(0, product.getKey().length() - 2);
+            String key = product.getKey().substring(0, product.getKey().indexOf('_'));
 
             switch (key) {
                 case "Ice Cream": {

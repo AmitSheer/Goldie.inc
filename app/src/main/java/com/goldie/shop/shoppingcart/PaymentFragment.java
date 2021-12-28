@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 /**
@@ -62,8 +63,8 @@ public class PaymentFragment extends Fragment implements TextWatcher {
 //        for (Product product: order.values()) {
 //            total_price+=product.getPrice();
 //        }
-        double d=order.getTotalPrice();
         total_price_view.setText(total_price_view.getText()+order.getTotalPrice().toString()+"$");
+
         payment = view.findViewById(R.id.order);
         order.setPhoneNumber(UserData.Phone);
         order.setUserName(UserData.FullName);

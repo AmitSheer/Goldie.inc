@@ -92,4 +92,5 @@
     <string name="cancel">cancel</string>
     <string name="add_to_stock">Add to stock</string>
     <string name="add_to_shopping_cart">Add to shopping cart</string>
+    <string name="order_details">Order Details</string>
 </resources>

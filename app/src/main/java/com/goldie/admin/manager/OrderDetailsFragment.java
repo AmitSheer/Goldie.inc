@@ -77,7 +77,7 @@ public class OrderDetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         deliver=view.findViewById(R.id.deliver);
         order_id=view.findViewById(R.id.Order_id_details);
-        order_id.setText(mParam);
+
         Context ct=this.getContext();
         order=new Order();
         exp_list=view.findViewById(R.id.products_list);
@@ -95,8 +95,7 @@ public class OrderDetailsFragment extends Fragment {
             order=Order.parse_order(task);
             ArrayList<String> addons=new ArrayList<>();
             // Loop over order map on all products and add to the list the products and to the map all the children's
-            //ArrayList<Product> productsss= (ArrayList<Product>) order.values();
-            int k=0;
+
             //HashMap<String,Product> product_list= (HashMap<String, Product>) order.values();
             for (Product product:order.values()) {
                 if(product instanceof IceCreamObject) {
