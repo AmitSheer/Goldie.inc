@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.goldie.R;
 import com.goldie.admin.data.OrderDetailsAdaptar;
@@ -89,6 +92,9 @@ public class OrderDetailsFragment extends Fragment {
                 finish_ref.child(mParam).setValue(order);
             }
             orders_ref.child("Orders").child(mParam).removeValue();
+            Toast.makeText(getContext(), "Moved to delivery", Toast.LENGTH_SHORT).show();
+            NavDirections action = OrderDetailsFragmentDirections.actionOrderDetailsFragmentToOrdersManagementFragment();
+            Navigation.findNavController(v).navigate(action);
         });
 
         orders_ref.child("Orders").child(mParam).get().addOnCompleteListener(task -> {

@@ -111,7 +111,7 @@ public class FirebaseAdapter {
     private static Task<Void> addUserToDB(String email, String password, String full_name, String phone){
         UserData.fill(full_name,password,email,phone, fAuth.getUid());
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        return db.collection("users").document(email).set(UserData.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
+        return db.collection("users").document(email.toLowerCase()).set(UserData.toMap()).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {

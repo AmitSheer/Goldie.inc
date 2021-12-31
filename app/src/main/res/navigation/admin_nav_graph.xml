@@ -31,5 +31,8 @@
         <argument
             android:name="order_id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_orderDetailsFragment_to_ordersManagementFragment"
+            app:destination="@id/ordersManagementFragment" />
     </fragment>
 </navigation>
